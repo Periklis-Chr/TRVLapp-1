@@ -51,11 +51,11 @@ public class Packages {
         DepartureTime = departureTime;
     }
 
-    public double getCost() {
+    public Double getCost() {
         return Cost;
     }
 
-    public void setCost(double cost) {
+    public void setCost(Double cost) {
         Cost = cost;
     }
 }
