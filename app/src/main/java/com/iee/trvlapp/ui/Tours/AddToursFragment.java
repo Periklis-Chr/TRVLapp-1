@@ -28,7 +28,7 @@ public class AddToursFragment extends Fragment {
         binding = FragmentAddToursBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-
+        //listener for confirmation of data insertion
 
         binding.toursButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +41,9 @@ public class AddToursFragment extends Fragment {
 
         return root;
     }
+
+
+    //insert data to db function
 
     public void insertToursData(){
 
@@ -59,9 +62,10 @@ public class AddToursFragment extends Fragment {
 
         MainActivity.appDatabase.toursDao().addTour(tour);
 
-        Toast.makeText(getActivity(),"Tour Added Succesfully",Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(),"Tour Added Successfully",Toast.LENGTH_LONG).show();
         Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addToursFragment_to_nav_tours);
     }
+
 
 
     @Override
@@ -69,7 +73,6 @@ public class AddToursFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
 
 
 }

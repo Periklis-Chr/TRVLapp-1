@@ -13,7 +13,7 @@ public interface ToursDao {
     public void addTour(Tours tour);
 
     @Query("select * from Tours_table")
-    public List<Tours> getOffices();
+    public List<Tours> getTours();
 
     @Delete
     public void deleteTours(Tours tour);

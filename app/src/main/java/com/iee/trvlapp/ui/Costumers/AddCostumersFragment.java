@@ -30,6 +30,8 @@ public class AddCostumersFragment extends Fragment {
         View root = binding.getRoot();
 
 
+        //listener for confirmation of data insertion
+
 
         binding.costumerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +45,8 @@ public class AddCostumersFragment extends Fragment {
     }
 
 
+
+    //insert data to db function
 
     public void insertCostumersData(){
 
@@ -85,8 +89,6 @@ public class AddCostumersFragment extends Fragment {
 
        Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addCostumersFragment_to_nav_costumers);
     }
-
-
 
 
 

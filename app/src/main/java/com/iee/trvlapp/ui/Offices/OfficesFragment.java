@@ -27,9 +27,9 @@ public class OfficesFragment extends Fragment {
 
     private FragmentOfficesBinding binding;
 
-    RecyclerView recyclerView;
-    RecyclerView.Adapter adapter;
-
+//    RecyclerView recyclerView;
+//    RecyclerView.Adapter adapter;
+//
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -40,26 +40,35 @@ public class OfficesFragment extends Fragment {
         binding = FragmentOfficesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-//        final TextView textView = binding.textOffices;
-//        officesViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
-        recyclerView=binding.officeRecyclerview;
 
+        // in case we use recyclerView
+
+//        recyclerView=binding.officeRecyclerview;
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+//        adapter = new OfficeListViewAdapter(offices);
+//        recyclerView.setAdapter(adapter);
+
+
+
+        // reading room db
 
         List<Offices> offices = MainActivity.appDatabase.officesDao().getOffices();
 
+        String result ="";
+        for (Offices i: offices) {
+            int office_id = i.getDid();
+            String office_name = i.getName();
+            String office_address = i.getAddress();
+            result = result + "\n Id: " + office_id + "\n Name: " + office_name + "\n Surname: " + office_address + "\n";
+
+        }
+
+        binding.officeTextView.setText(result);
 
 
 
-
-
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        adapter = new OfficeListViewAdapter(offices);
-        recyclerView.setAdapter(adapter);
-
-
-
+//listener for adding offices
 
         binding.floatingActionButtonAddOffices.setOnClickListener(new View.OnClickListener() {
             @Override

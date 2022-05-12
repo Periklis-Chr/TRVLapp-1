@@ -11,8 +11,13 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
+import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentToursBinding;
+import com.iee.trvlapp.roomEntities.Offices;
+import com.iee.trvlapp.roomEntities.Tours;
+
+import java.util.List;
 
 public class ToursFragment extends Fragment {
 
@@ -26,9 +31,26 @@ public class ToursFragment extends Fragment {
         binding = FragmentToursBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textTours;
-        toursViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
+        // reading room db
+
+        List<Tours> tours = MainActivity.appDatabase.toursDao().getTours();
+
+        String result ="";
+        for (Tours i: tours) {
+            int tours_id = i.getTid();
+            String tours_city = i.getCity();
+            String tours_country = i.getCountry();
+            String tours_duration=i.getDuration();
+                    String tours_type=i.getType();
+            result = result + "\n Id: " + tours_id + "\n Name: " + tours_city+ "\n Surname: " + tours_country+ "\n duration: "+tours_duration+"\n type: "+tours_type+"\n";
+
+        }
+
+        binding.toursTextView.setText(result);
+
+
+//listener for adding tours
 
 binding.floatingActionButtonAddTours.setOnClickListener(new View.OnClickListener() {
     @Override

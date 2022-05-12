@@ -29,6 +29,7 @@ public class AddPackagesFragment extends Fragment {
         binding = FragmentAddPackagesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        //listener for confirmation of data insertion
 
         binding.packageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +42,7 @@ public class AddPackagesFragment extends Fragment {
         return root;
     }
 
+    //insert data to db function
 
     public void insertPackageData(){
 
@@ -62,10 +64,7 @@ public class AddPackagesFragment extends Fragment {
         Toast.makeText(getActivity(),"Package Added Succesfully",Toast.LENGTH_LONG).show();
         Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addPackagesFragment_to_nav_packages);
 
-
     }
-
-
 
 
 
@@ -75,8 +74,6 @@ public class AddPackagesFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
-
 
 
 }

@@ -12,12 +12,25 @@
 
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/officeRecyclerview"
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/officeRecyclerview"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        tools:layout_editor_absoluteX="1dp"-->
+<!--        tools:layout_editor_absoluteY="1dp" />-->
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/office_textView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp" />
+        android:layout_height="match_parent">
+
+    </TextView>
+
+</ScrollView>
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
