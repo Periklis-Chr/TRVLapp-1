@@ -5,7 +5,7 @@
       <map>
         <entry key="..\:/android/app/src/main/res/drawable/side_nav_bar.xml" value="0.3925" />
         <entry key="..\:/android/app/src/main/res/layout/activity_main.xml" value="0.264945652173913" />
-        <entry key="..\:/android/app/src/main/res/layout/app_bar_main.xml" value="0.2619047619047619" />
+        <entry key="..\:/android/app/src/main/res/layout/app_bar_main.xml" value="0.1" />
         <entry key="..\:/android/app/src/main/res/layout/content_main.xml" value="0.5541666666666667" />
         <entry key="..\:/android/app/src/main/res/layout/fragment_add_costumers.xml" value="0.19776119402985073" />
         <entry key="..\:/android/app/src/main/res/layout/fragment_add_offices.xml" value="0.12128146453089245" />
@@ -14,12 +14,13 @@
         <entry key="..\:/android/app/src/main/res/layout/fragment_costumers.xml" value="0.1424731182795699" />
         <entry key="..\:/android/app/src/main/res/layout/fragment_gallery.xml" value="0.358695652173913" />
         <entry key="..\:/android/app/src/main/res/layout/fragment_home.xml" value="0.1" />
-        <entry key="..\:/android/app/src/main/res/layout/fragment_offices.xml" value="0.1" />
+        <entry key="..\:/android/app/src/main/res/layout/fragment_offices.xml" value="0.22" />
         <entry key="..\:/android/app/src/main/res/layout/fragment_packages.xml" value="0.358695652173913" />
         <entry key="..\:/android/app/src/main/res/layout/fragment_slideshow.xml" value="0.358695652173913" />
         <entry key="..\:/android/app/src/main/res/layout/fragment_tours.xml" value="0.1" />
         <entry key="..\:/android/app/src/main/res/layout/nav_header_main.xml" value="0.41847826086956524" />
         <entry key="..\:/android/app/src/main/res/layout/office_row.xml" value="0.24670719351570417" />
+        <entry key="..\:/android/app/src/main/res/layout/recycler_view_offices_row.xml" value="0.25" />
         <entry key="..\:/android/app/src/main/res/menu/activity_main_drawer.xml" value="0.3087179487179487" />
       </map>
     </option>

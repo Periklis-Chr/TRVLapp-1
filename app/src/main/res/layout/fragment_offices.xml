@@ -12,12 +12,22 @@
 
 
 
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/officeRecyclerview"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        tools:layout_editor_absoluteX="1dp"-->
-<!--        tools:layout_editor_absoluteY="1dp" />-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/officeRecyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       tools:listitem="@layout/recycler_view_offices_row"  />
+
+
+
+
+
+
+
+
+
+
+
 
 <ScrollView
     android:layout_width="match_parent"

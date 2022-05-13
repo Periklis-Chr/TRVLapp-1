@@ -1,19 +1,44 @@
 package com.iee.trvlapp.ui.Offices;
 
+import android.app.Application;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 
-public class OfficesViewModel extends ViewModel {
+import com.iee.trvlapp.MainActivity;
+import com.iee.trvlapp.roomEntities.AppDatabase;
+import com.iee.trvlapp.roomEntities.Offices;
 
-    private final MutableLiveData<String> mText;
+import java.util.List;
 
-    public OfficesViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is Offices fragment");
+public class OfficesViewModel extends AndroidViewModel {
+
+//    private final MutableLiveData<String> mText;
+private LiveData<List<Offices>> officesList;
+
+
+    public OfficesViewModel(Application application) {
+        super(application);
+//        mText = new MutableLiveData<>();
+//        mText.setValue("This is Offices fragment");
+
+//        officesList= MainActivity.appDatabase.officesDao().getOffices();
     }
 
-    public LiveData<String> getText() {
-        return mText;
+public  LiveData<List<Offices>> getAllOffices(){
+        return officesList;
     }
+
+
+
+//    public LiveData<String> getText() {
+//        return mText;
+//    }
+
+
 }

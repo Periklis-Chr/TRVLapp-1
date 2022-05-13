@@ -2,6 +2,7 @@ package com.iee.trvlapp.roomEntities;
 
 import android.net.wifi.aware.PublishConfig;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
