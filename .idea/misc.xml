@@ -20,7 +20,10 @@
         <entry key="..\:/android/app/src/main/res/layout/fragment_tours.xml" value="0.1" />
         <entry key="..\:/android/app/src/main/res/layout/nav_header_main.xml" value="0.41847826086956524" />
         <entry key="..\:/android/app/src/main/res/layout/office_row.xml" value="0.24670719351570417" />
-        <entry key="..\:/android/app/src/main/res/layout/recycler_view_offices_row.xml" value="0.25" />
+        <entry key="..\:/android/app/src/main/res/layout/recycler_view_costumers.xml" value="0.5385416666666667" />
+        <entry key="..\:/android/app/src/main/res/layout/recycler_view_offices_row.xml" value="0.5" />
+        <entry key="..\:/android/app/src/main/res/layout/recycler_view_packages_row.xml" value="0.5088541666666667" />
+        <entry key="..\:/android/app/src/main/res/layout/recycler_view_tours_row.xml" value="0.4744897959183674" />
         <entry key="..\:/android/app/src/main/res/menu/activity_main_drawer.xml" value="0.3087179487179487" />
       </map>
     </option>

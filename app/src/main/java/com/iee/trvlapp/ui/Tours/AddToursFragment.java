@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -38,20 +39,19 @@ public class AddToursFragment extends Fragment {
         });
 
 
-
         return root;
     }
 
 
     //insert data to db function
 
-    public void insertToursData(){
+    public void insertToursData() {
 
-        int tour_id= Integer.parseInt(binding.TourId.getText().toString());
-        String tour_city=binding.TourCity.getText().toString();
-        String tour_country=binding.TourCountry.getText().toString();
-        String tour_duration=binding.tourDuration.getText().toString();
-        String tour_type=binding.tourType.getText().toString();
+        int tour_id = Integer.parseInt(binding.TourId.getText().toString());
+        String tour_city = binding.TourCity.getText().toString();
+        String tour_country = binding.TourCountry.getText().toString();
+        String tour_duration = binding.tourDuration.getText().toString();
+        String tour_type = binding.tourType.getText().toString();
 
         Tours tour = new Tours();
         tour.setTid(tour_id);
@@ -62,10 +62,9 @@ public class AddToursFragment extends Fragment {
 
         MainActivity.appDatabase.toursDao().addTour(tour);
 
-        Toast.makeText(getActivity(),"Tour Added Successfully",Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), "Tour Added Successfully", Toast.LENGTH_LONG).show();
         Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addToursFragment_to_nav_tours);
     }
-
 
 
     @Override

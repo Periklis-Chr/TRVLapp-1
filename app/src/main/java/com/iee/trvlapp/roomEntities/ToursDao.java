@@ -1,5 +1,6 @@
 package com.iee.trvlapp.roomEntities;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -13,7 +14,7 @@ public interface ToursDao {
     public void addTour(Tours tour);
 
     @Query("select * from Tours_table")
-    public List<Tours> getTours();
+    public LiveData<List<Tours>> getTours();
 
     @Delete
     public void deleteTours(Tours tour);

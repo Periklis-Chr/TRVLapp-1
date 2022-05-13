@@ -6,18 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".ui.Tours.ToursFragment">
 
-    <ScrollView
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/tourRecyclerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:listitem="@layout/recycler_view_tours_row"  />
 
-        <TextView
-            android:id="@+id/tours_textView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
-        </TextView>
 
-    </ScrollView>
+
+
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tours_textView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
+
+<!--        </TextView>-->
+
+<!--    </ScrollView>-->
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

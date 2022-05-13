@@ -8,20 +8,24 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentPackagesBinding;
+import com.iee.trvlapp.roomEntities.Offices;
 import com.iee.trvlapp.roomEntities.Packages;
 import com.iee.trvlapp.roomEntities.Tours;
+import com.iee.trvlapp.ui.Offices.OfficeRecyclerViewAdapter;
 import com.iee.trvlapp.ui.Tours.ToursViewModel;
 
 import java.util.List;
 
 public class PackagesFragment extends Fragment {
-
 
 
     private FragmentPackagesBinding binding;
@@ -35,22 +39,21 @@ public class PackagesFragment extends Fragment {
         View root = binding.getRoot();
 
 
-        // reading room db
+        RecyclerView recyclerView = binding.packageRecyclerview;
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+        recyclerView.setHasFixedSize(true);
 
-        List<Packages> packages = MainActivity.appDatabase.packagesDao().getPackages();
+        final PackageRecyclerViewAdapter adapter = new PackageRecyclerViewAdapter();
+        recyclerView.setAdapter(adapter);
 
-        String result ="";
-        for (Packages i:  packages) {
-            int  packages_id = i.getTid();
-            int  packages_ofid= i.getDid();
-            int packages_tid = i.getTid();
-            int  packages_departure=i.getDepartureTime();
-            Double  packages_cost=i.getCost();
-            result = result + "\n Id: " + packages_id+ "\n Name: " + packages_ofid+ "\n Surname: " + packages_tid+ "\n duration: "+packages_departure+"\n type: "+packages_cost+"\n";
+        packagesViewModel.getAllPackages().observe(getViewLifecycleOwner(), new Observer<List<Packages>>() {
+            @Override
+            public void onChanged(List<Packages> packages) {
 
-        }
+                adapter.setPackages(packages);
+            }
+        });
 
-        binding.packagesTextView.setText(result);
 
         //listener for adding packages
 

@@ -4,15 +4,22 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.iee.trvlapp.FirestoreEntities.Costumers;
+import com.iee.trvlapp.MainActivity;
+import com.iee.trvlapp.roomEntities.Offices;
+import com.iee.trvlapp.roomEntities.Packages;
+
+import java.util.List;
+
 public class CostumersViewModel extends ViewModel {
-    private final MutableLiveData<String> mText;
+
 
     public CostumersViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is Costumers fragment");
+
+
+
+
+
     }
 
-    public LiveData<String> getText() {
-        return mText;
-    }
 }

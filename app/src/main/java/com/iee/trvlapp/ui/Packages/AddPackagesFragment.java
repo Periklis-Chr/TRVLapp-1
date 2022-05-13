@@ -44,15 +44,15 @@ public class AddPackagesFragment extends Fragment {
 
     //insert data to db function
 
-    public void insertPackageData(){
+    public void insertPackageData() {
 
-        int package_id= Integer.parseInt(binding.PackageId.getText().toString());
-        int package_ofid=Integer.parseInt(binding.PackageOfid.getText().toString());
-        int package_tid=Integer.parseInt(binding.packageTid.getText().toString());
-        int  package_departure=Integer.parseInt(binding.packageDeparture.getText().toString());
-        Double package_cost=Double.parseDouble(binding.packageCost.getText().toString());
+        int package_id = Integer.parseInt(binding.PackageId.getText().toString());
+        int package_ofid = Integer.parseInt(binding.PackageOfid.getText().toString());
+        int package_tid = Integer.parseInt(binding.packageTid.getText().toString());
+        int package_departure = Integer.parseInt(binding.packageDeparture.getText().toString());
+        Double package_cost = Double.parseDouble(binding.packageCost.getText().toString());
 
-        Packages Package= new Packages();
+        Packages Package = new Packages();
         Package.setPid(package_id);
         Package.setDid(package_ofid);
         Package.setTid(package_tid);
@@ -61,12 +61,10 @@ public class AddPackagesFragment extends Fragment {
 
         MainActivity.appDatabase.packagesDao().addPackage(Package);
 
-        Toast.makeText(getActivity(),"Package Added Succesfully",Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), "Package Added Succesfully", Toast.LENGTH_LONG).show();
         Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addPackagesFragment_to_nav_packages);
 
     }
-
-
 
 
     @Override

@@ -45,18 +45,17 @@ public class AddCostumersFragment extends Fragment {
     }
 
 
-
     //insert data to db function
 
-    public void insertCostumersData(){
+    public void insertCostumersData() {
 
-        String costumer_id= binding.costumerId.getText().toString();
-        String costumer_name=binding.firstNameEdit.getText().toString();
-        String costumer_surname=binding.lastNameEdit.getText().toString();
-        String costumer_phone=binding.phoneEdit.getText().toString();
-        String costumer_email=binding.emailEdit.getText().toString();
-        String costumer_pid=binding.packageId.getText().toString();
-        String costumer_hotel=binding.packageHotel.getText().toString();
+        String costumer_id = binding.costumerId.getText().toString();
+        String costumer_name = binding.firstNameEdit.getText().toString();
+        String costumer_surname = binding.lastNameEdit.getText().toString();
+        String costumer_phone = binding.phoneEdit.getText().toString();
+        String costumer_email = binding.emailEdit.getText().toString();
+        String costumer_pid = binding.packageId.getText().toString();
+        String costumer_hotel = binding.packageHotel.getText().toString();
 
 
         Costumers costumer = new Costumers();
@@ -69,14 +68,14 @@ public class AddCostumersFragment extends Fragment {
         costumer.setHotel(costumer_hotel);
 
         MainActivity.appDb.collection("costumers")
-                .document(""+costumer_id)
+                .document("" + costumer_id)
                 .set(costumer)
-                .addOnCompleteListener((task) ->{
-                    Toast.makeText(getActivity(),"data added on firestore",Toast.LENGTH_LONG).show();
-                } )
-                .addOnFailureListener((e) ->{
-                    Toast.makeText(getActivity(),"failed to add data on firestore",Toast.LENGTH_LONG).show();
-                } );
+                .addOnCompleteListener((task) -> {
+                    Toast.makeText(getActivity(), "data added on firestore", Toast.LENGTH_LONG).show();
+                })
+                .addOnFailureListener((e) -> {
+                    Toast.makeText(getActivity(), "failed to add data on firestore", Toast.LENGTH_LONG).show();
+                });
 
         binding.costumerId.setText("");
         binding.firstNameEdit.setText("");
@@ -87,9 +86,8 @@ public class AddCostumersFragment extends Fragment {
         binding.packageId.setText("");
         binding.packageHotel.setText("");
 
-       Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addCostumersFragment_to_nav_costumers);
+        Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addCostumersFragment_to_nav_costumers);
     }
-
 
 
     @Override

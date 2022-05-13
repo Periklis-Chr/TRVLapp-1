@@ -17,7 +17,7 @@ public interface OfficesDao {
     public void addOffice(Offices office);
 
     @Query("select * from offices_table")
-    public List<Offices> getOffices();
+    public LiveData<List<Offices>> getOffices();
 
     @Delete
     public void deleteOffices(Offices office);

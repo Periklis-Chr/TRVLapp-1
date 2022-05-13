@@ -18,27 +18,18 @@ import java.util.List;
 
 public class OfficesViewModel extends AndroidViewModel {
 
-//    private final MutableLiveData<String> mText;
-private LiveData<List<Offices>> officesList;
 
+    private LiveData<List<Offices>> officesList;
 
     public OfficesViewModel(Application application) {
         super(application);
-//        mText = new MutableLiveData<>();
-//        mText.setValue("This is Offices fragment");
 
-//        officesList= MainActivity.appDatabase.officesDao().getOffices();
+        officesList = MainActivity.appDatabase.officesDao().getOffices();
     }
 
-public  LiveData<List<Offices>> getAllOffices(){
+    public LiveData<List<Offices>> getAllOffices() {
         return officesList;
     }
-
-
-
-//    public LiveData<String> getText() {
-//        return mText;
-//    }
 
 
 }

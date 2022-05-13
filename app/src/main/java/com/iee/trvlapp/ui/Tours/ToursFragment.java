@@ -8,14 +8,18 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentToursBinding;
 import com.iee.trvlapp.roomEntities.Offices;
 import com.iee.trvlapp.roomEntities.Tours;
+import com.iee.trvlapp.ui.Offices.OfficeRecyclerViewAdapter;
 
 import java.util.List;
 
@@ -32,32 +36,29 @@ public class ToursFragment extends Fragment {
         View root = binding.getRoot();
 
 
-        // reading room db
+        RecyclerView recyclerView = binding.tourRecyclerview;
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+        recyclerView.setHasFixedSize(true);
 
-        List<Tours> tours = MainActivity.appDatabase.toursDao().getTours();
+        final TourRecyclerViewAdapter adapter = new TourRecyclerViewAdapter();
+        recyclerView.setAdapter(adapter);
 
-        String result ="";
-        for (Tours i: tours) {
-            int tours_id = i.getTid();
-            String tours_city = i.getCity();
-            String tours_country = i.getCountry();
-            String tours_duration=i.getDuration();
-                    String tours_type=i.getType();
-            result = result + "\n Id: " + tours_id + "\n Name: " + tours_city+ "\n Surname: " + tours_country+ "\n duration: "+tours_duration+"\n type: "+tours_type+"\n";
-
-        }
-
-        binding.toursTextView.setText(result);
+        toursViewModel.getAllTours().observe(getViewLifecycleOwner(), new Observer<List<Tours>>() {
+            @Override
+            public void onChanged(List<Tours> tours) {
+                adapter.setTours(tours);
+            }
+        });
 
 
 //listener for adding tours
 
-binding.floatingActionButtonAddTours.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        Navigation.findNavController(view).navigate(R.id.action_nav_tours_to_addToursFragment);
-    }
-});
+        binding.floatingActionButtonAddTours.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_nav_tours_to_addToursFragment);
+            }
+        });
 
 
         return root;

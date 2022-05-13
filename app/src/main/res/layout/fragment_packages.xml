@@ -6,18 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".ui.Packages.PackagesFragment">
 
-    <ScrollView
+
+
+
+
+
+
+
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/packageRecyclerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:listitem="@layout/recycler_view_packages_row"  />
 
-        <TextView
-            android:id="@+id/packages_textView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
-        </TextView>
 
-    </ScrollView>
+
+
+
+
+    <!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/packages_textView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
+
+<!--        </TextView>-->
+
+<!--    </ScrollView>-->
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

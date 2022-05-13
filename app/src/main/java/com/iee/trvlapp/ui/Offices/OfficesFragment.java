@@ -35,7 +35,6 @@ public class OfficesFragment extends Fragment {
 //    RecyclerView.Adapter adapter;
 
 
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         OfficesViewModel officesViewModel =
@@ -44,39 +43,21 @@ public class OfficesFragment extends Fragment {
         binding = FragmentOfficesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-//
-//        RecyclerView recyclerView=binding.officeRecyclerview;
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-//        recyclerView.setHasFixedSize(true);
-//
-//        final OfficeRecyclerViewAdapter adapter = new OfficeRecyclerViewAdapter();
-//        recyclerView.setAdapter(adapter);
-//
-//        officesViewModel.getAllOffices().observe(getViewLifecycleOwner(),new Observer<List<Offices>>() {
-//    @Override
-//    public void onChanged(List<Offices> offices) {
-//
-//        adapter.setOffices(offices);
-//    }
-//});
 
+        RecyclerView recyclerView = binding.officeRecyclerview;
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+        recyclerView.setHasFixedSize(true);
 
+        final OfficeRecyclerViewAdapter adapter = new OfficeRecyclerViewAdapter();
+        recyclerView.setAdapter(adapter);
 
-          //reading room db
+        officesViewModel.getAllOffices().observe(getViewLifecycleOwner(), new Observer<List<Offices>>() {
+            @Override
+            public void onChanged(List<Offices> offices) {
 
-        List<Offices> offices = MainActivity.appDatabase.officesDao().getOffices();
-
-        String result ="";
-        for (Offices i: offices) {
-            int office_id = i.getDid();
-            String office_name = i.getName();
-            String office_address = i.getAddress();
-            result = result + "\n Id: " + office_id + "\n Name: " + office_name + "\n Surname: " + office_address + "\n";
-
-        }
-
-        binding.officeTextView.setText(result);
-
+                adapter.setOffices(offices);
+            }
+        });
 
 
 //listener for adding offices
