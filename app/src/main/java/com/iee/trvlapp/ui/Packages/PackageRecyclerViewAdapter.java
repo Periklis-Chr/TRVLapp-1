@@ -17,7 +17,7 @@ import com.iee.trvlapp.ui.Offices.OfficeRecyclerViewAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecyclerViewAdapter.PackageHolder>{
+public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecyclerViewAdapter.PackageHolder> {
 
     private List<Packages> packages = new ArrayList<>();
 

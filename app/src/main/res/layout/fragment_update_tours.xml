@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="30dp"
+    android:background="@drawable/base"
+    android:orientation="vertical"
+    tools:context=".ui.Tours.UpdateToursFragment">
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+
+            <EditText
+                android:id="@+id/update_Tour_id"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="333dp"
+                android:layout_height="60dp"
+                android:background="@drawable/selector"
+                android:drawableLeft="@drawable/ic_baseline_person_24"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/red_hat_text_regular"
+                android:hint="Tour id"
+                android:inputType="number"
+                android:padding="20dp"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/update_Tour_city"
+                android:layout_width="333dp"
+                android:layout_height="60dp"
+                android:layout_below="@id/update_Tour_id"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/selector"
+                android:drawableLeft="@drawable/ic_baseline_person_24"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/red_hat_text_regular"
+                android:hint="Tour City"
+                android:inputType="text"
+                android:padding="20dp"
+
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/update_Tour_Country"
+                android:layout_width="333dp"
+                android:layout_height="60dp"
+                android:layout_below="@id/update_Tour_city"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/selector"
+                android:drawableLeft="@drawable/ic_baseline_local_phone_24"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/red_hat_text_regular"
+                android:hint="Tour Id"
+                android:inputType="number"
+                android:padding="20dp"
+
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/update_tour_Duration"
+                android:layout_width="333dp"
+                android:layout_height="60dp"
+                android:layout_below="@id/update_Tour_Country"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/selector"
+                android:drawableLeft="@drawable/ic_baseline_local_phone_24"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/red_hat_text_regular"
+                android:hint="Duration"
+                android:inputType="number"
+                android:padding="20dp"
+
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+
+
+            <EditText
+                android:id="@+id/update_tour_type"
+                android:layout_width="333dp"
+                android:layout_height="60dp"
+                android:layout_below="@id/update_tour_Duration"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/selector"
+                android:drawableLeft="@drawable/ic_baseline_local_phone_24"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/red_hat_text_regular"
+                android:hint="Type"
+                android:inputType="text"
+                android:padding="20dp"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/update_tours_button"
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/update_tour_type"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/selectorbutton"
+                android:text="Confirm"
+                android:textSize="20dp" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cancel_tours_button"
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/update_tours_button"
+                android:layout_marginTop="20dp"
+                android:background="@color/red"
+                android:text="Cancel"
+                android:textSize="20dp" />
+
+
+
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

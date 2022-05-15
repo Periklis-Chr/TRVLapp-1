@@ -22,4 +22,14 @@ public class ToursViewModel extends ViewModel {
         return toursList;
     }
 
+
+    public void deleteTour(Tours tour) {
+        MainActivity.appDatabase.toursDao().deleteTours(tour);
+    }
+
+    public void updateTour(Tours tour) {
+        MainActivity.appDatabase.toursDao().updateTours(tour);
+    }
+
+
 }

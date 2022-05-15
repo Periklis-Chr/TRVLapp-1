@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,8 +21,10 @@ import java.util.List;
 
 public class TourRecyclerViewAdapter extends RecyclerView.Adapter<TourRecyclerViewAdapter.TourHolder> {
     private List<Tours> tours = new ArrayList<>();
+    private OnItemClickListener listener;
 
-    public static class TourHolder extends RecyclerView.ViewHolder {
+
+    public class TourHolder extends RecyclerView.ViewHolder {
         private final TextView id;
         private final TextView city;
         private final TextView country;
@@ -35,7 +38,20 @@ public class TourRecyclerViewAdapter extends RecyclerView.Adapter<TourRecyclerVi
             country = view.findViewById(R.id.tour_row_country);
             duration = view.findViewById(R.id.tour_row_duration);
             type = view.findViewById(R.id.tour_row_type);
+
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAdapterPosition();
+                    if (listener != null && position != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(tours.get(position));
+                    }
+                }
+            });
+
         }
+
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -63,8 +79,25 @@ public class TourRecyclerViewAdapter extends RecyclerView.Adapter<TourRecyclerVi
 
     }
 
+
+    public Tours getTourAt(int position) {
+        return tours.get(position);
+
+    }
+
+
     @Override
     public int getItemCount() {
         return tours.size();
     }
+
+
+    public interface OnItemClickListener {
+        void onItemClick(Tours tour);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
 }

@@ -39,18 +39,17 @@ public class AddOfficesFragment extends Fragment {
         });
 
 
-
         return root;
     }
 
 
     //insert data to db function
 
-    public void insertOfficeData(){
+    public void insertOfficeData() {
 
-        int office_id= Integer.parseInt(binding.officeId.getText().toString());
-        String office_name=binding.OfficeName.getText().toString();
-        String office_address=binding.officeAddress.getText().toString();
+        int office_id = Integer.parseInt(binding.officeId.getText().toString());
+        String office_name = binding.OfficeName.getText().toString();
+        String office_address = binding.officeAddress.getText().toString();
 
         Offices office = new Offices();
         office.setDid(office_id);
@@ -59,7 +58,7 @@ public class AddOfficesFragment extends Fragment {
 
         MainActivity.appDatabase.officesDao().addOffice(office);
 
-        Toast.makeText(getActivity(),"Office Added Succesfully",Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), "Office Added Succesfully", Toast.LENGTH_LONG).show();
         Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addOfficesFragment_to_nav_offices);
 
     }
@@ -70,7 +69,6 @@ public class AddOfficesFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
 
 
 }

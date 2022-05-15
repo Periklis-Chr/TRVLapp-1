@@ -1,11 +1,14 @@
 package com.iee.trvlapp.ui.Offices;
+
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.roomEntities.Offices;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,9 +17,10 @@ import java.util.List;
 
 public class OfficeRecyclerViewAdapter extends RecyclerView.Adapter<OfficeRecyclerViewAdapter.OfficeHolder> {
 
-    private List<Offices> offices=new ArrayList<>();
+    private List<Offices> offices = new ArrayList<>();
+    private OnItemClickListener listener;
 
-    public static class OfficeHolder extends RecyclerView.ViewHolder {
+    public class OfficeHolder extends RecyclerView.ViewHolder {
         private final TextView id;
         private final TextView name;
         private final TextView address;
@@ -26,14 +30,31 @@ public class OfficeRecyclerViewAdapter extends RecyclerView.Adapter<OfficeRecycl
             id = view.findViewById(R.id.office_row_id);
             name = view.findViewById(R.id.office_row_name);
             address = view.findViewById(R.id.office_row_address);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAdapterPosition();
+                    if (listener != null && position != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(offices.get(position));
+                    }
+                }
+            });
         }
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    public void setOffices(List<Offices> offices){
-        this.offices=offices;
+    public void setOffices(List<Offices> offices) {
+        this.offices = offices;
         notifyDataSetChanged();
     }
+
+
+    public Offices getOfficeAt(int position) {
+        return offices.get(position);
+
+    }
+
 
     @NonNull
     @Override
@@ -45,7 +66,7 @@ public class OfficeRecyclerViewAdapter extends RecyclerView.Adapter<OfficeRecycl
 
     @Override
     public void onBindViewHolder(@NonNull OfficeHolder holder, int position) {
-        Offices currentOffice= offices.get(position);
+        Offices currentOffice = offices.get(position);
         holder.id.setText(String.valueOf(currentOffice.getDid()));
         holder.name.setText(currentOffice.getName());
         holder.address.setText(currentOffice.getAddress());
@@ -56,4 +77,17 @@ public class OfficeRecyclerViewAdapter extends RecyclerView.Adapter<OfficeRecycl
     public int getItemCount() {
         return offices.size();
     }
+
+
+    public interface OnItemClickListener {
+        void onItemClick(Offices office);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
+
 }
+
+

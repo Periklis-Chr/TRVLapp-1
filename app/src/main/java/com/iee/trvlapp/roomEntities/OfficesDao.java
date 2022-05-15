@@ -19,12 +19,23 @@ public interface OfficesDao {
     @Query("select * from offices_table")
     public LiveData<List<Offices>> getOffices();
 
-    @Delete
+    @Delete()
     public void deleteOffices(Offices office);
 
     @Update
     public void updateOffices(Offices office);
 
+    @Query("select * from offices_table order by Offices_name DESC")
+    public LiveData<List<Offices>> getOfficesOrderedByNameDesc();
+
+
+    @Query("select * from offices_table order by Offices_name ASC")
+    public LiveData<List<Offices>> getOfficesOrderedByNameASC();
+
+
+
+    @Query("DELETE FROM offices_table where 1=1")
+    public void deleteAllOffices();
 
 
 }
