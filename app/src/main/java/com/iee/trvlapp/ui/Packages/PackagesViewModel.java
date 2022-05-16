@@ -13,13 +13,37 @@ import java.util.List;
 public class PackagesViewModel extends ViewModel {
 
     private LiveData<List<Packages>> packageList;
+    private LiveData<List<Packages>> packagesListNameASC;
+    private LiveData<List<Packages>> packagesListNameDESC;
 
     public PackagesViewModel() {
         packageList = MainActivity.appDatabase.packagesDao().getPackages();
+
+        packagesListNameDESC = MainActivity.appDatabase.packagesDao().getPackagesOrderedByNameDesc();
+        packagesListNameASC = MainActivity.appDatabase.packagesDao().getPackagesOrderedByNameASC();
+
+
     }
 
     public LiveData<List<Packages>> getAllPackages() {
         return packageList;
+    }
+
+
+    public void deletePackage(Packages packages) {
+        MainActivity.appDatabase.packagesDao().deletePackages(packages);
+    }
+
+    public void updatePackage(Packages packages) {
+        MainActivity.appDatabase.packagesDao().deletePackages(packages);
+    }
+
+    public LiveData<List<Packages>> getPackagesOrderByNameDesc() {
+        return packagesListNameDESC;
+    }
+
+    public LiveData<List<Packages>> getPackagesOrderByNameAsc() {
+        return packagesListNameASC;
     }
 
 }

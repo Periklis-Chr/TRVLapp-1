@@ -21,4 +21,16 @@ public interface ToursDao {
 
     @Update
     public void updateTours(Tours tour);
+
+
+    @Query("select * from Tours_table order by Tours_City DESC")
+    public LiveData<List<Tours>> getToursOrderedByNameDesc();
+
+
+    @Query("select * from Tours_table order by Tours_City ASC")
+    public LiveData<List<Tours>> getToursOrderedByNameASC();
+
+
+
+
 }

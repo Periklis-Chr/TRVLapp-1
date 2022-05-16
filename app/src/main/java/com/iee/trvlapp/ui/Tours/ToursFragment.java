@@ -35,6 +35,7 @@ import java.util.Locale;
 public class ToursFragment extends Fragment {
 
     private FragmentToursBinding binding;
+    private int showFilterFlag = 0;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -110,65 +111,80 @@ public class ToursFragment extends Fragment {
             }
         });
 
+        binding.fabFilteringTour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                popupMenu(view);
+            }
+        });
+
+
+
+
+
+
+
+
+
 
         return root;
     }
 
 
-//    public void popupMenu(View view) {
-//        PopupMenu popupMenu = new PopupMenu(getActivity().getApplicationContext(), view);
-//        popupMenu.setOnMenuItemClickListener(this);
-//        popupMenu.inflate(R.menu.office_filters);
-//        popupMenu.show();
-//    }
-//
+    public void popupMenu(View view) {
+        PopupMenu popupMenu = new PopupMenu(getActivity().getApplicationContext(), view);
+        popupMenu.setOnMenuItemClickListener(this::onMenuItemClick);
+        popupMenu.inflate(R.menu.tour_filters);
+        popupMenu.show();
+    }
+
 //    @Override
-//    public boolean onMenuItemClick(MenuItem menuItem) {
-//        ToursViewModel toursViewModel = new ViewModelProvider(this).get(ToursViewModel.class);
-//        RecyclerView recyclerView = binding.tourRecyclerview;
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
-//        recyclerView.setHasFixedSize(true);
-//        final TourRecyclerViewAdapter adapter = new TourRecyclerViewAdapter();
-//        recyclerView.setAdapter(adapter);
-//        switch (menuItem.getItemId()) {
-//            case R.id.filter_des_alphabetical_name:
-//
-//                officesViewModel.getofficesOrderByNameDesc().observe(getViewLifecycleOwner(), new Observer<List<Offices>>() {
-//                    @Override
-//                    public void onChanged(List<Offices> offices) {
-//                        adapter.setOffices(offices);
-//                    }
-//                });
-//                showFilterFlag = 1;
-//                return true;
-//            case R.id.filter_asc_alphabetical_name:
-//
-//
-//                officesViewModel.getofficesOrderByNameAsc().observe(getViewLifecycleOwner(), new Observer<List<Offices>>() {
-//                    @Override
-//                    public void onChanged(List<Offices> offices) {
-//                        adapter.setOffices(offices);
-//                    }
-//                });
-//
-//                showFilterFlag = 2;
-//                return true;
-//            case R.id.filter_id:
-//
-//                officesViewModel.getAllOffices().observe(getViewLifecycleOwner(), new Observer<List<Offices>>() {
-//                    @Override
-//                    public void onChanged(List<Offices> offices) {
-//                        adapter.setOffices(offices);
-//                    }
-//                });
-//
-//
-//                showFilterFlag = 0;
-//                return true;
-//            default:
-//                return false;
-//        }
-//    }
+    public boolean onMenuItemClick(MenuItem menuItem) {
+        ToursViewModel toursViewModel = new ViewModelProvider(this).get(ToursViewModel.class);
+        RecyclerView recyclerView = binding.tourRecyclerview;
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+        recyclerView.setHasFixedSize(true);
+        final TourRecyclerViewAdapter adapter = new TourRecyclerViewAdapter();
+        recyclerView.setAdapter(adapter);
+        switch (menuItem.getItemId()) {
+            case R.id.t_filter_des_alphabetical_name:filter_des_alphabetical_name:
+
+                toursViewModel.getToursOrderByNameDesc().observe(getViewLifecycleOwner(), new Observer<List<Tours>>() {
+                    @Override
+                    public void onChanged(List<Tours> tours) {
+                        adapter.setTours(tours);
+                    }
+                });
+                showFilterFlag = 1;
+                return true;
+            case R.id.t_filter_asc_alphabetical_name:
+
+
+                toursViewModel.getToursOrderByNameAsc().observe(getViewLifecycleOwner(), new Observer<List<Tours>>() {
+                    @Override
+                    public void onChanged(List<Tours> tours) {
+                        adapter.setTours(tours);
+                    }
+                });
+
+                showFilterFlag = 2;
+                return true;
+            case R.id.t_filter_id:
+
+                toursViewModel.getAllTours().observe(getViewLifecycleOwner(), new Observer<List<Tours>>() {
+                    @Override
+                    public void onChanged(List<Tours> tours) {
+                        adapter.setTours(tours);
+                    }
+                });
+
+
+                showFilterFlag = 0;
+                return true;
+            default:
+                return false;
+        }
+    }
 
 
     @Override

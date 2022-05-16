@@ -4,17 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/secondaryOrange"
+
     tools:context=".ui.Costumers.CostumersFragment">
 
 
 
 
 
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/toursRecyclerview"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        tools:listitem="@layout/recycler_view_tours_row"  />-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/costumersRecyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/recycler_view_costumers"  />
 
 
 

@@ -2,6 +2,9 @@ package com.iee.trvlapp.ui.Offices;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -32,6 +35,7 @@ import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentOfficesBinding;
 import com.iee.trvlapp.roomEntities.Offices;
+import com.iee.trvlapp.ui.Packages.PackagesFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +55,8 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
 
         binding = FragmentOfficesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+
 
 
         RecyclerView recyclerView = binding.officeRecyclerview;
@@ -78,7 +84,7 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
                 ItemTouchHelper.LEFT) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-                return false;
+                                return false;
             }
 
             @Override
@@ -87,6 +93,14 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
                 Toast.makeText(getActivity(), "Office deleted", Toast.LENGTH_SHORT).show();
             }
         }).attachToRecyclerView(recyclerView);
+
+
+
+
+
+
+
+
 
 
         //support for update row onclick

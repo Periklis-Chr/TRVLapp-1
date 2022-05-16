@@ -20,8 +20,8 @@ import java.util.List;
 public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecyclerViewAdapter.PackageHolder> {
 
     private List<Packages> packages = new ArrayList<>();
-
-    public static class PackageHolder extends RecyclerView.ViewHolder {
+    private OnItemClickListener listener;
+    public  class PackageHolder extends RecyclerView.ViewHolder {
         private final TextView id;
         private final TextView ofid;
         private final TextView tid;
@@ -35,7 +35,20 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
             tid = view.findViewById(R.id.package_row_tid);
             departure = view.findViewById(R.id.package_row_departure);
             cost = view.findViewById(R.id.package_row_cost);
+
+           view.setOnClickListener(new View.OnClickListener()
+
+        {
+            @Override
+            public void onClick (View view){
+            int position = getAdapterPosition();
+            if (listener != null && position != RecyclerView.NO_POSITION) {
+                listener.onItemClick(packages.get(position));
+            }
         }
+        });
+
+    }
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -43,6 +56,13 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
         this.packages = packages;
         notifyDataSetChanged();
     }
+
+
+    public Packages getPackageAt(int position) {
+        return packages.get(position);
+
+    }
+
 
     @NonNull
     @Override
@@ -69,4 +89,16 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
     public int getItemCount() {
         return packages.size();
     }
+
+
+
+    public interface OnItemClickListener {
+        void onItemClick(Packages packages);
+    }
+
+    public void setOnItemClickListener(PackageRecyclerViewAdapter.OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
+
 }

@@ -22,4 +22,15 @@ public interface PackagesDao {
 
     @Update
     public void updatePackages(Packages Package);
+
+
+    @Query("select * from Packages_table order by Packages_Cost DESC")
+    public LiveData<List<Packages>> getPackagesOrderedByNameDesc();
+
+
+    @Query("select * from Packages_table order by Packages_Cost ASC")
+    public LiveData<List<Packages>> getPackagesOrderedByNameASC();
+
+
+
 }
