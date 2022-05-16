@@ -17,9 +17,6 @@ public class CostumersViewModel extends ViewModel {
     public CostumersViewModel() {
 
 
-
-
-
     }
 
 }

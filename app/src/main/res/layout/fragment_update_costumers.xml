@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="30dp"
+    android:background="@drawable/base"
+    android:orientation="vertical"
+    tools:context=".ui.Costumers.UpdateCostumersFragment">
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/update_costumer_id"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="333dp"
+                android:layout_height="60dp"
+                android:background="@drawable/selector"
+                android:drawableLeft="@drawable/ic_baseline_person_24"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/red_hat_text_regular"
+                android:hint="Id"
+                android:inputType="text"
+                android:padding="20dp"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/update_firstNameEdit"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="333dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/selector"
+                android:drawableLeft="@drawable/ic_baseline_person_24"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/red_hat_text_regular"
+                android:hint="Name"
+                android:layout_below="@id/update_costumer_id"
+                android:inputType="text"
+                android:padding="20dp"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/update_lastNameEdit"
+                android:layout_width="333dp"
+                android:layout_height="60dp"
+                android:layout_below="@id/update_firstNameEdit"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/selector"
+                android:drawableLeft="@drawable/ic_baseline_person_24"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/red_hat_text_regular"
+                android:hint="Last Name"
+                android:inputType="text"
+                android:padding="20dp"
+
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/update_phoneEdit"
+                android:layout_width="333dp"
+                android:layout_height="60dp"
+                android:layout_below="@id/update_lastNameEdit"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/selector"
+                android:drawableLeft="@drawable/ic_baseline_local_phone_24"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/red_hat_text_regular"
+                android:hint="Phone"
+                android:inputType="number"
+                android:padding="20dp"
+
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <!--            <EditText-->
+            <!--                android:id="@+id/addressEdit"-->
+            <!--                android:layout_width="333dp"-->
+            <!--                android:layout_height="60dp"-->
+            <!--                android:layout_below="@id/phoneEdit"-->
+            <!--                android:layout_marginTop="20dp"-->
+            <!--                android:background="@drawable/selector"-->
+            <!--                android:drawableLeft="@drawable/ic_baseline_room_24"-->
+            <!--                android:drawablePadding="20dp"-->
+            <!--                android:fontFamily="@font/red_hat_text_regular"-->
+            <!--                android:hint="Address"-->
+            <!--                android:inputType="text"-->
+            <!--                android:padding="20dp"-->
+
+            <!--                android:textColor="@color/black"-->
+            <!--                android:textSize="20dp" />-->
+
+            <!--            <EditText-->
+            <!--                android:id="@+id/addressNumberEdit"-->
+            <!--                android:layout_width="125dp"-->
+            <!--                android:layout_height="60dp"-->
+
+            <!--                android:layout_below="@id/phoneEdit"-->
+            <!--                android:layout_marginStart="11dp"-->
+            <!--                android:layout_marginTop="20dp"-->
+            <!--                android:layout_toEndOf="@+id/addressEdit"-->
+            <!--                android:background="@drawable/selector"-->
+            <!--                android:fontFamily="@font/red_hat_text_regular"-->
+            <!--                android:gravity="center"-->
+
+            <!--                android:hint="Number"-->
+            <!--                android:inputType="text"-->
+            <!--                android:padding="20dp"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:textSize="20dp" />-->
+
+            <!--            <EditText-->
+            <!--                android:id="@+id/cityEdit"-->
+            <!--                android:layout_width="195dp"-->
+            <!--                android:layout_height="60dp"-->
+            <!--                android:layout_below="@id/addressEdit"-->
+            <!--                android:layout_marginTop="20dp"-->
+            <!--                android:background="@drawable/selector"-->
+            <!--                android:drawableLeft="@drawable/ic_baseline_domain_24"-->
+            <!--                android:drawablePadding="20dp"-->
+            <!--                android:fontFamily="@font/red_hat_text_regular"-->
+            <!--                android:hint="City"-->
+            <!--                android:inputType="text"-->
+            <!--                android:padding="20dp"-->
+
+            <!--                android:textColor="@color/black"-->
+            <!--                android:textSize="20dp" />-->
+
+            <!--            <EditText-->
+            <!--                android:id="@+id/postal_codeEdit"-->
+            <!--                android:layout_width="125dp"-->
+            <!--                android:layout_height="60dp"-->
+
+            <!--                android:layout_below="@id/addressNumberEdit"-->
+            <!--                android:layout_marginStart="11dp"-->
+            <!--                android:layout_marginTop="20dp"-->
+            <!--                android:layout_toEndOf="@+id/cityEdit"-->
+            <!--                android:background="@drawable/selector"-->
+            <!--                android:fontFamily="@font/red_hat_text_regular"-->
+            <!--                android:gravity="center"-->
+
+            <!--                android:hint="ZIP Code"-->
+            <!--                android:inputType="text"-->
+            <!--                android:padding="20dp"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:textSize="20dp" />-->
+
+            <EditText
+                android:id="@+id/update_emailEdit"
+                android:layout_width="333dp"
+                android:layout_height="60dp"
+                android:layout_below="@id/update_phoneEdit"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/selector"
+                android:drawableLeft="@drawable/ic_baseline_alternate_email_24"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/red_hat_text_regular"
+                android:hint="Email"
+                android:inputType="text"
+                android:padding="20dp"
+
+
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+
+
+
+
+            <EditText
+                android:id="@+id/update_package_id"
+                android:layout_width="333dp"
+                android:layout_height="60dp"
+                android:layout_below="@id/update_emailEdit"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/selector"
+                android:drawableLeft="@drawable/ic_baseline_room_24"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/red_hat_text_regular"
+                android:hint="Package_id"
+                android:inputType="text"
+                android:padding="20dp"
+
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/update_package_hotel"
+                android:layout_width="333dp"
+                android:layout_height="60dp"
+                android:layout_below="@id/update_package_id"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/selector"
+                android:drawableLeft="@drawable/ic_baseline_room_24"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/red_hat_text_regular"
+                android:hint="Hotel"
+                android:inputType="text"
+                android:padding="20dp"
+
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+
+
+
+
+            <!--            <RadioGroup-->
+            <!--                android:id="@+id/genderEdit"-->
+            <!--                android:layout_width="333dp"-->
+            <!--                android:layout_height="60dp"-->
+            <!--                android:layout_below="@id/emailEdit"-->
+
+            <!--                android:layout_marginTop="20dp"-->
+            <!--                android:background="@drawable/selector"-->
+            <!--                android:gravity="center"-->
+            <!--                android:orientation="horizontal">-->
+
+            <!--                <RadioButton-->
+            <!--                    android:id="@+id/male"-->
+            <!--                    android:layout_width="100dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginStart="8dp"-->
+            <!--                    android:buttonTint="@color/black"-->
+            <!--                    android:gravity="center"-->
+
+            <!--                    android:text="Male"-->
+            <!--                    android:textColor="@color/grey2"-->
+            <!--                    android:textSize="20sp" />-->
+
+            <!--                <RadioButton-->
+            <!--                    android:id="@+id/female"-->
+            <!--                    android:layout_width="100dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginStart="3dp"-->
+            <!--                    android:buttonTint="@color/black"-->
+            <!--                    android:gravity="center"-->
+
+            <!--                    android:text="Female"-->
+            <!--                    android:textColor="@color/grey2"-->
+            <!--                    android:textSize="20sp" />-->
+
+            <!--                <RadioButton-->
+            <!--                    android:id="@+id/other"-->
+            <!--                    android:layout_width="100dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginStart="3dp"-->
+            <!--                    android:buttonTint="@color/black"-->
+            <!--                    android:gravity="center"-->
+
+            <!--                    android:text="Other"-->
+            <!--                    android:textColor="@color/grey2"-->
+            <!--                    android:textSize="20sp" />-->
+
+            <!--            </RadioGroup>-->
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/update_costumer_button"
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/update_package_hotel"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/selectorbutton"
+                android:text="Confirm"
+                android:textSize="20dp" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/update_cancel_costumer_button"
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/update_costumer_button"
+                android:layout_marginTop="20dp"
+                android:background="@color/red"
+                android:text="Cancel"
+                android:textSize="20dp" />
+
+
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -12,6 +12,16 @@ public class Costumers {
 
     public Costumers() { }
 
+    public Costumers(String cid, String name, String surname, String phone, String email, String pid, String hotel) {
+        this.cid = cid;
+        this.name = name;
+        this.surname = surname;
+        this.phone = phone;
+        this.email = email;
+        this.pid = pid;
+        this.hotel = hotel;
+    }
+
     public String getCid() {
         return cid;
     }
