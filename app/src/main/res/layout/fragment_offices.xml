@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.Offices.OfficesFragment"
-    android:background="@color/secondaryOrange"
+    android:background="@color/blue"
     android:orientation="vertical">
 
 
@@ -16,7 +16,7 @@
         android:id="@+id/officeRecyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-       tools:listitem="@layout/recycler_view_tours_row"  />
+       tools:listitem="@layout/recycler_view_offices_row"  />
 
 
 
@@ -43,6 +43,7 @@
         android:clickable="true"
         android:focusable="true"
         android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="#e76f51"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -56,6 +57,7 @@
         android:clickable="true"
         android:focusable="true"
         android:src="@android:drawable/ic_menu_sort_by_size"
+        app:backgroundTint="#e76f51"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

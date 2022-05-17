@@ -45,6 +45,8 @@ public class ToursFragment extends Fragment {
         binding = FragmentToursBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        //retrieves data from Room db
+
 
         RecyclerView recyclerView = binding.tourRecyclerview;
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
@@ -61,6 +63,40 @@ public class ToursFragment extends Fragment {
         });
 
 
+        // shows map location of Swiped RIGHT item in RecyclerView
+
+
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
+                ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+                String CityName = adapter.getTourAt(viewHolder.getAbsoluteAdapterPosition()).getCity();
+
+                Toast.makeText(getActivity(), CityName, Toast.LENGTH_SHORT).show();
+                Bundle bundle = new Bundle();
+                bundle.putString("id", CityName);
+                bundle.putString("name", CityName);
+                bundle.putString("address", CityName);
+
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                ToursMapsFragment toursMapsFragment = new ToursMapsFragment();
+                toursMapsFragment.setArguments(bundle);
+                fragmentTransaction.replace(R.id.nav_host_fragment_content_main, toursMapsFragment);
+                fragmentTransaction.commit();
+
+            }
+        }).attachToRecyclerView(recyclerView);
+
+
+        //deletes Room data on Swipe LEFT
+
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
                 ItemTouchHelper.LEFT) {
             @Override
@@ -75,6 +111,8 @@ public class ToursFragment extends Fragment {
             }
         }).attachToRecyclerView(recyclerView);
 
+
+        //updates Room data onClick
 
         adapter.setOnItemClickListener(new TourRecyclerViewAdapter.OnItemClickListener() {
             @Override
@@ -119,16 +157,11 @@ public class ToursFragment extends Fragment {
         });
 
 
-
-
-
-
-
-
-
-
         return root;
     }
+
+
+    //sorting filters for RecyclerView
 
 
     public void popupMenu(View view) {
@@ -138,7 +171,6 @@ public class ToursFragment extends Fragment {
         popupMenu.show();
     }
 
-//    @Override
     public boolean onMenuItemClick(MenuItem menuItem) {
         ToursViewModel toursViewModel = new ViewModelProvider(this).get(ToursViewModel.class);
         RecyclerView recyclerView = binding.tourRecyclerview;
@@ -147,7 +179,8 @@ public class ToursFragment extends Fragment {
         final TourRecyclerViewAdapter adapter = new TourRecyclerViewAdapter();
         recyclerView.setAdapter(adapter);
         switch (menuItem.getItemId()) {
-            case R.id.t_filter_des_alphabetical_name:filter_des_alphabetical_name:
+            case R.id.t_filter_des_alphabetical_name:
+                filter_des_alphabetical_name:
 
                 toursViewModel.getToursOrderByNameDesc().observe(getViewLifecycleOwner(), new Observer<List<Tours>>() {
                     @Override

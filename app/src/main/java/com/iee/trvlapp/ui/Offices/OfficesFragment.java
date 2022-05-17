@@ -1,10 +1,5 @@
 package com.iee.trvlapp.ui.Offices;
 
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -13,37 +8,37 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupMenu;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.navigation.NavigationView;
 import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentOfficesBinding;
 import com.iee.trvlapp.roomEntities.Offices;
-import com.iee.trvlapp.ui.Packages.PackagesFragment;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemClickListener {
 
     private FragmentOfficesBinding binding;
-
+    private AppBarConfiguration mAppBarConfiguration;
 
     private int showFilterFlag;
 
@@ -57,6 +52,25 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
         View root = binding.getRoot();
 
 
+        // TODO
+
+//            Toolbar toolbar=root.findViewById(R.id.toolbar);
+//
+//        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar) ;
+//
+//        DrawerLayout drawer = root.findViewById(R.id.drawer_layout);
+//        NavigationView navigationView =root.findViewById(R.id.nav_view);
+//        // Passing each menu ID as a set of Ids because each
+//        // menu should be considered as top level destinations.
+//        mAppBarConfiguration = new AppBarConfiguration.Builder(
+//                R.id.nav_home, R.id.nav_offices, R.id.nav_tours, R.id.nav_packages, R.id.nav_costumers, R.id.action_updateOfficesFragment_to_nav_offices)
+//                .setOpenableLayout(drawer)
+//                .build();
+//        NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main);
+//         NavigationUI.setupActionBarWithNavController(getActivity().getApplicationContext(), navController, mAppBarConfiguration);
+//        NavigationUI.setupWithNavController(navigationView, navController);
+//
+//
 
 
         RecyclerView recyclerView = binding.officeRecyclerview;
@@ -67,7 +81,7 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
         recyclerView.setAdapter(adapter);
 
 
-        //support for retrieving data for recyclerView
+        // Retrieves Data from Room db
 
         officesViewModel.getAllOffices().observe(getViewLifecycleOwner(), new Observer<List<Offices>>() {
             @Override
@@ -77,14 +91,14 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
         });
 
 
-        //support fro deleting row on swipe left
+        //Deletes data from Room db on Swipe LEFT
 
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
                 ItemTouchHelper.LEFT) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-                                return false;
+                return false;
             }
 
             @Override
@@ -95,15 +109,7 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
         }).attachToRecyclerView(recyclerView);
 
 
-
-
-
-
-
-
-
-
-        //support for update row onclick
+        //Updates data from Room db onClick
 
 
         adapter.setOnItemClickListener(new OfficeRecyclerViewAdapter.OnItemClickListener() {
@@ -148,6 +154,8 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
         return root;
     }
 
+
+    // Sorting filters for the reyclerView
 
     public void popupMenu(View view) {
         PopupMenu popupMenu = new PopupMenu(getActivity().getApplicationContext(), view);

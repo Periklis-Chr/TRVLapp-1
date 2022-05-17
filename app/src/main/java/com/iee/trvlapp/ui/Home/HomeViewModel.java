@@ -10,8 +10,13 @@ public class HomeViewModel extends ViewModel {
 
     public HomeViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("\"Our services cover all aspects of your travel needs ensuring that your Mediterranean holiday will be one to remember.\\n\" +\n" +
-                "\"With TRVL , you are assured of quality and reliability.\\n\"");
+        mText.setValue("Our services cover all \n" +
+                "aspects of your travel\n" +
+                " needs ensuring that your\n" +
+                " Mediterranean holiday will\n " +
+                "be one to remember With TRVL \n" +
+                " you are assured of quality\n" +
+                " and reliability.\n");
     }
 
     public LiveData<String> getText() {

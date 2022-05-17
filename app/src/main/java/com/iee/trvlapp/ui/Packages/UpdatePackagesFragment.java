@@ -35,6 +35,7 @@ public class UpdatePackagesFragment extends Fragment {
 
 
         //listener for confirmation of data insertion
+
         Bundle bundle = getArguments();
         String id = bundle.getString("id");
         String ofid = bundle.getString("name");
@@ -50,19 +51,18 @@ public class UpdatePackagesFragment extends Fragment {
         binding.updatePackageCost.setText(cost);
 
 
+        //onclick listener for updating Room data
 
         binding.updatePackageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String id = binding.updatePackageId.getText().toString();
                 String ofid = binding.updatePackageOfid.getText().toString();
-                String  tid= binding.updatePackageTid.getText().toString();
+                String tid = binding.updatePackageTid.getText().toString();
                 String departure = binding.updatePackageDeparture.getText().toString();
                 Double cost = Double.parseDouble(binding.updatePackageCost.getText().toString());
 
-
-
-               Packages packages=new Packages();
+                Packages packages = new Packages();
                 packages.setPid(Integer.parseInt(id));
                 packages.setDid(Integer.parseInt(ofid));
                 packages.setTid(Integer.parseInt(tid));
@@ -77,6 +77,9 @@ public class UpdatePackagesFragment extends Fragment {
 
             }
         });
+
+
+        //cancel update data
 
         binding.cancelUpdatePackageButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -18,17 +18,13 @@ public class PackagesViewModel extends ViewModel {
 
     public PackagesViewModel() {
         packageList = MainActivity.appDatabase.packagesDao().getPackages();
-
         packagesListNameDESC = MainActivity.appDatabase.packagesDao().getPackagesOrderedByNameDesc();
         packagesListNameASC = MainActivity.appDatabase.packagesDao().getPackagesOrderedByNameASC();
-
-
     }
 
     public LiveData<List<Packages>> getAllPackages() {
         return packageList;
     }
-
 
     public void deletePackage(Packages packages) {
         MainActivity.appDatabase.packagesDao().deletePackages(packages);

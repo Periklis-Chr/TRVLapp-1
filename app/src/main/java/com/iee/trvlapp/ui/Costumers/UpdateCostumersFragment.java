@@ -36,9 +36,9 @@ public class UpdateCostumersFragment extends Fragment {
         View root = binding.getRoot();
 
 
-        //listener for confirmation of data insertion
-        Bundle bundle = getArguments();
+        // get data between fragment transaction
 
+        Bundle bundle = getArguments();
         String cid = bundle.getString("cid");
         String name = bundle.getString("name");
         String surname = bundle.getString("surname");
@@ -56,6 +56,8 @@ public class UpdateCostumersFragment extends Fragment {
         binding.updatePackageId.setText(pid);
         binding.updatePackageHotel.setText(hotel);
 
+
+        //Update Costumer entry when onClick
 
         binding.updateCostumerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +98,9 @@ public class UpdateCostumersFragment extends Fragment {
 
             }
         });
+
+
+        //listener for canceling update costumer form
 
         binding.updateCancelCostumerButton.setOnClickListener(new View.OnClickListener() {
             @Override

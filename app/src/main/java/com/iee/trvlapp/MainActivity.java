@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(binding.appBarMain.toolbar);
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_offices, R.id.nav_tours, R.id.nav_packages, R.id.nav_costumers, R.id.action_updateOfficesFragment_to_nav_offices)
                 .setOpenableLayout(drawer)
@@ -64,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -73,14 +72,6 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//       if(item.getItemId()==R.id.action_deleteAll) {
-//           MainActivity.appDatabase.officesDao().deleteAllOffices();
-//       }
-//        return true;
-//    }
 
     @Override
     public boolean onSupportNavigateUp() {

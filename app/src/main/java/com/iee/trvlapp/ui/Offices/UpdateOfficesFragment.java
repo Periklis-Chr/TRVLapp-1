@@ -2,11 +2,15 @@ package com.iee.trvlapp.ui.Offices;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -33,8 +37,8 @@ public class UpdateOfficesFragment extends Fragment {
         binding = FragmentUpdateOfficesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        //// get data between fragment transaction
 
-        //listener for confirmation of data insertion
         Bundle bundle = getArguments();
         String id = bundle.getString("id");
         String name = bundle.getString("name");
@@ -44,6 +48,7 @@ public class UpdateOfficesFragment extends Fragment {
         binding.updateOfficeName.setText(name);
         binding.updateOfficeAddress.setText(address);
 
+        //  Updates Office onclick
 
         binding.updateOfficeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +71,8 @@ public class UpdateOfficesFragment extends Fragment {
             }
         });
 
+        //cancel update form
+
         binding.cancelUpdateOfficeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,14 +82,11 @@ public class UpdateOfficesFragment extends Fragment {
                 UpdateOfficesFragment updateOfficesFragment = new UpdateOfficesFragment();
                 fragmentTransaction.replace(R.id.nav_host_fragment_content_main, officesFragment);
                 fragmentTransaction.commit();
-
-//                Navigation.findNavController(binding.getRoot()).navigate(R.id.nav_offices);
             }
         });
 
 
         return root;
     }
-
 
 }

@@ -16,10 +16,9 @@ public class ToursViewModel extends ViewModel {
     private LiveData<List<Tours>> toursList;
     private LiveData<List<Tours>> toursListNameASC;
     private LiveData<List<Tours>> toursListNameDESC;
+
     public ToursViewModel() {
         toursList = MainActivity.appDatabase.toursDao().getTours();
-
-
         toursListNameDESC = MainActivity.appDatabase.toursDao().getToursOrderedByNameDesc();
         toursListNameASC = MainActivity.appDatabase.toursDao().getToursOrderedByNameASC();
     }
@@ -27,7 +26,6 @@ public class ToursViewModel extends ViewModel {
     public LiveData<List<Tours>> getAllTours() {
         return toursList;
     }
-
 
     public void deleteTour(Tours tour) {
         MainActivity.appDatabase.toursDao().deleteTours(tour);

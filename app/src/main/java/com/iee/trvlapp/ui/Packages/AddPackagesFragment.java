@@ -42,7 +42,7 @@ public class AddPackagesFragment extends Fragment {
         return root;
     }
 
-    //insert data to db function
+    //insert data to db
 
     public void insertPackageData() {
 

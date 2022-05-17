@@ -10,4 +10,12 @@
     <color name="grey2">#7F7B7C</color>
     <color name="secondaryOrange">#e79215</color>
     <color name="red">#FF0000</color>
+
+
+
+    <color name="blue">#264653</color>
+    <color name="orange">#e9c46a</color>
+    <color name="red1">#e76f51</color>
+
+
 </resources>

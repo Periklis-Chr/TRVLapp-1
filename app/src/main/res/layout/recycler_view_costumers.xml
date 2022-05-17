@@ -6,13 +6,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginEnd="8dp"
     android:layout_marginStart="8dp"
-    android:layout_marginTop="8dp">
+    android:layout_marginTop="8dp"
+    app:cardCornerRadius="17dp"
+    app:cardElevation="100dp">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/grey2"
+        android:background="#f4a261"
         android:padding="8dp">
 
 
@@ -20,7 +22,7 @@
             android:id="@+id/costumer_icon_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/icon_package"
+            android:src="@mipmap/costumers_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">

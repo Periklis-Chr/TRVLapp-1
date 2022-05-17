@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/secondaryOrange"
+    android:background="@color/blue"
 
     tools:context=".ui.Costumers.CostumersFragment">
 
@@ -47,6 +47,7 @@
         android:focusable="true"
         android:src="@android:drawable/ic_input_add"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:backgroundTint="#e76f51"
         app:layout_constraintEnd_toEndOf="parent"
         />
 
@@ -60,6 +61,7 @@
         android:focusable="true"
         android:src="@android:drawable/ic_menu_sort_by_size"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:backgroundTint="#e76f51"
         app:layout_constraintStart_toStartOf="parent" />
 
 

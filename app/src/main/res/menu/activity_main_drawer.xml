@@ -7,22 +7,27 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@mipmap/home_icon"
+            android:iconTint="@color/orange"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_offices"
             android:icon="@mipmap/offices_icon"
+            android:iconTint="@color/orange"
             android:title="@string/menu_offices" />
         <item
             android:id="@+id/nav_tours"
             android:icon="@mipmap/drawer_menu_tour_icon"
+            android:iconTint="@color/orange"
             android:title="@string/menu_tours" />
         <item
             android:id="@+id/nav_packages"
             android:icon="@mipmap/package_icon"
+            android:iconTint="@color/orange"
             android:title="@string/menu_packages" />
         <item
             android:id="@+id/nav_costumers"
             android:icon="@mipmap/costumers_icon"
+            android:iconTint="@color/orange"
             android:title="@string/menu_costumers" />
     </group>
 </menu>

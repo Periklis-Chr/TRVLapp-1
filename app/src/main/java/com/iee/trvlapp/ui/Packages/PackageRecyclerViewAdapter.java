@@ -21,7 +21,8 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
 
     private List<Packages> packages = new ArrayList<>();
     private OnItemClickListener listener;
-    public  class PackageHolder extends RecyclerView.ViewHolder {
+
+    public class PackageHolder extends RecyclerView.ViewHolder {
         private final TextView id;
         private final TextView ofid;
         private final TextView tid;
@@ -36,19 +37,17 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
             departure = view.findViewById(R.id.package_row_departure);
             cost = view.findViewById(R.id.package_row_cost);
 
-           view.setOnClickListener(new View.OnClickListener()
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAdapterPosition();
+                    if (listener != null && position != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(packages.get(position));
+                    }
+                }
+            });
 
-        {
-            @Override
-            public void onClick (View view){
-            int position = getAdapterPosition();
-            if (listener != null && position != RecyclerView.NO_POSITION) {
-                listener.onItemClick(packages.get(position));
-            }
         }
-        });
-
-    }
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -89,7 +88,6 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
     public int getItemCount() {
         return packages.size();
     }
-
 
 
     public interface OnItemClickListener {

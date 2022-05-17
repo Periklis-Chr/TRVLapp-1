@@ -37,7 +37,6 @@ public class OfficesViewModel extends AndroidViewModel {
         return officesList;
     }
 
-
     public void deleteOffice(Offices office) {
         MainActivity.appDatabase.officesDao().deleteOffices(office);
     }
@@ -46,7 +45,6 @@ public class OfficesViewModel extends AndroidViewModel {
         MainActivity.appDatabase.officesDao().updateOffices(office);
     }
 
-
     public LiveData<List<Offices>> getofficesOrderByNameDesc() {
         return officesListNameDESC;
     }
@@ -54,7 +52,6 @@ public class OfficesViewModel extends AndroidViewModel {
     public LiveData<List<Offices>> getofficesOrderByNameAsc() {
         return officesListNameASC;
     }
-
 
     public void deleteAll() {
         MainActivity.appDatabase.officesDao().deleteAllOffices();

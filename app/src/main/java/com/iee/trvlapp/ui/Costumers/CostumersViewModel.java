@@ -13,9 +13,7 @@ import java.util.List;
 
 public class CostumersViewModel extends ViewModel {
 
-
     public CostumersViewModel() {
-
 
     }
 

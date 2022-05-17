@@ -43,8 +43,7 @@ public class AddOfficesFragment extends Fragment {
     }
 
 
-    //insert data to db function
-
+    //insert data to Room db
     public void insertOfficeData() {
 
         int office_id = Integer.parseInt(binding.officeId.getText().toString());

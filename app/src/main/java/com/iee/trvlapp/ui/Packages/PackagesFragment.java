@@ -37,7 +37,8 @@ public class PackagesFragment extends Fragment {
 
 
     private FragmentPackagesBinding binding;
-   private int showFilterFlag = 0;
+    private int showFilterFlag = 0;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         PackagesViewModel packagesViewModel =
@@ -46,6 +47,8 @@ public class PackagesFragment extends Fragment {
         binding = FragmentPackagesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+
+        //Retrieves data from Room db
 
         RecyclerView recyclerView = binding.packageRecyclerview;
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
@@ -57,18 +60,12 @@ public class PackagesFragment extends Fragment {
         packagesViewModel.getAllPackages().observe(getViewLifecycleOwner(), new Observer<List<Packages>>() {
             @Override
             public void onChanged(List<Packages> packages) {
-
                 adapter.setPackages(packages);
             }
         });
 
 
-
-
-
-
-
-        //support fro deleting row on swipe left
+        //Delete data on Swipe LEFT
 
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
@@ -86,7 +83,7 @@ public class PackagesFragment extends Fragment {
         }).attachToRecyclerView(recyclerView);
 
 
-        //support for update row onclick
+        //Updates data onClick
 
 
         adapter.setOnItemClickListener(new PackageRecyclerViewAdapter.OnItemClickListener() {
@@ -115,13 +112,6 @@ public class PackagesFragment extends Fragment {
         });
 
 
-
-
-
-
-
-
-
         //listener for adding packages
 
         binding.floatingActionButtonAddPackages.setOnClickListener(new View.OnClickListener() {
@@ -138,13 +128,11 @@ public class PackagesFragment extends Fragment {
             }
         });
 
-
-
-
-
         return root;
     }
 
+
+    //sortin filters for RecyclerView
 
     public void popupMenu(View view) {
         PopupMenu popupMenu = new PopupMenu(getActivity().getApplicationContext(), view);
@@ -153,7 +141,6 @@ public class PackagesFragment extends Fragment {
         popupMenu.show();
     }
 
-//    @Override
     public boolean onMenuItemClick(MenuItem menuItem) {
         PackagesViewModel packagesViewModel = new ViewModelProvider(this).get(PackagesViewModel.class);
         RecyclerView recyclerView = binding.packageRecyclerview;

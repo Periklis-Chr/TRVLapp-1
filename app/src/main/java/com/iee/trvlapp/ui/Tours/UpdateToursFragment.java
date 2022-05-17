@@ -35,6 +35,7 @@ public class UpdateToursFragment extends Fragment {
 
 
         //listener for confirmation of data insertion
+
         Bundle bundle = getArguments();
         String id = bundle.getString("id");
         String city = bundle.getString("city");
@@ -48,6 +49,9 @@ public class UpdateToursFragment extends Fragment {
         binding.updateTourCountry.setText(country);
         binding.updateTourDuration.setText(duration);
         binding.updateTourType.setText(type);
+
+
+        //updates data from Room db onClick
 
         binding.updateToursButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +79,9 @@ public class UpdateToursFragment extends Fragment {
 
             }
         });
+
+
+        // cancel update form
 
         binding.cancelToursButton.setOnClickListener(new View.OnClickListener() {
             @Override

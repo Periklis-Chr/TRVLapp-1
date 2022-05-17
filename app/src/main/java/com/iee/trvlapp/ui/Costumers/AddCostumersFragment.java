@@ -1,13 +1,18 @@
 package com.iee.trvlapp.ui.Costumers;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
@@ -32,7 +37,6 @@ public class AddCostumersFragment extends Fragment {
 
         //listener for confirmation of data insertion
 
-
         binding.costumerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,7 +49,7 @@ public class AddCostumersFragment extends Fragment {
     }
 
 
-    //insert data to db function
+    //Insert Costumer Data to Firestore
 
     public void insertCostumersData() {
 
@@ -72,6 +76,9 @@ public class AddCostumersFragment extends Fragment {
                 .set(costumer)
                 .addOnCompleteListener((task) -> {
                     Toast.makeText(getActivity(), "data added on firestore", Toast.LENGTH_LONG).show();
+
+                    pushNotification();
+
                 })
                 .addOnFailureListener((e) -> {
                     Toast.makeText(getActivity(), "failed to add data on firestore", Toast.LENGTH_LONG).show();
@@ -87,6 +94,27 @@ public class AddCostumersFragment extends Fragment {
         binding.packageHotel.setText("");
 
         Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addCostumersFragment_to_nav_costumers);
+    }
+
+
+    // function for onAdd Success notification
+
+
+    public void pushNotification() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("notificationId", "notification", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = getActivity().getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(), "notificationId")
+                .setContentText("TRVl")
+                .setSmallIcon(R.mipmap.tick_icon)
+                .setAutoCancel(true)
+                .setContentText("New Costumer Added on Firestore!!!");
+
+        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(getActivity());
+        managerCompat.notify(999, builder.build());
     }
 
 
