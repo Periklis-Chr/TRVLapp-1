@@ -42,19 +42,19 @@ public class UpdateCostumersFragment extends Fragment {
         int cid = bundle.getInt("cid");
         String name = bundle.getString("name");
         String surname = bundle.getString("surname");
-        int phone = bundle.getInt("phone");
+        long phone = bundle.getLong("phone");
         String email = bundle.getString("email");
         int pid = bundle.getInt("pid");
-        String hotel = bundle.getString("hotel");
+        int hotel = bundle.getInt("hotel");
 
 
-        binding.updateCostumerId.setText(cid);
+        binding.updateCostumerId.setText(String.valueOf(cid));
         binding.updateFirstNameEdit.setText(name);
         binding.updateLastNameEdit.setText(surname);
-        binding.updatePhoneEdit.setText(phone);
+        binding.updatePhoneEdit.setText(String.valueOf(phone));
         binding.updateEmailEdit.setText(email);
-        binding.updatePackageId.setText(pid);
-        binding.updatePackageHotel.setText(hotel);
+        binding.updatePackageId.setText(String.valueOf(pid));
+        binding.updatePackageHotel.setText(String.valueOf(hotel));
 
 
         //Update Costumer entry when onClick
@@ -65,10 +65,10 @@ public class UpdateCostumersFragment extends Fragment {
                 int id = Integer.parseInt(binding.updateCostumerId.getText().toString());
                 String name = binding.updateFirstNameEdit.getText().toString();
                 String surname = binding.updateLastNameEdit.getText().toString();
-                int phone = Integer.parseInt(binding.updatePhoneEdit.getText().toString());
+                long phone = Long.parseLong(binding.updatePhoneEdit.getText().toString());
                 String email = binding.updateEmailEdit.getText().toString();
                 int pid = Integer.parseInt(binding.updatePackageId.getText().toString());
-                String hotel = binding.updatePackageHotel.getText().toString();
+                int hotel = Integer.parseInt(binding.updatePackageHotel.getText().toString());
 
                 Costumers costumers = new Costumers();
                 costumers.setCid(id);

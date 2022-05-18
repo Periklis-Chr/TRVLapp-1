@@ -1,5 +1,6 @@
 package com.iee.trvlapp.roomEntities;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -7,7 +8,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "offices_table")
 public class Offices {
     @PrimaryKey()
-    @ColumnInfo(name ="Offices_id")
+    @ColumnInfo(name ="Offices_id")@NonNull
     private int Did;
     @ColumnInfo(name ="Offices_name")
     private String Name;

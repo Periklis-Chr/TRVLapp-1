@@ -7,6 +7,7 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
+
 import java.util.List;
 
 @Dao
@@ -30,8 +31,6 @@ public interface ToursDao {
 
     @Query("select * from Tours_table order by Tours_City ASC")
     public LiveData<List<Tours>> getToursOrderedByNameASC();
-
-
 
 
 }

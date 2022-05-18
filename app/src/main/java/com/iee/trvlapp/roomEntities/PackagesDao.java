@@ -33,5 +33,4 @@ public interface PackagesDao {
     public LiveData<List<Packages>> getPackagesOrderedByNameASC();
 
 
-
 }

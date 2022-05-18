@@ -110,7 +110,7 @@ public class CostumersFragment extends Fragment {
                 long phone = costumer.getPhone();
                 String email = costumer.getEmail();
                 int pid = costumer.getPid();
-                String hotel = costumer.getHotel();
+                int hotel = costumer.getHotel();
 
                 Bundle bundle = new Bundle();
                 bundle.putInt("cid", cid);
@@ -119,8 +119,8 @@ public class CostumersFragment extends Fragment {
                 bundle.putLong("phone", phone);
                 bundle.putString("email", email);
                 bundle.putInt("pid", pid);
-                bundle.putString("hotel", hotel);
-                bundle.putString("hotel", hotel);
+                bundle.putInt("hotel", hotel);
+
 
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

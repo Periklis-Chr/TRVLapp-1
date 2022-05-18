@@ -1,15 +1,26 @@
 package com.iee.trvlapp.roomEntities;
 
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "CityHotels_table")
+@Entity(tableName = "CityHotels_table",
+        foreignKeys = {
+                @ForeignKey(entity = Tours.class,
+                        parentColumns = "Tours_id",
+                        childColumns = "Hotels_tid",
+                        onDelete = ForeignKey.CASCADE,
+                        onUpdate = ForeignKey.CASCADE)})
+
+
 public class CityHotels {
 
     @PrimaryKey()
     @ColumnInfo(name = "Hotels_id")
+    @NonNull
     private int hid;
     @ColumnInfo(name = "Hotels_name")
     private String hotelName;

@@ -1,5 +1,6 @@
 package com.iee.trvlapp.roomEntities;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -7,7 +8,7 @@ import androidx.room.PrimaryKey;
 public class Tours {
 
     @PrimaryKey
-    @ColumnInfo(name ="Tours_id")
+    @ColumnInfo(name ="Tours_id")@NonNull
     private int Tid;
     @ColumnInfo(name ="Tours_City")
     private String City;

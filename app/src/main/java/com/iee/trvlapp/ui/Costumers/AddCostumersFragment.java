@@ -59,7 +59,7 @@ public class AddCostumersFragment extends Fragment {
         long costumer_phone = Long.parseLong(binding.phoneEdit.getText().toString());
         String costumer_email = binding.emailEdit.getText().toString();
         int costumer_pid = Integer.parseInt(binding.packageId.getText().toString());
-        String costumer_hotel = binding.packageHotel.getText().toString();
+        int costumer_hotel = Integer.parseInt(binding.packageHotel.getText().toString());
 
 
         Costumers costumer = new Costumers();

@@ -8,12 +8,12 @@ public class Costumers {
     long phone;
     private String email;
     private int pid;
-    private String hotel;
+    private  int hotel;
 
     public Costumers() {
     }
 
-    public Costumers(int cid, String name, String surname, long phone, String email, int pid, String hotel) {
+    public Costumers(int cid, String name, String surname, long phone, String email, int pid, int hotel) {
         this.cid = cid;
         this.name = name;
         this.surname = surname;
@@ -71,11 +71,11 @@ public class Costumers {
         this.pid = pid;
     }
 
-    public String getHotel() {
+    public int getHotel() {
         return hotel;
     }
 
-    public void setHotel(String hotel) {
+    public void setHotel(int hotel) {
         this.hotel = hotel;
     }
 }

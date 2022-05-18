@@ -6,13 +6,20 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.iee.trvlapp.FirestoreEntities.Costumers;
+import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
+import com.iee.trvlapp.roomEntities.Offices;
+import com.iee.trvlapp.roomEntities.Packages;
+import com.iee.trvlapp.roomEntities.Tours;
+
+import java.util.List;
 
 
 public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costumers, CostumerRecyclerViewAdapter.CostumerHolder> {
@@ -35,6 +42,8 @@ public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costum
         TextView email;
         TextView pid;
         TextView hotel;
+        TextView city;
+        TextView country;
 
         public CostumerHolder(View view) {
             super(view);
@@ -45,6 +54,10 @@ public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costum
             email = view.findViewById(R.id.costumer_row_email);
             pid = view.findViewById(R.id.costumer_row_pid);
             hotel = view.findViewById(R.id.costumer_row_hotel);
+
+            city = view.findViewById(R.id.costumer_row_city);
+            country = view.findViewById(R.id.costumer_row_country);
+
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -69,7 +82,6 @@ public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costum
         this.listener = listener;
     }
 
-
     @NonNull
     @Override
     public CostumerHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
@@ -87,7 +99,6 @@ public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costum
         holder.email.setText(String.valueOf(model.getEmail()));
         holder.pid.setText(String.valueOf(model.getPid()));
         holder.hotel.setText(String.valueOf(model.getHotel()));
-
     }
 
 

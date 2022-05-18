@@ -105,7 +105,7 @@
 
 
             android:padding="8dp"
-            android:text="duration"
+            android:text="pid"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="@+id/costumer_row_phone"
             app:layout_constraintTop_toBottomOf="@+id/costumer_row_phone"
@@ -119,11 +119,42 @@
 
 
             android:padding="8dp"
-            android:text="test"
+            android:text="hotel"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="@+id/costumer_row_email"
             app:layout_constraintTop_toBottomOf="@+id/costumer_row_email"
             />
+
+
+        <TextView
+            android:id="@+id/costumer_row_city"
+            android:layout_width="147dp"
+            android:layout_height="wrap_content"
+
+
+            android:padding="8dp"
+            android:text="city"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toStartOf="@+id/costumer_row_pid"
+            app:layout_constraintTop_toBottomOf="@+id/costumer_row_pid"
+            />
+
+
+        <TextView
+            android:id="@+id/costumer_row_country"
+            android:layout_width="147dp"
+            android:layout_height="wrap_content"
+
+
+            android:padding="8dp"
+            android:text="country"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toStartOf="@+id/costumer_row_hotel"
+            app:layout_constraintTop_toBottomOf="@+id/costumer_row_hotel"
+            />
+
+
+
 
 
 

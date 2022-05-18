@@ -1,26 +1,44 @@
 package com.iee.trvlapp.roomEntities;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "Packages_table")
+@Entity(tableName = "Packages_table",
+        foreignKeys = {@ForeignKey(entity = Offices.class,
+                parentColumns = "Offices_id",
+                childColumns = "Packages_Did",
+                onDelete = ForeignKey.CASCADE,
+                onUpdate = ForeignKey.CASCADE),
+                @ForeignKey(entity = Tours.class,
+                        parentColumns = "Tours_id",
+                        childColumns = "Packages_Tid",
+                        onDelete = ForeignKey.CASCADE,
+                        onUpdate = ForeignKey.CASCADE)})
+
+
 public class Packages {
 
     @PrimaryKey
-    @ColumnInfo(name ="Packages_id")
+    @ColumnInfo(name = "Packages_id")
+    @NonNull
     private int Pid;
-    @ColumnInfo(name ="Packages_Did")
+    @ColumnInfo(name = "Packages_Did")
+    @NonNull
     private int Did;
-    @ColumnInfo(name ="Packages_Tid")
+    @ColumnInfo(name = "Packages_Tid")
+    @NonNull
     private int Tid;
-    @ColumnInfo(name ="Packages_DepartureTime")
+    @ColumnInfo(name = "Packages_DepartureTime")
     private int DepartureTime;
-    @ColumnInfo(name ="Packages_Cost")
+    @ColumnInfo(name = "Packages_Cost")
     private Double Cost;
 
 
-    public Packages(){}
+    public Packages() {
+    }
 
     public Packages(int pid, int did, int tid, int departureTime, Double cost) {
         Pid = pid;

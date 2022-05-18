@@ -19,7 +19,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.iee.trvlapp.roomEntities.CityCoordinates;
+import com.iee.trvlapp.ObjectEntities.CityCoordinates;
 
 
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ public class ToursMapsFragment extends Fragment {
             CityCoordinates temp = new CityCoordinates();
             for (int i = 0; i < array.length; i++) {
 
-                if (array[i].getCityName().equals(id) && array[i] != null) {
+                if (array[i].getCityNAme().equals(id) && array[i] != null) {
                     temp = array[i];
                 }
 
