@@ -7,10 +7,12 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-import android.widget.Toolbar;
+//import android.widget.Toolbar;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -18,14 +20,18 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.NavigatorState;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.navigation.NavigationView;
 import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
+import com.iee.trvlapp.databinding.ActivityMainBinding;
 import com.iee.trvlapp.databinding.FragmentUpdateOfficesBinding;
 import com.iee.trvlapp.roomEntities.Offices;
 
 public class UpdateOfficesFragment extends Fragment {
-
+    private AppBarConfiguration mAppBarConfiguration;
 
     private FragmentUpdateOfficesBinding binding;
 
@@ -37,14 +43,15 @@ public class UpdateOfficesFragment extends Fragment {
         binding = FragmentUpdateOfficesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+
         //// get data between fragment transaction
 
         Bundle bundle = getArguments();
-        String id = bundle.getString("id");
+        int id = bundle.getInt("id");
         String name = bundle.getString("name");
         String address = bundle.getString("address");
         Toast.makeText(getActivity(), name, Toast.LENGTH_SHORT).show();
-        binding.updateOfficeId.setText(id);
+        binding.updateOfficeId.setText(String.valueOf(id));
         binding.updateOfficeName.setText(name);
         binding.updateOfficeAddress.setText(address);
 
@@ -53,11 +60,11 @@ public class UpdateOfficesFragment extends Fragment {
         binding.updateOfficeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String id = binding.updateOfficeId.getText().toString();
+                int id = Integer.parseInt(binding.updateOfficeId.getText().toString());
                 String name = binding.updateOfficeName.getText().toString();
                 String address = binding.updateOfficeAddress.getText().toString();
                 Offices office = new Offices();
-                office.setDid(Integer.parseInt(id));
+                office.setDid(id);
                 office.setName(name);
                 office.setAddress(address);
                 officesViewModel.updateOffice(office);
@@ -82,6 +89,7 @@ public class UpdateOfficesFragment extends Fragment {
                 UpdateOfficesFragment updateOfficesFragment = new UpdateOfficesFragment();
                 fragmentTransaction.replace(R.id.nav_host_fragment_content_main, officesFragment);
                 fragmentTransaction.commit();
+
             }
         });
 

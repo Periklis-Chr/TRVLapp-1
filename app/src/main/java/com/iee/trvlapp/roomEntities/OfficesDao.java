@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
@@ -13,7 +14,7 @@ import java.util.List;
 
 @Dao
 public interface OfficesDao {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.ABORT)
     public void addOffice(Offices office);
 
     @Query("select * from offices_table")
@@ -22,7 +23,7 @@ public interface OfficesDao {
     @Delete()
     public void deleteOffices(Offices office);
 
-    @Update
+    @Update(onConflict = OnConflictStrategy.ABORT)
     public void updateOffices(Offices office);
 
     @Query("select * from offices_table order by Offices_name DESC")

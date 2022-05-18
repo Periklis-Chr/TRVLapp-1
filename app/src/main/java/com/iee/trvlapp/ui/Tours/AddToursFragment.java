@@ -50,7 +50,7 @@ public class AddToursFragment extends Fragment {
         int tour_id = Integer.parseInt(binding.TourId.getText().toString());
         String tour_city = binding.TourCity.getText().toString();
         String tour_country = binding.TourCountry.getText().toString();
-        String tour_duration = binding.tourDuration.getText().toString();
+        int tour_duration = Integer.parseInt(binding.tourDuration.getText().toString());
         String tour_type = binding.tourType.getText().toString();
 
         Tours tour = new Tours();

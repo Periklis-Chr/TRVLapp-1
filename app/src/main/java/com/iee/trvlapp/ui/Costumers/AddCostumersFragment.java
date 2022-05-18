@@ -53,12 +53,12 @@ public class AddCostumersFragment extends Fragment {
 
     public void insertCostumersData() {
 
-        String costumer_id = binding.costumerId.getText().toString();
+        int costumer_id = Integer.parseInt(binding.costumerId.getText().toString());
         String costumer_name = binding.firstNameEdit.getText().toString();
         String costumer_surname = binding.lastNameEdit.getText().toString();
-        String costumer_phone = binding.phoneEdit.getText().toString();
+        long costumer_phone = Long.parseLong(binding.phoneEdit.getText().toString());
         String costumer_email = binding.emailEdit.getText().toString();
-        String costumer_pid = binding.packageId.getText().toString();
+        int costumer_pid = Integer.parseInt(binding.packageId.getText().toString());
         String costumer_hotel = binding.packageHotel.getText().toString();
 
 

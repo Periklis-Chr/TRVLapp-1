@@ -39,12 +39,12 @@ public class UpdateCostumersFragment extends Fragment {
         // get data between fragment transaction
 
         Bundle bundle = getArguments();
-        String cid = bundle.getString("cid");
+        int cid = bundle.getInt("cid");
         String name = bundle.getString("name");
         String surname = bundle.getString("surname");
-        String phone = bundle.getString("phone");
+        int phone = bundle.getInt("phone");
         String email = bundle.getString("email");
-        String pid = bundle.getString("pid");
+        int pid = bundle.getInt("pid");
         String hotel = bundle.getString("hotel");
 
 
@@ -62,12 +62,12 @@ public class UpdateCostumersFragment extends Fragment {
         binding.updateCostumerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String id = binding.updateCostumerId.getText().toString();
+                int id = Integer.parseInt(binding.updateCostumerId.getText().toString());
                 String name = binding.updateFirstNameEdit.getText().toString();
                 String surname = binding.updateLastNameEdit.getText().toString();
-                String phone = binding.updatePhoneEdit.getText().toString();
+                int phone = Integer.parseInt(binding.updatePhoneEdit.getText().toString());
                 String email = binding.updateEmailEdit.getText().toString();
-                String pid = binding.updatePackageId.getText().toString();
+                int pid = Integer.parseInt(binding.updatePackageId.getText().toString());
                 String hotel = binding.updatePackageHotel.getText().toString();
 
                 Costumers costumers = new Costumers();
@@ -80,7 +80,7 @@ public class UpdateCostumersFragment extends Fragment {
                 costumers.setHotel(hotel);
 
 
-                DocumentReference data = MainActivity.appDb.collection("costumers").document(id);
+                DocumentReference data = MainActivity.appDb.collection("costumers").document(String.valueOf(id));
 
                 data.update("cid", id);
                 data.update("name", name);

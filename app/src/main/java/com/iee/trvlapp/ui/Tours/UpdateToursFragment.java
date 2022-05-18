@@ -56,15 +56,15 @@ public class UpdateToursFragment extends Fragment {
         binding.updateToursButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String id = binding.updateTourId.getText().toString();
+                int id = Integer.parseInt(binding.updateTourId.getText().toString());
                 String city = binding.updateTourCity.getText().toString();
                 String country = binding.updateTourCountry.getText().toString();
-                String duration = binding.updateTourDuration.getText().toString();
+                int duration = Integer.parseInt(binding.updateTourDuration.getText().toString());
                 String type = binding.updateTourType.getText().toString();
 
 
                 Tours tour = new Tours();
-                tour.setTid(Integer.parseInt(id));
+                tour.setTid(id);
                 tour.setCity(city);
                 tour.setCountry(country);
                 tour.setDuration(duration);

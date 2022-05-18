@@ -14,6 +14,14 @@ public class Offices {
     @ColumnInfo(name ="Offices_address")
     private String Address;
 
+    public Offices(){}
+
+    public Offices(int did, String name, String address) {
+        Did = did;
+        Name = name;
+        Address = address;
+    }
+
     public int getDid() {
         return Did;
     }

@@ -19,6 +19,17 @@ public class Packages {
     @ColumnInfo(name ="Packages_Cost")
     private Double Cost;
 
+
+    public Packages(){}
+
+    public Packages(int pid, int did, int tid, int departureTime, Double cost) {
+        Pid = pid;
+        Did = did;
+        Tid = tid;
+        DepartureTime = departureTime;
+        Cost = cost;
+    }
+
     public int getPid() {
         return Pid;
     }

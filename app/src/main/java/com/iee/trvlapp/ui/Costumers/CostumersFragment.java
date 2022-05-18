@@ -104,21 +104,21 @@ public class CostumersFragment extends Fragment {
             @Override
             public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
                 Costumers costumer = documentSnapshot.toObject(Costumers.class);
-                String cid = costumer.getCid();
+                int cid = costumer.getCid();
                 String name = costumer.getName();
                 String surname = costumer.getSurname();
-                String phone = costumer.getPhone();
+                long phone = costumer.getPhone();
                 String email = costumer.getEmail();
-                String pid = costumer.getPid();
+                int pid = costumer.getPid();
                 String hotel = costumer.getHotel();
 
                 Bundle bundle = new Bundle();
-                bundle.putString("cid", cid);
+                bundle.putInt("cid", cid);
                 bundle.putString("name", name);
                 bundle.putString("surname", surname);
-                bundle.putString("phone", phone);
+                bundle.putLong("phone", phone);
                 bundle.putString("email", email);
-                bundle.putString("pid", pid);
+                bundle.putInt("pid", pid);
                 bundle.putString("hotel", hotel);
                 bundle.putString("hotel", hotel);
 

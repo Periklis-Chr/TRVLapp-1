@@ -117,17 +117,17 @@ public class ToursFragment extends Fragment {
         adapter.setOnItemClickListener(new TourRecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Tours tours) {
-                String id = String.valueOf(tours.getTid());
+                int id = tours.getTid();
                 String city = tours.getCity().toString();
                 String country = tours.getCountry().toString();
-                String duration = tours.getDuration().toString();
+                int duration = tours.getDuration();
                 String type = tours.getType().toString();
 
                 Bundle bundle = new Bundle();
-                bundle.putString("id", id);
+                bundle.putInt("id", id);
                 bundle.putString("city", city);
                 bundle.putString("country", country);
-                bundle.putString("duration", duration);
+                bundle.putInt("duration", duration);
                 bundle.putString("type", type);
 
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();

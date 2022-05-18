@@ -33,6 +33,8 @@ import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentOfficesBinding;
 import com.iee.trvlapp.roomEntities.Offices;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemClickListener {
@@ -115,12 +117,12 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
         adapter.setOnItemClickListener(new OfficeRecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Offices office) {
-                String id = String.valueOf(office.getDid());
+                int id = office.getDid();
                 String name = office.getName().toString();
                 String address = office.getAddress().toString();
 
                 Bundle bundle = new Bundle();
-                bundle.putString("id", id);
+                bundle.putInt("id", id);
                 bundle.putString("name", name);
                 bundle.putString("address", address);
 

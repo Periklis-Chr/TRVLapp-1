@@ -14,9 +14,19 @@ public class Tours {
     @ColumnInfo(name ="Tours_Country")
     private String Country;
     @ColumnInfo(name ="Tours_Duration")
-    private String Duration;
+    private int Duration;
     @ColumnInfo(name ="Tours_Type")
     private String Type;
+
+
+    public Tours(){}
+    public Tours(int tid, String city, String country, int duration, String type) {
+        Tid = tid;
+        City = city;
+        Country = country;
+        Duration = duration;
+        Type = type;
+    }
 
     public int getTid() {
         return Tid;
@@ -42,11 +52,11 @@ public class Tours {
         Country = country;
     }
 
-    public String getDuration() {
+    public int getDuration() {
         return Duration;
     }
 
-    public void setDuration(String duration) {
+    public void setDuration(int duration) {
         Duration = duration;
     }
 

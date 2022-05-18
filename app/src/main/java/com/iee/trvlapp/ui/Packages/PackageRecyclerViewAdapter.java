@@ -76,11 +76,11 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
         Packages currentPackage = packages.get(position);
 
 
-        holder.id.setText(currentPackage.getPid() + "");
-        holder.ofid.setText(currentPackage.getDid() + "");
-        holder.tid.setText(currentPackage.getTid() + "");
-        holder.departure.setText(currentPackage.getDepartureTime() + "");
-        holder.cost.setText(currentPackage.getCost() + "");
+        holder.id.setText(String.valueOf(currentPackage.getPid()));
+        holder.ofid.setText(String.valueOf(currentPackage.getDid()));
+        holder.tid.setText(String.valueOf(currentPackage.getTid()));
+        holder.departure.setText(String.valueOf(currentPackage.getDepartureTime()));
+        holder.cost.setText(String.valueOf(currentPackage.getCost()));
 
     }
 

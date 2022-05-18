@@ -2,17 +2,18 @@ package com.iee.trvlapp.FirestoreEntities;
 
 public class Costumers {
 
-    private String cid;
+    int cid;
     private String name;
     private String surname;
-    private String phone;
+    long phone;
     private String email;
-    private String pid;
+    private int pid;
     private String hotel;
 
-    public Costumers() { }
+    public Costumers() {
+    }
 
-    public Costumers(String cid, String name, String surname, String phone, String email, String pid, String hotel) {
+    public Costumers(int cid, String name, String surname, long phone, String email, int pid, String hotel) {
         this.cid = cid;
         this.name = name;
         this.surname = surname;
@@ -22,11 +23,11 @@ public class Costumers {
         this.hotel = hotel;
     }
 
-    public String getCid() {
+    public int getCid() {
         return cid;
     }
 
-    public void setCid(String cid) {
+    public void setCid(int cid) {
         this.cid = cid;
     }
 
@@ -46,11 +47,11 @@ public class Costumers {
         this.surname = surname;
     }
 
-    public String getPhone() {
+    public long getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(long phone) {
         this.phone = phone;
     }
 
@@ -62,11 +63,11 @@ public class Costumers {
         this.email = email;
     }
 
-    public String getPid() {
+    public int getPid() {
         return pid;
     }
 
-    public void setPid(String pid) {
+    public void setPid(int pid) {
         this.pid = pid;
     }
 

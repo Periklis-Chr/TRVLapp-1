@@ -4,13 +4,14 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 import java.util.List;
 
 @Dao
 public interface ToursDao {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.ABORT)
     public void addTour(Tours tour);
 
     @Query("select * from Tours_table")
@@ -19,7 +20,7 @@ public interface ToursDao {
     @Delete
     public void deleteTours(Tours tour);
 
-    @Update
+    @Update(onConflict = OnConflictStrategy.ABORT)
     public void updateTours(Tours tour);
 
 

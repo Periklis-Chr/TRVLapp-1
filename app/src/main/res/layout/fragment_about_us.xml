@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Help.AboutUsFragment"
+    android:background="@color/blue">
+
+    <ImageView
+        android:id="@+id/firstDevImage"
+        android:layout_width="137dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="28dp"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="180dp"
+        tools:srcCompat="@mipmap/gmoi" />
+
+    <ImageView
+        android:id="@+id/secondDevImage"
+        android:layout_width="137dp"
+        android:layout_height="129dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="244dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/thirdDevImage"
+        android:layout_width="138dp"
+        android:layout_height="133dp"
+        android:layout_marginStart="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="533dp"
+        tools:srcCompat="@mipmap/karezos" />
+
+    <TextView
+        android:id="@+id/firstDevBio"
+        android:layout_width="160dp"
+        android:layout_height="125dp"
+        android:text="Bio    Bio  \n\n Bio    Bio  \n\nBio    Bio  \n\n"
+        android:textColor="@color/orange"
+        tools:layout_editor_absoluteX="202dp"
+        tools:layout_editor_absoluteY="180dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/secondDevBio"
+        android:layout_width="163dp"
+        android:layout_height="128dp"
+        android:text="Bio    Bio  \n\n Bio    Bio  \n\nBio    Bio  \n\n"
+        android:textColor="@color/orange"
+        tools:layout_editor_absoluteX="201dp"
+        tools:layout_editor_absoluteY="357dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/thirdDevBio"
+        android:layout_width="162dp"
+        android:layout_height="129dp"
+        android:text="Bio    Bio  \n\n Bio    Bio  \n\nBio    Bio  \n\n"
+        android:textColor="@color/orange"
+        tools:layout_editor_absoluteX="200dp"
+        tools:layout_editor_absoluteY="533dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/AboutUsGenericText"
+        android:layout_width="331dp"
+        android:layout_height="111dp"
+        android:text="  Who are we ?\n\n generic info  \n\n generic info "
+        android:textColor="@color/orange"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="37dp"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -37,18 +37,18 @@ public class UpdatePackagesFragment extends Fragment {
         //listener for confirmation of data insertion
 
         Bundle bundle = getArguments();
-        String id = bundle.getString("id");
-        String ofid = bundle.getString("name");
-        String tid = bundle.getString("address");
-        String departure = bundle.getString("name");
-        String cost = bundle.getString("address");
+        int id = bundle.getInt("id");
+        int ofid = bundle.getInt("ofid");
+        int tid = bundle.getInt("tid");
+        int departure = bundle.getInt("departure");
+        double cost = bundle.getDouble("cost");
 
 
-        binding.updatePackageId.setText(id);
-        binding.updatePackageOfid.setText(ofid);
-        binding.updatePackageTid.setText(tid);
-        binding.updatePackageDeparture.setText(departure);
-        binding.updatePackageCost.setText(cost);
+        binding.updatePackageId.setText(String.valueOf(id));
+        binding.updatePackageOfid.setText(String.valueOf(ofid));
+        binding.updatePackageTid.setText(String.valueOf(tid));
+        binding.updatePackageDeparture.setText(String.valueOf(departure));
+        binding.updatePackageCost.setText(String.valueOf(cost));
 
 
         //onclick listener for updating Room data
@@ -56,16 +56,16 @@ public class UpdatePackagesFragment extends Fragment {
         binding.updatePackageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String id = binding.updatePackageId.getText().toString();
-                String ofid = binding.updatePackageOfid.getText().toString();
-                String tid = binding.updatePackageTid.getText().toString();
-                String departure = binding.updatePackageDeparture.getText().toString();
+                int id = Integer.parseInt(binding.updatePackageId.getText().toString());
+                int ofid = Integer.parseInt(binding.updatePackageOfid.getText().toString());
+                int tid = Integer.parseInt(binding.updatePackageTid.getText().toString());
+                int departure = Integer.parseInt(binding.updatePackageDeparture.getText().toString());
                 Double cost = Double.parseDouble(binding.updatePackageCost.getText().toString());
 
                 Packages packages = new Packages();
-                packages.setPid(Integer.parseInt(id));
-                packages.setDid(Integer.parseInt(ofid));
-                packages.setTid(Integer.parseInt(tid));
+                packages.setPid(id);
+                packages.setDid(ofid);
+                packages.setTid(tid);
                 packages.setCost(cost);
                 packagesViewModel.updatePackage(packages);
 

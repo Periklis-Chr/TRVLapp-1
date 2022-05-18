@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
+
+
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
+    tools:showIn="navigation_view"
+    >
 
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
             android:icon="@mipmap/home_icon"
             android:iconTint="@color/orange"
-            android:title="@string/menu_home" />
+            android:title="@string/menu_home"
+
+            />
         <item
             android:id="@+id/nav_offices"
             android:icon="@mipmap/offices_icon"
             android:iconTint="@color/orange"
-            android:title="@string/menu_offices" />
+            android:title="@string/menu_offices"
+            />
         <item
             android:id="@+id/nav_tours"
             android:icon="@mipmap/drawer_menu_tour_icon"
@@ -24,10 +32,29 @@
             android:icon="@mipmap/package_icon"
             android:iconTint="@color/orange"
             android:title="@string/menu_packages" />
+
+
         <item
             android:id="@+id/nav_costumers"
             android:icon="@mipmap/costumers_icon"
             android:iconTint="@color/orange"
-            android:title="@string/menu_costumers" />
-    </group>
+            android:title="@string/menu_costumers"
+
+
+            />
+
+      <item
+          android:id="@+id/nav_AboutUs"
+          android:icon="@mipmap/costumers_icon"
+          android:iconTint="@color/orange"
+          android:title="About Us"
+          />
+
+      <item
+          android:id="@+id/Help"
+          android:icon="@mipmap/costumers_icon"
+          android:iconTint="@color/orange"
+          android:title="Help"
+          />
+</group>
 </menu>

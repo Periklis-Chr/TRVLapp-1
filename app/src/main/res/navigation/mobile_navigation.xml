@@ -56,6 +56,9 @@
         <action
             android:id="@+id/action_nav_costumers_to_addCostumersFragment"
             app:destination="@id/addCostumersFragment" />
+        <action
+            android:id="@+id/action_nav_costumers_to_updateCostumersFragment"
+            app:destination="@id/updateCostumersFragment" />
     </fragment>
     <fragment
         android:id="@+id/addCostumersFragment"
@@ -120,4 +123,19 @@
             android:id="@+id/action_updatePackagesFragment_to_nav_packages"
             app:destination="@id/nav_packages" />
     </fragment>
+    <fragment
+        android:id="@+id/updateCostumersFragment"
+        android:name="com.iee.trvlapp.ui.Costumers.UpdateCostumersFragment"
+        android:label="fragment_update_costumers"
+        tools:layout="@layout/fragment_update_costumers" >
+        <action
+            android:id="@+id/action_updateCostumersFragment_to_nav_costumers"
+            app:destination="@id/nav_costumers" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_AboutUs"
+        android:name="com.iee.trvlapp.ui.Help.AboutUsFragment"
+        android:label="fragment_about_us"
+        tools:layout="@layout/fragment_about_us" />
+
 </navigation>
