@@ -53,47 +53,58 @@ public class AddCostumersFragment extends Fragment {
 
     public void insertCostumersData() {
 
-        int costumer_id = Integer.parseInt(binding.costumerId.getText().toString());
-        String costumer_name = binding.firstNameEdit.getText().toString();
-        String costumer_surname = binding.lastNameEdit.getText().toString();
-        long costumer_phone = Long.parseLong(binding.phoneEdit.getText().toString());
-        String costumer_email = binding.emailEdit.getText().toString();
-        int costumer_pid = Integer.parseInt(binding.packageId.getText().toString());
-        int costumer_hotel = Integer.parseInt(binding.packageHotel.getText().toString());
+
+        if (binding.costumerId.length() != 0 && binding.firstNameEdit.length() != 0 && binding.lastNameEdit.length() != 0 && binding.phoneEdit.length() != 0 && binding.emailEdit.length() != 0 && binding.packageId.length() != 0 && binding.packageHotel.length() != 0) {
 
 
-        Costumers costumer = new Costumers();
-        costumer.setCid(costumer_id);
-        costumer.setName(costumer_name);
-        costumer.setSurname(costumer_surname);
-        costumer.setPhone(costumer_phone);
-        costumer.setEmail(costumer_email);
-        costumer.setPid(costumer_pid);
-        costumer.setHotel(costumer_hotel);
+            int costumer_id = Integer.parseInt(binding.costumerId.getText().toString());
+            String costumer_name = binding.firstNameEdit.getText().toString();
+            String costumer_surname = binding.lastNameEdit.getText().toString();
+            long costumer_phone = Long.parseLong(binding.phoneEdit.getText().toString());
+            String costumer_email = binding.emailEdit.getText().toString();
+            int costumer_pid = Integer.parseInt(binding.packageId.getText().toString());
+            int costumer_hotel = Integer.parseInt(binding.packageHotel.getText().toString());
 
-        MainActivity.appDb.collection("costumers")
-                .document("" + costumer_id)
-                .set(costumer)
-                .addOnCompleteListener((task) -> {
-                    Toast.makeText(getActivity(), "data added on firestore", Toast.LENGTH_LONG).show();
 
-                    pushNotification();
+            Costumers costumer = new Costumers();
+            costumer.setCid(costumer_id);
+            costumer.setName(costumer_name);
+            costumer.setSurname(costumer_surname);
+            costumer.setPhone(costumer_phone);
+            costumer.setEmail(costumer_email);
+            costumer.setPid(costumer_pid);
+            costumer.setHotel(costumer_hotel);
 
-                })
-                .addOnFailureListener((e) -> {
-                    Toast.makeText(getActivity(), "failed to add data on firestore", Toast.LENGTH_LONG).show();
-                });
+            MainActivity.appDb.collection("costumers")
+                    .document("" + costumer_id)
+                    .set(costumer)
+                    .addOnCompleteListener((task) -> {
+                        Toast.makeText(getActivity(), "data added on firestore", Toast.LENGTH_LONG).show();
 
-        binding.costumerId.setText("");
-        binding.firstNameEdit.setText("");
-        binding.lastNameEdit.setText("");
-        binding.emailEdit.setText("");
-        binding.phoneEdit.setText("");
-        binding.packageHotel.setText("");
-        binding.packageId.setText("");
-        binding.packageHotel.setText("");
+                        pushNotification();
 
-        Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addCostumersFragment_to_nav_costumers);
+                    })
+                    .addOnFailureListener((e) -> {
+                        Toast.makeText(getActivity(), "failed to add data on firestore", Toast.LENGTH_LONG).show();
+                    });
+
+            binding.costumerId.setText("");
+            binding.firstNameEdit.setText("");
+            binding.lastNameEdit.setText("");
+            binding.emailEdit.setText("");
+            binding.phoneEdit.setText("");
+            binding.packageHotel.setText("");
+            binding.packageId.setText("");
+            binding.packageHotel.setText("");
+            Toast.makeText(getActivity(), "Costumer Added", Toast.LENGTH_SHORT).show();
+            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addCostumersFragment_to_nav_costumers);
+
+
+        } else {
+            Toast.makeText(getActivity(), "fill all fields", Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
 

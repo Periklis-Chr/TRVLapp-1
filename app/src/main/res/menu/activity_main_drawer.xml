@@ -44,14 +44,14 @@
             />
 
       <item
-          android:id="@+id/nav_AboutUs"
+          android:id="@+id/nav_about"
           android:icon="@mipmap/about_icon"
           android:iconTint="@color/orange"
           android:title="About Us"
           />
 
       <item
-          android:id="@+id/Help"
+          android:id="@+id/nav_help"
           android:icon="@mipmap/help_icon"
           android:iconTint="@color/orange"
           android:title="Help"

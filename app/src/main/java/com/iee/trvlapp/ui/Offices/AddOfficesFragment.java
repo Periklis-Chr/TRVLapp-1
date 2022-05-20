@@ -47,26 +47,26 @@ public class AddOfficesFragment extends Fragment {
     //insert data to Room db
     public void insertOfficeData() {
 
-        int office_id = Integer.parseInt(binding.officeId.getText().toString());
+        String office_id = binding.officeId.getText().toString();
         String office_name = binding.OfficeName.getText().toString();
         String office_address = binding.officeAddress.getText().toString();
 
 
-        Offices office = new Offices();
+        if (binding.officeId.length() != 0 && binding.OfficeName.length() != 0 && binding.officeAddress.length() != 0) {
+            Offices office = new Offices();
 
-        office.setDid(office_id);
-        office.setName(office_name);
-        office.setAddress(office_address);
+            office.setDid(Integer.parseInt(office_id));
+            office.setName(office_name);
+            office.setAddress(office_address);
 
-        MainActivity.appDatabase.officesDao().addOffice(office);
+            MainActivity.appDatabase.officesDao().addOffice(office);
 
-        Toast.makeText(getActivity(), "Office Added Succesfully", Toast.LENGTH_LONG).show();
-        Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addOfficesFragment_to_nav_offices);
+            Toast.makeText(getActivity(), "Office Added Succesfully", Toast.LENGTH_LONG).show();
+            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addOfficesFragment_to_nav_offices);
+        } else {
+            Toast.makeText(getActivity(), "Fill all fields", Toast.LENGTH_LONG).show();
+        }
     }
-
-//    public boolean inputCheck(String office_id, String Office_name, String office_address) {
-//        return ( office_id.equals("") && office_address.equals("") && Office_name.equals(""));
-//    }
 
 
     @Override

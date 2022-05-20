@@ -1,24 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.SupportingClasses.AboutUsFragment"
+    android:background="@color/blue"
    >
 
-    <ImageView
-        android:id="@+id/firstDevImage"
-        android:layout_width="137dp"
-        android:layout_height="130dp"
-        android:layout_marginStart="28dp"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="180dp"
-        android:visibility="visible"
 
-        tools:src="@drawable/gmoi"
-        android:contentDescription="TODO" />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Developers Bio"
+        android:textAlignment="center"
+        android:textColor="@color/orange"
+        android:textSize="30dp"></TextView>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/second"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="15dp">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="190dp"
+            android:layout_height="164dp"
+            android:src="@drawable/gmoi"></ImageView>
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/orange"
+        android:text="My name is Giorgos Moisidis and im studing Computer Science at DIPAE"></TextView>
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/third"
+        android:layout_marginTop="15dp">
+        >
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="190dp"
+            android:layout_height="164dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/karezos"></ImageView>
+
+        <TextView
+            android:layout_width="192dp"
+            android:layout_height="162dp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/orange"
+            android:text="My name is Athanasios Karezos and im studing Computer Science at DIPAE"
+            android:textAlignment="center"></TextView>
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:id="@+id/third"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/second"
+        android:layout_marginTop="15dp">
+        >
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="190dp"
+            android:layout_height="164dp"
+            android:layout_marginStart="10dp"
+            android:src="@mipmap/trvl_logo1"></ImageView>
+
+        <TextView
+            android:layout_width="192dp"
+            android:layout_height="162dp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/orange"
+            android:text="My name is Periklis Gousios and im studing Computer Science at DIPAE"
+            android:textAlignment="center"></TextView>
+
+    </LinearLayout>
+
+</RelativeLayout>

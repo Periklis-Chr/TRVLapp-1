@@ -47,23 +47,31 @@ public class AddToursFragment extends Fragment {
 
     public void insertToursData() {
 
-        int tour_id = Integer.parseInt(binding.TourId.getText().toString());
+       String tour_id =binding.TourId.getText().toString();
         String tour_city = binding.TourCity.getText().toString();
         String tour_country = binding.TourCountry.getText().toString();
-        int tour_duration = Integer.parseInt(binding.tourDuration.getText().toString());
+        String tour_duration =binding.tourDuration.getText().toString();
         String tour_type = binding.tourType.getText().toString();
 
-        Tours tour = new Tours();
-        tour.setTid(tour_id);
-        tour.setCity(tour_city);
-        tour.setCountry(tour_country);
-        tour.setDuration(tour_duration);
-        tour.setType(tour_type);
 
-        MainActivity.appDatabase.toursDao().addTour(tour);
+        if (binding.TourId.length() != 0 && binding.TourCity.length() != 0 && binding.TourCountry.length() != 0 && binding.tourDuration.length() != 0 && binding.tourType.length() != 0) {
 
-        Toast.makeText(getActivity(), "Tour Added Successfully", Toast.LENGTH_LONG).show();
-        Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addToursFragment_to_nav_tours);
+
+            Tours tour = new Tours();
+            tour.setTid(Integer.parseInt(tour_id));
+            tour.setCity(tour_city);
+            tour.setCountry(tour_country);
+            tour.setDuration( Integer.parseInt(tour_duration));
+            tour.setType(tour_type);
+
+            MainActivity.appDatabase.toursDao().addTour(tour);
+
+            Toast.makeText(getActivity(), "Tour Added Successfully", Toast.LENGTH_LONG).show();
+            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addToursFragment_to_nav_tours);
+        }else{
+            Toast.makeText(getActivity(), "Fill al fields", Toast.LENGTH_LONG).show();
+        }
+
     }
 
 

@@ -29,8 +29,6 @@ public class AddPackagesFragment extends Fragment {
     private FragmentAddPackagesBinding binding;
 
 
-
-
     AutoCompleteTextView autocompleteText;
     AutoCompleteTextView autocompleteOfficeText;
 
@@ -119,34 +117,42 @@ public class AddPackagesFragment extends Fragment {
     //insert data to db
 
     public void insertPackageData() {
-
+        int tid = 0;
+        int ofid = 0;
         String tidString = binding.autoCompletePtid.getText().toString();
-        String tidCut = tidString.substring(0, tidString.indexOf(" "));
-        int tid = Integer.parseInt(tidCut);
-
+        if (!tidString.isEmpty()) {
+            String tidCut = tidString.substring(0, tidString.indexOf(" "));
+            tid = Integer.parseInt(tidCut);
+        }
         String ofidString = binding.autoCompleteOfficeid.getText().toString();
-        String ofidCut = ofidString.substring(0, ofidString.indexOf(" "));
-        int ofid = Integer.parseInt(ofidCut);
+        if (!ofidString.isEmpty()) {
+            String ofidCut = ofidString.substring(0, ofidString.indexOf(" "));
+            ofid = Integer.parseInt(ofidCut);
+        }
 
-
-        int package_id = Integer.parseInt(binding.PackageId.getText().toString());
+        String package_id = binding.PackageId.getText().toString();
 //        int package_ofid = Integer.parseInt(binding.PackageOfid.getText().toString());
 //        int package_tid = Integer.parseInt(binding.packageTid.getText().toString());
-        int package_departure = Integer.parseInt(binding.packageDeparture.getText().toString());
-        Double package_cost = Double.parseDouble(binding.packageCost.getText().toString());
+        String package_departure = binding.packageDeparture.getText().toString();
+        String package_cost = binding.packageCost.getText().toString();
 
-        Packages Package = new Packages();
-        Package.setPid(package_id);
-        Package.setDid(ofid);
-        Package.setTid(tid);
-        Package.setDepartureTime(package_departure);
-        Package.setCost(package_cost);
+        if (binding.PackageId.length() != 0 && binding.autoCompletePtid.length() != 0 && binding.autoCompleteOfficeid.length() != 0 && binding.packageDeparture.length() != 0 && binding.packageCost.length() != 0) {
 
-        MainActivity.appDatabase.packagesDao().addPackage(Package);
 
-        Toast.makeText(getActivity(), "Package Added Succesfully", Toast.LENGTH_LONG).show();
-        Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addPackagesFragment_to_nav_packages);
+            Packages Package = new Packages();
+            Package.setPid(Integer.parseInt(package_id));
+            Package.setDid(ofid);
+            Package.setTid(tid);
+            Package.setDepartureTime(Integer.parseInt(package_departure));
+            Package.setCost(Double.parseDouble(package_cost));
 
+            MainActivity.appDatabase.packagesDao().addPackage(Package);
+
+            Toast.makeText(getActivity(), "Package Added Succesfully", Toast.LENGTH_LONG).show();
+            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addPackagesFragment_to_nav_packages);
+        } else {
+            Toast.makeText(getActivity(), "fill all fields", Toast.LENGTH_LONG).show();
+        }
     }
 
 

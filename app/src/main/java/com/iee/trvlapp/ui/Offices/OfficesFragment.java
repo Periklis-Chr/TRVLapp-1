@@ -131,6 +131,7 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
                 UpdateOfficesFragment updateOfficesFragment = new UpdateOfficesFragment();
                 updateOfficesFragment.setArguments(bundle);
                 fragmentTransaction.replace(R.id.nav_host_fragment_content_main, updateOfficesFragment);
+
                 fragmentTransaction.commit();
             }
         });
