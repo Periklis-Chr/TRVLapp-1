@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/gmoi/Desktop/android/app/src/main/res/layout/fragment_about_us.xml" value="0.47291666666666665" />
+        <entry key="..\:/Users/gmoi/Desktop/android/app/src/main/res/layout/fragment_add_packages.xml" value="0.47291666666666665" />
+        <entry key="..\:/Users/gmoi/Desktop/android/app/src/main/res/layout/fragment_update_packages.xml" value="0.5303442028985508" />
         <entry key="..\:/android/app/src/main/res/drawable/side_nav_bar.xml" value="0.3925" />
         <entry key="..\:/android/app/src/main/res/layout/activity_main.xml" value="0.18181818181818182" />
         <entry key="..\:/android/app/src/main/res/layout/app_bar_main.xml" value="0.1" />
@@ -23,7 +26,7 @@
         <entry key="..\:/android/app/src/main/res/layout/fragment_slideshow.xml" value="0.358695652173913" />
         <entry key="..\:/android/app/src/main/res/layout/fragment_tours.xml" value="0.1" />
         <entry key="..\:/android/app/src/main/res/layout/fragment_update_costumers.xml" value="0.25987841945288753" />
-        <entry key="..\:/android/app/src/main/res/layout/fragment_update_offices.xml" value="0.2" />
+        <entry key="..\:/android/app/src/main/res/layout/fragment_update_offices.xml" value="0.25" />
         <entry key="..\:/android/app/src/main/res/layout/fragment_update_packages.xml" value="0.5385416666666667" />
         <entry key="..\:/android/app/src/main/res/layout/fragment_update_tours.xml" value="0.55" />
         <entry key="..\:/android/app/src/main/res/layout/nav_header_main.xml" value="0.35336538461538464" />

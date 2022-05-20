@@ -101,7 +101,7 @@ public class PackagesFragment extends Fragment {
         adapter.setOnItemClickListener(new PackageRecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Packages packages) {
-                int id = packages.getDid();
+                int id = packages.getPid();
                 int ofid = packages.getDid();
                 int tid = packages.getTid();
                 int departure = packages.getDepartureTime();
@@ -113,6 +113,8 @@ public class PackagesFragment extends Fragment {
                 bundle.putInt("tid", tid);
                 bundle.putInt("departure", departure);
                 bundle.putDouble("cost", cost);
+                bundle.putBoolean("flagTour",false);
+                bundle.putBoolean("flagOffice",false);
 
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

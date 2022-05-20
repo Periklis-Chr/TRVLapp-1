@@ -51,7 +51,7 @@ public class UpdateOfficesFragment extends Fragment {
         String name = bundle.getString("name");
         String address = bundle.getString("address");
         Toast.makeText(getActivity(), name, Toast.LENGTH_SHORT).show();
-        binding.updateOfficeId.setText(String.valueOf(id));
+//        binding.updateOfficeId.setText(String.valueOf(id));
         binding.updateOfficeName.setText(name);
         binding.updateOfficeAddress.setText(address);
 
@@ -60,7 +60,7 @@ public class UpdateOfficesFragment extends Fragment {
         binding.updateOfficeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int id = Integer.parseInt(binding.updateOfficeId.getText().toString());
+//                int id = Integer.parseInt(binding.updateOfficeId.getText().toString());
                 String name = binding.updateOfficeName.getText().toString();
                 String address = binding.updateOfficeAddress.getText().toString();
                 Offices office = new Offices();

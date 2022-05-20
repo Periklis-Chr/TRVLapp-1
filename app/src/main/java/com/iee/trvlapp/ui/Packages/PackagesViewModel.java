@@ -22,7 +22,7 @@ public class PackagesViewModel extends ViewModel {
     private List<Offices> officesList;
     private Tours tourForAdapter;
     private Packages packageForAdapter;
-
+private Offices officeForAdapter;
     public PackagesViewModel() {
         packageList = MainActivity.appDatabase.packagesDao().getPackages();
         packagesListNameDESC = MainActivity.appDatabase.packagesDao().getPackagesOrderedByNameDesc();
@@ -51,7 +51,7 @@ public class PackagesViewModel extends ViewModel {
     }
 
     public void updatePackage(Packages packages) {
-        MainActivity.appDatabase.packagesDao().deletePackages(packages);
+        MainActivity.appDatabase.packagesDao().updatePackages(packages);
     }
 
     public LiveData<List<Packages>> getPackagesOrderByNameDesc() {
@@ -76,6 +76,12 @@ public class PackagesViewModel extends ViewModel {
         return tourForAdapter;
     }
 
+
+    public Offices getOfficeById(int id) {
+        officeForAdapter = MainActivity.appDatabase.officesDao().getOfficeById(id);
+
+        return officeForAdapter;
+    }
 
 }
 

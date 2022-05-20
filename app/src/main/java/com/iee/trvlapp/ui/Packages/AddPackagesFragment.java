@@ -28,15 +28,15 @@ public class AddPackagesFragment extends Fragment {
 
     private FragmentAddPackagesBinding binding;
 
-    List<Tours> toursList;
-    List<Offices> officesList;
+
 
 
     AutoCompleteTextView autocompleteText;
     AutoCompleteTextView autocompleteOfficeText;
 
     ArrayAdapter<String> adapterItems;
-
+    List<Tours> toursList;
+    List<Offices> officesList;
     ArrayAdapter<String> adapterOfficeItems;
 
     public View onCreateView(@NonNull LayoutInflater inflater,

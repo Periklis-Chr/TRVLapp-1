@@ -8,7 +8,8 @@
     android:padding="30dp"
     android:background="@drawable/base"
     android:orientation="vertical"
-    tools:context=".ui.Offices.UpdateOfficesFragment">
+    tools:context=".ui.Offices.UpdateOfficesFragment"
+    android:backgroundTint="@color/blue">
 
     <ScrollView
         android:id="@+id/scroll"
@@ -24,28 +25,46 @@
 
 
 
-            <EditText
-                android:id="@+id/update_office_id"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="333dp"
-                android:layout_height="60dp"
-                android:background="@drawable/selector"
-                android:drawableLeft="@drawable/ic_baseline_person_24"
-                android:drawablePadding="20dp"
-                android:fontFamily="@font/red_hat_text_regular"
-                android:hint="Office id"
-                android:inputType="number"
-                android:padding="20dp"
-                android:textColor="@color/black"
-                android:textSize="20dp" />
+<!--            <EditText-->
+<!--                android:id="@+id/update_office_id"-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                android:layout_width="333dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:background="@drawable/selector"-->
+<!--                android:drawableLeft="@drawable/ic_baseline_person_24"-->
+<!--                android:drawablePadding="20dp"-->
+<!--                android:fontFamily="@font/red_hat_text_regular"-->
+<!--                android:hint="Office id"-->
+<!--                android:inputType="number"-->
+<!--                android:padding="20dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="20dp" />-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/update_Office_name"-->
+<!--                android:layout_width="333dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:layout_below="@id/update_office_id"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:background="@drawable/selector"-->
+<!--                android:drawableLeft="@drawable/ic_baseline_person_24"-->
+<!--                android:drawablePadding="20dp"-->
+<!--                android:fontFamily="@font/red_hat_text_regular"-->
+<!--                android:hint="Office Name"-->
+<!--                android:inputType="text"-->
+<!--                android:padding="20dp"-->
+
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="20dp" />-->
+
+
 
             <EditText
                 android:id="@+id/update_Office_name"
                 android:layout_width="333dp"
                 android:layout_height="60dp"
-                android:layout_below="@id/update_office_id"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/selector"
+                android:background="@color/orange"
                 android:drawableLeft="@drawable/ic_baseline_person_24"
                 android:drawablePadding="20dp"
                 android:fontFamily="@font/red_hat_text_regular"
@@ -56,13 +75,14 @@
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
+
             <EditText
                 android:id="@+id/update_office_address"
                 android:layout_width="333dp"
                 android:layout_height="60dp"
                 android:layout_below="@id/update_Office_name"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/selector"
+                android:background="@color/orange"
                 android:drawableLeft="@drawable/ic_baseline_local_phone_24"
                 android:drawablePadding="20dp"
                 android:fontFamily="@font/red_hat_text_regular"
@@ -82,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/update_office_address"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/selectorbutton"
+                android:backgroundTint="@color/green"
                 android:text="Confirm"
                 android:textSize="20dp" />
 
@@ -92,7 +112,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/update_office_button"
                 android:layout_marginTop="20dp"
-                android:background="@color/red"
+                android:backgroundTint="@color/red1"
                 android:text="Cancel"
                 android:textSize="20dp" />
 

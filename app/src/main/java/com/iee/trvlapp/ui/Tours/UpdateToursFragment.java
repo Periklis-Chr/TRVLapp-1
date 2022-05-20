@@ -37,17 +37,17 @@ public class UpdateToursFragment extends Fragment {
         //listener for confirmation of data insertion
 
         Bundle bundle = getArguments();
-        String id = bundle.getString("id");
+        int id = bundle.getInt("id");
         String city = bundle.getString("city");
         String country = bundle.getString("country");
-        String duration = bundle.getString("duration");
+        int duration = bundle.getInt("duration");
         String type = bundle.getString("type");
 
 
-        binding.updateTourId.setText(id);
+//        binding.updateTourId.setText(id);
         binding.updateTourCity.setText(city);
         binding.updateTourCountry.setText(country);
-        binding.updateTourDuration.setText(duration);
+        binding.updateTourDuration.setText(String.valueOf(duration));
         binding.updateTourType.setText(type);
 
 
@@ -56,7 +56,7 @@ public class UpdateToursFragment extends Fragment {
         binding.updateToursButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int id = Integer.parseInt(binding.updateTourId.getText().toString());
+//                int id = Integer.parseInt(binding.updateTourId.getText().toString());
                 String city = binding.updateTourCity.getText().toString();
                 String country = binding.updateTourCountry.getText().toString();
                 int duration = Integer.parseInt(binding.updateTourDuration.getText().toString());
