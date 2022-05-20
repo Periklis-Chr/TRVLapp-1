@@ -7,11 +7,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.roomEntities.Offices;
 import com.iee.trvlapp.roomEntities.Packages;
+import com.iee.trvlapp.roomEntities.Tours;
 import com.iee.trvlapp.ui.Offices.OfficeRecyclerViewAdapter;
 
 import java.util.ArrayList;
@@ -22,12 +26,17 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
     private List<Packages> packages = new ArrayList<>();
     private OnItemClickListener listener;
 
+
     public class PackageHolder extends RecyclerView.ViewHolder {
         private final TextView id;
         private final TextView ofid;
         private final TextView tid;
         private final TextView departure;
         private final TextView cost;
+
+        private final TextView office_name;
+        private final TextView tour_City;
+
 
         public PackageHolder(View view) {
             super(view);
@@ -36,6 +45,11 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
             tid = view.findViewById(R.id.package_row_tid);
             departure = view.findViewById(R.id.package_row_departure);
             cost = view.findViewById(R.id.package_row_cost);
+
+            office_name=view.findViewById(R.id.package_row_t_name);
+            tour_City=view.findViewById(R.id.package_row_t_city);
+
+
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -75,12 +89,19 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
     public void onBindViewHolder(@NonNull PackageRecyclerViewAdapter.PackageHolder holder, int position) {
         Packages currentPackage = packages.get(position);
 
+        Tours curentTour=MainActivity.appDatabase.toursDao().getTourById(currentPackage.getTid());
+        Offices currentOffice=MainActivity.appDatabase.officesDao().getOfficeById(currentPackage.getDid());
 
         holder.id.setText(String.valueOf(currentPackage.getPid()));
         holder.ofid.setText(String.valueOf(currentPackage.getDid()));
         holder.tid.setText(String.valueOf(currentPackage.getTid()));
+
         holder.departure.setText(String.valueOf(currentPackage.getDepartureTime()));
         holder.cost.setText(String.valueOf(currentPackage.getCost()));
+
+
+        holder.tour_City.setText(curentTour.getCity());
+        holder.office_name.setText(currentOffice.getName());
 
     }
 

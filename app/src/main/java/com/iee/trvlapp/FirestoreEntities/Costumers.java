@@ -5,7 +5,7 @@ public class Costumers {
     int cid;
     private String name;
     private String surname;
-    long phone;
+    private long phone;
     private String email;
     private int pid;
     private  int hotel;

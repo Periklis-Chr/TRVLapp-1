@@ -1,6 +1,7 @@
 package com.iee.trvlapp.ui.Offices;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +51,9 @@ public class AddOfficesFragment extends Fragment {
         String office_name = binding.OfficeName.getText().toString();
         String office_address = binding.officeAddress.getText().toString();
 
+
         Offices office = new Offices();
+
         office.setDid(office_id);
         office.setName(office_name);
         office.setAddress(office_address);
@@ -59,8 +62,11 @@ public class AddOfficesFragment extends Fragment {
 
         Toast.makeText(getActivity(), "Office Added Succesfully", Toast.LENGTH_LONG).show();
         Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addOfficesFragment_to_nav_offices);
-
     }
+
+//    public boolean inputCheck(String office_id, String Office_name, String office_address) {
+//        return ( office_id.equals("") && office_address.equals("") && Office_name.equals(""));
+//    }
 
 
     @Override

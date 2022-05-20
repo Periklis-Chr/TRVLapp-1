@@ -20,19 +20,93 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@mipmap/logo3"></ImageView>
 
+
+<!--    <com.google.android.material.button.MaterialButton-->
+<!--        android:id="@+id/homeFillData"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/text_home"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        tools:ignore="MissingConstraints"-->
+<!--        android:hint="Fill Data to Room db"-->
+<!--        android:backgroundTint="@color/orange"-->
+<!--        android:textColor="@color/blue"-->
+<!--        app:cornerRadius="15dp"-->
+<!--        >-->
+
+
+<!--    </com.google.android.material.button.MaterialButton>-->
+
+
+<!--    <com.google.android.material.button.MaterialButton-->
+<!--        android:id="@+id/deleteAllData"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:backgroundTint="@color/red1"-->
+<!--        android:hint="Delete Data from Room db"-->
+<!--        android:textColor="@color/blue"-->
+<!--        app:cornerRadius="15dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/home_logo"-->
+<!--        >-->
+
+
+<!--    </com.google.android.material.button.MaterialButton>-->
+
+
+
+
+
+
+
+<!--    <com.google.android.material.button.MaterialButton-->
+<!--        android:id="@+id/homeFillDataFs"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/deleteAllData"-->
+<!--        tools:ignore="MissingConstraints"-->
+<!--        android:hint="Fill Data to Firestore db"-->
+<!--        android:backgroundTint="@color/orange"-->
+<!--        android:textColor="@color/blue"-->
+<!--        app:cornerRadius="15dp"-->
+<!--        >-->
+
+
+<!--    </com.google.android.material.button.MaterialButton>-->
+
+
+<!--    <com.google.android.material.button.MaterialButton-->
+<!--        android:id="@+id/deleteAllDataFs"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:backgroundTint="@color/red1"-->
+<!--        android:hint="Delete Data from Firestore db"-->
+<!--        android:textColor="@color/blue"-->
+<!--        app:cornerRadius="15dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/homeFillDataFs"-->
+<!--        >-->
+
+
+<!--    </com.google.android.material.button.MaterialButton>-->
+
+
+
+
     <TextView
         android:id="@+id/text_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="430dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:textColor="@color/white"
         android:background="@color/blue"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@id/home_logo"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.82" />
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+       />
 </androidx.constraintlayout.widget.ConstraintLayout>

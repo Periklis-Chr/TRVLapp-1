@@ -15,6 +15,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.iee.trvlapp.FirestoreEntities.Costumers;
 import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
+import com.iee.trvlapp.roomEntities.CityHotels;
 import com.iee.trvlapp.roomEntities.Offices;
 import com.iee.trvlapp.roomEntities.Packages;
 import com.iee.trvlapp.roomEntities.Tours;
@@ -43,7 +44,7 @@ public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costum
         TextView pid;
         TextView hotel;
         TextView city;
-        TextView country;
+
 
         public CostumerHolder(View view) {
             super(view);
@@ -54,9 +55,7 @@ public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costum
             email = view.findViewById(R.id.costumer_row_email);
             pid = view.findViewById(R.id.costumer_row_pid);
             hotel = view.findViewById(R.id.costumer_row_hotel);
-
             city = view.findViewById(R.id.costumer_row_city);
-            country = view.findViewById(R.id.costumer_row_country);
 
 
             view.setOnClickListener(new View.OnClickListener() {
@@ -92,13 +91,20 @@ public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costum
 
     @Override
     protected void onBindViewHolder(@NonNull CostumerHolder holder, int position, @NonNull Costumers model) {
+        Packages currentPackage = MainActivity.appDatabase.packagesDao().getPackageById(model.getPid());
+        Tours currentTour = MainActivity.appDatabase.toursDao().getTourById(currentPackage.getTid());
+        CityHotels cityHotels = MainActivity.appDatabase.cityHotelsDao().getCityHotelById(model.getHotel());
+
         holder.id.setText(String.valueOf(model.getCid()));
         holder.name.setText(String.valueOf(model.getName()));
         holder.surname.setText(String.valueOf(model.getSurname()));
         holder.phone.setText(String.valueOf(model.getPhone()));
         holder.email.setText(String.valueOf(model.getEmail()));
         holder.pid.setText(String.valueOf(model.getPid()));
-        holder.hotel.setText(String.valueOf(model.getHotel()));
+        holder.city.setText(currentTour.getCity());
+        holder.hotel.setText(cityHotels.getHotelName());
+
+
     }
 
 

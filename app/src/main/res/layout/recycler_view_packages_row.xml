@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginEnd="8dp"
@@ -12,7 +12,7 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#f4a261"
         android:padding="8dp">
@@ -22,6 +22,7 @@
             android:id="@+id/package_icon_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
             android:src="@mipmap/icon_package"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,71 +31,178 @@
 
         </ImageView>
 
+        <TextView
+            android:id="@+id/package_row_t_name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:layout_marginStart="2dp"
+            android:text="Agency : "
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toEndOf="@+id/package_icon_row"
+            app:layout_constraintTop_toBottomOf="@+id/package_row_tid_label" />
+
+        <TextView
+            android:id="@+id/package_row_t_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:text=""
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toEndOf="@+id/package_row_t_name_label"
+            app:layout_constraintTop_toBottomOf="@+id/package_row_tid" />
+
+        <TextView
+            android:id="@+id/package_row_t_city_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:layout_marginStart="2dp"
+
+            android:text="Tour City : "
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toEndOf="@+id/package_icon_row"
+            app:layout_constraintTop_toBottomOf="@+id/package_row_t_name_label" />
+
+        <TextView
+            android:id="@+id/package_row_t_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text=""
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+
+            app:layout_constraintStart_toEndOf="@+id/package_row_t_city_label"
+            app:layout_constraintTop_toBottomOf="@+id/package_row_t_name" />
+
+        <TextView
+            android:id="@+id/package_row_duration_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text="Duration : "
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toEndOf="@+id/package_icon_row"
+            app:layout_constraintTop_toBottomOf="@+id/package_row_t_city_label" />
+
+        <TextView
+            android:id="@+id/package_row_departure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text=""
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toEndOf="@+id/package_row_duration_label"
+            app:layout_constraintTop_toBottomOf="@+id/package_row_t_city" />
+
+        <TextView
+            android:id="@+id/package_row_cost_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="2dp"
+            android:text="Cost : "
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toEndOf="@+id/package_icon_row"
+            app:layout_constraintTop_toBottomOf="@+id/package_row_duration_label" />
+
+        <TextView
+            android:id="@+id/package_row_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:text=""
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toEndOf="@+id/package_row_cost_label"
+            app:layout_constraintTop_toBottomOf="@+id/package_row_departure" />
+
+
+        <TextView
+            android:id="@+id/package_row_pid_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:layout_marginStart="2dp"
+            android:text="Package Id : "
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toEndOf="@+id/package_icon_row"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <TextView
             android:id="@+id/package_row_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:padding="8dp"
-            android:text="id"
+
+            android:text=""
+
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toEndOf="@+id/package_row_pid_label"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/package_row_ofid_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:layout_marginStart="2dp"
+            android:text="Office Id : "
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/package_icon_row"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/package_row_pid_label" />
+
 
         <TextView
             android:id="@+id/package_row_ofid"
-            android:layout_width="165dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:padding="8dp"
-            android:text="name"
+
+            android:text=""
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toEndOf="@+id/package_row_id"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintStart_toEndOf="@+id/package_row_ofid_label"
+            app:layout_constraintTop_toBottomOf="@+id/package_row_id" />
+
+        <TextView
+            android:id="@+id/package_row_tid_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text="Tour Id : "
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toEndOf="@+id/package_icon_row"
+            app:layout_constraintTop_toBottomOf="@+id/package_row_ofid_label" />
 
         <TextView
             android:id="@+id/package_row_tid"
-            android:layout_width="147dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-
-            android:padding="8dp"
-            android:text="country"
+            android:text=""
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toEndOf="@+id/package_row_ofid"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintStart_toEndOf="@+id/package_row_tid_label"
+            app:layout_constraintTop_toBottomOf="@+id/package_row_ofid" />
 
 
-
-        <TextView
-            android:id="@+id/package_row_departure"
-            android:layout_width="147dp"
-            android:layout_height="wrap_content"
-
-
-            android:padding="8dp"
-            android:text="duration"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toStartOf="@+id/package_row_id"
-            app:layout_constraintTop_toBottomOf="@+id/package_row_id"
-            />
+        <!--                <TextView-->
+        <!--                    android:id="@+id/package_row_cost"-->
+        <!--                    android:layout_width="147dp"-->
+        <!--                    android:layout_height="wrap_content"-->
 
 
-        <TextView
-            android:id="@+id/package_row_cost"
-            android:layout_width="147dp"
-            android:layout_height="wrap_content"
+        <!--            android:padding="8dp"-->
+        <!--            android:text="test"-->
+        <!--            android:textAppearance="@style/TextAppearance.AppCompat.Large"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/package_row_tid"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/package_row_tid"-->
+        <!--            />-->
 
-
-            android:padding="8dp"
-            android:text="test"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toStartOf="@+id/package_row_tid"
-            app:layout_constraintTop_toBottomOf="@+id/package_row_tid"
-            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -5,16 +5,16 @@
 
     <item
         android:id="@+id/filter_des_alphabetical_name"
-        android:title="show descenting alpabetical">
+        android:title="Name : A to Z">
     </item>
 
     <item
         android:id="@+id/filter_asc_alphabetical_name"
-        android:title="show ascenting alpabetical">
+        android:title="Name : Z to A">
     </item>
     <item
         android:id="@+id/filter_id"
-        android:title="order_by_id">
+        android:title="Id : Ascending">
     </item>
 
 </menu>

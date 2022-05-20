@@ -24,4 +24,15 @@ public interface CityHotelsDao {
 
     @Update(onConflict = OnConflictStrategy.ABORT)
     public void updateCityHotel(CityHotels cityHotels);
+
+    @Query("DELETE FROM CityHotels_table where 1=1")
+    public void deleteAllCityHotels();
+
+
+
+    @Query("select * from CityHotels_table  where Hotels_id=:id")
+    public CityHotels getCityHotelById(int id);
+
+
+
 }

@@ -73,18 +73,27 @@ public class ToursMapsFragment extends Fragment {
 
     public CityCoordinates[] initCityCoordinates() {
         CityCoordinates London = new CityCoordinates("London", -0.117083, 51.513220);
-        CityCoordinates Paris = new CityCoordinates("RGRG", -43, 50);
-        CityCoordinates Barcelona = new CityCoordinates("DFG", -43, 50);
-        CityCoordinates Berlin = new CityCoordinates("DG", -43, 50);
-        CityCoordinates Rome = new CityCoordinates("DG", -43, 50);
+        CityCoordinates Paris = new CityCoordinates("Paris", 2.342571, 48.867529);
+        CityCoordinates Barcelona = new CityCoordinates("Barcelona", 2.151398, 41.391985);
+        CityCoordinates Berlin = new CityCoordinates("Berlin", 13.387711, 52.514941);
+        CityCoordinates Rome = new CityCoordinates("Rome", 12.489288, 41.884438);
+
+        CityCoordinates NewYork = new CityCoordinates("New York", -74.079953, 40.709643);
+        CityCoordinates Tokyo = new CityCoordinates("Tokyo", 139.769599, 35.679985);
+        CityCoordinates Vienna = new CityCoordinates("Vienna", 16.363270, 48.201609);
 
 
-        CityCoordinates[] array = new CityCoordinates[5];
+
+
+        CityCoordinates[] array = new CityCoordinates[8];
         array[0] = London;
         array[1] = Barcelona;
         array[2] = Berlin;
         array[3] = Rome;
-        array[4] = Paris;
+        array[4] = NewYork;
+        array[5] = Berlin;
+        array[6] = Tokyo;
+        array[7] = Vienna;
         return array;
     }
 

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:padding="30dp"
     android:background="@drawable/base"
     android:orientation="vertical"
+    android:padding="30dp"
     tools:context=".ui.Packages.AddPackagesFragment">
 
     <ScrollView
@@ -21,7 +20,6 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-
 
 
             <EditText
@@ -39,44 +37,78 @@
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
-            <EditText
-                android:id="@+id/Package_ofid"
-                android:layout_width="333dp"
-                android:layout_height="60dp"
-                android:layout_below="@id/Package_id"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/selector"
-                android:drawableLeft="@drawable/ic_baseline_person_24"
-                android:drawablePadding="20dp"
-                android:fontFamily="@font/red_hat_text_regular"
-                android:hint="Office Id"
-                android:inputType="number"
-                android:padding="20dp"
-
-                android:textColor="@color/black"
-                android:textSize="20dp" />
-
-            <EditText
-                android:id="@+id/package_tid"
-                android:layout_width="333dp"
-                android:layout_height="60dp"
-                android:layout_below="@id/Package_ofid"
-                android:layout_marginTop="20dp"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/package_ofid2"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Package_id"
+                android:layout_marginTop="11dp"
                 android:background="@drawable/selector"
                 android:drawableLeft="@drawable/ic_baseline_local_phone_24"
                 android:drawablePadding="20dp"
                 android:fontFamily="@font/red_hat_text_regular"
-                android:hint="Tour Id"
+                android:hint="Select Office"
                 android:inputType="number"
                 android:padding="20dp"
-
                 android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+
+                >
+
+
+                <AutoCompleteTextView
+                    android:id="@+id/auto_complete_officeid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Select Office"
+                    android:inputType="none"
+
+                    />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/package_tid2"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/package_ofid2"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/selector"
+                android:drawableLeft="@drawable/ic_baseline_local_phone_24"
+                android:drawablePadding="20dp"
+
+                android:fontFamily="@font/red_hat_text_regular"
+                android:hint="Select Tour"
+                android:inputType="number"
+                android:padding="20dp"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+
+                >
+
+
+                <AutoCompleteTextView
+                    android:id="@+id/auto_complete_ptid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Select Tour"
+                    android:inputType="none"
+
+                    />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
             <EditText
                 android:id="@+id/package_departure"
                 android:layout_width="333dp"
                 android:layout_height="60dp"
-                android:layout_below="@id/package_tid"
+                android:layout_below="@id/package_tid2"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/selector"
                 android:drawableLeft="@drawable/ic_baseline_local_phone_24"
@@ -88,7 +120,6 @@
 
                 android:textColor="@color/black"
                 android:textSize="20dp" />
-
 
 
             <EditText
@@ -117,6 +148,41 @@
                 android:background="@drawable/selectorbutton"
                 android:text="Confirm"
                 android:textSize="20dp" />
+
+
+            <!--            <EditText-->
+            <!--                android:id="@+id/Package_ofid"-->
+            <!--                android:layout_width="333dp"-->
+            <!--                android:layout_height="60dp"-->
+            <!--                android:layout_below="@id/Package_id"-->
+            <!--                android:layout_marginTop="20dp"-->
+            <!--                android:background="@drawable/selector"-->
+            <!--                android:drawableLeft="@drawable/ic_baseline_person_24"-->
+            <!--                android:drawablePadding="20dp"-->
+            <!--                android:fontFamily="@font/red_hat_text_regular"-->
+            <!--                android:hint="Office Id"-->
+            <!--                android:inputType="number"-->
+            <!--                android:padding="20dp"-->
+
+            <!--                android:textColor="@color/black"-->
+            <!--                android:textSize="20dp" />-->
+
+            <!--            <EditText-->
+            <!--                android:id="@+id/package_tid"-->
+            <!--                android:layout_width="333dp"-->
+            <!--                android:layout_height="60dp"-->
+            <!--                android:layout_below="@id/Package_ofid"-->
+            <!--                android:layout_marginTop="20dp"-->
+            <!--                android:background="@drawable/selector"-->
+            <!--                android:drawableLeft="@drawable/ic_baseline_local_phone_24"-->
+            <!--                android:drawablePadding="20dp"-->
+            <!--                android:fontFamily="@font/red_hat_text_regular"-->
+            <!--                android:hint="Tour Id"-->
+            <!--                android:inputType="number"-->
+            <!--                android:padding="20dp"-->
+
+            <!--                android:textColor="@color/black"-->
+            <!--                android:textSize="20dp" />-->
 
 
         </RelativeLayout>

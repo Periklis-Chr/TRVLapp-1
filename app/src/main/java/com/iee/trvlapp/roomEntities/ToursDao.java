@@ -18,6 +18,12 @@ public interface ToursDao {
     @Query("select * from Tours_table")
     public LiveData<List<Tours>> getTours();
 
+    @Query("select * from Tours_table")
+    public List<Tours> getToursList();
+
+
+
+
     @Delete
     public void deleteTours(Tours tour);
 
@@ -31,6 +37,15 @@ public interface ToursDao {
 
     @Query("select * from Tours_table order by Tours_City ASC")
     public LiveData<List<Tours>> getToursOrderedByNameASC();
+
+
+    @Query("DELETE FROM Tours_table where 1=1")
+    public void deleteAllTours();
+
+
+    @Query("select * from Tours_table  where Tours_id=:id")
+    public Tours getTourById(int id);
+
 
 
 }

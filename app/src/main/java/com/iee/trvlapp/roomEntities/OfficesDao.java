@@ -20,6 +20,9 @@ public interface OfficesDao {
     @Query("select * from offices_table")
     public LiveData<List<Offices>> getOffices();
 
+    @Query("select * from offices_table")
+    public List<Offices> getOfficesList();
+
     @Delete()
     public void deleteOffices(Offices office);
 
@@ -37,6 +40,11 @@ public interface OfficesDao {
 
     @Query("DELETE FROM offices_table where 1=1")
     public void deleteAllOffices();
+
+
+    @Query("select * from offices_table  where Offices_id=:id")
+    public Offices getOfficeById(int id);
+
 
 
 }

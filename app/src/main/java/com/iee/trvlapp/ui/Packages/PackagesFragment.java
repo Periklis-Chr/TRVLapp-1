@@ -5,6 +5,9 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,6 +42,7 @@ public class PackagesFragment extends Fragment {
     private FragmentPackagesBinding binding;
     private int showFilterFlag = 0;
 
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         PackagesViewModel packagesViewModel =
@@ -47,6 +51,14 @@ public class PackagesFragment extends Fragment {
         binding = FragmentPackagesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+
+        /////////
+
+
+
+
+
+        ////////
 
         //Retrieves data from Room db
 

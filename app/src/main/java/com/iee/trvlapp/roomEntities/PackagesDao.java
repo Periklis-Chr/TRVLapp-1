@@ -32,5 +32,10 @@ public interface PackagesDao {
     @Query("select * from Packages_table order by Packages_Cost ASC")
     public LiveData<List<Packages>> getPackagesOrderedByNameASC();
 
+    @Query("DELETE FROM Packages_table where 1=1")
+    public void deleteAllPackages();
+
+    @Query("select * from Packages_table where Packages_Did=:id")
+    public Packages getPackageById(int id);
 
 }

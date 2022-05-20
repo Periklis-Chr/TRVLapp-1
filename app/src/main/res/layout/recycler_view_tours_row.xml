@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginEnd="8dp"
@@ -12,7 +12,7 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#f4a261"
         android:padding="8dp">
@@ -25,10 +25,22 @@
             android:src="@mipmap/destination_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.531">
 
 
         </ImageView>
+
+        <TextView
+            android:id="@+id/tour_row_id_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="1dp"
+            android:text="Tour Id : "
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toEndOf="@+id/tour_icon_row"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
@@ -36,65 +48,108 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:padding="8dp"
+
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
             android:text="id"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toEndOf="@+id/tour_row_id_label"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tour_row_city_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="1dp"
+            android:text="City : "
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/tour_icon_row"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/tour_row_id_label" />
+
 
         <TextView
             android:id="@+id/tour_row_city"
-            android:layout_width="165dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:padding="8dp"
-            android:text="name"
+
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:text="City"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toEndOf="@+id/tour_row_id"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintStart_toEndOf="@+id/tour_row_city_label"
+            app:layout_constraintTop_toBottomOf="@+id/tour_row_id" />
+
+        <TextView
+            android:id="@+id/tour_row_country_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="1dp"
+            android:text="Country : "
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toEndOf="@+id/tour_icon_row"
+            app:layout_constraintTop_toBottomOf="@+id/tour_row_city_label" />
+
 
         <TextView
             android:id="@+id/tour_row_country"
-            android:layout_width="147dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-
-            android:padding="8dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
             android:text="country"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toEndOf="@+id/tour_row_city"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintStart_toEndOf="@+id/tour_row_country_label"
+            app:layout_constraintTop_toBottomOf="@+id/tour_row_city" />
 
-
+        <TextView
+            android:id="@+id/tour_row_duration_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="1dp"
+            android:text="Duration : "
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toEndOf="@+id/tour_icon_row"
+            app:layout_constraintTop_toBottomOf="@+id/tour_row_country_label" />
 
         <TextView
             android:id="@+id/tour_row_duration"
-            android:layout_width="147dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-
-            android:padding="8dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
             android:text="duration"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toStartOf="@+id/tour_row_id"
-            app:layout_constraintTop_toBottomOf="@+id/tour_row_id"
-            />
+            app:layout_constraintStart_toEndOf="@+id/tour_row_duration_label"
+            app:layout_constraintTop_toBottomOf="@+id/tour_row_country" />
 
 
         <TextView
-            android:id="@+id/tour_row_type"
-            android:layout_width="147dp"
+            android:id="@+id/tour_row_type_label"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-
-            android:padding="8dp"
-            android:text="test"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="1dp"
+            android:text="Type : "
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toStartOf="@+id/tour_row_country"
-            app:layout_constraintTop_toBottomOf="@+id/tour_row_country"
-            />
+            app:layout_constraintStart_toEndOf="@+id/tour_icon_row"
+            app:layout_constraintTop_toBottomOf="@+id/tour_row_duration_label" />
+
+        <TextView
+            android:id="@+id/tour_row_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:text="type"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toEndOf="@+id/tour_row_type_label"
+            app:layout_constraintTop_toBottomOf="@+id/tour_row_duration" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

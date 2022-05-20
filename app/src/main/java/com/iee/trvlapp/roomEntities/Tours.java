@@ -68,4 +68,8 @@ public class Tours {
     public void setType(String type) {
         Type = type;
     }
+
+
+
+
 }

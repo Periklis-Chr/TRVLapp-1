@@ -86,6 +86,7 @@ public class UpdateCostumersFragment extends Fragment {
                 data.update("name", name);
                 data.update("surname", surname);
                 data.update("email", email);
+                data.update("phone",phone);
                 data.update("pid", pid);
                 data.update("hotel", hotel);
 
