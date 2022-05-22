@@ -182,39 +182,39 @@
 
 
 
-            <EditText
-                android:id="@+id/update_package_id"
-                android:layout_width="333dp"
-                android:layout_height="60dp"
-                android:layout_below="@id/update_emailEdit"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/selector"
-                android:drawableLeft="@drawable/ic_baseline_room_24"
-                android:drawablePadding="20dp"
-                android:fontFamily="@font/red_hat_text_regular"
-                android:hint="Package_id"
-                android:inputType="number"
-                android:padding="20dp"
+<!--            <EditText-->
+<!--                android:id="@+id/update_package_id"-->
+<!--                android:layout_width="333dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:layout_below="@id/update_emailEdit"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:background="@drawable/selector"-->
+<!--                android:drawableLeft="@drawable/ic_baseline_room_24"-->
+<!--                android:drawablePadding="20dp"-->
+<!--                android:fontFamily="@font/red_hat_text_regular"-->
+<!--                android:hint="Package_id"-->
+<!--                android:inputType="number"-->
+<!--                android:padding="20dp"-->
 
-                android:textColor="@color/black"
-                android:textSize="20dp" />
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="20dp" />-->
 
-            <EditText
-                android:id="@+id/update_package_hotel"
-                android:layout_width="333dp"
-                android:layout_height="60dp"
-                android:layout_below="@id/update_package_id"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/selector"
-                android:drawableLeft="@drawable/ic_baseline_room_24"
-                android:drawablePadding="20dp"
-                android:fontFamily="@font/red_hat_text_regular"
-                android:hint="Hotel"
-                android:inputType="text"
-                android:padding="20dp"
+<!--            <EditText-->
+<!--                android:id="@+id/update_package_hotel"-->
+<!--                android:layout_width="333dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:layout_below="@id/update_package_id"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:background="@drawable/selector"-->
+<!--                android:drawableLeft="@drawable/ic_baseline_room_24"-->
+<!--                android:drawablePadding="20dp"-->
+<!--                android:fontFamily="@font/red_hat_text_regular"-->
+<!--                android:hint="Hotel"-->
+<!--                android:inputType="text"-->
+<!--                android:padding="20dp"-->
 
-                android:textColor="@color/black"
-                android:textSize="20dp" />
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="20dp" />-->
 
 
 
@@ -270,11 +270,89 @@
             <!--            </RadioGroup>-->
 
 
+
+
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/costumer_pid2_update"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/update_emailEdit"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/selector"
+                android:drawableLeft="@drawable/ic_baseline_local_phone_24"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/red_hat_text_regular"
+                android:hint="Select Package"
+                android:inputType="number"
+                android:padding="20dp"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+
+                >
+
+
+                <AutoCompleteTextView
+                    android:id="@+id/auto_complete_costumer_pid2_update"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Select Package"
+                    android:inputType="none"
+
+                    />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/costumer_hotel2_update"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/costumer_pid2_update"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/selector"
+                android:drawableLeft="@drawable/ic_baseline_local_phone_24"
+                android:drawablePadding="20dp"
+
+                android:fontFamily="@font/red_hat_text_regular"
+                android:hint="Select Hotel"
+                android:inputType="number"
+                android:padding="20dp"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+
+                >
+
+
+                <AutoCompleteTextView
+                    android:id="@+id/auto_complete_c_hotel_update"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Select Hotel"
+                    android:inputType="none"
+
+                    />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/update_costumer_button"
                 android:layout_width="333dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/update_package_hotel"
+                android:layout_below="@id/costumer_hotel2_update"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/selectorbutton"
                 android:text="Confirm"

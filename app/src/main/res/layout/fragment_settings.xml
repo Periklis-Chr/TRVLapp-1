@@ -177,15 +177,15 @@
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:backgroundTint="@color/orange"
         android:padding="20dp"
         app:layout_constraintTop_toBottomOf="@+id/cardViewInsert_firestore"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="107dp"
-        android:layout_marginTop="15dp">
+        tools:layout_editor_absoluteX="1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -225,6 +225,17 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
+
+    <Button
+        android:id="@+id/changelang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint="change lang"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        tools:layout_editor_absoluteX="153dp"
+        tools:ignore="MissingConstraints"></Button>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

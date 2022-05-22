@@ -19,10 +19,44 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true"
         android:background="@color/blue"
-        app:itemTextColor="@color/white"
+        android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer"/>
+        app:itemTextColor="@color/white"
+        app:menu="@menu/activity_main_drawer">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/change_lang_gr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/red1"
+                android:hint="GR"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/change_lang_en"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/white"
+                android:hint="EN"
+                android:textColor="@color/red1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/change_lang_gr" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.navigation.NavigationView>
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

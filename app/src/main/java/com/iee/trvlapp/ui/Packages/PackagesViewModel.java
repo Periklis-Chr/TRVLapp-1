@@ -13,11 +13,11 @@ import java.util.List;
 
 public class PackagesViewModel extends ViewModel {
 
-    private LiveData<List<Packages>> packageList;
+
     private LiveData<List<Packages>> packagesListNameASC;
     private LiveData<List<Packages>> packagesListNameDESC;
 
-
+    private LiveData<List<Packages>> packageList;
     private List<Tours> toursList;
     private List<Offices> officesList;
     private Tours tourForAdapter;

@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">TRVL</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">TRVL</string>
+    <string name="nav_header_subtitle">Travel Solutions</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_deleteAll">Delete All</string>
+
+
+
+    <string name="menu_home">Κεντρική Σελίδα</string>
+    <string name="menu_offices">Ταξιδιωτικά Γραφεία</string>
+    <string name="menu_tours">Προορισμοί</string>
+    <string name="menu_packages">Πακέτα Εκδρομών</string>
+    <string name="menu_costumers">Πελάτες</string>
+    <string name="menu_hotels">Ξενοδοχεία</string>
+    <string name="menu_aboutUs">Ποιοι Ειμαστε</string>
+    <string name="menu_help">Βοηθεια</string>
+    <string name="menu_settings">Ρυθμιμσεις</string>
+
+
+    <string name="button_confirm">Υποβολη</string>
+    <string name="button">Ακυρωση</string>
+
+
+
+
+
+
+
+</resources>

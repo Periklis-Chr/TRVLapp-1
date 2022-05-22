@@ -147,5 +147,35 @@
         android:name="com.iee.trvlapp.ui.SupportingClasses.HelpFragment"
         android:label="Help"
         tools:layout="@layout/fragment_help" />
+    <fragment
+        android:id="@+id/nav_hotels"
+        android:name="com.iee.trvlapp.ui.Hotels.HotelsFragment"
+        android:label="Hotels"
+        tools:layout="@layout/fragment_hotels" >
+        <action
+            android:id="@+id/action_nav_hotels_to_addHotelsFragment"
+            app:destination="@id/addHotelsFragment" />
+        <action
+            android:id="@+id/action_nav_hotels_to_updateHotelsFragment"
+            app:destination="@id/updateHotelsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addHotelsFragment"
+        android:name="com.iee.trvlapp.ui.Hotels.AddHotelsFragment"
+        android:label="fragment_add_hotels"
+        tools:layout="@layout/fragment_add_hotels" >
+        <action
+            android:id="@+id/action_addHotelsFragment_to_nav_hotels"
+            app:destination="@id/nav_hotels" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateHotelsFragment"
+        android:name="com.iee.trvlapp.ui.Hotels.UpdateHotelsFragment"
+        android:label="fragment_update_hotels"
+        tools:layout="@layout/fragment_update_hotels" >
+        <action
+            android:id="@+id/action_updateHotelsFragment_to_nav_hotels"
+            app:destination="@id/nav_hotels" />
+    </fragment>
 
 </navigation>

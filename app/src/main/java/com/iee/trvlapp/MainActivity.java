@@ -1,7 +1,11 @@
 package com.iee.trvlapp;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -13,6 +17,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -42,6 +47,7 @@ import com.iee.trvlapp.ui.Offices.UpdateOfficesFragment;
 import com.iee.trvlapp.ui.Tours.ToursFragment;
 
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     public static AppDatabase appDatabase;
     public static FirebaseFirestore appDb;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,13 +67,45 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
+        binding.changeLangGr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Locale locale = new Locale("gr");
+                Resources resources = MainActivity.this.getResources();
+                Configuration configuration = resources.getConfiguration();
+                configuration.setLocale(locale);
+                resources.updateConfiguration(configuration, resources.getDisplayMetrics());
+
+                Intent intent = getIntent();
+                finish();
+                startActivity(intent);
+            }
+        });
+
+        binding.changeLangEn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Locale locale = new Locale("");
+                Resources resources = MainActivity.this.getResources();
+                Configuration configuration = resources.getConfiguration();
+                configuration.setLocale(locale);
+                resources.updateConfiguration(configuration, resources.getDisplayMetrics());
+                Intent intent = getIntent();
+                finish();
+                startActivity(intent);
+
+            }
+        });
+
+
         setSupportActionBar(binding.appBarMain.toolbar);
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
 
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_offices, R.id.nav_tours, R.id.nav_packages, R.id.nav_costumers, R.id.settings, R.id.nav_about,R.id.nav_help)
+                R.id.nav_home, R.id.nav_offices, R.id.nav_tours, R.id.nav_packages, R.id.nav_costumers, R.id.settings, R.id.nav_hotels, R.id.nav_about, R.id.nav_help)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);

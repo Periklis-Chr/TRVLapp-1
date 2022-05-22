@@ -46,9 +46,8 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
             departure = view.findViewById(R.id.package_row_departure);
             cost = view.findViewById(R.id.package_row_cost);
 
-            office_name=view.findViewById(R.id.package_row_t_name);
-            tour_City=view.findViewById(R.id.package_row_t_city);
-
+            office_name = view.findViewById(R.id.package_row_t_name);
+            tour_City = view.findViewById(R.id.package_row_t_city);
 
 
             view.setOnClickListener(new View.OnClickListener() {
@@ -89,8 +88,8 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
     public void onBindViewHolder(@NonNull PackageRecyclerViewAdapter.PackageHolder holder, int position) {
         Packages currentPackage = packages.get(position);
 
-        Tours curentTour=MainActivity.appDatabase.toursDao().getTourById(currentPackage.getTid());
-        Offices currentOffice=MainActivity.appDatabase.officesDao().getOfficeById(currentPackage.getDid());
+        Tours curentTour = MainActivity.appDatabase.toursDao().getTourById(currentPackage.getTid());
+        Offices currentOffice = MainActivity.appDatabase.officesDao().getOfficeById(currentPackage.getDid());
 
         holder.id.setText(String.valueOf(currentPackage.getPid()));
         holder.ofid.setText(String.valueOf(currentPackage.getDid()));
@@ -99,10 +98,12 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
         holder.departure.setText(String.valueOf(currentPackage.getDepartureTime()));
         holder.cost.setText(String.valueOf(currentPackage.getCost()));
 
-
-        holder.tour_City.setText(curentTour.getCity());
-        holder.office_name.setText(currentOffice.getName());
-
+        if (curentTour != null) {
+            holder.tour_City.setText(curentTour.getCity());
+        }
+        if (currentOffice != null) {
+            holder.office_name.setText(currentOffice.getName());
+        }
     }
 
     @Override

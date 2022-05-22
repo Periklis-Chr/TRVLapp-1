@@ -18,6 +18,11 @@ public interface PackagesDao {
     @Query("select * from Packages_table")
     public LiveData<List<Packages>> getPackages();
 
+
+    @Query("select * from Packages_table")
+    public List<Packages> getPackagesList();
+
+
     @Delete
     public void deletePackages(Packages Package);
 
@@ -35,7 +40,7 @@ public interface PackagesDao {
     @Query("DELETE FROM Packages_table where 1=1")
     public void deleteAllPackages();
 
-    @Query("select * from Packages_table where Packages_Did=:id")
+    @Query("select * from Packages_table where Packages_id=:id")
     public Packages getPackageById(int id);
 
 }

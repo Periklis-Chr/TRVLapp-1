@@ -19,8 +19,26 @@ public interface CityHotelsDao {
     @Query("select * from CityHotels_table")
     public LiveData<List<CityHotels>> getCityHotels();
 
+    @Query("select * from CityHotels_table")
+    public List<CityHotels> getCityHotelsList();
+
+    @Query("select * from CityHotels_table where Hotels_tid=:id")
+    public List<CityHotels> getCityHotelsByTid(int id);
+
+
+
+    @Query("select * from CityHotels_table order by Hotels_name DESC")
+    public LiveData<List<CityHotels>> getHotelsOrderedByNameDesc();
+
+
+    @Query("select * from CityHotels_table order by Hotels_name ASC")
+    public LiveData<List<CityHotels>> getHotelsOrderedByNameASC();
+
+
+
+
     @Delete()
-    public void deleteCityHotels_table(CityHotels cityHotels);
+    public void deleteCityHotels(CityHotels cityHotels);
 
     @Update(onConflict = OnConflictStrategy.ABORT)
     public void updateCityHotel(CityHotels cityHotels);
