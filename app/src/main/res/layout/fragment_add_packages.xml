@@ -129,6 +129,17 @@
                 android:text="@string/button_confirm"
                 android:textSize="20dp" />
 
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cancel_update_packages_button"
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/package_button"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/red1"
+                android:text="@string/button_cancel"
+                android:textSize="20dp" />
+
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

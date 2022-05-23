@@ -29,7 +29,7 @@ public class AddToursFragment extends Fragment {
         binding = FragmentAddToursBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        // // Calls function to handle Tour Insertion
+        // Calls function to handle Tour Insertion
 
         binding.toursButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +37,16 @@ public class AddToursFragment extends Fragment {
                 insertToursData();
             }
         });
+
+        // Add Action is Canceled and Navigates to Tours Fragment
+
+        binding.cancelUpdateToursButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_addToursFragment_to_nav_tours);
+            }
+        });
+
 
 
         return root;

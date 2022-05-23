@@ -41,6 +41,16 @@ public class AddHotelsFragment extends Fragment {
             }
         });
 
+        // Add Action is Canceled and Navigates to Hotels Fragment
+
+        binding.cancelUpdateHotelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_addHotelsFragment_to_nav_hotels);
+            }
+        });
+
+
         return root;
     }
 

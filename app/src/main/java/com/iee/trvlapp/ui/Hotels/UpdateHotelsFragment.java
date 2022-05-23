@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -49,23 +51,27 @@ public class UpdateHotelsFragment extends Fragment {
 
                 String name = binding.updateHotelName.getText().toString();
                 String address = binding.updateHotelAddress.getText().toString();
-                int stars = Integer.parseInt(binding.updateHotelStars.getText().toString());
-                int tid = Integer.parseInt(binding.updateHotelTid.getText().toString());
+                String stars = binding.updateHotelStars.getText().toString();
+                String tid = binding.updateHotelTid.getText().toString();
 
-                CityHotels cityHotels = new CityHotels();
-                cityHotels.setHid(id);
-                cityHotels.setHotelName(name);
-                cityHotels.setHotelAddress(address);
-                cityHotels.setHotelStars(stars);
-                cityHotels.setTid(tid);
-                hotelsViewModel.updateHotel(cityHotels);
+                if (binding.updateHotelName.length() != 0 && binding.updateHotelAddress.length() != 0 && binding.updateHotelStars.length() != 0 && binding.updateHotelTid.length() != 0) {
 
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                HotelsFragment hotelsFragment = new HotelsFragment();
-                fragmentTransaction.replace(R.id.nav_host_fragment_content_main, hotelsFragment);
-                fragmentTransaction.commit();
+                    CityHotels cityHotels = new CityHotels();
+                    cityHotels.setHid(id);
+                    cityHotels.setHotelName(name);
+                    cityHotels.setHotelAddress(address);
+                    cityHotels.setHotelStars(Integer.parseInt(stars));
+                    cityHotels.setTid(Integer.parseInt(tid));
+                    hotelsViewModel.updateHotel(cityHotels);
 
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    HotelsFragment hotelsFragment = new HotelsFragment();
+                    fragmentTransaction.replace(R.id.nav_host_fragment_content_main, hotelsFragment);
+                    fragmentTransaction.commit();
+                }else{
+                    Toast.makeText(getActivity(), "Fill all the fields", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

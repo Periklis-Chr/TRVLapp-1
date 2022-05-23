@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -126,50 +127,57 @@ public class UpdateCostumersFragment extends Fragment {
             public void onClick(View view) {
                 String name = binding.updateFirstNameEdit.getText().toString();
                 String surname = binding.updateLastNameEdit.getText().toString();
-                long phone = Long.parseLong(binding.updatePhoneEdit.getText().toString());
+                String phone = binding.updatePhoneEdit.getText().toString();
                 String email = binding.updateEmailEdit.getText().toString();
 
-                Costumers costumers = new Costumers();
-                costumers.setCid(cid);
-                costumers.setName(name);
-                costumers.setSurname(surname);
-                costumers.setPhone(phone);
-                costumers.setEmail(email);
-
-                DocumentReference data = MainActivity.appDb.collection("costumers").document(String.valueOf(cid));
-
-                data.update("cid", cid);
-                data.update("name", name);
-                data.update("surname", surname);
-                data.update("email", email);
-                data.update("phone", phone);
+                if (binding.updateLastNameEdit.length() != 0 && binding.updateFirstNameEdit.length() != 0 && binding.updatePhoneEdit.length() != 0 && binding.updateEmailEdit.length() != 0 && binding.autoCompleteCostumerPid2Update.length() != 0 && binding.autoCompleteCHotelUpdate.length() != 0) {
 
 
-                String pidString = binding.autoCompleteCostumerPid2Update.getText().toString();
-                if (!pidString.isEmpty()) {
-                    String pidCut = pidString.substring(0, pidString.indexOf(" "));
-                    int pid = Integer.parseInt(pidCut);
-                    data.update("pid", pid);
-                } else {
-                    data.update("pid", pid);
+                    Costumers costumers = new Costumers();
+                    costumers.setCid(cid);
+                    costumers.setName(name);
+                    costumers.setSurname(surname);
+                    costumers.setPhone(Long.parseLong(phone));
+                    costumers.setEmail(email);
+
+                    DocumentReference data = MainActivity.appDb.collection("costumers").document(String.valueOf(cid));
+
+                    data.update("cid", cid);
+                    data.update("name", name);
+                    data.update("surname", surname);
+                    data.update("email", email);
+                    data.update("phone", phone);
+
+
+                    String pidString = binding.autoCompleteCostumerPid2Update.getText().toString();
+                    if (!pidString.isEmpty()) {
+                        String pidCut = pidString.substring(0, pidString.indexOf(" "));
+                        int pid = Integer.parseInt(pidCut);
+                        data.update("pid", pid);
+                    } else {
+                        data.update("pid", pid);
+                    }
+
+
+                    String hidString = binding.autoCompleteCHotelUpdate.getText().toString();
+                    if (!hidString.isEmpty()) {
+
+                        String tidCut = hidString.substring(0, hidString.indexOf(" "));
+                        int hid = Integer.parseInt(tidCut);
+                        data.update("hotel", hid);
+                    } else {
+                        data.update("hotel", hotel);
+                    }
+
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    CostumersFragment costumersFragment = new CostumersFragment();
+                    fragmentTransaction.replace(R.id.nav_host_fragment_content_main, costumersFragment);
+                    fragmentTransaction.commit();
+
+                }else{
+                    Toast.makeText(getActivity(), "Fill all the fields", Toast.LENGTH_SHORT).show();
                 }
-
-
-                String hidString = binding.autoCompleteCHotelUpdate.getText().toString();
-                if (!hidString.isEmpty()) {
-
-                    String tidCut = hidString.substring(0, hidString.indexOf(" "));
-                    int hid = Integer.parseInt(tidCut);
-                    data.update("hotel", hid);
-                } else {
-                    data.update("hotel", hotel);
-                }
-
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                CostumersFragment costumersFragment = new CostumersFragment();
-                fragmentTransaction.replace(R.id.nav_host_fragment_content_main, costumersFragment);
-                fragmentTransaction.commit();
 
             }
         });

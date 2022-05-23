@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -129,6 +130,17 @@ public class AddCostumersFragment extends Fragment {
 
             }
         });
+
+
+        // Add Action is Canceled and Navigates to Hotels Fragment
+
+        binding.cancelUpdateCostumersButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_addCostumersFragment_to_nav_costumers);
+            }
+        });
+
 
         return root;
     }

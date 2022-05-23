@@ -37,6 +37,17 @@ public class AddOfficesFragment extends Fragment {
             }
         });
 
+
+        // Add Action is Canceled and Navigates to Offices Fragment
+
+        binding.cancelUpdateOfficesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_addOfficesFragment_to_nav_offices);
+            }
+        });
+
+
         return root;
     }
 

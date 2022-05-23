@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -110,40 +111,46 @@ public class UpdatePackagesFragment extends Fragment {
         binding.updatePackageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int departure = Integer.parseInt(binding.updatePackageDeparture.getText().toString());
-                Double cost = Double.parseDouble(binding.updatePackageCost.getText().toString());
 
-                Packages packages = new Packages();
-                packages.setPid(id);
+                if (binding.autoCompleteOfficeidUpdate.length() != 0 && binding.autoCompletePtidUpdate.length() != 0 && binding.updatePackageDeparture.length() != 0 && binding.updatePackageCost.length() != 0) {
 
-                String office_idString = binding.autoCompleteOfficeidUpdate.getText().toString();
-                if (!office_idString.isEmpty()) {
-                    String office_idCut = office_idString.substring(0, office_idString.indexOf(" "));
-                    int office_id = Integer.parseInt(office_idCut);
-                    packages.setOfid(office_id);
+                    int departure = Integer.parseInt(binding.updatePackageDeparture.getText().toString());
+                    Double cost = Double.parseDouble(binding.updatePackageCost.getText().toString());
+
+                    Packages packages = new Packages();
+                    packages.setPid(id);
+
+                    String office_idString = binding.autoCompleteOfficeidUpdate.getText().toString();
+                    if (!office_idString.isEmpty()) {
+                        String office_idCut = office_idString.substring(0, office_idString.indexOf(" "));
+                        int office_id = Integer.parseInt(office_idCut);
+                        packages.setOfid(office_id);
+                    } else {
+                        packages.setOfid(office_id);
+                    }
+
+
+                    String tour_idString = binding.autoCompletePtidUpdate.getText().toString();
+                    if (!tour_idString.isEmpty()) {
+                        String tour_idCut = tour_idString.substring(0, tour_idString.indexOf(" "));
+                        int tour_id = Integer.parseInt(tour_idCut);
+                        packages.setTid(tour_id);
+                    } else {
+                        packages.setTid(tour_id);
+                    }
+
+                    packages.setDepartureTime(departure);
+                    packages.setCost(cost);
+                    packagesViewModel.updatePackage(packages);
+
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    PackagesFragment packagesFragment = new PackagesFragment();
+                    fragmentTransaction.replace(R.id.nav_host_fragment_content_main, packagesFragment);
+                    fragmentTransaction.commit();
                 } else {
-                    packages.setOfid(office_id);
+                    Toast.makeText(getActivity(), "Fill all the fields", Toast.LENGTH_SHORT).show();
                 }
-
-
-                String tour_idString = binding.autoCompletePtidUpdate.getText().toString();
-                if (!tour_idString.isEmpty()) {
-                    String tour_idCut = tour_idString.substring(0, tour_idString.indexOf(" "));
-                    int tour_id = Integer.parseInt(tour_idCut);
-                    packages.setTid(tour_id);
-                } else {
-                    packages.setTid(tour_id);
-                }
-
-                packages.setDepartureTime(departure);
-                packages.setCost(cost);
-                packagesViewModel.updatePackage(packages);
-
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                PackagesFragment packagesFragment = new PackagesFragment();
-                fragmentTransaction.replace(R.id.nav_host_fragment_content_main, packagesFragment);
-                fragmentTransaction.commit();
 
             }
         });

@@ -50,18 +50,23 @@ public class UpdateOfficesFragment extends Fragment {
                 String name = binding.updateOfficeName.getText().toString();
                 String address = binding.updateOfficeAddress.getText().toString();
 
-                Offices office = new Offices();
-                office.setOfid(id);
-                office.setName(name);
-                office.setAddress(address);
-                officesViewModel.updateOffice(office);
 
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                OfficesFragment officesFragment = new OfficesFragment();
-                fragmentTransaction.replace(R.id.nav_host_fragment_content_main, officesFragment);
-                fragmentTransaction.commit();
+                if (binding.updateOfficeName.length()!=0 && binding.updateOfficeAddress.length()!=0) {
 
+                    Offices office = new Offices();
+                    office.setOfid(id);
+                    office.setName(name);
+                    office.setAddress(address);
+                    officesViewModel.updateOffice(office);
+
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    OfficesFragment officesFragment = new OfficesFragment();
+                    fragmentTransaction.replace(R.id.nav_host_fragment_content_main, officesFragment);
+                    fragmentTransaction.commit();
+                }else{
+                    Toast.makeText(getActivity(), "Fill all the fields", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

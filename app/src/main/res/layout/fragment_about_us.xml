@@ -89,7 +89,7 @@
             android:layout_width="190dp"
             android:layout_height="164dp"
             android:layout_marginStart="10dp"
-            android:src="@mipmap/trvl_logo1"></ImageView>
+            android:src="@drawable/peris"></ImageView>
 
         <TextView
             android:layout_width="192dp"

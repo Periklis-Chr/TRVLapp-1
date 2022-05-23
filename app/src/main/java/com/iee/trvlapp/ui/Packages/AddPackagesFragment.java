@@ -103,6 +103,17 @@ public class AddPackagesFragment extends Fragment {
         });
 
 
+
+        // Add Action is Canceled and Navigates to Packages Fragment
+
+        binding.cancelUpdatePackagesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_addPackagesFragment_to_nav_packages);
+            }
+        });
+
+
         return root;
     }
 
