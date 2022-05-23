@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -16,14 +15,10 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.iee.trvlapp.R;
-import com.iee.trvlapp.databinding.FragmentUpdateOfficesBinding;
 import com.iee.trvlapp.databinding.FragmentUpdatePackagesBinding;
 import com.iee.trvlapp.roomEntities.Offices;
 import com.iee.trvlapp.roomEntities.Packages;
 import com.iee.trvlapp.roomEntities.Tours;
-import com.iee.trvlapp.ui.Offices.OfficesFragment;
-import com.iee.trvlapp.ui.Offices.OfficesViewModel;
-import com.iee.trvlapp.ui.Offices.UpdateOfficesFragment;
 
 import java.util.List;
 
@@ -48,47 +43,33 @@ public class UpdatePackagesFragment extends Fragment {
         View root = binding.getRoot();
 
 
-
-
-        //listener for confirmation of data insertion
+        // Retrieves Data passed From Packages Fragment
 
         Bundle bundle = getArguments();
         int id = bundle.getInt("id");
-        int ofid = bundle.getInt("ofid");
-        int tid = bundle.getInt("tid");
+        int office_id = bundle.getInt("ofid");
+        int tour_id = bundle.getInt("tid");
         int departure = bundle.getInt("departure");
         double cost = bundle.getDouble("cost");
-        boolean flagTour = bundle.getBoolean("flagTour");
-         boolean flagOffice =bundle.getBoolean("flagOffice");
 
 
-
-
-
-
-
-
-
-
-        //////
+        // Supports Dynamic autocomplete ListView for tour_id on UpdatePackage Fragment
 
         int i = 0;
 
         toursList = packagesViewModel.getAllTours();
         String[] items = new String[toursList.size()];
-        int[] itemsId = new int[toursList.size()];
+
         for (Tours tour : toursList
         ) {
             items[i] = String.valueOf(tour.getTid()) + " " + tour.getCity();
             i++;
         }
 
-
         autocompleteText = binding.getRoot().findViewById(R.id.auto_complete_ptid_update);
-        adapterItems = new ArrayAdapter<String>(getActivity(), R.layout.package_tours_list_item, items);
+        adapterItems = new ArrayAdapter<String>(getActivity(), R.layout.auto_complete_list_item, items);
 
         autocompleteText.setAdapter(adapterItems);
-
         autocompleteText.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -96,9 +77,7 @@ public class UpdatePackagesFragment extends Fragment {
             }
         });
 
-
-        /////
-
+        // Supports Dynamic autocomplete ListView for office_id on UpdatePackage Fragment
 
         int j = 0;
 
@@ -106,16 +85,14 @@ public class UpdatePackagesFragment extends Fragment {
         String[] officeItems = new String[officesList.size()];
         for (Offices office : officesList
         ) {
-            officeItems[j] = String.valueOf(office.getDid() + " " + office.getName());
+            officeItems[j] = String.valueOf(office.getOfid() + " " + office.getName());
             j++;
         }
 
-
         autocompleteOfficeText = binding.getRoot().findViewById(R.id.auto_complete_officeid_update);
-        adapterOfficeItems = new ArrayAdapter<String>(getActivity(), R.layout.package_tours_list_item, officeItems);
+        adapterOfficeItems = new ArrayAdapter<String>(getActivity(), R.layout.auto_complete_list_item, officeItems);
 
         autocompleteOfficeText.setAdapter(adapterOfficeItems);
-
         autocompleteOfficeText.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -124,56 +101,39 @@ public class UpdatePackagesFragment extends Fragment {
         });
 
 
-        /////
-
-
-
-
-
-//        binding.updatePackageId.setText(String.valueOf(id));
-//        binding.updatePackageOfid.setText(String.valueOf(ofid));
-//        binding.updatePackageTid.setText(String.valueOf(tid));
         binding.updatePackageDeparture.setText(String.valueOf(departure));
         binding.updatePackageCost.setText(String.valueOf(cost));
 
-        //onclick listener for updating Room data
+
+        //  Updates Chosen Package and Navigates to Packages Fragment
 
         binding.updatePackageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                int id = Integer.parseInt(binding.updatePackageId.getText().toString());
-//                int ofid = Integer.parseInt(binding.updatePackageOfid.getText().toString());
-//                int tid = Integer.parseInt(binding.updatePackageTid.getText().toString());
                 int departure = Integer.parseInt(binding.updatePackageDeparture.getText().toString());
                 Double cost = Double.parseDouble(binding.updatePackageCost.getText().toString());
-
 
                 Packages packages = new Packages();
                 packages.setPid(id);
 
-
-
-                    String ofidString = binding.autoCompleteOfficeidUpdate.getText().toString();
-                if (!ofidString.isEmpty()) {
-                    String ofidCut = ofidString.substring(0, ofidString.indexOf(" "));
-                    int ofid = Integer.parseInt(ofidCut);
-                    packages.setDid(ofid);
+                String office_idString = binding.autoCompleteOfficeidUpdate.getText().toString();
+                if (!office_idString.isEmpty()) {
+                    String office_idCut = office_idString.substring(0, office_idString.indexOf(" "));
+                    int office_id = Integer.parseInt(office_idCut);
+                    packages.setOfid(office_id);
                 } else {
-                    packages.setDid(ofid);
+                    packages.setOfid(office_id);
                 }
 
 
-
-                    String tidString = binding.autoCompletePtidUpdate.getText().toString();
-                if (!tidString.isEmpty()) {
-
-                    String tidCut = tidString.substring(0, tidString.indexOf(" "));
-                    int tid = Integer.parseInt(tidCut);
-                    packages.setTid(tid);
+                String tour_idString = binding.autoCompletePtidUpdate.getText().toString();
+                if (!tour_idString.isEmpty()) {
+                    String tour_idCut = tour_idString.substring(0, tour_idString.indexOf(" "));
+                    int tour_id = Integer.parseInt(tour_idCut);
+                    packages.setTid(tour_id);
                 } else {
-                    packages.setTid(tid);
+                    packages.setTid(tour_id);
                 }
-
 
                 packages.setDepartureTime(departure);
                 packages.setCost(cost);
@@ -189,7 +149,7 @@ public class UpdatePackagesFragment extends Fragment {
         });
 
 
-        //cancel update data
+        // Update Action is Canceled and Navigates to Packages Fragment
 
         binding.cancelUpdatePackageButton.setOnClickListener(new View.OnClickListener() {
             @Override

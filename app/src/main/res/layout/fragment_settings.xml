@@ -8,19 +8,7 @@
     tools:context=".ui.SupportingClasses.Settings">
 
 
-    <TextView
-        android:id="@+id/db_operations"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="Database Operations"
-        android:textAlignment="center"
-        android:textColor="@color/purple_200"
-        android:textSize="30dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/cardViewInsert_room"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewInsert_room"
@@ -225,17 +213,5 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-
-
-    <Button
-        android:id="@+id/changelang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:hint="change lang"
-        app:layout_constraintTop_toBottomOf="@+id/cardView"
-        tools:layout_editor_absoluteX="153dp"
-        tools:ignore="MissingConstraints"></Button>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

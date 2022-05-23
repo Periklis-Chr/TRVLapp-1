@@ -1,14 +1,12 @@
 <resources>
     <string name="app_name">TRVL</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">TRVL</string>
     <string name="nav_header_subtitle">Travel Solutions</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="action_deleteAll">Delete All</string>
 
-
+    <!--     Menu Titles Strings-->
 
     <string name="menu_home">Κεντρική Σελίδα</string>
     <string name="menu_offices">Ταξιδιωτικά Γραφεία</string>
@@ -16,18 +14,93 @@
     <string name="menu_packages">Πακέτα Εκδρομών</string>
     <string name="menu_costumers">Πελάτες</string>
     <string name="menu_hotels">Ξενοδοχεία</string>
-    <string name="menu_aboutUs">Ποιοι Ειμαστε</string>
-    <string name="menu_help">Βοηθεια</string>
-    <string name="menu_settings">Ρυθμιμσεις</string>
+    <string name="menu_aboutUs">Ποιοί Είμαστε</string>
+    <string name="menu_help">Βοήθεια</string>
+    <string name="menu_settings">Ρυθμίσεις</string>
 
+    <string name="menu_more">Περισότερα</string>
+    <string name="menu_adminoptions">Επιλογές Διαχειριστή</string>
 
-    <string name="button_confirm">Υποβολη</string>
-    <string name="button">Ακυρωση</string>
+    <!--    Button Text Strings-->
 
+    <string name="button_confirm">Υποβολή</string>
+    <string name="button_cancel">Άκυρο</string>
 
+    <!--    Input Hints Strings-->
 
+    <string name="input_cid">Κωδικός Πελάτη</string>
+    <string name="input_tid">Κωδικός Προορισμού</string>
+    <string name="input_pid">Κωδικός Πακέτου</string>
+    <string name="input_ofid">Κωδικός Γραφείου</string>
+    <string name="input_hid">Κωδικός Ξενοδοχείου</string>
+    <string name="input_name">Όνομα</string>
+    <string name="input_surname">Έπιθετο</string>
+    <string name="input_email">Ηλεκτ. Διεύθυνση</string>
+    <string name="input_phone">Τηλέφωνο</string>
+    <string name="input_address">Διεύθυνση</string>
+    <string name="input_duration">Διάρκεια</string>
+    <string name="input_departuredate">Ημερ. Αναχώρησης</string>
+    <string name="input_cost">Κόστος</string>
+    <string name="input_stars">Αστέρια</string>
+    <string name="input_city">Πόλη</string>
+    <string name="input_country">Χώρα</string>
+    <string name="input_Type">Τύπος Εκδρομής</string>
 
+    <string name="input_selectOffice">Επέλεξε Γραφείου</string>
+    <string name="input_selectTour">Επέλεξε Προορισμό</string>
+    <string name="input_selectHotel">Επέλεξε Ξενοδοχείο</string>
+    <string name="input_selectPackage">Επέλεξε Πακέτο</string>
 
+    <!--    RecyclerView Card Label Strings-->
 
+    <string name="card_hotel">Ξενοδοχείο : </string>
+    <string name="card_office">Γραφείο : </string>
+    <string name="card_cid">Κωδικός Πελάτη : </string>
+    <string name="card_tid">Κωδικός Προορισμού : </string>
+    <string name="card_pid">Κωδικός Πακέτου : </string>
+    <string name="card_ofid">Κωδικός Γραφείου : </string>
+    <string name="card_hid">Κωδικός Ξενοδοχείου : </string>
+    <string name="card_name">Όνομα : </string>
+    <string name="card_surname">Έπιθετο : </string>
+    <string name="card_email">Ηλεκτ. Διεύθυνση : </string>
+    <string name="card_phone">Τηλέφωνο : </string>
+    <string name="card_address">Διάρκεια : </string>
+    <string name="card_duration">Ημερ. Αναχώρησης : </string>
+    <string name="card_departuredate">Ημερ. Αναχώρησης : </string>
+    <string name="card_cost">Κόστος : </string>
+    <string name="card_stars">Αστέρια : </string>
+    <string name="card_city">Πόλη : </string>
+    <string name="card_country">Χώρα : </string>
+    <string name="card_Type">Τύπος Εκδρομής : </string>
+
+    <!--    Filter Title Strings-->
+
+    <string name="filter_citydesc">Πόλη : Φθίνουσα</string>
+    <string name="filter_cityasc">Πόλη : Άυξουσα</string>
+    <string name="filter_id">Κωδικός : Άυξουσα</string>
+
+    <string name="filter_costdesc">Κόστος : Φθίνουσα</string>
+    <string name="filter_costasc">Κόστος : Άυξουσα</string>
+
+    <string name="filter_namedesc">Όνομα : Α - Ω</string>
+    <string name="filter_nameasc">Όνομα : Ω - Α</string>
+
+    <!--    Settings Strings-->
+
+    <string name="settings_fillRoomlabel">Μπορείτε να Γεμίσετε την Room  με έγκυρα\n δεδομένα πατώντας το κουμπί παρακάτω</string>
+    <string name="settings_fillRoombtn">Συμπλήρωση δεδομένων στην Room</string>
+
+    <string name="settings_deleteRoomlabel">Μπορείτε να Διαγράψετε την Room\n  πατώντας το κουμπί παρακάτω</string>
+    <string name="settings_deleteRoombtn">Διαγραφή δεδομένων από την Room</string>
+
+    <string name="settings_fillfirestorelabel">Μπορείτε να συμπληρώσετε την Firestore με έγκυρα\n δεδομένα πατώντας το παρακάτω κουμπί</string>
+    <string name="settings_fillfirestorebtn">Συμπλήρωση δεδομένων στην Firestore </string>
+
+    <string name="settings_deletefirestorelabel">Μπορείτε να Διαγράψετε την Firestore \n πατώντας το παρακάτω κουμπί</string>
+    <string name="settings_deletefirestorebtn">Διαγραφή δεδομένων από την Firestore</string>
+
+    <!--    Home Text Strings-->
+
+    <string name="main_intro_text">Οι υπηρεσίες μας καλύπτουν όλες τις πτυχές των ταξιδιωτικών σας αναγκών διασφαλίζοντας ότι οι διακοπές σας στη Μεσόγειο θα είναι αξέχαστες . Με το TRVL είστε σίγουροι για την ποιότητα και την αξιοπιστία.</string>
 
 </resources>

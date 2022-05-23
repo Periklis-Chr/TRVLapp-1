@@ -19,13 +19,9 @@ import com.iee.trvlapp.FirestoreEntities.Costumers;
 import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentUpdateCostumersBinding;
-import com.iee.trvlapp.databinding.FragmentUpdateToursBinding;
 import com.iee.trvlapp.roomEntities.CityHotels;
 import com.iee.trvlapp.roomEntities.Packages;
 import com.iee.trvlapp.roomEntities.Tours;
-import com.iee.trvlapp.ui.Offices.OfficesFragment;
-import com.iee.trvlapp.ui.Tours.ToursFragment;
-import com.iee.trvlapp.ui.Tours.ToursViewModel;
 
 import java.util.List;
 
@@ -34,15 +30,13 @@ public class UpdateCostumersFragment extends Fragment {
 
     private FragmentUpdateCostumersBinding binding;
 
-
     ArrayAdapter<String> adapterItems;
     List<Packages> packageList;
     List<CityHotels> hotelsList;
-    ArrayAdapter<String> adapterOfficeItems;
+    ArrayAdapter<String> adapterHotelItems;
 
     AutoCompleteTextView autocompleteText;
-    AutoCompleteTextView autocompleteOfficeText;
-
+    AutoCompleteTextView autocompleteHotelText;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -53,7 +47,7 @@ public class UpdateCostumersFragment extends Fragment {
         View root = binding.getRoot();
 
 
-        // get data between fragment transaction
+        // Retrieves Data passed From Costumers Fragment
 
         Bundle bundle = getArguments();
         int cid = bundle.getInt("cid");
@@ -65,13 +59,12 @@ public class UpdateCostumersFragment extends Fragment {
         int hotel = bundle.getInt("hotel");
 
 
-        //////
+        // Supports Dynamic autocomplete ListView for package_id on UpdateCostumer Fragment
 
         int i = 0;
 
         packageList = costumersViewModel.getAllPackages();
         String[] items = new String[packageList.size()];
-        int[] itemsId = new int[packageList.size()];
         for (Packages packages : packageList
         ) {
             Tours currentTour = costumersViewModel.getTourById(packages.getTid());
@@ -81,23 +74,21 @@ public class UpdateCostumersFragment extends Fragment {
 
 
         autocompleteText = binding.getRoot().findViewById(R.id.auto_complete_costumer_pid2_update);
-        adapterItems = new ArrayAdapter<String>(getActivity(), R.layout.package_tours_list_item, items);
+        adapterItems = new ArrayAdapter<String>(getActivity(), R.layout.auto_complete_list_item, items);
 
         autocompleteText.setAdapter(adapterItems);
-
         autocompleteText.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String item = adapterView.getItemAtPosition(i).toString();
 
 
-                /////
+                // Supports Dynamic autocomplete ListView for hotel_id on UpdateCostumer Fragment
 
 
                 int j = 0;
 
                 Packages packages = costumersViewModel.getPackageById(Integer.parseInt(item.substring(0, item.indexOf(" "))));
-
                 hotelsList = costumersViewModel.getHotelsList(packages.getTid());
 
                 String[] hotelItems = new String[hotelsList.size()];
@@ -107,68 +98,47 @@ public class UpdateCostumersFragment extends Fragment {
                     j++;
                 }
 
+                autocompleteHotelText = binding.getRoot().findViewById(R.id.auto_complete_c_hotel_update);
+                adapterHotelItems = new ArrayAdapter<String>(getActivity(), R.layout.auto_complete_list_item, hotelItems);
 
-                autocompleteOfficeText = binding.getRoot().findViewById(R.id.auto_complete_c_hotel_update);
-                adapterOfficeItems = new ArrayAdapter<String>(getActivity(), R.layout.package_tours_list_item, hotelItems);
-
-                autocompleteOfficeText.setAdapter(adapterOfficeItems);
-
-                autocompleteOfficeText.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                autocompleteHotelText.setAdapter(adapterHotelItems);
+                autocompleteHotelText.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         String item2 = adapterView.getItemAtPosition(i).toString();
                     }
                 });
 
-
-                /////
-
-
             }
         });
 
 
-        binding.updateCostumerId.setText(String.valueOf(cid));
         binding.updateFirstNameEdit.setText(name);
         binding.updateLastNameEdit.setText(surname);
         binding.updatePhoneEdit.setText(String.valueOf(phone));
         binding.updateEmailEdit.setText(email);
-//        binding.updatePackageId.setText(String.valueOf(pid));
-//        binding.updatePackageHotel.setText(String.valueOf(hotel));
 
 
-        //Update Costumer entry when onClick
+        //  Updates Chosen Costumer and Navigates to Costumers Fragment
 
         binding.updateCostumerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int id = Integer.parseInt(binding.updateCostumerId.getText().toString());
                 String name = binding.updateFirstNameEdit.getText().toString();
                 String surname = binding.updateLastNameEdit.getText().toString();
                 long phone = Long.parseLong(binding.updatePhoneEdit.getText().toString());
                 String email = binding.updateEmailEdit.getText().toString();
 
-
-//                int pid = Integer.parseInt(binding.updatePackageId.getText().toString());
-//                int hotel = Integer.parseInt(binding.updatePackageHotel.getText().toString());
-
-
                 Costumers costumers = new Costumers();
-                costumers.setCid(id);
+                costumers.setCid(cid);
                 costumers.setName(name);
                 costumers.setSurname(surname);
                 costumers.setPhone(phone);
                 costumers.setEmail(email);
 
+                DocumentReference data = MainActivity.appDb.collection("costumers").document(String.valueOf(cid));
 
-//
-//                costumers.setPid(pid);
-//                costumers.setHotel(hotel);
-
-
-                DocumentReference data = MainActivity.appDb.collection("costumers").document(String.valueOf(id));
-
-                data.update("cid", id);
+                data.update("cid", cid);
                 data.update("name", name);
                 data.update("surname", surname);
                 data.update("email", email);
@@ -195,11 +165,6 @@ public class UpdateCostumersFragment extends Fragment {
                     data.update("hotel", hotel);
                 }
 
-
-//                data.update("pid", pid);
-//                data.update("hotel", hotel);
-
-
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 CostumersFragment costumersFragment = new CostumersFragment();
@@ -210,7 +175,7 @@ public class UpdateCostumersFragment extends Fragment {
         });
 
 
-        //listener for canceling update costumer form
+        //Update Action is Canceled and Navigates to Costumers Fragment
 
         binding.updateCancelCostumerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -224,8 +189,6 @@ public class UpdateCostumersFragment extends Fragment {
             }
         });
 
-
         return root;
     }
-
 }

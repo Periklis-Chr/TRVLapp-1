@@ -4,87 +4,95 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "Packages_table",
         foreignKeys = {@ForeignKey(entity = Offices.class,
                 parentColumns = "Offices_id",
-                childColumns = "Packages_Did",
+                childColumns = "Packages_ofid",
                 onDelete = ForeignKey.CASCADE,
                 onUpdate = ForeignKey.CASCADE),
                 @ForeignKey(entity = Tours.class,
                         parentColumns = "Tours_id",
-                        childColumns = "Packages_Tid",
+                        childColumns = "Packages_tid",
                         onDelete = ForeignKey.CASCADE,
                         onUpdate = ForeignKey.CASCADE)})
 
 
 public class Packages {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "Packages_id")
     @NonNull
-    private int Pid;
-    @ColumnInfo(name = "Packages_Did")
+    private int pid;
+    @ColumnInfo(name = "Packages_ofid",index = true)
     @NonNull
-    private int Did;
-    @ColumnInfo(name = "Packages_Tid")
+    private int ofid;
+    @ColumnInfo(name = "Packages_tid",index = true)
     @NonNull
-    private int Tid;
-    @ColumnInfo(name = "Packages_DepartureTime")
-    private int DepartureTime;
-    @ColumnInfo(name = "Packages_Cost")
-    private Double Cost;
+    private int tid;
+    @ColumnInfo(name = "Packages_departureTime")
+    private int departureTime;
+    @ColumnInfo(name = "Packages_cost")
+    private Double cost;
 
 
     public Packages() {
     }
-
-    public Packages(int pid, int did, int tid, int departureTime, Double cost) {
-        Pid = pid;
-        Did = did;
-        Tid = tid;
-        DepartureTime = departureTime;
-        Cost = cost;
+    @Ignore
+    public Packages(int ofid, int tid, int departureTime, Double cost) {
+        this.ofid = ofid;
+        this.tid = tid;
+        this.departureTime = departureTime;
+        this.cost = cost;
+    }
+    @Ignore
+    public Packages(int pid, int ofid, int tid, int departureTime, Double cost) {
+        this.pid = pid;
+        this.ofid = ofid;
+        this.tid = tid;
+        this.departureTime = departureTime;
+        this.cost = cost;
     }
 
     public int getPid() {
-        return Pid;
+        return pid;
     }
 
     public void setPid(int pid) {
-        Pid = pid;
+        this.pid = pid;
     }
 
-    public int getDid() {
-        return Did;
+    public int getOfid() {
+        return ofid;
     }
 
-    public void setDid(int did) {
-        Did = did;
+    public void setOfid(int ofid) {
+        this.ofid = ofid;
     }
 
     public int getTid() {
-        return Tid;
+        return tid;
     }
 
     public void setTid(int tid) {
-        Tid = tid;
+        this.tid = tid;
     }
 
     public int getDepartureTime() {
-        return DepartureTime;
+        return this.departureTime;
     }
 
     public void setDepartureTime(int departureTime) {
-        DepartureTime = departureTime;
+        this.departureTime = departureTime;
     }
 
     public Double getCost() {
-        return Cost;
+        return cost;
     }
 
     public void setCost(Double cost) {
-        Cost = cost;
+        this.cost = cost;
     }
 }

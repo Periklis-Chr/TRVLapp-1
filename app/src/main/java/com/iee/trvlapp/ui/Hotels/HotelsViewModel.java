@@ -29,6 +29,7 @@ public class HotelsViewModel extends AndroidViewModel {
         hotelsListNameASC = MainActivity.appDatabase.cityHotelsDao().getHotelsOrderedByNameASC();
     }
 
+    // CityHotels Dao methods implementation for Hotels Fragment
 
     public LiveData<List<CityHotels>> getAllHotels() {
         return HotelsList;
@@ -41,7 +42,6 @@ public class HotelsViewModel extends AndroidViewModel {
     public void updateHotel(CityHotels hotels) {
         MainActivity.appDatabase.cityHotelsDao().updateCityHotel(hotels);
     }
-
 
     public LiveData<List<CityHotels>> getHotelsOrderByNameDesc() {
         return hotelsListNameDESC;

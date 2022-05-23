@@ -5,13 +5,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.PopupMenu;
-import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -22,17 +17,9 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentPackagesBinding;
-import com.iee.trvlapp.roomEntities.Offices;
 import com.iee.trvlapp.roomEntities.Packages;
-import com.iee.trvlapp.roomEntities.Tours;
-import com.iee.trvlapp.ui.Offices.OfficeRecyclerViewAdapter;
-import com.iee.trvlapp.ui.Offices.OfficesViewModel;
-import com.iee.trvlapp.ui.Offices.UpdateOfficesFragment;
-import com.iee.trvlapp.ui.Tours.ToursViewModel;
 
 import java.util.List;
 
@@ -52,15 +39,7 @@ public class PackagesFragment extends Fragment {
         View root = binding.getRoot();
 
 
-        /////////
-
-
-
-
-
-        ////////
-
-        //Retrieves data from Room db
+        // Retrieves and feeds the RecyclerViewAdapter with Packages Data
 
         RecyclerView recyclerView = binding.packageRecyclerview;
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
@@ -77,8 +56,7 @@ public class PackagesFragment extends Fragment {
         });
 
 
-        //Delete data on Swipe LEFT
-
+        //Deletes Package on Swipe LEFT
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
                 ItemTouchHelper.LEFT) {
@@ -95,14 +73,13 @@ public class PackagesFragment extends Fragment {
         }).attachToRecyclerView(recyclerView);
 
 
-        //Updates data onClick
-
+        //Updates Package onClick
 
         adapter.setOnItemClickListener(new PackageRecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Packages packages) {
                 int id = packages.getPid();
-                int ofid = packages.getDid();
+                int ofid = packages.getOfid();
                 int tid = packages.getTid();
                 int departure = packages.getDepartureTime();
                 double cost = packages.getCost();
@@ -113,8 +90,8 @@ public class PackagesFragment extends Fragment {
                 bundle.putInt("tid", tid);
                 bundle.putInt("departure", departure);
                 bundle.putDouble("cost", cost);
-                bundle.putBoolean("flagTour",false);
-                bundle.putBoolean("flagOffice",false);
+                bundle.putBoolean("flagTour", false);
+                bundle.putBoolean("flagOffice", false);
 
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -126,7 +103,7 @@ public class PackagesFragment extends Fragment {
         });
 
 
-        //listener for adding packages
+        //Navigates to the AddPackage Fragment
 
         binding.floatingActionButtonAddPackages.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,7 +123,7 @@ public class PackagesFragment extends Fragment {
     }
 
 
-    //sortin filters for RecyclerView
+    //Gets support and populates menu for filter options
 
     public void popupMenu(View view) {
         PopupMenu popupMenu = new PopupMenu(getActivity().getApplicationContext(), view);
@@ -154,6 +131,9 @@ public class PackagesFragment extends Fragment {
         popupMenu.inflate(R.menu.package_filters);
         popupMenu.show();
     }
+
+    // Filter handling for Packages List
+
 
     public boolean onMenuItemClick(MenuItem menuItem) {
         PackagesViewModel packagesViewModel = new ViewModelProvider(this).get(PackagesViewModel.class);
@@ -175,7 +155,6 @@ public class PackagesFragment extends Fragment {
                 return true;
             case R.id.p_filter_asc_alphabetical_name:
 
-
                 packagesViewModel.getPackagesOrderByNameAsc().observe(getViewLifecycleOwner(), new Observer<List<Packages>>() {
                     @Override
                     public void onChanged(List<Packages> packages) {
@@ -193,7 +172,6 @@ public class PackagesFragment extends Fragment {
                         adapter.setPackages(packages);
                     }
                 });
-
 
                 showFilterFlag = 0;
                 return true;

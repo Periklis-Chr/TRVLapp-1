@@ -6,7 +6,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:padding="30dp"
-    android:background="@drawable/base"
+    android:background="@color/blue"
     android:orientation="vertical"
     tools:context=".ui.Costumers.AddCostumersFragment">
 
@@ -27,11 +27,12 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="333dp"
                 android:layout_height="60dp"
-                android:background="@drawable/selector"
-                android:drawableLeft="@drawable/ic_baseline_person_24"
+                android:background="@color/orange"
+                android:drawableLeft="@drawable/ic_baseline_group_24"
+                android:visibility="invisible"
                 android:drawablePadding="20dp"
                 android:fontFamily="@font/red_hat_text_regular"
-                android:hint="Id"
+                android:hint="@string/input_cid"
                 android:inputType="number"
                 android:padding="20dp"
                 android:textColor="@color/black"
@@ -43,12 +44,11 @@
                 android:layout_width="333dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/selector"
+                android:background="@color/orange"
                 android:drawableLeft="@drawable/ic_baseline_person_24"
                 android:drawablePadding="20dp"
                 android:fontFamily="@font/red_hat_text_regular"
-                android:hint="Name"
-                android:layout_below="@id/costumer_id"
+                android:hint="@string/input_name"
                 android:inputType="text"
                 android:padding="20dp"
                 android:textColor="@color/black"
@@ -60,14 +60,13 @@
                 android:layout_height="60dp"
                 android:layout_below="@id/firstNameEdit"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/selector"
+                android:background="@color/orange"
                 android:drawableLeft="@drawable/ic_baseline_person_24"
                 android:drawablePadding="20dp"
                 android:fontFamily="@font/red_hat_text_regular"
-                android:hint="Last Name"
+                android:hint="@string/input_surname"
                 android:inputType="text"
                 android:padding="20dp"
-
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
@@ -77,88 +76,16 @@
                 android:layout_height="60dp"
                 android:layout_below="@id/lastNameEdit"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/selector"
+                android:background="@color/orange"
                 android:drawableLeft="@drawable/ic_baseline_local_phone_24"
                 android:drawablePadding="20dp"
                 android:fontFamily="@font/red_hat_text_regular"
-                android:hint="Phone"
+                android:hint="@string/input_phone"
                 android:inputType="number"
                 android:padding="20dp"
-
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
-<!--            <EditText-->
-<!--                android:id="@+id/addressEdit"-->
-<!--                android:layout_width="333dp"-->
-<!--                android:layout_height="60dp"-->
-<!--                android:layout_below="@id/phoneEdit"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:background="@drawable/selector"-->
-<!--                android:drawableLeft="@drawable/ic_baseline_room_24"-->
-<!--                android:drawablePadding="20dp"-->
-<!--                android:fontFamily="@font/red_hat_text_regular"-->
-<!--                android:hint="Address"-->
-<!--                android:inputType="text"-->
-<!--                android:padding="20dp"-->
-
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="20dp" />-->
-
-<!--            <EditText-->
-<!--                android:id="@+id/addressNumberEdit"-->
-<!--                android:layout_width="125dp"-->
-<!--                android:layout_height="60dp"-->
-
-<!--                android:layout_below="@id/phoneEdit"-->
-<!--                android:layout_marginStart="11dp"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:layout_toEndOf="@+id/addressEdit"-->
-<!--                android:background="@drawable/selector"-->
-<!--                android:fontFamily="@font/red_hat_text_regular"-->
-<!--                android:gravity="center"-->
-
-<!--                android:hint="Number"-->
-<!--                android:inputType="text"-->
-<!--                android:padding="20dp"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="20dp" />-->
-
-<!--            <EditText-->
-<!--                android:id="@+id/cityEdit"-->
-<!--                android:layout_width="195dp"-->
-<!--                android:layout_height="60dp"-->
-<!--                android:layout_below="@id/addressEdit"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:background="@drawable/selector"-->
-<!--                android:drawableLeft="@drawable/ic_baseline_domain_24"-->
-<!--                android:drawablePadding="20dp"-->
-<!--                android:fontFamily="@font/red_hat_text_regular"-->
-<!--                android:hint="City"-->
-<!--                android:inputType="text"-->
-<!--                android:padding="20dp"-->
-
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="20dp" />-->
-
-<!--            <EditText-->
-<!--                android:id="@+id/postal_codeEdit"-->
-<!--                android:layout_width="125dp"-->
-<!--                android:layout_height="60dp"-->
-
-<!--                android:layout_below="@id/addressNumberEdit"-->
-<!--                android:layout_marginStart="11dp"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:layout_toEndOf="@+id/cityEdit"-->
-<!--                android:background="@drawable/selector"-->
-<!--                android:fontFamily="@font/red_hat_text_regular"-->
-<!--                android:gravity="center"-->
-
-<!--                android:hint="ZIP Code"-->
-<!--                android:inputType="text"-->
-<!--                android:padding="20dp"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="20dp" />-->
 
             <EditText
                 android:id="@+id/emailEdit"
@@ -166,57 +93,15 @@
                 android:layout_height="60dp"
                 android:layout_below="@id/phoneEdit"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/selector"
+                android:background="@color/orange"
                 android:drawableLeft="@drawable/ic_baseline_alternate_email_24"
                 android:drawablePadding="20dp"
                 android:fontFamily="@font/red_hat_text_regular"
-                android:hint="Email"
+                android:hint="@string/input_email"
                 android:inputType="text"
                 android:padding="20dp"
-
-
                 android:textColor="@color/black"
                 android:textSize="20dp" />
-
-
-
-
-
-<!--            <EditText-->
-<!--                android:id="@+id/package_id"-->
-<!--                android:layout_width="333dp"-->
-<!--                android:layout_height="60dp"-->
-<!--                android:layout_below="@id/emailEdit"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:background="@drawable/selector"-->
-<!--                android:drawableLeft="@drawable/ic_baseline_room_24"-->
-<!--                android:drawablePadding="20dp"-->
-<!--                android:fontFamily="@font/red_hat_text_regular"-->
-<!--                android:hint="Package_id"-->
-<!--                android:inputType="number"-->
-<!--                android:padding="20dp"-->
-
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="20dp" />-->
-
-<!--            <EditText-->
-<!--                android:id="@+id/package_hotel"-->
-<!--                android:layout_width="333dp"-->
-<!--                android:layout_height="60dp"-->
-<!--                android:layout_below="@id/package_id"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:background="@drawable/selector"-->
-<!--                android:drawableLeft="@drawable/ic_baseline_room_24"-->
-<!--                android:drawablePadding="20dp"-->
-<!--                android:fontFamily="@font/red_hat_text_regular"-->
-<!--                android:hint="Hotel"-->
-<!--                android:inputType="text"-->
-<!--                android:padding="20dp"-->
-
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="20dp" />-->
-
-
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -226,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/emailEdit"
                 android:layout_marginTop="11dp"
-                android:background="@drawable/selector"
+                android:background="@color/orange"
                 android:drawableLeft="@drawable/ic_baseline_local_phone_24"
                 android:drawablePadding="20dp"
                 android:fontFamily="@font/red_hat_text_regular"
@@ -259,7 +144,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/costumer_pid2"
                 android:layout_marginTop="11dp"
-                android:background="@drawable/selector"
+                android:background="@color/orange"
                 android:drawableLeft="@drawable/ic_baseline_local_phone_24"
                 android:drawablePadding="20dp"
 
@@ -279,68 +164,11 @@
                     android:layout_height="wrap_content"
                     android:hint="Select Hotel"
                     android:inputType="none"
+                    android:background="@color/orange"
 
                     />
 
-
             </com.google.android.material.textfield.TextInputLayout>
-
-
-
-
-
-
-
-
-
-            <!--            <RadioGroup-->
-<!--                android:id="@+id/genderEdit"-->
-<!--                android:layout_width="333dp"-->
-<!--                android:layout_height="60dp"-->
-<!--                android:layout_below="@id/emailEdit"-->
-
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:background="@drawable/selector"-->
-<!--                android:gravity="center"-->
-<!--                android:orientation="horizontal">-->
-
-<!--                <RadioButton-->
-<!--                    android:id="@+id/male"-->
-<!--                    android:layout_width="100dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginStart="8dp"-->
-<!--                    android:buttonTint="@color/black"-->
-<!--                    android:gravity="center"-->
-
-<!--                    android:text="Male"-->
-<!--                    android:textColor="@color/grey2"-->
-<!--                    android:textSize="20sp" />-->
-
-<!--                <RadioButton-->
-<!--                    android:id="@+id/female"-->
-<!--                    android:layout_width="100dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginStart="3dp"-->
-<!--                    android:buttonTint="@color/black"-->
-<!--                    android:gravity="center"-->
-
-<!--                    android:text="Female"-->
-<!--                    android:textColor="@color/grey2"-->
-<!--                    android:textSize="20sp" />-->
-
-<!--                <RadioButton-->
-<!--                    android:id="@+id/other"-->
-<!--                    android:layout_width="100dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginStart="3dp"-->
-<!--                    android:buttonTint="@color/black"-->
-<!--                    android:gravity="center"-->
-
-<!--                    android:text="Other"-->
-<!--                    android:textColor="@color/grey2"-->
-<!--                    android:textSize="20sp" />-->
-
-<!--            </RadioGroup>-->
 
 
             <com.google.android.material.button.MaterialButton
@@ -349,7 +177,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/costumer_hotel2"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/selectorbutton"
+                android:backgroundTint="@color/green"
                 android:text="Confirm"
                 android:textSize="20dp" />
 

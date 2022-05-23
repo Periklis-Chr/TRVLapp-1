@@ -15,19 +15,13 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentHotelsBinding;
-import com.iee.trvlapp.databinding.FragmentOfficesBinding;
 import com.iee.trvlapp.roomEntities.CityHotels;
-import com.iee.trvlapp.roomEntities.Offices;
-import com.iee.trvlapp.ui.Offices.OfficeRecyclerViewAdapter;
-import com.iee.trvlapp.ui.Offices.OfficesViewModel;
-import com.iee.trvlapp.ui.Offices.UpdateOfficesFragment;
 
 import java.util.List;
 
@@ -45,7 +39,6 @@ public class HotelsFragment extends Fragment implements PopupMenu.OnMenuItemClic
         binding = FragmentHotelsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-
         RecyclerView recyclerView = binding.hotelRecyclerview;
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
         recyclerView.setHasFixedSize(true);
@@ -53,8 +46,7 @@ public class HotelsFragment extends Fragment implements PopupMenu.OnMenuItemClic
         final HotelRecyclerViewAdapter adapter = new HotelRecyclerViewAdapter();
         recyclerView.setAdapter(adapter);
 
-
-        // Retrieves Data from Room db
+        // Retrieves and feeds the RecyclerViewAdapter with CityHotels Data
 
         hotelsViewModel.getAllHotels().observe(getViewLifecycleOwner(), new Observer<List<CityHotels>>() {
             @Override
@@ -64,8 +56,7 @@ public class HotelsFragment extends Fragment implements PopupMenu.OnMenuItemClic
         });
 
 
-        //Deletes data from Room db on Swipe LEFT
-
+        //Deletes CityHotel on Swipe LEFT
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
                 ItemTouchHelper.LEFT) {
@@ -81,9 +72,7 @@ public class HotelsFragment extends Fragment implements PopupMenu.OnMenuItemClic
             }
         }).attachToRecyclerView(recyclerView);
 
-
-        //Updates data from Room db onClick
-
+        //Updates CityHotel onClick
 
         adapter.setOnItemClickListener(new HotelRecyclerViewAdapter.OnItemClickListener() {
             //            @Override
@@ -106,13 +95,12 @@ public class HotelsFragment extends Fragment implements PopupMenu.OnMenuItemClic
                 UpdateHotelsFragment updateHotelsFragment = new UpdateHotelsFragment();
                 updateHotelsFragment.setArguments(bundle);
                 fragmentTransaction.replace(R.id.nav_host_fragment_content_main, updateHotelsFragment);
-
                 fragmentTransaction.commit();
             }
         });
 
 
-        //listener for adding offices
+        //Navigates to the AddHotel Fragment
 
         binding.floatingActionButtonAddHotels.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,7 +121,7 @@ public class HotelsFragment extends Fragment implements PopupMenu.OnMenuItemClic
     }
 
 
-    // Sorting filters for the reyclerView
+    //Gets support and populates menu for filter options
 
     public void popupMenu(View view) {
         PopupMenu popupMenu = new PopupMenu(getActivity().getApplicationContext(), view);
@@ -141,6 +129,8 @@ public class HotelsFragment extends Fragment implements PopupMenu.OnMenuItemClic
         popupMenu.inflate(R.menu.hotel_filters);
         popupMenu.show();
     }
+
+    // Filter handling for Hotels List
 
     @Override
     public boolean onMenuItemClick(MenuItem menuItem) {
@@ -189,5 +179,4 @@ public class HotelsFragment extends Fragment implements PopupMenu.OnMenuItemClic
                 return false;
         }
     }
-
 }

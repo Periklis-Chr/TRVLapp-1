@@ -5,7 +5,9 @@ public class CityCoordinates {
     private double longitude;
     private double latitude;
 
-public CityCoordinates(){}
+    public CityCoordinates() {
+    }
+
     public CityCoordinates(String cityNAme, double longitude, double latitude) {
         CityNAme = cityNAme;
         this.longitude = longitude;

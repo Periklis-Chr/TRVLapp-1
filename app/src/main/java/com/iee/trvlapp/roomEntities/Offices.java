@@ -3,47 +3,55 @@ package com.iee.trvlapp.roomEntities;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "offices_table")
 public class Offices {
-    @PrimaryKey()
-    @ColumnInfo(name ="Offices_id")@NonNull
-    private int Did;
-    @ColumnInfo(name ="Offices_name")
-    private String Name;
-    @ColumnInfo(name ="Offices_address")
-    private String Address;
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "Offices_id")
+    @NonNull
+    private int ofid;
+    @ColumnInfo(name = "Offices_name")
+    private String name;
+    @ColumnInfo(name = "Offices_address")
+    private String address;
 
-    public Offices(){}
-
-    public Offices(int did, String name, String address) {
-        Did = did;
-        Name = name;
-        Address = address;
+    public Offices() {
+    }
+    @Ignore
+    public Offices(int ofid, String name, String address) {
+        this.ofid = ofid;
+        this.name = name;
+        this.address = address;
+    }
+    @Ignore
+    public Offices(String name, String address) {
+        this.name = name;
+        this.address = address;
     }
 
-    public int getDid() {
-        return Did;
+    public int getOfid() {
+        return ofid;
     }
 
-    public void setDid(int did) {
-        Did = did;
+    public void setOfid(int ofid) {
+        this.ofid = ofid;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getAddress() {
-        return Address;
+        return address;
     }
 
     public void setAddress(String address) {
-        Address = address;
+        this.address = address;
     }
 }

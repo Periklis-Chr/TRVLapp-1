@@ -12,12 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.roomEntities.CityHotels;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class HotelRecyclerViewAdapter extends RecyclerView.Adapter<HotelRecyclerViewAdapter.HotelHolder> {
-
 
     private List<CityHotels> hotels = new ArrayList<>();
     private HotelRecyclerViewAdapter.OnItemClickListener listener;
@@ -61,7 +59,6 @@ public class HotelRecyclerViewAdapter extends RecyclerView.Adapter<HotelRecycler
 
     }
 
-
     @NonNull
     @Override
     public HotelRecyclerViewAdapter.HotelHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
@@ -95,6 +92,5 @@ public class HotelRecyclerViewAdapter extends RecyclerView.Adapter<HotelRecycler
     public void setOnItemClickListener(HotelRecyclerViewAdapter.OnItemClickListener listener) {
         this.listener = listener;
     }
-
 
 }

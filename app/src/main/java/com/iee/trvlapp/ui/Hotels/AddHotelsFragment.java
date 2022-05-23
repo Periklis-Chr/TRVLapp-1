@@ -32,7 +32,7 @@ public class AddHotelsFragment extends Fragment {
         binding = FragmentAddHotelsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        //listener for confirmation of data insertion
+        // Calls function to handle CityHotel Insertion
 
         binding.addHotelButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,24 +41,20 @@ public class AddHotelsFragment extends Fragment {
             }
         });
 
-
         return root;
     }
 
 
-    //insert data to Room db
+    ////Inserts  CityHotel
     public void insertOfficeData() {
 
-        int id = Integer.parseInt(binding.addHotelId.getText().toString());
         String name = binding.addHotelName.getText().toString();
         String address = binding.addHotelAddress.getText().toString();
         int stars = Integer.parseInt(binding.addHotelStars.getText().toString());
         int tid = Integer.parseInt(binding.addHotelTid.getText().toString());
 
-        if (binding.addHotelId.length() != 0 && binding.addHotelName.length() != 0 && binding.addHotelAddress.length() != 0 && binding.addHotelStars.length() != 0 && binding.addHotelTid.length() != 0) {
+        if (binding.addHotelName.length() != 0 && binding.addHotelAddress.length() != 0 && binding.addHotelStars.length() != 0 && binding.addHotelTid.length() != 0) {
             CityHotels cityHotels = new CityHotels();
-
-            cityHotels.setHid(id);
             cityHotels.setHotelName(name);
             cityHotels.setHotelAddress(address);
             cityHotels.setHotelStars(stars);
@@ -72,7 +68,6 @@ public class AddHotelsFragment extends Fragment {
             Toast.makeText(getActivity(), "Fill all fields", Toast.LENGTH_LONG).show();
         }
     }
-
 
     @Override
     public void onDestroyView() {

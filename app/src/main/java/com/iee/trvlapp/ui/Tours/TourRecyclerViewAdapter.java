@@ -5,17 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.Toolbar;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.iee.trvlapp.R;
-import com.iee.trvlapp.roomEntities.Offices;
 import com.iee.trvlapp.roomEntities.Tours;
-import com.iee.trvlapp.ui.Offices.OfficeRecyclerViewAdapter;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,9 +42,7 @@ public class TourRecyclerViewAdapter extends RecyclerView.Adapter<TourRecyclerVi
                     }
                 }
             });
-
         }
-
     }
 
     @SuppressLint("NotifyDataSetChanged")

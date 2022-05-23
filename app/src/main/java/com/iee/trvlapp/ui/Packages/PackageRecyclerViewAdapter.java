@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.iee.trvlapp.MainActivity;
@@ -16,7 +14,6 @@ import com.iee.trvlapp.R;
 import com.iee.trvlapp.roomEntities.Offices;
 import com.iee.trvlapp.roomEntities.Packages;
 import com.iee.trvlapp.roomEntities.Tours;
-import com.iee.trvlapp.ui.Offices.OfficeRecyclerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,10 +30,8 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
         private final TextView tid;
         private final TextView departure;
         private final TextView cost;
-
         private final TextView office_name;
         private final TextView tour_City;
-
 
         public PackageHolder(View view) {
             super(view);
@@ -69,12 +64,10 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
         notifyDataSetChanged();
     }
 
-
     public Packages getPackageAt(int position) {
         return packages.get(position);
 
     }
-
 
     @NonNull
     @Override
@@ -89,10 +82,10 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
         Packages currentPackage = packages.get(position);
 
         Tours curentTour = MainActivity.appDatabase.toursDao().getTourById(currentPackage.getTid());
-        Offices currentOffice = MainActivity.appDatabase.officesDao().getOfficeById(currentPackage.getDid());
+        Offices currentOffice = MainActivity.appDatabase.officesDao().getOfficeById(currentPackage.getOfid());
 
         holder.id.setText(String.valueOf(currentPackage.getPid()));
-        holder.ofid.setText(String.valueOf(currentPackage.getDid()));
+        holder.ofid.setText(String.valueOf(currentPackage.getOfid()));
         holder.tid.setText(String.valueOf(currentPackage.getTid()));
 
         holder.departure.setText(String.valueOf(currentPackage.getDepartureTime()));
@@ -119,6 +112,5 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
     public void setOnItemClickListener(PackageRecyclerViewAdapter.OnItemClickListener listener) {
         this.listener = listener;
     }
-
 
 }

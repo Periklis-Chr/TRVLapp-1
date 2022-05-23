@@ -3,73 +3,83 @@ package com.iee.trvlapp.roomEntities;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+
 @Entity(tableName = "Tours_table")
 public class Tours {
 
-    @PrimaryKey
-    @ColumnInfo(name ="Tours_id")@NonNull
-    private int Tid;
-    @ColumnInfo(name ="Tours_City")
-    private String City;
-    @ColumnInfo(name ="Tours_Country")
-    private String Country;
-    @ColumnInfo(name ="Tours_Duration")
-    private int Duration;
-    @ColumnInfo(name ="Tours_Type")
-    private String Type;
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "Tours_id")
+    @NonNull
+    private int tid;
+    @ColumnInfo(name = "Tours_city")
+    private String city;
+    @ColumnInfo(name = "Tours_country")
+    private String country;
+    @ColumnInfo(name = "Tours_duration")
+    private int duration;
+    @ColumnInfo(name = "Tours_type")
+    private String type;
 
 
-    public Tours(){}
+    public Tours() {
+    }
+    @Ignore
+    public Tours(String city, String country, int duration, String type) {
+        this.city = city;
+        this.country = country;
+        this.duration = duration;
+        this.type = type;
+    }
+    @Ignore
     public Tours(int tid, String city, String country, int duration, String type) {
-        Tid = tid;
-        City = city;
-        Country = country;
-        Duration = duration;
-        Type = type;
+        this.tid = tid;
+        this.city = city;
+        this.country = country;
+        this.duration = duration;
+        this.type = type;
     }
 
     public int getTid() {
-        return Tid;
+        return tid;
     }
 
     public void setTid(int tid) {
-        Tid = tid;
+        this.tid = tid;
     }
 
     public String getCity() {
-        return City;
+        return city;
     }
 
     public void setCity(String city) {
-        City = city;
+        this.city = city;
     }
 
     public String getCountry() {
-        return Country;
+        return country;
     }
 
     public void setCountry(String country) {
-        Country = country;
+        this.country = country;
     }
 
     public int getDuration() {
-        return Duration;
+        return duration;
     }
 
     public void setDuration(int duration) {
-        Duration = duration;
+        this.duration = duration;
     }
 
     public String getType() {
-        return Type;
+        return type;
     }
 
     public void setType(String type) {
-        Type = type;
+        this.type = type;
     }
-
-
 
 
 }

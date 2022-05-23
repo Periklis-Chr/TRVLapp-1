@@ -1,49 +1,26 @@
 package com.iee.trvlapp.ui.Costumers;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.PopupMenu;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.iee.trvlapp.FirestoreEntities.Costumers;
 import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentCostumersBinding;
-import com.iee.trvlapp.roomEntities.Offices;
-import com.iee.trvlapp.ui.Offices.OfficeRecyclerViewAdapter;
-import com.iee.trvlapp.ui.Offices.OfficesViewModel;
-import com.iee.trvlapp.ui.Offices.UpdateOfficesFragment;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 
@@ -64,8 +41,7 @@ public class CostumersFragment extends Fragment {
         View root = binding.getRoot();
 
 
-        // Read Firestore DataBase
-
+        // Retrieves and feeds the RecyclerViewAdapter with Costumer Data ( Firestore )
 
         Query query = (Query) MainActivity.appDb.collection("costumers");
 
@@ -80,8 +56,7 @@ public class CostumersFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
 
 
-        // on Swipe LEFT delete Costumers
-
+        //Deletes Costumer on Swipe LEFT
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
                 ItemTouchHelper.LEFT) {
@@ -97,8 +72,7 @@ public class CostumersFragment extends Fragment {
         }).attachToRecyclerView(recyclerView);
 
 
-        // Update Costumers onclick
-
+        //Updates Costumer onClick
 
         adapter.setOnItemClickListener(new CostumerRecyclerViewAdapter.OnItemClickListener() {
             @Override
@@ -121,7 +95,6 @@ public class CostumersFragment extends Fragment {
                 bundle.putInt("pid", pid);
                 bundle.putInt("hotel", hotel);
 
-
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 UpdateCostumersFragment updateCostumersFragment = new UpdateCostumersFragment();
@@ -129,12 +102,11 @@ public class CostumersFragment extends Fragment {
                 fragmentTransaction.replace(R.id.nav_host_fragment_content_main, updateCostumersFragment);
                 fragmentTransaction.commit();
 
-
             }
         });
 
 
-        //   Navigate to Add Costumers fragment
+        //Navigates to the AddCostumer Fragment
 
         binding.floatingActionButtonAddCostumers.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -153,7 +125,6 @@ public class CostumersFragment extends Fragment {
         adapter.startListening();
     }
 
-
     @Override
     public void onStop() {
         super.onStop();
@@ -165,6 +136,5 @@ public class CostumersFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
 
 }

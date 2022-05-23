@@ -4,23 +4,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.ui.AppBarConfiguration;
-
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentUpdateHotelsBinding;
-import com.iee.trvlapp.databinding.FragmentUpdateOfficesBinding;
 import com.iee.trvlapp.roomEntities.CityHotels;
-import com.iee.trvlapp.roomEntities.Offices;
-import com.iee.trvlapp.ui.Offices.OfficesFragment;
-import com.iee.trvlapp.ui.Offices.OfficesViewModel;
-import com.iee.trvlapp.ui.Offices.UpdateOfficesFragment;
 
 public class UpdateHotelsFragment extends Fragment {
 
@@ -35,7 +26,7 @@ public class UpdateHotelsFragment extends Fragment {
         View root = binding.getRoot();
 
 
-        //// get data between fragment transaction
+        // Retrieves Data passed From CityHotels Fragment
 
         Bundle bundle = getArguments();
         int id = bundle.getInt("id");
@@ -44,19 +35,18 @@ public class UpdateHotelsFragment extends Fragment {
         int stars = bundle.getInt("stars");
         int tid = bundle.getInt("tid");
 
-
         binding.updateHotelName.setText(name);
         binding.updateHotelAddress.setText(address);
         binding.updateHotelStars.setText(String.valueOf(stars));
         binding.updateHotelTid.setText(String.valueOf(tid));
 
 
-        //  Updates Office onclick
+        //  //  Updates Chosen CityHotel and Navigates to CityHotel Fragment
 
         binding.updateHotelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                int id = Integer.parseInt(binding.updateOfficeId.getText().toString());
+
                 String name = binding.updateHotelName.getText().toString();
                 String address = binding.updateHotelAddress.getText().toString();
                 int stars = Integer.parseInt(binding.updateHotelStars.getText().toString());
@@ -79,7 +69,7 @@ public class UpdateHotelsFragment extends Fragment {
             }
         });
 
-        //cancel update form
+        // Update Action is Canceled and Navigates to CityHotels Fragment
 
         binding.cancelUpdateHotelButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +82,6 @@ public class UpdateHotelsFragment extends Fragment {
 
             }
         });
-
 
         return root;
     }

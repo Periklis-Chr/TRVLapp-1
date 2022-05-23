@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginEnd="8dp"
     android:layout_marginStart="8dp"
     android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
     app:cardCornerRadius="17dp"
     app:cardElevation="100dp">
 
@@ -17,19 +17,14 @@
         android:background="#f4a261"
         android:padding="8dp">
 
-
         <ImageView
             android:id="@+id/costumer_icon_row"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/costumers_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_baseline_group_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-
-        </ImageView>
-
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/costumer_row_id_label"
@@ -38,7 +33,7 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="2dp"
             android:layout_marginTop="1dp"
-            android:text="Costumer Id : "
+            android:text="@string/card_cid"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/costumer_icon_row"
             app:layout_constraintTop_toTopOf="parent" />
@@ -63,12 +58,10 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="2dp"
             android:layout_marginTop="1dp"
-            android:text="Name : "
+            android:text="@string/card_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/costumer_icon_row"
             app:layout_constraintTop_toBottomOf="@+id/costumer_row_id_label" />
-
-
 
 
         <TextView
@@ -88,11 +81,9 @@
             android:id="@+id/costumer_row_surname_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-
             android:layout_marginStart="2dp"
             android:layout_marginTop="1dp"
-            android:text="Surname : "
+            android:text="@string/card_surname"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/costumer_icon_row"
             app:layout_constraintTop_toBottomOf="@+id/costumer_row_name_label" />
@@ -101,8 +92,6 @@
             android:id="@+id/costumer_row_surname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-
             android:layout_marginStart="1dp"
             android:layout_marginTop="1dp"
             android:text="surname"
@@ -114,11 +103,9 @@
             android:id="@+id/costumer_row_phone_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-
             android:layout_marginStart="2dp"
             android:layout_marginTop="1dp"
-            android:text="Phone : "
+            android:text="@string/card_phone"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/costumer_icon_row"
             app:layout_constraintTop_toBottomOf="@+id/costumer_row_surname_label" />
@@ -127,8 +114,6 @@
             android:id="@+id/costumer_row_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-
             android:layout_marginStart="1dp"
             android:layout_marginTop="1dp"
             android:text="phone"
@@ -141,11 +126,9 @@
             android:id="@+id/costumer_row_email_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-
             android:layout_marginStart="2dp"
             android:layout_marginTop="1dp"
-            android:text="Email : "
+            android:text="@string/card_email"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/costumer_icon_row"
             app:layout_constraintTop_toBottomOf="@+id/costumer_row_phone_label" />
@@ -155,8 +138,6 @@
             android:id="@+id/costumer_row_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-
             android:layout_marginStart="1dp"
             android:layout_marginTop="1dp"
             android:text="email"
@@ -169,11 +150,9 @@
             android:id="@+id/costumer_row_pid_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-
             android:layout_marginStart="2dp"
             android:layout_marginTop="1dp"
-            android:text="Package Id : "
+            android:text="@string/card_pid"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/costumer_icon_row"
             app:layout_constraintTop_toBottomOf="@+id/costumer_row_email_label" />
@@ -198,7 +177,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
             android:layout_marginTop="1dp"
-            android:text="Hotel : "
+            android:text="@string/card_hotel"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/costumer_icon_row"
             app:layout_constraintTop_toBottomOf="@+id/costumer_row_city" />
@@ -207,8 +186,6 @@
             android:id="@+id/costumer_row_hotel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-
             android:layout_marginStart="1dp"
             android:layout_marginTop="1dp"
             android:text="hotel"
@@ -221,11 +198,9 @@
             android:id="@+id/costumer_row_city_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-
             android:layout_marginStart="2dp"
             android:layout_marginTop="1dp"
-            android:text="Tour City : "
+            android:text="@string/card_city"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/costumer_icon_row"
             app:layout_constraintTop_toBottomOf="@+id/costumer_row_pid_label" />
@@ -234,17 +209,12 @@
             android:id="@+id/costumer_row_city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-
             android:layout_marginStart="1dp"
             android:layout_marginTop="1dp"
             android:text="city"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/costumer_row_city_label"
             app:layout_constraintTop_toBottomOf="@+id/costumer_row_pid" />
-
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

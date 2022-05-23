@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
@@ -16,11 +15,8 @@ import com.iee.trvlapp.FirestoreEntities.Costumers;
 import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.roomEntities.CityHotels;
-import com.iee.trvlapp.roomEntities.Offices;
 import com.iee.trvlapp.roomEntities.Packages;
 import com.iee.trvlapp.roomEntities.Tours;
-
-import java.util.List;
 
 
 public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costumers, CostumerRecyclerViewAdapter.CostumerHolder> {
@@ -33,7 +29,6 @@ public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costum
     public void deleteItem(int position) {
         getSnapshots().getSnapshot(position).getReference().delete();
     }
-
 
     public class CostumerHolder extends RecyclerView.ViewHolder {
         TextView id;
@@ -71,11 +66,9 @@ public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costum
         }
     }
 
-
     public interface OnItemClickListener {
         void onItemClick(DocumentSnapshot documentSnapshot, int position);
     }
-
 
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
@@ -87,7 +80,6 @@ public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costum
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycler_view_costumers, viewGroup, false);
         return new CostumerHolder(view);
     }
-
 
     @Override
     protected void onBindViewHolder(@NonNull CostumerHolder holder, int position, @NonNull Costumers model) {
@@ -103,10 +95,6 @@ public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costum
         holder.pid.setText(String.valueOf(model.getPid()));
         holder.city.setText(currentTour.getCity());
         holder.hotel.setText(cityHotels.getHotelName());
-
-
     }
-
-
 }
 

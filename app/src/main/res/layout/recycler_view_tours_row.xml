@@ -20,9 +20,9 @@
 
         <ImageView
             android:id="@+id/tour_icon_row"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/destination_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_baseline_place_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="1dp"
-            android:text="Tour Id : "
+            android:text="@string/card_tid"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/tour_icon_row"
             app:layout_constraintTop_toTopOf="parent" />
@@ -63,7 +63,7 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="5dp"
             android:layout_marginTop="1dp"
-            android:text="City : "
+            android:text="@string/card_city"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/tour_icon_row"
             app:layout_constraintTop_toBottomOf="@+id/tour_row_id_label" />
@@ -88,7 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="1dp"
-            android:text="Country : "
+            android:text="@string/card_country"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/tour_icon_row"
             app:layout_constraintTop_toBottomOf="@+id/tour_row_city_label" />
@@ -111,7 +111,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="1dp"
-            android:text="Duration : "
+            android:text="@string/card_duration"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/tour_icon_row"
             app:layout_constraintTop_toBottomOf="@+id/tour_row_country_label" />
@@ -135,7 +135,7 @@
 
             android:layout_marginStart="5dp"
             android:layout_marginTop="1dp"
-            android:text="Type : "
+            android:text="@string/card_Type"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/tour_icon_row"
             app:layout_constraintTop_toBottomOf="@+id/tour_row_duration_label" />

@@ -1,14 +1,9 @@
 package com.iee.trvlapp.ui.Tours;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-
 import com.iee.trvlapp.MainActivity;
-import com.iee.trvlapp.roomEntities.Offices;
-import com.iee.trvlapp.roomEntities.Packages;
 import com.iee.trvlapp.roomEntities.Tours;
-
 import java.util.List;
 
 public class ToursViewModel extends ViewModel {
@@ -22,6 +17,9 @@ public class ToursViewModel extends ViewModel {
         toursListNameDESC = MainActivity.appDatabase.toursDao().getToursOrderedByNameDesc();
         toursListNameASC = MainActivity.appDatabase.toursDao().getToursOrderedByNameASC();
     }
+
+
+    //Tours Dao methods implementation for Tours Fragment
 
     public LiveData<List<Tours>> getAllTours() {
         return toursList;

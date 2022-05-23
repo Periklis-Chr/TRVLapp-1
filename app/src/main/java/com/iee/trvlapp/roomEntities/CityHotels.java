@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "CityHotels_table",
@@ -18,7 +19,7 @@ import androidx.room.PrimaryKey;
 
 public class CityHotels {
 
-    @PrimaryKey()
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "Hotels_id")
     @NonNull
     private int hid;
@@ -28,13 +29,20 @@ public class CityHotels {
     private String hotelAddress;
     @ColumnInfo(name = "Hotels_stars")
     private int hotelStars;
-    @ColumnInfo(name = "Hotels_tid")
+    @ColumnInfo(name = "Hotels_tid",index = true)
     private int tid;
 
 
     public CityHotels() {
     }
-
+    @Ignore
+    public CityHotels(String hotelName, String hotelAddress, int hotelStars, int tid) {
+        this.hotelName = hotelName;
+        this.hotelAddress = hotelAddress;
+        this.hotelStars = hotelStars;
+        this.tid = tid;
+    }
+    @Ignore
     public CityHotels(int hid, String hotelName, String hotelAddress, int hotelStars, int tid) {
         this.hid = hid;
         this.hotelName = hotelName;

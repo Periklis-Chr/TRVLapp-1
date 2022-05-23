@@ -20,14 +20,13 @@
 
         <ImageView
             android:id="@+id/package_icon_row"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginStart="2dp"
-            android:src="@mipmap/icon_package"
+            android:src="@drawable/ic_baseline_card_travel_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
 
         </ImageView>
 
@@ -35,10 +34,8 @@
             android:id="@+id/package_row_t_name_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-
             android:layout_marginStart="2dp"
-            android:text="Agency : "
+            android:text="@string/card_office"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/package_icon_row"
             app:layout_constraintTop_toBottomOf="@+id/package_row_tid_label" />
@@ -62,7 +59,7 @@
 
             android:layout_marginStart="2dp"
 
-            android:text="Tour City : "
+            android:text="@string/card_city"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/package_icon_row"
             app:layout_constraintTop_toBottomOf="@+id/package_row_t_name_label" />
@@ -83,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
-            android:text="Duration : "
+            android:text="@string/card_duration"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/package_icon_row"
             app:layout_constraintTop_toBottomOf="@+id/package_row_t_city_label" />
@@ -104,7 +101,7 @@
             android:layout_height="wrap_content"
 
             android:layout_marginStart="2dp"
-            android:text="Cost : "
+            android:text="@string/card_cost"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/package_icon_row"
             app:layout_constraintTop_toBottomOf="@+id/package_row_duration_label" />
@@ -128,7 +125,7 @@
 
 
             android:layout_marginStart="2dp"
-            android:text="Package Id : "
+            android:text="@string/card_pid"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/package_icon_row"
             app:layout_constraintTop_toTopOf="parent" />
@@ -153,7 +150,7 @@
 
 
             android:layout_marginStart="2dp"
-            android:text="Office Id : "
+            android:text="@string/card_ofid"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/package_icon_row"
             app:layout_constraintTop_toBottomOf="@+id/package_row_pid_label" />
@@ -175,7 +172,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
-            android:text="Tour Id : "
+            android:text="@string/card_tid"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/package_icon_row"
             app:layout_constraintTop_toBottomOf="@+id/package_row_ofid_label" />
@@ -188,21 +185,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/package_row_tid_label"
             app:layout_constraintTop_toBottomOf="@+id/package_row_ofid" />
-
-
-        <!--                <TextView-->
-        <!--                    android:id="@+id/package_row_cost"-->
-        <!--                    android:layout_width="147dp"-->
-        <!--                    android:layout_height="wrap_content"-->
-
-
-        <!--            android:padding="8dp"-->
-        <!--            android:text="test"-->
-        <!--            android:textAppearance="@style/TextAppearance.AppCompat.Large"-->
-        <!--            app:layout_constraintStart_toStartOf="@+id/package_row_tid"-->
-        <!--            app:layout_constraintTop_toBottomOf="@+id/package_row_tid"-->
-        <!--            />-->
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

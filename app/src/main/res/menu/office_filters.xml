@@ -5,16 +5,16 @@
 
     <item
         android:id="@+id/filter_des_alphabetical_name"
-        android:title="Name : A to Z">
+        android:title="@string/filter_namedesc">
     </item>
 
     <item
         android:id="@+id/filter_asc_alphabetical_name"
-        android:title="Name : Z to A">
+        android:title="@string/filter_nameasc">
     </item>
     <item
         android:id="@+id/filter_id"
-        android:title="Id : Ascending">
+        android:title="@string/filter_id">
     </item>
 
 </menu>

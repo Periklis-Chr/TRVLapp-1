@@ -24,54 +24,18 @@
             android:layout_height="wrap_content">
 
 
-
-<!--            <EditText-->
-<!--                android:id="@+id/update_office_id"-->
-<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
-<!--                android:layout_width="333dp"-->
-<!--                android:layout_height="60dp"-->
-<!--                android:background="@drawable/selector"-->
-<!--                android:drawableLeft="@drawable/ic_baseline_person_24"-->
-<!--                android:drawablePadding="20dp"-->
-<!--                android:fontFamily="@font/red_hat_text_regular"-->
-<!--                android:hint="Office id"-->
-<!--                android:inputType="number"-->
-<!--                android:padding="20dp"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="20dp" />-->
-
-<!--            <EditText-->
-<!--                android:id="@+id/update_Office_name"-->
-<!--                android:layout_width="333dp"-->
-<!--                android:layout_height="60dp"-->
-<!--                android:layout_below="@id/update_office_id"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:background="@drawable/selector"-->
-<!--                android:drawableLeft="@drawable/ic_baseline_person_24"-->
-<!--                android:drawablePadding="20dp"-->
-<!--                android:fontFamily="@font/red_hat_text_regular"-->
-<!--                android:hint="Office Name"-->
-<!--                android:inputType="text"-->
-<!--                android:padding="20dp"-->
-
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="20dp" />-->
-
-
-
             <EditText
                 android:id="@+id/update_Office_name"
                 android:layout_width="333dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
                 android:background="@color/orange"
-                android:drawableLeft="@drawable/ic_baseline_person_24"
+                android:drawableLeft="@drawable/ic_baseline_store_24"
                 android:drawablePadding="20dp"
                 android:fontFamily="@font/red_hat_text_regular"
-                android:hint="Office Name"
+                android:hint="@string/input_name"
                 android:inputType="text"
                 android:padding="20dp"
-
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
@@ -83,16 +47,15 @@
                 android:layout_below="@id/update_Office_name"
                 android:layout_marginTop="20dp"
                 android:background="@color/orange"
-                android:drawableLeft="@drawable/ic_baseline_local_phone_24"
+                android:drawableLeft="@drawable/ic_baseline_edit_location_24"
                 android:drawablePadding="20dp"
                 android:fontFamily="@font/red_hat_text_regular"
-                android:hint="Office Address"
+                android:hint="@string/input_address"
                 android:inputType="text"
                 android:padding="20dp"
 
                 android:textColor="@color/black"
                 android:textSize="20dp" />
-
 
 
 
@@ -103,7 +66,7 @@
                 android:layout_below="@id/update_office_address"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="@color/green"
-                android:text="Confirm"
+                android:text="@string/button_confirm"
                 android:textSize="20dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -113,7 +76,7 @@
                 android:layout_below="@id/update_office_button"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="@color/red1"
-                android:text="Cancel"
+                android:text="@string/button_cancel"
                 android:textSize="20dp" />
 
 

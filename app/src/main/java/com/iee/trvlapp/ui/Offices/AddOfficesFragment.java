@@ -1,11 +1,9 @@
 package com.iee.trvlapp.ui.Offices;
 
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,7 +28,7 @@ public class AddOfficesFragment extends Fragment {
         binding = FragmentAddOfficesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        //listener for confirmation of data insertion
+        // Calls function to handle Office Insertion
 
         binding.officeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,23 +37,18 @@ public class AddOfficesFragment extends Fragment {
             }
         });
 
-
         return root;
     }
 
 
-    //insert data to Room db
+    //Inserts  Office
     public void insertOfficeData() {
 
-        String office_id = binding.officeId.getText().toString();
         String office_name = binding.OfficeName.getText().toString();
         String office_address = binding.officeAddress.getText().toString();
 
-
-        if (binding.officeId.length() != 0 && binding.OfficeName.length() != 0 && binding.officeAddress.length() != 0) {
+        if (binding.OfficeName.length() != 0 && binding.officeAddress.length() != 0) {
             Offices office = new Offices();
-
-            office.setDid(Integer.parseInt(office_id));
             office.setName(office_name);
             office.setAddress(office_address);
 
@@ -74,6 +67,5 @@ public class AddOfficesFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
 
 }

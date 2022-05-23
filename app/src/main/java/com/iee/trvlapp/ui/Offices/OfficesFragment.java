@@ -2,39 +2,26 @@ package com.iee.trvlapp.ui.Offices;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupMenu;
 import android.widget.Toast;
-
-import androidx.appcompat.widget.Toolbar;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.navigation.NavigationView;
-import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentOfficesBinding;
 import com.iee.trvlapp.roomEntities.Offices;
 
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemClickListener {
@@ -54,27 +41,6 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
         View root = binding.getRoot();
 
 
-        // TODO
-
-//            Toolbar toolbar=root.findViewById(R.id.toolbar);
-//
-//        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar) ;
-//
-//        DrawerLayout drawer = root.findViewById(R.id.drawer_layout);
-//        NavigationView navigationView =root.findViewById(R.id.nav_view);
-//        // Passing each menu ID as a set of Ids because each
-//        // menu should be considered as top level destinations.
-//        mAppBarConfiguration = new AppBarConfiguration.Builder(
-//                R.id.nav_home, R.id.nav_offices, R.id.nav_tours, R.id.nav_packages, R.id.nav_costumers, R.id.action_updateOfficesFragment_to_nav_offices)
-//                .setOpenableLayout(drawer)
-//                .build();
-//        NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main);
-//         NavigationUI.setupActionBarWithNavController(getActivity().getApplicationContext(), navController, mAppBarConfiguration);
-//        NavigationUI.setupWithNavController(navigationView, navController);
-//
-//
-
-
         RecyclerView recyclerView = binding.officeRecyclerview;
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
         recyclerView.setHasFixedSize(true);
@@ -83,7 +49,7 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
         recyclerView.setAdapter(adapter);
 
 
-        // Retrieves Data from Room db
+        // Retrieves and feeds the RecyclerViewAdapter with Offices Data
 
         officesViewModel.getAllOffices().observe(getViewLifecycleOwner(), new Observer<List<Offices>>() {
             @Override
@@ -93,7 +59,7 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
         });
 
 
-        //Deletes data from Room db on Swipe LEFT
+        //Deletes Office on Swipe LEFT
 
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
@@ -111,13 +77,12 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
         }).attachToRecyclerView(recyclerView);
 
 
-        //Updates data from Room db onClick
-
+        //Updates Office onClick
 
         adapter.setOnItemClickListener(new OfficeRecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Offices office) {
-                int id = office.getDid();
+                int id = office.getOfid();
                 String name = office.getName().toString();
                 String address = office.getAddress().toString();
 
@@ -137,7 +102,7 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
         });
 
 
-        //listener for adding offices
+        //Navigates to the AddOffice Fragment
 
         binding.floatingActionButtonAddOffices.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,6 +111,8 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
             }
         });
 
+
+        //Gets support and populates menu for filter options
 
         binding.fabFiltering.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -158,7 +125,7 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
     }
 
 
-    // Sorting filters for the reyclerView
+    // Filter handling for Offices List
 
     public void popupMenu(View view) {
         PopupMenu popupMenu = new PopupMenu(getActivity().getApplicationContext(), view);

@@ -6,9 +6,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupMenu;
-import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -19,18 +17,11 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentToursBinding;
-import com.iee.trvlapp.roomEntities.Offices;
 import com.iee.trvlapp.roomEntities.Tours;
-import com.iee.trvlapp.ui.Offices.OfficeRecyclerViewAdapter;
-import com.iee.trvlapp.ui.Offices.OfficesViewModel;
-import com.iee.trvlapp.ui.Offices.UpdateOfficesFragment;
 
 import java.util.List;
-import java.util.Locale;
 
 public class ToursFragment extends Fragment {
 
@@ -45,8 +36,7 @@ public class ToursFragment extends Fragment {
         binding = FragmentToursBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        //retrieves data from Room db
-
+        // Retrieves and feeds the RecyclerViewAdapter with Tours Data
 
         RecyclerView recyclerView = binding.tourRecyclerview;
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
@@ -63,7 +53,7 @@ public class ToursFragment extends Fragment {
         });
 
 
-        // shows map location of Swiped RIGHT item in RecyclerView
+        // Navigates to TourMap Fragment on Swipe RIGHT and shows the corresponding location
 
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
@@ -95,7 +85,7 @@ public class ToursFragment extends Fragment {
         }).attachToRecyclerView(recyclerView);
 
 
-        //deletes Room data on Swipe LEFT
+        //Deletes Tour on Swipe LEFT
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
                 ItemTouchHelper.LEFT) {
@@ -112,7 +102,7 @@ public class ToursFragment extends Fragment {
         }).attachToRecyclerView(recyclerView);
 
 
-        //updates Room data onClick
+        //Updates Tour onClick
 
         adapter.setOnItemClickListener(new TourRecyclerViewAdapter.OnItemClickListener() {
             @Override
@@ -140,7 +130,7 @@ public class ToursFragment extends Fragment {
         });
 
 
-//listener for adding tours
+        //Navigates to the AddTour Fragment
 
         binding.floatingActionButtonAddTours.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,7 +151,7 @@ public class ToursFragment extends Fragment {
     }
 
 
-    //sorting filters for RecyclerView
+    //Gets support and populates menu for filter options
 
 
     public void popupMenu(View view) {
@@ -170,6 +160,9 @@ public class ToursFragment extends Fragment {
         popupMenu.inflate(R.menu.tour_filters);
         popupMenu.show();
     }
+
+
+    // Filter handling for Offices List
 
     public boolean onMenuItemClick(MenuItem menuItem) {
         ToursViewModel toursViewModel = new ViewModelProvider(this).get(ToursViewModel.class);

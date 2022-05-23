@@ -5,13 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.roomEntities.Offices;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,7 +64,7 @@ public class OfficeRecyclerViewAdapter extends RecyclerView.Adapter<OfficeRecycl
     @Override
     public void onBindViewHolder(@NonNull OfficeHolder holder, int position) {
         Offices currentOffice = offices.get(position);
-        holder.id.setText(String.valueOf(currentOffice.getDid()));
+        holder.id.setText(String.valueOf(currentOffice.getOfid()));
         holder.name.setText(currentOffice.getName());
         holder.address.setText(currentOffice.getAddress());
 

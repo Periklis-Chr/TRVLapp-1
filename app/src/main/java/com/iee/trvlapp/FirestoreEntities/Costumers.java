@@ -8,7 +8,7 @@ public class Costumers {
     private long phone;
     private String email;
     private int pid;
-    private  int hotel;
+    private int hotel;
 
     public Costumers() {
     }

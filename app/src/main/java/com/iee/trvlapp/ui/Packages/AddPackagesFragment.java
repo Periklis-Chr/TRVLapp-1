@@ -45,7 +45,7 @@ public class AddPackagesFragment extends Fragment {
         binding = FragmentAddPackagesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        //listener for confirmation of data insertion
+        // Calls function to handle Package Insertion
 
         binding.packageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,25 +54,22 @@ public class AddPackagesFragment extends Fragment {
             }
         });
 
-//////
+        // Supports Dynamic autocomplete ListView for tourList on AddPackage Fragment
 
         int i = 0;
 
         toursList = packagesViewModel.getAllTours();
         String[] items = new String[toursList.size()];
-        int[] itemsId = new int[toursList.size()];
         for (Tours tour : toursList
         ) {
             items[i] = String.valueOf(tour.getTid()) + " " + tour.getCity();
             i++;
         }
 
-
         autocompleteText = binding.getRoot().findViewById(R.id.auto_complete_ptid);
-        adapterItems = new ArrayAdapter<String>(getActivity(), R.layout.package_tours_list_item, items);
+        adapterItems = new ArrayAdapter<String>(getActivity(), R.layout.auto_complete_list_item, items);
 
         autocompleteText.setAdapter(adapterItems);
-
         autocompleteText.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -81,7 +78,7 @@ public class AddPackagesFragment extends Fragment {
         });
 
 
-        /////
+        // Supports Dynamic autocomplete ListView for officeList on AddPackage Fragment
 
 
         int j = 0;
@@ -90,16 +87,14 @@ public class AddPackagesFragment extends Fragment {
         String[] officeItems = new String[officesList.size()];
         for (Offices office : officesList
         ) {
-            officeItems[j] = String.valueOf(office.getDid() + " " + office.getName());
+            officeItems[j] = String.valueOf(office.getOfid() + " " + office.getName());
             j++;
         }
 
-
         autocompleteOfficeText = binding.getRoot().findViewById(R.id.auto_complete_officeid);
-        adapterOfficeItems = new ArrayAdapter<String>(getActivity(), R.layout.package_tours_list_item, officeItems);
+        adapterOfficeItems = new ArrayAdapter<String>(getActivity(), R.layout.auto_complete_list_item, officeItems);
 
         autocompleteOfficeText.setAdapter(adapterOfficeItems);
-
         autocompleteOfficeText.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -108,41 +103,33 @@ public class AddPackagesFragment extends Fragment {
         });
 
 
-        /////
-
-
         return root;
     }
 
-    //insert data to db
+    //Inserts  Package
 
     public void insertPackageData() {
-        int tid = 0;
-        int ofid = 0;
-        String tidString = binding.autoCompletePtid.getText().toString();
-        if (!tidString.isEmpty()) {
-            String tidCut = tidString.substring(0, tidString.indexOf(" "));
-            tid = Integer.parseInt(tidCut);
+        int tour_id = 0;
+        int office_id = 0;
+        String tour_idString = binding.autoCompletePtid.getText().toString();
+        if (!tour_idString.isEmpty()) {
+            String tour_idCut = tour_idString.substring(0, tour_idString.indexOf(" "));
+            tour_id = Integer.parseInt(tour_idCut);
         }
-        String ofidString = binding.autoCompleteOfficeid.getText().toString();
-        if (!ofidString.isEmpty()) {
-            String ofidCut = ofidString.substring(0, ofidString.indexOf(" "));
-            ofid = Integer.parseInt(ofidCut);
+        String office_idString = binding.autoCompleteOfficeid.getText().toString();
+        if (!office_idString.isEmpty()) {
+            String office_idCut = office_idString.substring(0, office_idString.indexOf(" "));
+            office_id = Integer.parseInt(office_idCut);
         }
 
-        String package_id = binding.PackageId.getText().toString();
-//        int package_ofid = Integer.parseInt(binding.PackageOfid.getText().toString());
-//        int package_tid = Integer.parseInt(binding.packageTid.getText().toString());
         String package_departure = binding.packageDeparture.getText().toString();
         String package_cost = binding.packageCost.getText().toString();
 
-        if (binding.PackageId.length() != 0 && binding.autoCompletePtid.length() != 0 && binding.autoCompleteOfficeid.length() != 0 && binding.packageDeparture.length() != 0 && binding.packageCost.length() != 0) {
-
+        if (binding.autoCompletePtid.length() != 0 && binding.autoCompleteOfficeid.length() != 0 && binding.packageDeparture.length() != 0 && binding.packageCost.length() != 0) {
 
             Packages Package = new Packages();
-            Package.setPid(Integer.parseInt(package_id));
-            Package.setDid(ofid);
-            Package.setTid(tid);
+            Package.setOfid(office_id);
+            Package.setTid(tour_id);
             Package.setDepartureTime(Integer.parseInt(package_departure));
             Package.setCost(Double.parseDouble(package_cost));
 

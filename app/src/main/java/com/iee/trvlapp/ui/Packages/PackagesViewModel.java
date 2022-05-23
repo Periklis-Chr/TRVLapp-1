@@ -1,7 +1,6 @@
 package com.iee.trvlapp.ui.Packages;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.iee.trvlapp.MainActivity;
@@ -16,13 +15,15 @@ public class PackagesViewModel extends ViewModel {
 
     private LiveData<List<Packages>> packagesListNameASC;
     private LiveData<List<Packages>> packagesListNameDESC;
-
     private LiveData<List<Packages>> packageList;
+
     private List<Tours> toursList;
     private List<Offices> officesList;
+
     private Tours tourForAdapter;
     private Packages packageForAdapter;
-private Offices officeForAdapter;
+    private Offices officeForAdapter;
+
     public PackagesViewModel() {
         packageList = MainActivity.appDatabase.packagesDao().getPackages();
         packagesListNameDESC = MainActivity.appDatabase.packagesDao().getPackagesOrderedByNameDesc();
@@ -30,8 +31,9 @@ private Offices officeForAdapter;
 
         toursList = MainActivity.appDatabase.toursDao().getToursList();
         officesList = MainActivity.appDatabase.officesDao().getOfficesList();
-
     }
+
+    //Packages Dao methods implementation for Packages Fragment
 
     public LiveData<List<Packages>> getAllPackages() {
         return packageList;
@@ -62,20 +64,17 @@ private Offices officeForAdapter;
         return packagesListNameASC;
     }
 
-
     public Packages getPackageById(int id) {
         packageForAdapter = MainActivity.appDatabase.packagesDao().getPackageById(id);
 
         return packageForAdapter;
     }
 
-
     public Tours getTourById(int id) {
         tourForAdapter = MainActivity.appDatabase.toursDao().getTourById(id);
 
         return tourForAdapter;
     }
-
 
     public Offices getOfficeById(int id) {
         officeForAdapter = MainActivity.appDatabase.officesDao().getOfficeById(id);

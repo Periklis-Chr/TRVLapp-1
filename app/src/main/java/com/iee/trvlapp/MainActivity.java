@@ -59,14 +59,31 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        appDatabase = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "AppDb").allowMainThreadQueries().build();
-//        appDatabase = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "AppDb").allowMainThreadQueries().createFromAsset("db/AppDb").build();
 
+        //Database Reference and Initialization
+
+        appDatabase = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "AppDb").allowMainThreadQueries().build();
         appDb = FirebaseFirestore.getInstance();
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
+        setSupportActionBar(binding.appBarMain.toolbar);
+        DrawerLayout drawer = binding.drawerLayout;
+        NavigationView navigationView = binding.navView;
+
+
+        mAppBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.nav_home, R.id.nav_offices, R.id.nav_tours, R.id.nav_packages, R.id.nav_costumers, R.id.settings, R.id.nav_hotels, R.id.nav_about, R.id.nav_help)
+                .setOpenableLayout(drawer)
+                .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        NavigationUI.setupWithNavController(navigationView, navController);
+
+
+        //Support for Changing Language to Greek
 
         binding.changeLangGr.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +100,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Support for Changing Language to English
+
         binding.changeLangEn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -97,21 +116,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-        setSupportActionBar(binding.appBarMain.toolbar);
-        DrawerLayout drawer = binding.drawerLayout;
-        NavigationView navigationView = binding.navView;
-
-
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_offices, R.id.nav_tours, R.id.nav_packages, R.id.nav_costumers, R.id.settings, R.id.nav_hotels, R.id.nav_about, R.id.nav_help)
-                .setOpenableLayout(drawer)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
-
 
     }
 

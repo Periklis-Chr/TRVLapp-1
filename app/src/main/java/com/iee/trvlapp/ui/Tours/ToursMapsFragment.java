@@ -3,15 +3,11 @@ package com.iee.trvlapp.ui.Tours;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LiveData;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
-import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -82,13 +78,10 @@ public class ToursMapsFragment extends Fragment {
         CityCoordinates Tokyo = new CityCoordinates("Tokyo", 139.769599, 35.679985);
         CityCoordinates Vienna = new CityCoordinates("Vienna", 16.363270, 48.201609);
 
-
-
-
         CityCoordinates[] array = new CityCoordinates[8];
         array[0] = London;
         array[1] = Barcelona;
-        array[2] = Berlin;
+        array[2] = Paris;
         array[3] = Rome;
         array[4] = NewYork;
         array[5] = Berlin;
