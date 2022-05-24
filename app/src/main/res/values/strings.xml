@@ -25,6 +25,7 @@
 
     <string name="button_confirm">Confirm</string>
     <string name="button_cancel">Cancel</string>
+    <string name="button_browse">Select Image</string>
 
     <!--    Input Hints Strings-->
 
@@ -50,6 +51,22 @@
     <string name="input_selectTour">Select Tour</string>
     <string name="input_selectHotel">Select Hotel</string>
     <string name="input_selectPackage">Select Package</string>
+
+    <!--    Add fragment Title Strings-->
+
+    <string name="add_offices">Add Office</string>
+    <string name="add_tours">Add Tour</string>
+    <string name="add_packages">Add Package</string>
+    <string name="add_costumers">Add Costumer</string>
+    <string name="add_hotels">Add Hotel</string>
+
+    <!--    Update fragment Title Strings-->
+
+    <string name="update_offices">Update Office</string>
+    <string name="update_tours">Update Tour</string>
+    <string name="update_packages">Update Package</string>
+    <string name="update_costumers">Update Costumer</string>
+    <string name="update_hotels">Update Hotel</string>
 
     <!--    RecyclerView Card Label Strings-->
 
@@ -88,13 +105,11 @@
 
     <!--    Settings Strings-->
 
-
     <string name="settings_fillRoomlabel">You can FILL Room Db with valid\n data by pressing the button below</string>
     <string name="settings_fillRoombtn">Fill Data to Room db</string>
 
     <string name="settings_deleteRoomlabel">You can DELETE Room Db\n  by pressing the button below</string>
     <string name="settings_deleteRoombtn">Delete Data from Room db</string>
-
 
     <string name="settings_fillfirestorelabel">You can FILL Firestore Db with valid\n data by pressing the button below</string>
     <string name="settings_fillfirestorebtn">Fill Data to Firestore db</string>
@@ -106,5 +121,16 @@
 
     <string name="main_intro_text">Our services cover all  aspects of your travel needs ensuring that your Mediterranean holiday will be one to remember With TRVL  you are assured of quality and reliability.</string>
 
+    <!--    Bio Strings-->
 
+    <string name="bio_gmoi">\n\n Name : Giorgos Moisidis \n\n AM : 174881 \n\n Semester : 10 \n\n </string>
+    <string name="bio_peris">\n\n Name : Periklis Gousios \n\n AM : 175073 \n\n Semester : 10 \n\n </string>
+    <string name="bio_karezos">\n\n Name : Thanasis Karezos \n\n AM : 180000 \n\n Semester : 8 \n\n </string>
+
+    <!--    help Strings-->
+
+    <string name="help_title">Gestures</string>
+    <string name="help_click">\n \n \n \n You can Click \n a RecyclerView Item \n to UPDATE</string>
+    <string name="help_swipeL">\n \n \n \nYou can Swipe \nLEFT a RecyclerView Item \n to DELETE</string>
+    <string name="help_swipeR">\n \n \n \nYou can Swipe RIGHT \n a  RecyclerView Item for Special Action \n Ex. Open Google Maps</string>
 </resources>

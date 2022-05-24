@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SupportingClasses.AboutUsFragment"
     android:background="@color/blue"
-   >
+    tools:context=".ui.SupportingClasses.AboutUsFragment">
 
 
     <TextView
@@ -29,56 +28,52 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="190dp"
-            android:layout_height="164dp"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_marginStart="10dp"
             android:src="@drawable/gmoi"></ImageView>
 
 
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/orange"
-        android:text="My name is Giorgos Moisidis and im studing Computer Science at DIPAE"></TextView>
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:text="@string/bio_gmoi"
+            android:textColor="@color/orange"
+            android:textSize="15dp"></TextView>
 
 
     </LinearLayout>
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/third"
         android:layout_marginTop="15dp">
-        >
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="190dp"
-            android:layout_height="164dp"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
             android:layout_marginStart="10dp"
-            android:src="@drawable/karezos"></ImageView>
+            android:src="@drawable/karezos" />
 
         <TextView
-            android:layout_width="192dp"
-            android:layout_height="162dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginStart="10dp"
+            android:text="@string/bio_karezos"
+            android:textAlignment="center"
             android:textColor="@color/orange"
-            android:text="My name is Athanasios Karezos and im studing Computer Science at DIPAE"
-            android:textAlignment="center"></TextView>
+            android:textSize="15dp" />.
 
     </LinearLayout>
-
-
 
 
     <LinearLayout
         android:id="@+id/third"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/second"
         android:layout_marginTop="15dp">
@@ -86,18 +81,19 @@
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="190dp"
-            android:layout_height="164dp"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
             android:layout_marginStart="10dp"
-            android:src="@drawable/peris"></ImageView>
+            android:src="@drawable/peris" />.
 
         <TextView
-            android:layout_width="192dp"
-            android:layout_height="162dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginStart="10dp"
+            android:text="@string/bio_peris"
+            android:textAlignment="center"
             android:textColor="@color/orange"
-            android:text="My name is Periklis Gousios and im studing Computer Science at DIPAE"
-            android:textAlignment="center"></TextView>
+            android:textSize="15dp" />
 
     </LinearLayout>
 

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
+import com.iee.trvlapp.roomEntities.DataConverter;
 import com.iee.trvlapp.roomEntities.Offices;
 import com.iee.trvlapp.roomEntities.Packages;
 import com.iee.trvlapp.roomEntities.Tours;
@@ -32,6 +34,8 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
         private final TextView cost;
         private final TextView office_name;
         private final TextView tour_City;
+        private final ImageView imageOffice;
+        private final ImageView imageTour;
 
         public PackageHolder(View view) {
             super(view);
@@ -43,6 +47,8 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
 
             office_name = view.findViewById(R.id.package_row_t_name);
             tour_City = view.findViewById(R.id.package_row_t_city);
+            imageOffice = view.findViewById(R.id.package_icon_row_office);
+            imageTour = view.findViewById(R.id.package_icon_row_tour);
 
 
             view.setOnClickListener(new View.OnClickListener() {
@@ -96,6 +102,12 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
         }
         if (currentOffice != null) {
             holder.office_name.setText(currentOffice.getName());
+        }
+        if (currentOffice.getImage() != null) {
+            holder.imageOffice.setImageBitmap(DataConverter.convertByteArray2IMage(currentOffice.getImage()));
+        }
+        if (curentTour.getImageTour() != null) {
+            holder.imageTour.setImageBitmap(DataConverter.convertByteArray2IMage(curentTour.getImageTour()));
         }
     }
 

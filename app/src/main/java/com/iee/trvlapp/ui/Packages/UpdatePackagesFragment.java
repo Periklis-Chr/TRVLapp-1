@@ -112,7 +112,7 @@ public class UpdatePackagesFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                if (binding.autoCompleteOfficeidUpdate.length() != 0 && binding.autoCompletePtidUpdate.length() != 0 && binding.updatePackageDeparture.length() != 0 && binding.updatePackageCost.length() != 0) {
+                if ( binding.updatePackageDeparture.length() != 0 && binding.updatePackageCost.length() != 0) {
 
                     int departure = Integer.parseInt(binding.updatePackageDeparture.getText().toString());
                     Double cost = Double.parseDouble(binding.updatePackageCost.getText().toString());

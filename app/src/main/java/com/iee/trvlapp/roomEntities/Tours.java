@@ -21,10 +21,12 @@ public class Tours {
     private int duration;
     @ColumnInfo(name = "Tours_type")
     private String type;
-
+    @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
+    private byte[] imageTour;
 
     public Tours() {
     }
+
     @Ignore
     public Tours(String city, String country, int duration, String type) {
         this.city = city;
@@ -32,6 +34,7 @@ public class Tours {
         this.duration = duration;
         this.type = type;
     }
+
     @Ignore
     public Tours(int tid, String city, String country, int duration, String type) {
         this.tid = tid;
@@ -81,5 +84,11 @@ public class Tours {
         this.type = type;
     }
 
+    public byte[] getImageTour() {
+        return imageTour;
+    }
 
+    public void setImageTour(byte[] imageTour) {
+        this.imageTour = imageTour;
+    }
 }

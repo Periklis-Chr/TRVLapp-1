@@ -21,11 +21,28 @@
     <string name="menu_more">Περισότερα</string>
     <string name="menu_adminoptions">Επιλογές Διαχειριστή</string>
 
+
+    <!--    Add fragment Title Strings-->
+
+    <string name="add_offices">Εισαγωγή Γραφείου</string>
+    <string name="add_tours">Εισαγωγή Προορισμού</string>
+    <string name="add_packages">Εισαγωγή Πακέτου</string>
+    <string name="add_costumers">Εισαγωγή Πελάτη</string>
+    <string name="add_hotels">Εισαγωγή Ξενοδοχείου</string>
+
+    <!--    Update fragment Title Strings-->
+
+    <string name="update_offices">Update Office</string>
+    <string name="update_tours">Update Tour</string>
+    <string name="update_packages">Update Package</string>
+    <string name="update_costumers">Update Costumer</string>
+    <string name="update_hotels">Update Hotel</string>
+
     <!--    Button Text Strings-->
 
     <string name="button_confirm">Υποβολή</string>
     <string name="button_cancel">Άκυρο</string>
-
+    <string name="button_browse">Επιλογή Φωτογραφίας</string>
     <!--    Input Hints Strings-->
 
     <string name="input_cid">Κωδικός Πελάτη</string>
@@ -102,5 +119,18 @@
     <!--    Home Text Strings-->
 
     <string name="main_intro_text">Οι υπηρεσίες μας καλύπτουν όλες τις πτυχές των ταξιδιωτικών σας αναγκών διασφαλίζοντας ότι οι διακοπές σας στη Μεσόγειο θα είναι αξέχαστες . Με το TRVL είστε σίγουροι για την ποιότητα και την αξιοπιστία.</string>
+
+    <!--    Bio Strings-->
+
+    <string name="bio_gmoi">\n\n Όνομα : Γεώργιος Μωυσίδης \n\n ΑΜ : 174881 \n\n Εξάμηνο : 10 \n\n </string>
+    <string name="bio_peris">\n\n Όνομα : Περικλής Γούσιος \n\n ΑΜ : 175073 \n\n Εξάμηνο : 10 \n\n </string>
+    <string name="bio_karezos">\n\n Όνομα : Αθανάσιος Καρέζος \n\n ΑΜ : 180000 \n\n Εξάμηνο : 8 \n\n </string>
+
+<!--    help Strings-->
+
+    <string name="help_title">Χειρονομίες</string>
+    <string name="help_click">Κάνοντας Κλικ σε ενα  RecyclerView  \n\n Item γίνεται Επεξεργασία</string>
+    <string name="help_swipeL">Σύρετε προς τα αριστερά ενα RecyclerView \n\n Item για Διαγραφή</string>
+    <string name="help_swipeR">Σύρετε προς τα δεξιά ενα RecyclerView Item \n\n για ειδική ενέργεια \n\n Πχ Άνοιγμα Google Χαρτών</string>
 
 </resources>

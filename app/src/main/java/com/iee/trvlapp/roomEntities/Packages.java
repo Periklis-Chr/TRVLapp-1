@@ -26,10 +26,10 @@ public class Packages {
     @ColumnInfo(name = "Packages_id")
     @NonNull
     private int pid;
-    @ColumnInfo(name = "Packages_ofid",index = true)
+    @ColumnInfo(name = "Packages_ofid", index = true)
     @NonNull
     private int ofid;
-    @ColumnInfo(name = "Packages_tid",index = true)
+    @ColumnInfo(name = "Packages_tid", index = true)
     @NonNull
     private int tid;
     @ColumnInfo(name = "Packages_departureTime")
@@ -40,6 +40,7 @@ public class Packages {
 
     public Packages() {
     }
+
     @Ignore
     public Packages(int ofid, int tid, int departureTime, Double cost) {
         this.ofid = ofid;
@@ -47,6 +48,7 @@ public class Packages {
         this.departureTime = departureTime;
         this.cost = cost;
     }
+
     @Ignore
     public Packages(int pid, int ofid, int tid, int departureTime, Double cost) {
         this.pid = pid;

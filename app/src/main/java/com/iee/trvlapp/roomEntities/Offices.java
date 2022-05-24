@@ -16,15 +16,20 @@ public class Offices {
     private String name;
     @ColumnInfo(name = "Offices_address")
     private String address;
+    @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
+    private byte[] image;
+
 
     public Offices() {
     }
+
     @Ignore
     public Offices(int ofid, String name, String address) {
         this.ofid = ofid;
         this.name = name;
         this.address = address;
     }
+
     @Ignore
     public Offices(String name, String address) {
         this.name = name;
@@ -54,4 +59,13 @@ public class Offices {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
 }

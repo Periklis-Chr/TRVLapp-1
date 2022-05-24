@@ -1,5 +1,6 @@
 package com.iee.trvlapp.ui.Offices;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupMenu;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -18,6 +20,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentOfficesBinding;
 import com.iee.trvlapp.roomEntities.Offices;
@@ -90,13 +93,12 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
                 bundle.putInt("id", id);
                 bundle.putString("name", name);
                 bundle.putString("address", address);
-
+                bundle.putByteArray("image",office.getImage());
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 UpdateOfficesFragment updateOfficesFragment = new UpdateOfficesFragment();
                 updateOfficesFragment.setArguments(bundle);
                 fragmentTransaction.replace(R.id.nav_host_fragment_content_main, updateOfficesFragment);
-
                 fragmentTransaction.commit();
             }
         });

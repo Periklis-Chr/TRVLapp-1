@@ -58,11 +58,31 @@
 
 
 
+
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/browseImageLibrary"
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/office_address"
+                android:layout_marginTop="20dp"
+                android:drawableLeft="@drawable/ic_baseline_image_search_24"
+                android:backgroundTint="@color/orange"
+                android:textColor="@color/black"
+                android:fontFamily="@font/red_hat_text_regular"
+                android:text="@string/button_browse"
+                android:textSize="20dp" />
+
+
+
+
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/office_button"
                 android:layout_width="333dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/office_address"
+                android:layout_below="@id/browseImageLibrary"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="@color/green"
                 android:text="Confirm"

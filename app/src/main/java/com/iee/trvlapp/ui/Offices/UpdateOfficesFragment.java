@@ -1,23 +1,40 @@
 package com.iee.trvlapp.ui.Offices;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
+
+import com.google.android.material.navigation.NavigationView;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentUpdateOfficesBinding;
+import com.iee.trvlapp.roomEntities.DataConverter;
 import com.iee.trvlapp.roomEntities.Offices;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class UpdateOfficesFragment extends Fragment {
     private AppBarConfiguration mAppBarConfiguration;
-
+    Bitmap bitmap = null;
+    final int SELECT_PHOTO = 1;
+    Uri uri;
+    boolean flag = false;
     private FragmentUpdateOfficesBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -35,7 +52,7 @@ public class UpdateOfficesFragment extends Fragment {
         int id = bundle.getInt("id");
         String name = bundle.getString("name");
         String address = bundle.getString("address");
-
+        byte[] image = bundle.getByteArray("image");
         Toast.makeText(getActivity(), name, Toast.LENGTH_SHORT).show();
 
         binding.updateOfficeName.setText(name);
@@ -51,20 +68,26 @@ public class UpdateOfficesFragment extends Fragment {
                 String address = binding.updateOfficeAddress.getText().toString();
 
 
-                if (binding.updateOfficeName.length()!=0 && binding.updateOfficeAddress.length()!=0) {
+                if (binding.updateOfficeName.length() != 0 && binding.updateOfficeAddress.length() != 0) {
 
                     Offices office = new Offices();
                     office.setOfid(id);
                     office.setName(name);
                     office.setAddress(address);
+                    if (flag) {
+                        office.setImage(DataConverter.convertIMage2ByteArray(bitmap));
+                    } else {
+                        office.setImage(image);
+                    }
                     officesViewModel.updateOffice(office);
 
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     OfficesFragment officesFragment = new OfficesFragment();
                     fragmentTransaction.replace(R.id.nav_host_fragment_content_main, officesFragment);
+                    fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
-                }else{
+                } else {
                     Toast.makeText(getActivity(), "Fill all the fields", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -78,14 +101,51 @@ public class UpdateOfficesFragment extends Fragment {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 OfficesFragment officesFragment = new OfficesFragment();
-                UpdateOfficesFragment updateOfficesFragment = new UpdateOfficesFragment();
                 fragmentTransaction.replace(R.id.nav_host_fragment_content_main, officesFragment);
                 fragmentTransaction.commit();
 
             }
         });
 
+        //Image Selection onClick
+
+        binding.updatebrowseImageLibrary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pickImage(view);
+            }
+        });
+
+
         return root;
     }
+
+
+    //Makes Intent to handle Image selection
+
+    public void pickImage(View view) {
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType("image/*");
+        startActivityForResult(intent, SELECT_PHOTO);
+    }
+
+    //Opens image selector and gets the image uri
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK && requestCode == SELECT_PHOTO && data != null && data.getData() != null) {
+            uri = data.getData();
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getActivity().getApplicationContext().getContentResolver(), uri);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        flag=true;
+    }
+
 
 }

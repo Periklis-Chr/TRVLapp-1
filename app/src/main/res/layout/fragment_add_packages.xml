@@ -74,9 +74,9 @@
                     android:id="@+id/auto_complete_ptid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/orange"
                     android:hint="@string/input_selectTour"
                     android:inputType="none"
-                    android:background="@color/orange"
 
                     />
 

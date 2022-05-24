@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.roomEntities.CityHotels;
+import com.iee.trvlapp.roomEntities.DataConverter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +28,7 @@ public class HotelRecyclerViewAdapter extends RecyclerView.Adapter<HotelRecycler
         private final TextView address;
         private final TextView stars;
         private final TextView tid;
+        private final ImageView image;
 
         public HotelHolder(View view) {
             super(view);
@@ -34,6 +37,7 @@ public class HotelRecyclerViewAdapter extends RecyclerView.Adapter<HotelRecycler
             address = view.findViewById(R.id.hotel_row_address);
             stars = view.findViewById(R.id.hotel_row_stars);
             tid = view.findViewById(R.id.hotel_row_tid);
+            image=view.findViewById(R.id.icon_row_hotel);
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -77,6 +81,9 @@ public class HotelRecyclerViewAdapter extends RecyclerView.Adapter<HotelRecycler
         holder.address.setText(currentHotel.getHotelAddress());
         holder.stars.setText(String.valueOf(currentHotel.getHotelStars()));
         holder.tid.setText(String.valueOf(currentHotel.getTid()));
+        if(currentHotel.getImageHotel()!=null){
+            holder.image.setImageBitmap(DataConverter.convertByteArray2IMage(currentHotel.getImageHotel()));
+        }
     }
 
     @Override

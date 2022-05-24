@@ -89,6 +89,7 @@ public class HotelsFragment extends Fragment implements PopupMenu.OnMenuItemClic
                 bundle.putString("address", address);
                 bundle.putInt("stars", stars);
                 bundle.putInt("tid", tid);
+                bundle.putByteArray("image", hotel.getImageHotel());
 
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

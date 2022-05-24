@@ -71,8 +71,7 @@ public class ToursFragment extends Fragment {
                 Toast.makeText(getActivity(), CityName, Toast.LENGTH_SHORT).show();
                 Bundle bundle = new Bundle();
                 bundle.putString("id", CityName);
-                bundle.putString("name", CityName);
-                bundle.putString("address", CityName);
+
 
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -119,6 +118,7 @@ public class ToursFragment extends Fragment {
                 bundle.putString("country", country);
                 bundle.putInt("duration", duration);
                 bundle.putString("type", type);
+                bundle.putByteArray("image",tours.getImageTour());
 
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

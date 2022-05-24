@@ -4,10 +4,23 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/gmoi/Desktop/android/app/src/main/res/layout/fragment_about_us.xml" value="0.33" />
+        <entry key="..\:/Users/gmoi/Desktop/android/app/src/main/res/layout/fragment_add_hotels.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/gmoi/Desktop/android/app/src/main/res/layout/fragment_add_offices.xml" value="0.2378419452887538" />
         <entry key="..\:/Users/gmoi/Desktop/android/app/src/main/res/layout/fragment_add_packages.xml" value="0.47291666666666665" />
+        <entry key="..\:/Users/gmoi/Desktop/android/app/src/main/res/layout/fragment_add_tours.xml" value="0.5244791666666667" />
         <entry key="..\:/Users/gmoi/Desktop/android/app/src/main/res/layout/fragment_help.xml" value="0.43931159420289856" />
+        <entry key="..\:/Users/gmoi/Desktop/android/app/src/main/res/layout/fragment_packages.xml" value="0.2462962962962963" />
+        <entry key="..\:/Users/gmoi/Desktop/android/app/src/main/res/layout/fragment_settings.xml" value="0.47552083333333334" />
+        <entry key="..\:/Users/gmoi/Desktop/android/app/src/main/res/layout/fragment_update_costumers.xml" value="0.5385416666666667" />
+        <entry key="..\:/Users/gmoi/Desktop/android/app/src/main/res/layout/fragment_update_hotels.xml" value="0.5194672131147541" />
         <entry key="..\:/Users/gmoi/Desktop/android/app/src/main/res/layout/fragment_update_offices.xml" value="0.43931159420289856" />
         <entry key="..\:/Users/gmoi/Desktop/android/app/src/main/res/layout/fragment_update_packages.xml" value="0.5303442028985508" />
+        <entry key="..\:/Users/gmoi/Desktop/android/app/src/main/res/layout/fragment_update_tours.xml" value="0.5244791666666667" />
+        <entry key="..\:/Users/gmoi/Desktop/android/app/src/main/res/layout/recycler_view_costumers.xml" value="0.521875" />
+        <entry key="..\:/Users/gmoi/Desktop/android/app/src/main/res/layout/recycler_view_hotels_row.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/gmoi/Desktop/android/app/src/main/res/layout/recycler_view_offices_row.xml" value="0.37907608695652173" />
+        <entry key="..\:/Users/gmoi/Desktop/android/app/src/main/res/layout/recycler_view_packages_row.xml" value="0.521875" />
+        <entry key="..\:/Users/gmoi/Desktop/android/app/src/main/res/layout/recycler_view_tours_row.xml" value="0.5541666666666667" />
         <entry key="..\:/Users/gmoi/Desktop/android/app/src/main/res/menu/activity_main_drawer.xml" value="0.5541666666666667" />
         <entry key="..\:/Users/gmoi/Desktop/android/app/src/main/res/menu/costumers_filters.xml" value="0.5541666666666667" />
         <entry key="..\:/android/app/src/main/res/drawable/ic_baseline_place_24.xml" value="0.5215" />

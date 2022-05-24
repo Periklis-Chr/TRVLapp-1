@@ -18,9 +18,9 @@
         android:padding="8dp">
 
         <ImageView
-            android:id="@+id/icon_row"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:id="@+id/icon_row_office"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:src="@drawable/ic_baseline_store_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,11 +33,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="1dp"
             android:text="@string/card_ofid"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toEndOf="@+id/icon_row"
+            app:layout_constraintStart_toEndOf="@+id/icon_row_office"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -58,11 +58,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="1dp"
             android:text="@string/card_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toEndOf="@+id/icon_row"
+            app:layout_constraintStart_toEndOf="@+id/icon_row_office"
             app:layout_constraintTop_toBottomOf="@+id/office_row_id_label" />
 
         <TextView
@@ -81,11 +81,11 @@
             android:id="@+id/office_row_address_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="1dp"
             android:text="@string/card_address"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toEndOf="@+id/icon_row"
+            app:layout_constraintStart_toEndOf="@+id/icon_row_office"
             app:layout_constraintTop_toBottomOf="@+id/office_row_name_label" />
 
         <TextView

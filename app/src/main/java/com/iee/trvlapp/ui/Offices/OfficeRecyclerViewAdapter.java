@@ -4,11 +4,16 @@ import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.iee.trvlapp.R;
+import com.iee.trvlapp.roomEntities.DataConverter;
 import com.iee.trvlapp.roomEntities.Offices;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,13 +26,14 @@ public class OfficeRecyclerViewAdapter extends RecyclerView.Adapter<OfficeRecycl
         private final TextView id;
         private final TextView name;
         private final TextView address;
+        ImageView officeImage;
 
         public OfficeHolder(View view) {
             super(view);
             id = view.findViewById(R.id.office_row_id);
             name = view.findViewById(R.id.office_row_name);
             address = view.findViewById(R.id.office_row_address);
-
+            officeImage = view.findViewById(R.id.icon_row_office);
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -67,7 +73,9 @@ public class OfficeRecyclerViewAdapter extends RecyclerView.Adapter<OfficeRecycl
         holder.id.setText(String.valueOf(currentOffice.getOfid()));
         holder.name.setText(currentOffice.getName());
         holder.address.setText(currentOffice.getAddress());
-
+        if(currentOffice.getImage()!=null) {
+            holder.officeImage.setImageBitmap(DataConverter.convertByteArray2IMage(currentOffice.getImage()));
+        }
     }
 
     @Override

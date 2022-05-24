@@ -24,6 +24,7 @@
             android:layout_height="wrap_content">
 
 
+
             <EditText
                 android:id="@+id/update_Office_name"
                 android:layout_width="333dp"
@@ -58,12 +59,25 @@
                 android:textSize="20dp" />
 
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/updatebrowseImageLibrary"
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/update_office_address"
+                android:layout_marginTop="20dp"
+                android:drawableLeft="@drawable/ic_baseline_image_search_24"
+                android:backgroundTint="@color/orange"
+                android:textColor="@color/black"
+                android:fontFamily="@font/red_hat_text_regular"
+                android:text="@string/button_browse"
+                android:textSize="20dp" />
+
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/update_office_button"
                 android:layout_width="333dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/update_office_address"
+                android:layout_below="@id/updatebrowseImageLibrary"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="@color/green"
                 android:text="@string/button_confirm"

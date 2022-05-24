@@ -4,11 +4,16 @@ import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.iee.trvlapp.R;
+import com.iee.trvlapp.roomEntities.DataConverter;
 import com.iee.trvlapp.roomEntities.Tours;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +28,7 @@ public class TourRecyclerViewAdapter extends RecyclerView.Adapter<TourRecyclerVi
         private final TextView country;
         private final TextView duration;
         private final TextView type;
+        private final ImageView image;
 
         public TourHolder(View view) {
             super(view);
@@ -31,7 +37,7 @@ public class TourRecyclerViewAdapter extends RecyclerView.Adapter<TourRecyclerVi
             country = view.findViewById(R.id.tour_row_country);
             duration = view.findViewById(R.id.tour_row_duration);
             type = view.findViewById(R.id.tour_row_type);
-
+            image = view.findViewById(R.id.tour_icon_row);
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -67,6 +73,9 @@ public class TourRecyclerViewAdapter extends RecyclerView.Adapter<TourRecyclerVi
         holder.country.setText(currentTour.getCountry());
         holder.duration.setText(String.valueOf(currentTour.getDuration()));
         holder.type.setText(currentTour.getType());
+        if (currentTour.getImageTour() != null) {
+            holder.image.setImageBitmap(DataConverter.convertByteArray2IMage(currentTour.getImageTour()));
+        }
 
     }
 

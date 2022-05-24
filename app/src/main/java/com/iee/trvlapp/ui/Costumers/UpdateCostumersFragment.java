@@ -127,18 +127,10 @@ public class UpdateCostumersFragment extends Fragment {
             public void onClick(View view) {
                 String name = binding.updateFirstNameEdit.getText().toString();
                 String surname = binding.updateLastNameEdit.getText().toString();
-                String phone = binding.updatePhoneEdit.getText().toString();
+                long phone = Long.parseLong(binding.updatePhoneEdit.getText().toString());
                 String email = binding.updateEmailEdit.getText().toString();
 
-                if (binding.updateLastNameEdit.length() != 0 && binding.updateFirstNameEdit.length() != 0 && binding.updatePhoneEdit.length() != 0 && binding.updateEmailEdit.length() != 0 && binding.autoCompleteCostumerPid2Update.length() != 0 && binding.autoCompleteCHotelUpdate.length() != 0) {
-
-
-                    Costumers costumers = new Costumers();
-                    costumers.setCid(cid);
-                    costumers.setName(name);
-                    costumers.setSurname(surname);
-                    costumers.setPhone(Long.parseLong(phone));
-                    costumers.setEmail(email);
+                if (binding.updateLastNameEdit.length() != 0 && binding.updateFirstNameEdit.length() != 0 && binding.updatePhoneEdit.length() != 0 && binding.updateEmailEdit.length() != 0) {
 
                     DocumentReference data = MainActivity.appDb.collection("costumers").document(String.valueOf(cid));
 
@@ -175,7 +167,7 @@ public class UpdateCostumersFragment extends Fragment {
                     fragmentTransaction.replace(R.id.nav_host_fragment_content_main, costumersFragment);
                     fragmentTransaction.commit();
 
-                }else{
+                } else {
                     Toast.makeText(getActivity(), "Fill all the fields", Toast.LENGTH_SHORT).show();
                 }
 

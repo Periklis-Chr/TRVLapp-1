@@ -29,12 +29,15 @@ public class CityHotels {
     private String hotelAddress;
     @ColumnInfo(name = "Hotels_stars")
     private int hotelStars;
-    @ColumnInfo(name = "Hotels_tid",index = true)
+    @ColumnInfo(name = "Hotels_tid", index = true)
     private int tid;
+    @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
+    private byte[] imageHotel;
 
 
     public CityHotels() {
     }
+
     @Ignore
     public CityHotels(String hotelName, String hotelAddress, int hotelStars, int tid) {
         this.hotelName = hotelName;
@@ -42,6 +45,7 @@ public class CityHotels {
         this.hotelStars = hotelStars;
         this.tid = tid;
     }
+
     @Ignore
     public CityHotels(int hid, String hotelName, String hotelAddress, int hotelStars, int tid) {
         this.hid = hid;
@@ -89,5 +93,13 @@ public class CityHotels {
 
     public void setTid(int tid) {
         this.tid = tid;
+    }
+
+    public byte[] getImageHotel() {
+        return imageHotel;
+    }
+
+    public void setImageHotel(byte[] imageHotel) {
+        this.imageHotel = imageHotel;
     }
 }
