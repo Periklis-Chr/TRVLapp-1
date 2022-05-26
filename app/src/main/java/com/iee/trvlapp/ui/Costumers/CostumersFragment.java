@@ -1,10 +1,12 @@
 package com.iee.trvlapp.ui.Costumers;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -48,12 +50,12 @@ public class CostumersFragment extends Fragment {
         FirestoreRecyclerOptions<Costumers> options = new FirestoreRecyclerOptions.Builder<Costumers>()
                 .setQuery(query, Costumers.class).build();
 
-        adapter = new CostumerRecyclerViewAdapter(options);
-        RecyclerView recyclerView = binding.costumersRecyclerview;
-        recyclerView.setAdapter(adapter);
+            adapter = new CostumerRecyclerViewAdapter(options);
+            RecyclerView recyclerView = binding.costumersRecyclerview;
+            recyclerView.setAdapter(adapter);
 
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
 
 
         //Deletes Costumer on Swipe LEFT
@@ -118,6 +120,17 @@ public class CostumersFragment extends Fragment {
         return root;
     }
 
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Query query = (Query) MainActivity.appDb.collection("costumers");
+
+        FirestoreRecyclerOptions<Costumers> options = new FirestoreRecyclerOptions.Builder<Costumers>()
+                .setQuery(query, Costumers.class).build();
+
+        adapter = new CostumerRecyclerViewAdapter(options);
+    }
 
     @Override
     public void onStart() {

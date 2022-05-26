@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Database Reference and Initialization
 
-        appDatabase = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "AppDb").allowMainThreadQueries().build();
+        appDatabase = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "AppDb").allowMainThreadQueries().createFromAsset("db/AppDb.db").build();
         appDb = FirebaseFirestore.getInstance();
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());

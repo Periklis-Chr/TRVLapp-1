@@ -142,6 +142,7 @@ public class UpdatePackagesFragment extends Fragment {
                     packages.setDepartureTime(departure);
                     packages.setCost(cost);
                     packagesViewModel.updatePackage(packages);
+                    Toast.makeText(getActivity(), "Package updated !", Toast.LENGTH_SHORT).show();
 
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

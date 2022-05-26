@@ -87,27 +87,33 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
     public void onBindViewHolder(@NonNull PackageRecyclerViewAdapter.PackageHolder holder, int position) {
         Packages currentPackage = packages.get(position);
 
-        Tours curentTour = MainActivity.appDatabase.toursDao().getTourById(currentPackage.getTid());
-        Offices currentOffice = MainActivity.appDatabase.officesDao().getOfficeById(currentPackage.getOfid());
+        if(currentPackage!=null) {
+            Tours curentTour = MainActivity.appDatabase.toursDao().getTourById(currentPackage.getTid());
+            Offices currentOffice = MainActivity.appDatabase.officesDao().getOfficeById(currentPackage.getOfid());
 
-        holder.id.setText(String.valueOf(currentPackage.getPid()));
-        holder.ofid.setText(String.valueOf(currentPackage.getOfid()));
-        holder.tid.setText(String.valueOf(currentPackage.getTid()));
+            holder.id.setText(String.valueOf(currentPackage.getPid()));
+            holder.ofid.setText(String.valueOf(currentPackage.getOfid()));
+            holder.tid.setText(String.valueOf(currentPackage.getTid()));
 
-        holder.departure.setText(String.valueOf(currentPackage.getDepartureTime()));
-        holder.cost.setText(String.valueOf(currentPackage.getCost()));
+            holder.departure.setText(String.valueOf(currentPackage.getDepartureTime()));
+            holder.cost.setText(String.valueOf(currentPackage.getCost()));
 
-        if (curentTour != null) {
-            holder.tour_City.setText(curentTour.getCity());
-        }
-        if (currentOffice != null) {
-            holder.office_name.setText(currentOffice.getName());
-        }
-        if (currentOffice.getImage() != null) {
-            holder.imageOffice.setImageBitmap(DataConverter.convertByteArray2IMage(currentOffice.getImage()));
-        }
-        if (curentTour.getImageTour() != null) {
-            holder.imageTour.setImageBitmap(DataConverter.convertByteArray2IMage(curentTour.getImageTour()));
+            if (curentTour != null) {
+                holder.tour_City.setText(curentTour.getCity());
+            }
+            if (currentOffice != null) {
+                if(currentOffice.getImage() != null ) {
+                holder.office_name.setText(currentOffice.getName());
+                }
+            }
+            if ( currentOffice!=null) {
+                if(currentOffice.getImage() != null ) {
+                    holder.imageOffice.setImageBitmap(DataConverter.convertByteArray2IMage(currentOffice.getImage()));
+                }
+            }
+            if (curentTour.getImageTour() != null) {
+                holder.imageTour.setImageBitmap(DataConverter.convertByteArray2IMage(curentTour.getImageTour()));
+            }
         }
     }
 

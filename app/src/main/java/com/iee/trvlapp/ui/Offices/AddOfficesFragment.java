@@ -94,10 +94,10 @@ public class AddOfficesFragment extends Fragment {
             }
             MainActivity.appDatabase.officesDao().addOffice(office);
 
-            Toast.makeText(getActivity(), "Office Added Succesfully", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Office added !", Toast.LENGTH_LONG).show();
             Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addOfficesFragment_to_nav_offices);
         } else {
-            Toast.makeText(getActivity(), "Fill all fields", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Fill all the fields", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -132,6 +132,7 @@ public class AddOfficesFragment extends Fragment {
                 e.printStackTrace();
             }
         }
+        Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();
     }
 
 }

@@ -68,7 +68,7 @@ public class PackagesFragment extends Fragment {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 packagesViewModel.deletePackage(adapter.getPackageAt(viewHolder.getAdapterPosition()));
-                Toast.makeText(getActivity(), "Package deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Package deleted !", Toast.LENGTH_SHORT).show();
             }
         }).attachToRecyclerView(recyclerView);
 
@@ -112,12 +112,12 @@ public class PackagesFragment extends Fragment {
             }
         });
 
-        binding.fabFilteringPackage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                popupMenu(view);
-            }
-        });
+//        binding.fabFilteringPackage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                popupMenu(view);
+//            }
+//        });
 
         return root;
     }

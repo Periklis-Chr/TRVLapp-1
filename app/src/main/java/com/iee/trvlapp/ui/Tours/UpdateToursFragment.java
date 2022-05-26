@@ -83,6 +83,7 @@ public class UpdateToursFragment extends Fragment {
                         tour.setImageTour(image);
                     }
                     toursViewModel.updateTour(tour);
+                    Toast.makeText(getActivity(), "Tour updated !", Toast.LENGTH_SHORT).show();
 
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -90,7 +91,7 @@ public class UpdateToursFragment extends Fragment {
                     fragmentTransaction.replace(R.id.nav_host_fragment_content_main, toursFragment);
                     fragmentTransaction.commit();
                 } else {
-                    Toast.makeText(getActivity(), "Fill all the fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Fill all the fields !", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -148,6 +149,7 @@ public class UpdateToursFragment extends Fragment {
             }
         }
         flag=true;
+        Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();
     }
 
 }

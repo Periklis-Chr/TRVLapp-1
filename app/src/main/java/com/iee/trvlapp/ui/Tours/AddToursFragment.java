@@ -94,10 +94,10 @@ public class AddToursFragment extends Fragment {
             }
             MainActivity.appDatabase.toursDao().addTour(tour);
 
-            Toast.makeText(getActivity(), "Tour Added Successfully", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Tour added !", Toast.LENGTH_LONG).show();
             Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addToursFragment_to_nav_tours);
         } else {
-            Toast.makeText(getActivity(), "Fill al fields", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Fill all the fields !", Toast.LENGTH_LONG).show();
         }
 
     }
@@ -132,5 +132,6 @@ public class AddToursFragment extends Fragment {
                 e.printStackTrace();
             }
         }
+        Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();
     }
 }

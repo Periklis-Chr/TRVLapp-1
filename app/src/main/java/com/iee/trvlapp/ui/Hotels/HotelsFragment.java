@@ -68,7 +68,7 @@ public class HotelsFragment extends Fragment implements PopupMenu.OnMenuItemClic
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 hotelsViewModel.deleteHotel(adapter.getHotelAt(viewHolder.getAdapterPosition()));
-                Toast.makeText(getActivity(), "Hotel deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Hotel deleted !", Toast.LENGTH_SHORT).show();
             }
         }).attachToRecyclerView(recyclerView);
 
@@ -111,12 +111,12 @@ public class HotelsFragment extends Fragment implements PopupMenu.OnMenuItemClic
         });
 
 
-        binding.fabFilteringHotels.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                popupMenu(view);
-            }
-        });
+//        binding.fabFilteringHotels.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                popupMenu(view);
+//            }
+//        });
 
         return root;
     }

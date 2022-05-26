@@ -137,10 +137,10 @@ public class AddHotelsFragment extends Fragment {
             }
             MainActivity.appDatabase.cityHotelsDao().addCityHotel(cityHotels);
 
-            Toast.makeText(getActivity(), "Hotel Added Succesfully", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Hotel added !", Toast.LENGTH_LONG).show();
             Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addHotelsFragment_to_nav_hotels);
         } else {
-            Toast.makeText(getActivity(), "Fill all fields", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Fill all the fields", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -173,6 +173,7 @@ public class AddHotelsFragment extends Fragment {
                 e.printStackTrace();
             }
         }
+        Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();
     }
 
 

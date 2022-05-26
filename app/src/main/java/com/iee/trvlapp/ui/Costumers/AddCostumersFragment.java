@@ -219,9 +219,9 @@ public class AddCostumersFragment extends Fragment {
         }
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(), "notificationId")
                 .setContentText("TRVl")
-                .setSmallIcon(R.mipmap.tick_icon)
+                .setSmallIcon(R.drawable.ic_baseline_person_add_alt_1_24)
                 .setAutoCancel(true)
-                .setContentText("New Costumer Added on Firestore!!!");
+                .setContentText("New Costumer added on Firestore!!!");
 
         NotificationManagerCompat managerCompat = NotificationManagerCompat.from(getActivity());
         managerCompat.notify(999, builder.build());

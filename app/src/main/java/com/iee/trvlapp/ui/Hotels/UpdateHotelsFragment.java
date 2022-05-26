@@ -104,7 +104,7 @@ public class UpdateHotelsFragment extends Fragment {
                         cityHotels.setImageHotel(image);
                     }
                     hotelsViewModel.updateHotel(cityHotels);
-
+                    Toast.makeText(getActivity(), "Hotel updated !", Toast.LENGTH_SHORT).show();
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     HotelsFragment hotelsFragment = new HotelsFragment();
@@ -190,6 +190,7 @@ public class UpdateHotelsFragment extends Fragment {
             }
         }
         flag=true;
+        Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();
     }
 
 }

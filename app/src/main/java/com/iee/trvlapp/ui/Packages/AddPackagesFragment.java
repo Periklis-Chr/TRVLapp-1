@@ -146,10 +146,10 @@ public class AddPackagesFragment extends Fragment {
 
             MainActivity.appDatabase.packagesDao().addPackage(Package);
 
-            Toast.makeText(getActivity(), "Package Added Succesfully", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Package added !", Toast.LENGTH_LONG).show();
             Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addPackagesFragment_to_nav_packages);
         } else {
-            Toast.makeText(getActivity(), "fill all fields", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "fill all the fields", Toast.LENGTH_LONG).show();
         }
     }
 

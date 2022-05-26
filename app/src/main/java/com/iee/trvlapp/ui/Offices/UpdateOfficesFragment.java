@@ -53,7 +53,6 @@ public class UpdateOfficesFragment extends Fragment {
         String name = bundle.getString("name");
         String address = bundle.getString("address");
         byte[] image = bundle.getByteArray("image");
-        Toast.makeText(getActivity(), name, Toast.LENGTH_SHORT).show();
 
         binding.updateOfficeName.setText(name);
         binding.updateOfficeAddress.setText(address);
@@ -80,7 +79,7 @@ public class UpdateOfficesFragment extends Fragment {
                         office.setImage(image);
                     }
                     officesViewModel.updateOffice(office);
-
+                    Toast.makeText(getActivity(), "Office updated !", Toast.LENGTH_SHORT).show();
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     OfficesFragment officesFragment = new OfficesFragment();
@@ -145,6 +144,7 @@ public class UpdateOfficesFragment extends Fragment {
             }
         }
         flag=true;
+        Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();
     }
 
 

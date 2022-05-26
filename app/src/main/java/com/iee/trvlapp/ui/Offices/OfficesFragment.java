@@ -1,6 +1,7 @@
 package com.iee.trvlapp.ui.Offices;
 
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -32,7 +33,7 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
     private FragmentOfficesBinding binding;
     private AppBarConfiguration mAppBarConfiguration;
 
-    private int showFilterFlag;
+    int showFilterFlag;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -52,7 +53,7 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
         recyclerView.setAdapter(adapter);
 
 
-        // Retrieves and feeds the RecyclerViewAdapter with Offices Data
+         //Retrieves and feeds the RecyclerViewAdapter with Offices Data
 
         officesViewModel.getAllOffices().observe(getViewLifecycleOwner(), new Observer<List<Offices>>() {
             @Override
@@ -75,7 +76,7 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 officesViewModel.deleteOffice(adapter.getOfficeAt(viewHolder.getAdapterPosition()));
-                Toast.makeText(getActivity(), "Office deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Office deleted !", Toast.LENGTH_SHORT).show();
             }
         }).attachToRecyclerView(recyclerView);
 
@@ -93,7 +94,7 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
                 bundle.putInt("id", id);
                 bundle.putString("name", name);
                 bundle.putString("address", address);
-                bundle.putByteArray("image",office.getImage());
+                bundle.putByteArray("image", office.getImage());
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 UpdateOfficesFragment updateOfficesFragment = new UpdateOfficesFragment();
@@ -114,20 +115,22 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
         });
 
 
-        //Gets support and populates menu for filter options
+        // Gets support and populates menu for filter options
 
-        binding.fabFiltering.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                popupMenu(view);
-            }
-        });
+//        binding.fabFiltering.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                popupMenu(view);
+//            }
+//        });
 
         return root;
     }
 
 
-    // Filter handling for Offices List
+
+
+     //Filter handling for Offices List
 
     public void popupMenu(View view) {
         PopupMenu popupMenu = new PopupMenu(getActivity().getApplicationContext(), view);
@@ -154,7 +157,8 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
                     }
                 });
                 showFilterFlag = 1;
-                return true;
+                Toast.makeText(getActivity(), "" + showFilterFlag, Toast.LENGTH_SHORT).show();
+                break;
             case R.id.filter_asc_alphabetical_name:
 
 
@@ -166,7 +170,7 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
                 });
 
                 showFilterFlag = 2;
-                return true;
+                break;
             case R.id.filter_id:
 
                 officesViewModel.getAllOffices().observe(getViewLifecycleOwner(), new Observer<List<Offices>>() {
@@ -178,10 +182,11 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
 
 
                 showFilterFlag = 0;
-                return true;
+                break;
             default:
-                return false;
+                break;
         }
+        return true;
     }
 
 

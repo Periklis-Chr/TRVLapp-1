@@ -68,7 +68,6 @@ public class ToursFragment extends Fragment {
 
                 String CityName = adapter.getTourAt(viewHolder.getAbsoluteAdapterPosition()).getCity();
 
-                Toast.makeText(getActivity(), CityName, Toast.LENGTH_SHORT).show();
                 Bundle bundle = new Bundle();
                 bundle.putString("id", CityName);
 
@@ -96,7 +95,7 @@ public class ToursFragment extends Fragment {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 toursViewModel.deleteTour(adapter.getTourAt(viewHolder.getAdapterPosition()));
-                Toast.makeText(getActivity(), "Tour deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Tour deleted !", Toast.LENGTH_SHORT).show();
             }
         }).attachToRecyclerView(recyclerView);
 
@@ -139,12 +138,12 @@ public class ToursFragment extends Fragment {
             }
         });
 
-        binding.fabFilteringTour.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                popupMenu(view);
-            }
-        });
+//        binding.fabFilteringTour.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                popupMenu(view);
+//            }
+//        });
 
 
         return root;
