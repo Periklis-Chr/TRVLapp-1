@@ -7,25 +7,11 @@
     android:background="@color/blue"
     tools:context=".ui.Packages.PackagesFragment">
 
-
-
-
-
-
-
-
-
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/packageRecyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/recycler_view_packages_row"  />
-
-
-
-
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButtonAddPackages"
@@ -36,11 +22,10 @@
         android:clickable="true"
         android:focusable="true"
         android:src="@android:drawable/ic_input_add"
-        app:backgroundTint="#e76f51"
+        app:backgroundTint="@color/btnColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
-
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_Delete_package"
@@ -51,7 +36,7 @@
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_baseline_delete_forever_24"
-        app:backgroundTint="#e76f51"
+        app:backgroundTint="@color/btnColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

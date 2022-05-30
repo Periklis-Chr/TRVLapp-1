@@ -16,13 +16,12 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
 
-        android:background="#e76f51"
+        android:background="@color/red1"
             app:popupTheme="@style/Theme.TRVLapp.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <include layout="@layout/content_main" />
-
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

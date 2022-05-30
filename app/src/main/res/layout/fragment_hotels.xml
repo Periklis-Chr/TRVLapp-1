@@ -20,11 +20,6 @@
         tools:listitem="@layout/recycler_view_hotels_row"  />
 
 
-
-
-
-
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButtonAddHotels"
         android:layout_width="wrap_content"
@@ -34,10 +29,9 @@
         android:clickable="true"
         android:focusable="true"
         android:src="@android:drawable/ic_input_add"
-        app:backgroundTint="#e76f51"
+        app:backgroundTint="@color/btnColor"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -49,7 +43,7 @@
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_baseline_delete_forever_24"
-        app:backgroundTint="#e76f51"
+        app:backgroundTint="@color/btnColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

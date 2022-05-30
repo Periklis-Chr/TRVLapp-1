@@ -24,7 +24,7 @@
                 android:text="Developers Bio"
                 android:textAlignment="center"
                 android:textColor="@color/orange"
-                android:textSize="30dp"></TextView>
+                android:textSize="30dp"/>
 
 
             <LinearLayout
@@ -39,7 +39,7 @@
                     android:layout_width="180dp"
                     android:layout_height="180dp"
                     android:layout_marginStart="10dp"
-                    android:src="@drawable/gmoi"></ImageView>
+                    android:src="@drawable/gmoi"/>
 
 
                 <TextView
@@ -48,7 +48,7 @@
                     android:layout_marginStart="10dp"
                     android:text="@string/bio_gmoi"
                     android:textColor="@color/orange"
-                    android:textSize="15dp"></TextView>
+                    android:textSize="15dp"/>
 
 
             </LinearLayout>
@@ -74,7 +74,7 @@
                     android:text="@string/bio_karezos"
                     android:textAlignment="center"
                     android:textColor="@color/orange"
-                    android:textSize="15dp" />.
+                    android:textSize="15dp" />
 
             </LinearLayout>
 
@@ -85,14 +85,14 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/second"
                 android:layout_marginTop="15dp">
-                >
+
 
                 <ImageView
                     android:id="@+id/imageView4"
                     android:layout_width="180dp"
                     android:layout_height="180dp"
                     android:layout_marginStart="10dp"
-                    android:src="@drawable/peris" />.
+                    android:src="@drawable/peris" />
 
                 <TextView
                     android:layout_width="match_parent"
