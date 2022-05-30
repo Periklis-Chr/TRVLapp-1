@@ -3,6 +3,7 @@ package com.iee.trvlapp.ui.Costumers;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import com.iee.trvlapp.FirestoreEntities.Costumers;
 import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.roomEntities.CityHotels;
+import com.iee.trvlapp.roomEntities.DataConverter;
 import com.iee.trvlapp.roomEntities.Packages;
 import com.iee.trvlapp.roomEntities.Tours;
 
@@ -40,6 +42,7 @@ public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costum
         TextView pid;
         TextView hotel;
         TextView city;
+        ImageView hotel_image;
 
 
         public CostumerHolder(View view) {
@@ -54,6 +57,7 @@ public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costum
             pid = view.findViewById(R.id.costumer_row_pid);
             hotel = view.findViewById(R.id.costumer_row_hotel);
             city = view.findViewById(R.id.costumer_row_city);
+            hotel_image = view.findViewById(R.id.costumer_hotel_row);
 
 
             view.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +94,7 @@ public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costum
 
         Packages currentPackage = MainActivity.appDatabase.packagesDao().getPackageById(model.getPid());
 
+
         if (currentPackage != null) {
             Tours currentTour = MainActivity.appDatabase.toursDao().getTourById(currentPackage.getTid());
             CityHotels cityHotels = MainActivity.appDatabase.cityHotelsDao().getCityHotelById(model.getHotel());
@@ -102,6 +107,13 @@ public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costum
             holder.pid.setText(String.valueOf(model.getPid()));
             holder.city.setText(currentTour.getCity());
             holder.hotel.setText(cityHotels.getHotelName());
+
+            if (cityHotels != null) {
+                if (cityHotels.getImageHotel() != null) {
+                    holder.hotel_image.setImageBitmap(DataConverter.convertByteArray2IMage(cityHotels.getImageHotel()));
+                }
+            }
+
 
         } else {
             deleteItem(position);
