@@ -9,17 +9,17 @@ import java.util.List;
 public class ToursViewModel extends ViewModel {
 
     private LiveData<List<Tours>> toursList;
-    private LiveData<List<Tours>> toursListNameASC;
-    private LiveData<List<Tours>> toursListNameDESC;
 
     public ToursViewModel() {
         toursList = MainActivity.appDatabase.toursDao().getTours();
-        toursListNameDESC = MainActivity.appDatabase.toursDao().getToursOrderedByNameDesc();
-        toursListNameASC = MainActivity.appDatabase.toursDao().getToursOrderedByNameASC();
     }
 
 
     //Tours Dao methods implementation for Tours Fragment
+
+    public void deleteAll(){
+        MainActivity.appDatabase.toursDao().deleteAllTours();
+    }
 
     public LiveData<List<Tours>> getAllTours() {
         return toursList;
@@ -33,11 +33,4 @@ public class ToursViewModel extends ViewModel {
         MainActivity.appDatabase.toursDao().updateTours(tour);
     }
 
-    public LiveData<List<Tours>> getToursOrderByNameDesc() {
-        return toursListNameDESC;
-    }
-
-    public LiveData<List<Tours>> getToursOrderByNameAsc() {
-        return toursListNameASC;
-    }
 }

@@ -78,4 +78,16 @@ public class Costumers {
     public void setHotel(int hotel) {
         this.hotel = hotel;
     }
+
+
+    @Override
+    public String toString() {
+        return "\ncid     : " + cid +
+                "\nname    :  " + name +
+                "\nsurname :  " + surname +
+                "\nphone   :  " + phone +
+                "\nemail   :  " + email +
+                "\npid     :  " + pid +
+                "\nhotel   :  " + hotel;
+    }
 }

@@ -30,5 +30,4 @@ public class HelpFragment extends Fragment {
         binding = null;
     }
 
-
 }

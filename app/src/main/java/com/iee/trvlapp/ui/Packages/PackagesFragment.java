@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupMenu;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -17,6 +18,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentPackagesBinding;
 import com.iee.trvlapp.roomEntities.Packages;
@@ -25,10 +27,7 @@ import java.util.List;
 
 public class PackagesFragment extends Fragment {
 
-
     private FragmentPackagesBinding binding;
-    private int showFilterFlag = 0;
-
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -112,73 +111,16 @@ public class PackagesFragment extends Fragment {
             }
         });
 
-//        binding.fabFilteringPackage.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                popupMenu(view);
-//            }
-//        });
+        binding.fabDeletePackage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                packagesViewModel.deleteAll();
+            }
+        });
 
         return root;
     }
 
-
-    //Gets support and populates menu for filter options
-
-    public void popupMenu(View view) {
-        PopupMenu popupMenu = new PopupMenu(getActivity().getApplicationContext(), view);
-        popupMenu.setOnMenuItemClickListener(this::onMenuItemClick);
-        popupMenu.inflate(R.menu.package_filters);
-        popupMenu.show();
-    }
-
-    // Filter handling for Packages List
-
-
-    public boolean onMenuItemClick(MenuItem menuItem) {
-        PackagesViewModel packagesViewModel = new ViewModelProvider(this).get(PackagesViewModel.class);
-        RecyclerView recyclerView = binding.packageRecyclerview;
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
-        recyclerView.setHasFixedSize(true);
-        final PackageRecyclerViewAdapter adapter = new PackageRecyclerViewAdapter();
-        recyclerView.setAdapter(adapter);
-        switch (menuItem.getItemId()) {
-            case R.id.p_filter_des_alphabetical_name:
-
-                packagesViewModel.getPackagesOrderByNameDesc().observe(getViewLifecycleOwner(), new Observer<List<Packages>>() {
-                    @Override
-                    public void onChanged(List<Packages> packages) {
-                        adapter.setPackages(packages);
-                    }
-                });
-                showFilterFlag = 1;
-                return true;
-            case R.id.p_filter_asc_alphabetical_name:
-
-                packagesViewModel.getPackagesOrderByNameAsc().observe(getViewLifecycleOwner(), new Observer<List<Packages>>() {
-                    @Override
-                    public void onChanged(List<Packages> packages) {
-                        adapter.setPackages(packages);
-                    }
-                });
-
-                showFilterFlag = 2;
-                return true;
-            case R.id.p_filter_id:
-
-                packagesViewModel.getAllPackages().observe(getViewLifecycleOwner(), new Observer<List<Packages>>() {
-                    @Override
-                    public void onChanged(List<Packages> packages) {
-                        adapter.setPackages(packages);
-                    }
-                });
-
-                showFilterFlag = 0;
-                return true;
-            default:
-                return false;
-        }
-    }
 
     @Override
     public void onDestroyView() {

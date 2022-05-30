@@ -12,6 +12,7 @@ import java.util.List;
 
 @Dao
 public interface ToursDao {
+
     @Insert(onConflict = OnConflictStrategy.ABORT)
     public void addTour(Tours tour);
 

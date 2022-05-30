@@ -12,6 +12,7 @@ import java.util.List;
 
 @Dao
 public interface PackagesDao {
+
     @Insert(onConflict = OnConflictStrategy.ABORT)
     public void addPackage(Packages Package);
 

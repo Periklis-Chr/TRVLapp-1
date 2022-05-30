@@ -3,33 +3,43 @@ package com.iee.trvlapp.ui.Costumers;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupMenu;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.core.OrderBy;
 import com.iee.trvlapp.FirestoreEntities.Costumers;
 import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentCostumersBinding;
+import com.iee.trvlapp.roomEntities.Offices;
+import com.iee.trvlapp.ui.Offices.OfficeRecyclerViewAdapter;
+import com.iee.trvlapp.ui.Offices.OfficesViewModel;
+import com.iee.trvlapp.ui.SupportingClasses.ImportData;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class CostumersFragment extends Fragment {
-    private int showFilterFlag = 0;
     CostumerRecyclerViewAdapter adapter;
-    //FirestoreRecyclerAdapter adapter;
     private FragmentCostumersBinding binding;
     private List<Costumers> costumerList = new ArrayList<>();
 
@@ -42,20 +52,19 @@ public class CostumersFragment extends Fragment {
         binding = FragmentCostumersBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-
         // Retrieves and feeds the RecyclerViewAdapter with Costumer Data ( Firestore )
 
-        Query query = (Query) MainActivity.appDb.collection("costumers");
+        Query query = (Query) MainActivity.appDb.collection("costumers").orderBy("name", Query.Direction.ASCENDING);
 
         FirestoreRecyclerOptions<Costumers> options = new FirestoreRecyclerOptions.Builder<Costumers>()
                 .setQuery(query, Costumers.class).build();
 
-            adapter = new CostumerRecyclerViewAdapter(options);
-            RecyclerView recyclerView = binding.costumersRecyclerview;
-            recyclerView.setAdapter(adapter);
+        adapter = new CostumerRecyclerViewAdapter(options);
+        RecyclerView recyclerView = binding.costumersRecyclerview;
+        recyclerView.setAdapter(adapter);
 
-            recyclerView.setHasFixedSize(true);
-            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
 
 
         //Deletes Costumer on Swipe LEFT
@@ -117,9 +126,19 @@ public class CostumersFragment extends Fragment {
             }
         });
 
+        binding.fabDeleteCostumers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ImportData.delteAllFirestoreData();
+            }
+        });
+
+
         return root;
     }
 
+
+    // Bug handling when fragment onPause ( app crashes when phone is locked )
 
     @Override
     public void onPause() {

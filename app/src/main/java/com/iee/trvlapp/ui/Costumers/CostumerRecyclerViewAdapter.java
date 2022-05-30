@@ -22,7 +22,6 @@ import com.iee.trvlapp.roomEntities.Tours;
 public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costumers, CostumerRecyclerViewAdapter.CostumerHolder> {
     private OnItemClickListener listener;
 
-
     public CostumerRecyclerViewAdapter(@NonNull FirestoreRecyclerOptions<Costumers> options) {
         super(options);
     }
@@ -47,25 +46,25 @@ public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costum
             super(view);
 
 
-                id = view.findViewById(R.id.costumer_row_id);
-                name = view.findViewById(R.id.costumer_row_name);
-                surname = view.findViewById(R.id.costumer_row_surname);
-                phone = view.findViewById(R.id.costumer_row_phone);
-                email = view.findViewById(R.id.costumer_row_email);
-                pid = view.findViewById(R.id.costumer_row_pid);
-                hotel = view.findViewById(R.id.costumer_row_hotel);
-                city = view.findViewById(R.id.costumer_row_city);
+            id = view.findViewById(R.id.costumer_row_id);
+            name = view.findViewById(R.id.costumer_row_name);
+            surname = view.findViewById(R.id.costumer_row_surname);
+            phone = view.findViewById(R.id.costumer_row_phone);
+            email = view.findViewById(R.id.costumer_row_email);
+            pid = view.findViewById(R.id.costumer_row_pid);
+            hotel = view.findViewById(R.id.costumer_row_hotel);
+            city = view.findViewById(R.id.costumer_row_city);
 
 
-                view.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        int position = getAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION && listener != null ) {
-                            listener.onItemClick(getSnapshots().getSnapshot(position), position);
-                        }
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION && listener != null) {
+                        listener.onItemClick(getSnapshots().getSnapshot(position), position);
                     }
-                });
+                }
+            });
 
         }
     }
@@ -89,9 +88,9 @@ public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costum
     @Override
     protected void onBindViewHolder(@NonNull CostumerHolder holder, int position, @NonNull Costumers model) {
 
-            Packages currentPackage = MainActivity.appDatabase.packagesDao().getPackageById(model.getPid());
+        Packages currentPackage = MainActivity.appDatabase.packagesDao().getPackageById(model.getPid());
 
-        if(currentPackage!=null) {
+        if (currentPackage != null) {
             Tours currentTour = MainActivity.appDatabase.toursDao().getTourById(currentPackage.getTid());
             CityHotels cityHotels = MainActivity.appDatabase.cityHotelsDao().getCityHotelById(model.getHotel());
 
@@ -104,8 +103,7 @@ public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costum
             holder.city.setText(currentTour.getCity());
             holder.hotel.setText(cityHotels.getHotelName());
 
-        }else{
-//            MainActivity.appDb.collection("costumers").document(String.valueOf(model.getCid())).delete();
+        } else {
             deleteItem(position);
 
         }

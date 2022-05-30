@@ -23,12 +23,9 @@ import androidx.navigation.Navigation;
 import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentAddHotelsBinding;
-import com.iee.trvlapp.databinding.FragmentAddOfficesBinding;
 import com.iee.trvlapp.roomEntities.CityHotels;
 import com.iee.trvlapp.roomEntities.DataConverter;
-import com.iee.trvlapp.roomEntities.Offices;
 import com.iee.trvlapp.roomEntities.Tours;
-import com.iee.trvlapp.ui.Offices.OfficesViewModel;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -43,7 +40,6 @@ public class AddHotelsFragment extends Fragment {
     Uri uri;
 
     AutoCompleteTextView autocompleteText;
-    AutoCompleteTextView autocompleteOfficeText;
     ArrayAdapter<String> adapterItems;
     List<Tours> toursList;
 
@@ -111,7 +107,7 @@ public class AddHotelsFragment extends Fragment {
     }
 
 
-    ////Inserts  CityHotel
+    //Inserts  CityHotel
     public void insertOfficeData() {
 
         String name = binding.addHotelName.getText().toString();
@@ -132,7 +128,7 @@ public class AddHotelsFragment extends Fragment {
             }
 
             cityHotels.setTid(tour_id);
-            if(bitmap!=null) {
+            if (bitmap != null) {
                 cityHotels.setImageHotel(DataConverter.convertIMage2ByteArray(bitmap));
             }
             MainActivity.appDatabase.cityHotelsDao().addCityHotel(cityHotels);
@@ -150,7 +146,7 @@ public class AddHotelsFragment extends Fragment {
         binding = null;
     }
 
-        //Makes Intent to handle Image selection
+    //Makes Intent to handle Image selection
 
     public void pickImage(View view) {
         Intent intent = new Intent(Intent.ACTION_PICK);
@@ -173,8 +169,12 @@ public class AddHotelsFragment extends Fragment {
                 e.printStackTrace();
             }
         }
+
+        try {
+            binding.landAddHOtelPreview.setImageBitmap(bitmap);
+        } catch (NullPointerException e) {
+        }
         Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();
     }
-
 
 }

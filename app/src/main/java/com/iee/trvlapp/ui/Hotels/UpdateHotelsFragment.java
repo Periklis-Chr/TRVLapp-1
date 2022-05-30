@@ -36,8 +36,6 @@ public class UpdateHotelsFragment extends Fragment {
     private FragmentUpdateHotelsBinding binding;
 
     AutoCompleteTextView autocompleteText;
-    AutoCompleteTextView autocompleteOfficeText;
-
     ArrayAdapter<String> adapterItems;
     List<Tours> toursList;
 
@@ -189,7 +187,7 @@ public class UpdateHotelsFragment extends Fragment {
                 e.printStackTrace();
             }
         }
-        flag=true;
+        flag = true;
         Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();
     }
 

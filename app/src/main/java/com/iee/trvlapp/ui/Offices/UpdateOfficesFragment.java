@@ -17,10 +17,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 
-import com.google.android.material.navigation.NavigationView;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentUpdateOfficesBinding;
 import com.iee.trvlapp.roomEntities.DataConverter;
@@ -143,9 +141,8 @@ public class UpdateOfficesFragment extends Fragment {
                 e.printStackTrace();
             }
         }
-        flag=true;
+        flag = true;
         Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();
     }
-
 
 }

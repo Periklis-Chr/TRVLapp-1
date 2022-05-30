@@ -1,10 +1,12 @@
 package com.iee.trvlapp.ui.SupportingClasses;
 
 
+import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -28,7 +30,11 @@ public class Settings extends Fragment {
         binding.homeFillData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ImportData.fillRoomDatabase();
+                try {
+                    ImportData.fillRoomDatabase();
+                } catch (SQLiteConstraintException e) {
+                    Toast.makeText(getActivity(), "This action gets canceled because violates foreign keys !", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

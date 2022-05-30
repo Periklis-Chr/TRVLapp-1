@@ -85,7 +85,6 @@ public class TourRecyclerViewAdapter extends RecyclerView.Adapter<TourRecyclerVi
 
     }
 
-
     @Override
     public int getItemCount() {
         return tours.size();

@@ -11,6 +11,7 @@ import java.util.List;
 
 @Dao
 public interface OfficesDao {
+
     @Insert(onConflict = OnConflictStrategy.ABORT)
     public void addOffice(Offices office);
 

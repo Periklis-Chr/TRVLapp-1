@@ -69,6 +69,7 @@ public class AddToursFragment extends Fragment {
             }
         });
 
+
         return root;
     }
 
@@ -132,6 +133,14 @@ public class AddToursFragment extends Fragment {
                 e.printStackTrace();
             }
         }
+
+        try {
+            binding.landAddTourImagePreview.setImageBitmap(bitmap);
+        } catch (NullPointerException e) {
+        }
+
+
         Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();
     }
+
 }

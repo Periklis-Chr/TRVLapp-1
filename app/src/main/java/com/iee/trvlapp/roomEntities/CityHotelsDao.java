@@ -16,11 +16,13 @@ public interface CityHotelsDao {
     @Insert(onConflict = OnConflictStrategy.ABORT)
     public void addCityHotel(CityHotels cityHotels);
 
+    @Update(onConflict = OnConflictStrategy.ABORT)
+    public void updateCityHotel(CityHotels cityHotels);
+
     @Delete()
     public void deleteCityHotels(CityHotels cityHotels);
 
-    @Update(onConflict = OnConflictStrategy.ABORT)
-    public void updateCityHotel(CityHotels cityHotels);
+
 
     @Query("DELETE FROM CityHotels_table where 1=1")
     public void deleteAllCityHotels();
@@ -37,8 +39,8 @@ public interface CityHotelsDao {
     @Query("select * from CityHotels_table  where Hotels_id=:id")
     public CityHotels getCityHotelById(int id);
 
-    @Query("select * from CityHotels_table order by Hotels_name DESC")
-    public LiveData<List<CityHotels>> getHotelsOrderedByNameDesc();
+    @Query("select * from CityHotels_table order by Hotels_stars DESC")
+    public LiveData<List<CityHotels>> getHotelsOrderedByStarsDesc();
 
     @Query("select * from CityHotels_table order by Hotels_name ASC")
     public LiveData<List<CityHotels>> getHotelsOrderedByNameASC();

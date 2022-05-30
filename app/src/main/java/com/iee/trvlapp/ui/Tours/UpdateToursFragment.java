@@ -22,7 +22,6 @@ import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentUpdateToursBinding;
 import com.iee.trvlapp.roomEntities.DataConverter;
 import com.iee.trvlapp.roomEntities.Tours;
-import com.iee.trvlapp.ui.Offices.OfficesFragment;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -104,7 +103,6 @@ public class UpdateToursFragment extends Fragment {
             public void onClick(View view) {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                OfficesFragment officesFragment = new OfficesFragment();
                 ToursFragment toursFragment = new ToursFragment();
                 fragmentTransaction.replace(R.id.nav_host_fragment_content_main, toursFragment);
                 fragmentTransaction.commit();
@@ -148,7 +146,7 @@ public class UpdateToursFragment extends Fragment {
                 e.printStackTrace();
             }
         }
-        flag=true;
+        flag = true;
         Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();
     }
 

@@ -1,9 +1,15 @@
 package com.iee.trvlapp;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.media.RingtoneManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -18,6 +24,8 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -84,17 +92,29 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
 
+        //hides language change buttons when on landscape
+
+        int orientation = this.getResources().getConfiguration().orientation;
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            binding.changeLangEn.setVisibility(View.INVISIBLE);
+            binding.changeLangGr.setVisibility(View.INVISIBLE);
+        } else {
+            binding.changeLangEn.setVisibility(View.VISIBLE);
+            binding.changeLangGr.setVisibility(View.VISIBLE);
+        }
+
+
         //Support for Changing Language to Greek
 
         binding.changeLangGr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Locale locale = new Locale("gr");
+                pushNotification("gr");
                 Resources resources = MainActivity.this.getResources();
                 Configuration configuration = resources.getConfiguration();
                 configuration.setLocale(locale);
                 resources.updateConfiguration(configuration, resources.getDisplayMetrics());
-
                 Intent intent = getIntent();
                 finish();
                 startActivity(intent);
@@ -107,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Locale locale = new Locale("");
+                pushNotification("en");
                 Resources resources = MainActivity.this.getResources();
                 Configuration configuration = resources.getConfiguration();
                 configuration.setLocale(locale);
@@ -118,6 +139,45 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    //notification with language picked
+
+    public void pushNotification(String locale) {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("notificationId", "notification", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+
+        if (locale.equals("gr")) {
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "notificationId")
+                    .setContentText("TRVl")
+                    .setSmallIcon(R.drawable.ic_baseline_language_24)
+                    .setAutoCancel(true)
+                    .setContentText("Η γλώσσα ορίσθηκε στα Ελληνικά!")
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+
+            NotificationManagerCompat managerCompat = NotificationManagerCompat.from(this);
+            managerCompat.notify(999, builder.build());
+        } else {
+            Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "notificationId")
+                    .setContentText("TRVl")
+                    .setSmallIcon(R.drawable.ic_baseline_language_24)
+                    .setAutoCancel(true)
+                    .setContentText("Language set to English")
+                    .setBadgeIconType(NotificationCompat.BADGE_ICON_LARGE)
+                    .setSound(alarmSound)
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+
+            NotificationManagerCompat managerCompat = NotificationManagerCompat.from(this);
+            managerCompat.notify(999, builder.build());
+        }
     }
 
 

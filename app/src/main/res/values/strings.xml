@@ -116,13 +116,14 @@
 
     <string name="settings_deletefirestorelabel">You can DELETE Firestore Db\n  by pressing the button below</string>
     <string name="settings_deletefirestorebtn">Delete Data from Firestore db</string>
-
+    <string name="settingsCaution">CAUTION!!! \n The Above actions are only for the Developers</string>
     <!--    Home Text Strings-->
 
     <string name="main_intro_text">Our services cover all  aspects of your travel needs ensuring that your Mediterranean holiday will be one to remember With TRVL  you are assured of quality and reliability.</string>
 
     <!--    Bio Strings-->
-
+    Developers Bio
+    <string name="about_title">Developers Bio</string>
     <string name="bio_gmoi">\n\n Name : Giorgos Moisidis \n\n AM : 174881 \n\n Semester : 10 \n\n </string>
     <string name="bio_peris">\n\n Name : Periklis Gousios \n\n AM : 175073 \n\n Semester : 10 \n\n </string>
     <string name="bio_karezos">\n\n Name : Thanasis Karezos \n\n AM : 180000 \n\n Semester : 8 \n\n </string>

@@ -73,7 +73,7 @@ public class OfficeRecyclerViewAdapter extends RecyclerView.Adapter<OfficeRecycl
         holder.id.setText(String.valueOf(currentOffice.getOfid()));
         holder.name.setText(currentOffice.getName());
         holder.address.setText(currentOffice.getAddress());
-        if(currentOffice.getImage()!=null) {
+        if (currentOffice.getImage() != null) {
             holder.officeImage.setImageBitmap(DataConverter.convertByteArray2IMage(currentOffice.getImage()));
         }
     }
@@ -91,8 +91,6 @@ public class OfficeRecyclerViewAdapter extends RecyclerView.Adapter<OfficeRecycl
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }
-
-
 
 
 }

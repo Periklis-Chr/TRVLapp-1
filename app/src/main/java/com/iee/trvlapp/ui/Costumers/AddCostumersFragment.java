@@ -33,16 +33,17 @@ import java.util.List;
 
 
 public class AddCostumersFragment extends Fragment {
-    private static final String TAG = "Size";
+
     private FragmentAddCostumersBinding binding;
 
     ArrayAdapter<String> adapterItems;
-    List<Packages> packageList;
-    List<CityHotels> hotelsList;
     ArrayAdapter<String> adapterHotelItems;
 
     AutoCompleteTextView autocompleteText;
     AutoCompleteTextView autocompleteHotelText;
+
+    List<Packages> packageList;
+    List<CityHotels> hotelsList;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -80,9 +81,7 @@ public class AddCostumersFragment extends Fragment {
 
         autocompleteText = binding.getRoot().findViewById(R.id.auto_complete_costumer_pid2);
         adapterItems = new ArrayAdapter<String>(getActivity(), R.layout.auto_complete_list_item, items);
-
         autocompleteText.setAdapter(adapterItems);
-
         autocompleteText.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -186,7 +185,7 @@ public class AddCostumersFragment extends Fragment {
                     .addOnCompleteListener((task) -> {
                         Toast.makeText(getActivity(), "data added on firestore", Toast.LENGTH_LONG).show();
 
-                        pushNotification();
+                        pushNotification(costumer);
 
                     })
                     .addOnFailureListener((e) -> {
@@ -210,7 +209,7 @@ public class AddCostumersFragment extends Fragment {
 
     // Push Notification when Costumer is inserted Successfully
 
-    public void pushNotification() {
+    public void pushNotification(Costumers costumer) {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel("notificationId", "notification", NotificationManager.IMPORTANCE_DEFAULT);
@@ -221,7 +220,9 @@ public class AddCostumersFragment extends Fragment {
                 .setContentText("TRVl")
                 .setSmallIcon(R.drawable.ic_baseline_person_add_alt_1_24)
                 .setAutoCancel(true)
-                .setContentText("New Costumer added on Firestore!!!");
+                .setContentText("New Costumer added on Firestore!!!")
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(costumer.toString()))
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         NotificationManagerCompat managerCompat = NotificationManagerCompat.from(getActivity());
         managerCompat.notify(999, builder.build());

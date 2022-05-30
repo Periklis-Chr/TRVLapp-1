@@ -1,7 +1,6 @@
 package com.iee.trvlapp.ui.Offices;
 
 import android.app.Activity;
-import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -26,8 +25,7 @@ import com.iee.trvlapp.roomEntities.Offices;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.URI;
-import java.security.PublicKey;
+
 
 public class AddOfficesFragment extends Fragment {
 
@@ -71,6 +69,7 @@ public class AddOfficesFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 pickImage(view);
+
             }
         });
 
@@ -89,7 +88,7 @@ public class AddOfficesFragment extends Fragment {
             office.setName(office_name);
             office.setAddress(office_address);
 
-            if(bitmap!=null) {
+            if (bitmap != null) {
                 office.setImage(DataConverter.convertIMage2ByteArray(bitmap));
             }
             MainActivity.appDatabase.officesDao().addOffice(office);
@@ -131,6 +130,11 @@ public class AddOfficesFragment extends Fragment {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+
+        try {
+            binding.landAddOfficeImagePreview.setImageBitmap(bitmap);
+        } catch (NullPointerException e) {
         }
         Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();
     }

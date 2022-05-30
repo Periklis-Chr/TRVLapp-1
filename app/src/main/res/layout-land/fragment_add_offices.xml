@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="30dp"
+    android:background="@color/blue"
+    android:orientation="horizontal"
+    tools:context=".ui.Offices.AddOfficesFragment">
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <EditText
+                android:id="@+id/Office_name"
+                android:layout_width="333dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="4dp"
+                android:background="@color/orange"
+                android:drawableLeft="@drawable/ic_baseline_store_24"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/red_hat_text_regular"
+                android:hint="@string/input_name"
+                android:inputType="text"
+                android:padding="20dp"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/office_address"
+                android:layout_width="333dp"
+                android:layout_height="60dp"
+                android:layout_below="@id/Office_name"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/orange"
+                android:drawableLeft="@drawable/ic_baseline_place_24"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/red_hat_text_regular"
+
+                android:hint="@string/input_address"
+                android:inputType="text"
+                android:padding="20dp"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Office_name" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/browseImageLibrary"
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/office_address"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/orange"
+                android:drawableLeft="@drawable/ic_baseline_image_search_24"
+                android:fontFamily="@font/red_hat_text_regular"
+                android:text="@string/button_browse"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/office_address" />
+
+
+            <ImageView
+                android:id="@+id/landAddOfficeImagePreview"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_baseline_preview_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/Office_name"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/office_button"
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:backgroundTint="@color/green"
+                android:text="Confirm"
+                android:textSize="20dp"
+                app:layout_constraintStart_toEndOf="@+id/office_address"
+                app:layout_constraintTop_toBottomOf="@+id/landAddOfficeImagePreview" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cancel_update_offices_button"
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/office_button"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="1dp"
+                android:backgroundTint="@color/red1"
+                android:text="@string/button_cancel"
+                android:textSize="20dp"
+                app:layout_constraintStart_toEndOf="@+id/browseImageLibrary"
+                app:layout_constraintTop_toBottomOf="@+id/office_button" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</RelativeLayout>

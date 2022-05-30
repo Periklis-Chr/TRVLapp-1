@@ -87,7 +87,7 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
     public void onBindViewHolder(@NonNull PackageRecyclerViewAdapter.PackageHolder holder, int position) {
         Packages currentPackage = packages.get(position);
 
-        if(currentPackage!=null) {
+        if (currentPackage != null) {
             Tours curentTour = MainActivity.appDatabase.toursDao().getTourById(currentPackage.getTid());
             Offices currentOffice = MainActivity.appDatabase.officesDao().getOfficeById(currentPackage.getOfid());
 
@@ -102,12 +102,12 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
                 holder.tour_City.setText(curentTour.getCity());
             }
             if (currentOffice != null) {
-                if(currentOffice.getImage() != null ) {
-                holder.office_name.setText(currentOffice.getName());
+                if (currentOffice.getImage() != null) {
+                    holder.office_name.setText(currentOffice.getName());
                 }
             }
-            if ( currentOffice!=null) {
-                if(currentOffice.getImage() != null ) {
+            if (currentOffice != null) {
+                if (currentOffice.getImage() != null) {
                     holder.imageOffice.setImageBitmap(DataConverter.convertByteArray2IMage(currentOffice.getImage()));
                 }
             }

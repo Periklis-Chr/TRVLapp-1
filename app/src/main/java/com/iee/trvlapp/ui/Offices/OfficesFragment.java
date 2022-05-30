@@ -1,7 +1,5 @@
 package com.iee.trvlapp.ui.Offices;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -17,7 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
+
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,13 +26,9 @@ import com.iee.trvlapp.roomEntities.Offices;
 
 import java.util.List;
 
-public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemClickListener {
+public class OfficesFragment extends Fragment {
 
     private FragmentOfficesBinding binding;
-    private AppBarConfiguration mAppBarConfiguration;
-
-    int showFilterFlag;
-
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -53,7 +47,7 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
         recyclerView.setAdapter(adapter);
 
 
-         //Retrieves and feeds the RecyclerViewAdapter with Offices Data
+        //Retrieves and feeds the RecyclerViewAdapter with Offices Data
 
         officesViewModel.getAllOffices().observe(getViewLifecycleOwner(), new Observer<List<Offices>>() {
             @Override
@@ -117,76 +111,14 @@ public class OfficesFragment extends Fragment implements PopupMenu.OnMenuItemCli
 
         // Gets support and populates menu for filter options
 
-//        binding.fabFiltering.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                popupMenu(view);
-//            }
-//        });
+        binding.fabDeleteOffices.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                officesViewModel.deleteAll();
+            }
+        });
 
         return root;
-    }
-
-
-
-
-     //Filter handling for Offices List
-
-    public void popupMenu(View view) {
-        PopupMenu popupMenu = new PopupMenu(getActivity().getApplicationContext(), view);
-        popupMenu.setOnMenuItemClickListener(this);
-        popupMenu.inflate(R.menu.office_filters);
-        popupMenu.show();
-    }
-
-    @Override
-    public boolean onMenuItemClick(MenuItem menuItem) {
-        OfficesViewModel officesViewModel = new ViewModelProvider(this).get(OfficesViewModel.class);
-        RecyclerView recyclerView = binding.officeRecyclerview;
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
-        recyclerView.setHasFixedSize(true);
-        final OfficeRecyclerViewAdapter adapter = new OfficeRecyclerViewAdapter();
-        recyclerView.setAdapter(adapter);
-        switch (menuItem.getItemId()) {
-            case R.id.filter_des_alphabetical_name:
-
-                officesViewModel.getofficesOrderByNameDesc().observe(getViewLifecycleOwner(), new Observer<List<Offices>>() {
-                    @Override
-                    public void onChanged(List<Offices> offices) {
-                        adapter.setOffices(offices);
-                    }
-                });
-                showFilterFlag = 1;
-                Toast.makeText(getActivity(), "" + showFilterFlag, Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.filter_asc_alphabetical_name:
-
-
-                officesViewModel.getofficesOrderByNameAsc().observe(getViewLifecycleOwner(), new Observer<List<Offices>>() {
-                    @Override
-                    public void onChanged(List<Offices> offices) {
-                        adapter.setOffices(offices);
-                    }
-                });
-
-                showFilterFlag = 2;
-                break;
-            case R.id.filter_id:
-
-                officesViewModel.getAllOffices().observe(getViewLifecycleOwner(), new Observer<List<Offices>>() {
-                    @Override
-                    public void onChanged(List<Offices> offices) {
-                        adapter.setOffices(offices);
-                    }
-                });
-
-
-                showFilterFlag = 0;
-                break;
-            default:
-                break;
-        }
-        return true;
     }
 
 

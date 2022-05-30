@@ -28,14 +28,14 @@ public class AddPackagesFragment extends Fragment {
 
     private FragmentAddPackagesBinding binding;
 
-
     AutoCompleteTextView autocompleteText;
     AutoCompleteTextView autocompleteOfficeText;
 
     ArrayAdapter<String> adapterItems;
+    ArrayAdapter<String> adapterOfficeItems;
+
     List<Tours> toursList;
     List<Offices> officesList;
-    ArrayAdapter<String> adapterOfficeItems;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -101,7 +101,6 @@ public class AddPackagesFragment extends Fragment {
                 String item = adapterView.getItemAtPosition(i).toString();
             }
         });
-
 
 
         // Add Action is Canceled and Navigates to Packages Fragment

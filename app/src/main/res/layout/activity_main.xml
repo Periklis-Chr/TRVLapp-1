@@ -34,10 +34,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="5dp"
                 android:backgroundTint="@color/white"
-                android:textColor="@color/red1"
                 android:hint="GR"
+                android:textColor="@color/red1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -46,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="5dp"
                 android:backgroundTint="@color/white"
                 android:hint="EN"
                 android:textColor="@color/red1"

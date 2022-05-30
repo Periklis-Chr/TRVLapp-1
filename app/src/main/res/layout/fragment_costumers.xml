@@ -52,14 +52,14 @@
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_filtering_costumers"
+        android:id="@+id/fab_Delete_costumers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
         android:layout_marginBottom="35dp"
         android:clickable="true"
         android:focusable="true"
-        android:src="@android:drawable/ic_menu_sort_by_size"
+        android:src="@drawable/ic_baseline_delete_forever_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:backgroundTint="#e76f51"
         app:layout_constraintStart_toStartOf="parent" />

@@ -115,13 +115,13 @@
 
     <string name="settings_deletefirestorelabel">Μπορείτε να Διαγράψετε την Firestore \n πατώντας το παρακάτω κουμπί</string>
     <string name="settings_deletefirestorebtn">Διαγραφή δεδομένων από την Firestore</string>
-
+    <string name="settingsCaution">ΠΡΟΣΟΧΗ!!! \n Οι Παραπάνω ενέργειες ειναι μονο για τους προγραμματιστές</string>
     <!--    Home Text Strings-->
 
     <string name="main_intro_text">Οι υπηρεσίες μας καλύπτουν όλες τις πτυχές των ταξιδιωτικών σας αναγκών διασφαλίζοντας ότι οι διακοπές σας στη Μεσόγειο θα είναι αξέχαστες . Με το TRVL είστε σίγουροι για την ποιότητα και την αξιοπιστία.</string>
 
     <!--    Bio Strings-->
-
+    <string name="about_title">Βιογραφικό Προγγραματιστών</string>
     <string name="bio_gmoi">\n\n Όνομα : Γεώργιος Μωυσίδης \n\n ΑΜ : 174881 \n\n Εξάμηνο : 10 \n\n </string>
     <string name="bio_peris">\n\n Όνομα : Περικλής Γούσιος \n\n ΑΜ : 175073 \n\n Εξάμηνο : 10 \n\n </string>
     <string name="bio_karezos">\n\n Όνομα : Αθανάσιος Καρέζος \n\n ΑΜ : 180000 \n\n Εξάμηνο : 8 \n\n </string>

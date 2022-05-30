@@ -13,15 +13,11 @@ import java.util.List;
 public class OfficesViewModel extends AndroidViewModel {
 
     private LiveData<List<Offices>> officesList;
-    private LiveData<List<Offices>> officesListNameASC;
-    private LiveData<List<Offices>> officesListNameDESC;
+
 
     public OfficesViewModel(Application application) {
         super(application);
-
         officesList = MainActivity.appDatabase.officesDao().getOffices();
-        officesListNameDESC = MainActivity.appDatabase.officesDao().getOfficesOrderedByNameDesc();
-        officesListNameASC = MainActivity.appDatabase.officesDao().getOfficesOrderedByNameASC();
     }
 
 
@@ -42,14 +38,5 @@ public class OfficesViewModel extends AndroidViewModel {
     public void updateOffice(Offices office) {
         MainActivity.appDatabase.officesDao().updateOffices(office);
     }
-
-    public LiveData<List<Offices>> getofficesOrderByNameDesc() {
-        return officesListNameDESC;
-    }
-
-    public LiveData<List<Offices>> getofficesOrderByNameAsc() {
-        return officesListNameASC;
-    }
-
 
 }

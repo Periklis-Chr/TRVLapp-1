@@ -2,10 +2,8 @@ package com.iee.trvlapp.ui.Hotels;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,11 +23,9 @@ import com.iee.trvlapp.roomEntities.CityHotels;
 
 import java.util.List;
 
-public class HotelsFragment extends Fragment implements PopupMenu.OnMenuItemClickListener {
-
+public class HotelsFragment extends Fragment {
 
     private FragmentHotelsBinding binding;
-    private int showFilterFlag;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -48,7 +44,7 @@ public class HotelsFragment extends Fragment implements PopupMenu.OnMenuItemClic
 
         // Retrieves and feeds the RecyclerViewAdapter with CityHotels Data
 
-        hotelsViewModel.getAllHotels().observe(getViewLifecycleOwner(), new Observer<List<CityHotels>>() {
+        hotelsViewModel.getHotelsOrderByStarsDesc().observe(getViewLifecycleOwner(), new Observer<List<CityHotels>>() {
             @Override
             public void onChanged(List<CityHotels> hotels) {
                 adapter.setHotels(hotels);
@@ -75,7 +71,7 @@ public class HotelsFragment extends Fragment implements PopupMenu.OnMenuItemClic
         //Updates CityHotel onClick
 
         adapter.setOnItemClickListener(new HotelRecyclerViewAdapter.OnItemClickListener() {
-            //            @Override
+            @Override
             public void onItemClick(CityHotels hotel) {
                 int id = hotel.getHid();
                 String name = hotel.getHotelName();
@@ -111,73 +107,14 @@ public class HotelsFragment extends Fragment implements PopupMenu.OnMenuItemClic
         });
 
 
-//        binding.fabFilteringHotels.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                popupMenu(view);
-//            }
-//        });
+        binding.fabDeleteHotels.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                hotelsViewModel.deleteAll();
+            }
+        });
 
         return root;
     }
 
-
-    //Gets support and populates menu for filter options
-
-    public void popupMenu(View view) {
-        PopupMenu popupMenu = new PopupMenu(getActivity().getApplicationContext(), view);
-        popupMenu.setOnMenuItemClickListener(this);
-        popupMenu.inflate(R.menu.hotel_filters);
-        popupMenu.show();
-    }
-
-    // Filter handling for Hotels List
-
-    @Override
-    public boolean onMenuItemClick(MenuItem menuItem) {
-        HotelsViewModel hotelsViewModel = new ViewModelProvider(this).get(HotelsViewModel.class);
-        RecyclerView recyclerView = binding.hotelRecyclerview;
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
-        recyclerView.setHasFixedSize(true);
-        final HotelRecyclerViewAdapter adapter = new HotelRecyclerViewAdapter();
-        recyclerView.setAdapter(adapter);
-        switch (menuItem.getItemId()) {
-            case R.id.h_filter_des_alphabetical_name:
-
-                hotelsViewModel.getHotelsOrderByNameDesc().observe(getViewLifecycleOwner(), new Observer<List<CityHotels>>() {
-                    @Override
-                    public void onChanged(List<CityHotels> cityHotels) {
-                        adapter.setHotels(cityHotels);
-                    }
-                });
-                showFilterFlag = 1;
-                return true;
-            case R.id.h_filter_asc_alphabetical_name:
-
-
-                hotelsViewModel.getHotelsOrderByNameAsc().observe(getViewLifecycleOwner(), new Observer<List<CityHotels>>() {
-                    @Override
-                    public void onChanged(List<CityHotels> cityHotels) {
-                        adapter.setHotels(cityHotels);
-                    }
-                });
-
-                showFilterFlag = 2;
-                return true;
-            case R.id.h_filter_id:
-
-                hotelsViewModel.getAllHotels().observe(getViewLifecycleOwner(), new Observer<List<CityHotels>>() {
-                    @Override
-                    public void onChanged(List<CityHotels> cityHotels) {
-                        adapter.setHotels(cityHotels);
-                    }
-                });
-
-
-                showFilterFlag = 0;
-                return true;
-            default:
-                return false;
-        }
-    }
 }
