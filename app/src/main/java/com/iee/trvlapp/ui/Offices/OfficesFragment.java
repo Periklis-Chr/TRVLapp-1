@@ -1,11 +1,14 @@
 package com.iee.trvlapp.ui.Offices;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,6 +25,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentOfficesBinding;
+import com.iee.trvlapp.roomEntities.DataConverter;
 import com.iee.trvlapp.roomEntities.Offices;
 
 import java.util.List;
@@ -74,12 +78,37 @@ public class OfficesFragment extends Fragment {
             }
         }).attachToRecyclerView(recyclerView);
 
-
-        //Updates Office onClick
+        //  onClick preview of recyclerView Item
 
         adapter.setOnItemClickListener(new OfficeRecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Offices office) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(binding.getRoot().getContext());
+                View dialogView = LayoutInflater.from(binding.getRoot().getContext()).inflate(R.layout.offices_dialog_box, null);
+
+
+                ImageView image = dialogView.findViewById(R.id.icon_dialog_office);
+                TextView id = dialogView.findViewById(R.id.office_dialog_id);
+                TextView name = dialogView.findViewById(R.id.office_dialog_name);
+                TextView address = dialogView.findViewById(R.id.office_dialog_address);
+                try {
+                    image.setImageBitmap(DataConverter.convertByteArray2IMage(office.getImage()));
+                } catch (NullPointerException e) {
+                }
+                id.setText(String.valueOf(office.getOfid()));
+                name.setText(office.getName());
+                address.setText(office.getAddress());
+                builder.setView(dialogView);
+                builder.setCancelable(true);
+                builder.show();
+            }
+        });
+
+        //Updates Office onLongClick
+
+        adapter.setOnItemLongClickListener(new OfficeRecyclerViewAdapter.OnItemLongClickListener() {
+            @Override
+            public void onLongClick(Offices office) {
                 int id = office.getOfid();
                 String name = office.getName().toString();
                 String address = office.getAddress().toString();

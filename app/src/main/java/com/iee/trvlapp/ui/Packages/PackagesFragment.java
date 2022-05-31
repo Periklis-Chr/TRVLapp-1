@@ -1,11 +1,14 @@
 package com.iee.trvlapp.ui.Packages;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,9 +22,13 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentPackagesBinding;
+import com.iee.trvlapp.roomEntities.DataConverter;
+import com.iee.trvlapp.roomEntities.Offices;
 import com.iee.trvlapp.roomEntities.Packages;
+import com.iee.trvlapp.roomEntities.Tours;
 
 import java.util.List;
 
@@ -71,12 +78,54 @@ public class PackagesFragment extends Fragment {
             }
         }).attachToRecyclerView(recyclerView);
 
-
-        //Updates Package onClick
+        //  onClick preview of recyclerView Item
 
         adapter.setOnItemClickListener(new PackageRecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Packages packages) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(binding.getRoot().getContext());
+                View dialogView = LayoutInflater.from(binding.getRoot().getContext()).inflate(R.layout.packages_dialog_box, null);
+
+
+                ImageView imageOffice = dialogView.findViewById(R.id.package_icon_dialog_office);
+                ImageView imageTour = dialogView.findViewById(R.id.package_dialog_row_tour);
+                TextView pid = dialogView.findViewById(R.id.package_dialog_id);
+                TextView tid = dialogView.findViewById(R.id.package_dialog_tid);
+                TextView ofname = dialogView.findViewById(R.id.package_dialog_of_name);
+                TextView city = dialogView.findViewById(R.id.package_dialog_t_city);
+                TextView duration = dialogView.findViewById(R.id.package_dialog_departure);
+                TextView cost = dialogView.findViewById(R.id.package_dialog_cost);
+
+
+                Tours curentTour = MainActivity.appDatabase.toursDao().getTourById(packages.getTid());
+                Offices curentOffice = MainActivity.appDatabase.officesDao().getOfficeById(packages.getOfid());
+                try {
+                    imageOffice.setImageBitmap(DataConverter.convertByteArray2IMage(curentOffice.getImage()));
+                } catch (NullPointerException e) {
+                }
+                try {
+                    imageTour.setImageBitmap(DataConverter.convertByteArray2IMage(curentTour.getImageTour()));
+                } catch (NullPointerException e) {
+                }
+                pid.setText(String.valueOf(packages.getPid()));
+                tid.setText(String.valueOf(packages.getTid()));
+                ofname.setText(String.valueOf(packages.getPid()));
+                city.setText(curentTour.getCity());
+                duration.setText(String.valueOf(packages.getDepartureTime()));
+                cost.setText(String.valueOf(packages.getCost()));
+
+                builder.setView(dialogView);
+                builder.setCancelable(true);
+                builder.show();
+            }
+        });
+
+
+        //Updates Package onLongClick
+
+        adapter.setOnItemLongClickListener(new PackageRecyclerViewAdapter.OnItemLongClickListener() {
+            @Override
+            public void onLongClick(Packages packages) {
                 int id = packages.getPid();
                 int ofid = packages.getOfid();
                 int tid = packages.getTid();

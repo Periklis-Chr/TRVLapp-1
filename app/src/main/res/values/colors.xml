@@ -20,5 +20,6 @@
     <color name="green">#0F3460</color>
     <color name="text">#FF000000</color>
 
+    <color name="transparentDialog">#00FFFFFF</color>
 
 </resources>

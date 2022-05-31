@@ -17,12 +17,15 @@ import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.roomEntities.CityHotels;
 import com.iee.trvlapp.roomEntities.DataConverter;
+import com.iee.trvlapp.roomEntities.Offices;
 import com.iee.trvlapp.roomEntities.Packages;
 import com.iee.trvlapp.roomEntities.Tours;
+import com.iee.trvlapp.ui.Offices.OfficeRecyclerViewAdapter;
 
 
 public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costumers, CostumerRecyclerViewAdapter.CostumerHolder> {
     private OnItemClickListener listener;
+    private OnItemLongClickListener longClickListener;
 
     public CostumerRecyclerViewAdapter(@NonNull FirestoreRecyclerOptions<Costumers> options) {
         super(options);
@@ -70,6 +73,21 @@ public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costum
                 }
             });
 
+
+            view.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+
+                    int position = getAdapterPosition();
+                    if (longClickListener != null && position != RecyclerView.NO_POSITION) {
+                        longClickListener.onLongClick(getSnapshots().getSnapshot(position), position);
+
+                    }
+                    return false;
+                }
+            });
+
+
         }
     }
 
@@ -77,8 +95,17 @@ public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costum
         void onItemClick(DocumentSnapshot documentSnapshot, int position);
     }
 
+    public interface OnItemLongClickListener {
+        void onLongClick(DocumentSnapshot documentSnapshot, int position);
+    }
+
+
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
+    }
+
+    public void setOnItemLongClickListener(CostumerRecyclerViewAdapter.OnItemLongClickListener longClickListener) {
+        this.longClickListener = longClickListener;
     }
 
     @NonNull
@@ -113,7 +140,6 @@ public class CostumerRecyclerViewAdapter extends FirestoreRecyclerAdapter<Costum
                     holder.hotel_image.setImageBitmap(DataConverter.convertByteArray2IMage(cityHotels.getImageHotel()));
                 }
             }
-
 
         } else {
             deleteItem(position);

@@ -48,6 +48,7 @@
                 android:layout_marginStart="2dp"
                 android:layout_marginBottom="5dp"
                 android:backgroundTint="@color/white"
+
                 android:hint="EN"
                 android:textColor="@color/red1"
                 app:layout_constraintBottom_toBottomOf="parent"

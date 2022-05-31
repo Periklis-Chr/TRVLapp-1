@@ -21,6 +21,7 @@ public class OfficeRecyclerViewAdapter extends RecyclerView.Adapter<OfficeRecycl
 
     private List<Offices> offices = new ArrayList<>();
     private OnItemClickListener listener;
+    private OnItemLongClickListener longClickListener;
 
     public class OfficeHolder extends RecyclerView.ViewHolder {
         private final TextView id;
@@ -43,6 +44,22 @@ public class OfficeRecyclerViewAdapter extends RecyclerView.Adapter<OfficeRecycl
                     }
                 }
             });
+
+            view.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+
+                    int position = getAdapterPosition();
+                    if (longClickListener != null && position != RecyclerView.NO_POSITION) {
+                        longClickListener.onLongClick(offices.get(position));
+
+                    }
+                    return false;
+                }
+            });
+
+
+
         }
     }
 
@@ -87,12 +104,15 @@ public class OfficeRecyclerViewAdapter extends RecyclerView.Adapter<OfficeRecycl
     public interface OnItemClickListener {
         void onItemClick(Offices office);
     }
+    public interface OnItemLongClickListener{
+        void onLongClick(Offices office);
+    }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }
 
-
+public void setOnItemLongClickListener(OnItemLongClickListener longClickListener){this.longClickListener=longClickListener;}
 }
 
 

@@ -1,12 +1,15 @@
 package com.iee.trvlapp.ui.Costumers;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -29,7 +32,11 @@ import com.iee.trvlapp.FirestoreEntities.Costumers;
 import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentCostumersBinding;
+import com.iee.trvlapp.roomEntities.CityHotels;
+import com.iee.trvlapp.roomEntities.DataConverter;
 import com.iee.trvlapp.roomEntities.Offices;
+import com.iee.trvlapp.roomEntities.Packages;
+import com.iee.trvlapp.roomEntities.Tours;
 import com.iee.trvlapp.ui.Offices.OfficeRecyclerViewAdapter;
 import com.iee.trvlapp.ui.Offices.OfficesViewModel;
 import com.iee.trvlapp.ui.SupportingClasses.ImportData;
@@ -83,11 +90,54 @@ public class CostumersFragment extends Fragment {
         }).attachToRecyclerView(recyclerView);
 
 
-        //Updates Costumer onClick
+        //  onClick preview of recyclerView Item
 
         adapter.setOnItemClickListener(new CostumerRecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(binding.getRoot().getContext());
+                View dialogView = LayoutInflater.from(binding.getRoot().getContext()).inflate(R.layout.customers_dialog_box, null);
+
+                ImageView imageHotel = dialogView.findViewById(R.id.costumer_hotel_dialog);
+                TextView cid = dialogView.findViewById(R.id.costumer_dialog_id);
+                TextView name = dialogView.findViewById(R.id.costumer_dialog_name);
+                TextView surname = dialogView.findViewById(R.id.costumer_dialog_surname);
+                TextView phone = dialogView.findViewById(R.id.costumer_dialog_phone);
+                TextView email = dialogView.findViewById(R.id.costumer_dialog_email);
+                TextView pid = dialogView.findViewById(R.id.costumer_dialog_pid);
+                TextView city = dialogView.findViewById(R.id.costumer_dialog_city);
+                TextView hotel = dialogView.findViewById(R.id.costumer_dialog_hotel);
+
+                Costumers costumer = documentSnapshot.toObject(Costumers.class);
+
+                CityHotels curentHotel = MainActivity.appDatabase.cityHotelsDao().getCityHotelById(costumer.getHotel());
+                Packages packages = MainActivity.appDatabase.packagesDao().getPackageById(costumer.getPid());
+                Tours curentTour = MainActivity.appDatabase.toursDao().getTourById(packages.getTid());
+                try {
+                    imageHotel.setImageBitmap(DataConverter.convertByteArray2IMage(curentHotel.getImageHotel()));
+                } catch (NullPointerException e) {
+                }
+                cid.setText(String.valueOf(costumer.getCid()));
+                name.setText(costumer.getName());
+                surname.setText(costumer.getSurname());
+                phone.setText(String.valueOf(costumer.getPhone()));
+                email.setText(costumer.getEmail());
+                pid.setText(String.valueOf(costumer.getPid()));
+                city.setText(curentTour.getCity());
+                hotel.setText(curentHotel.getHotelName());
+
+                builder.setView(dialogView);
+                builder.setCancelable(true);
+                builder.show();
+            }
+        });
+
+
+        //Updates Costumer onLongClick
+
+        adapter.setOnItemLongClickListener(new CostumerRecyclerViewAdapter.OnItemLongClickListener() {
+            @Override
+            public void onLongClick(DocumentSnapshot documentSnapshot, int position) {
                 Costumers costumer = documentSnapshot.toObject(Costumers.class);
                 int cid = costumer.getCid();
                 String name = costumer.getName();

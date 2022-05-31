@@ -1,9 +1,12 @@
 package com.iee.trvlapp.ui.Hotels;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentHotelsBinding;
 import com.iee.trvlapp.roomEntities.CityHotels;
+import com.iee.trvlapp.roomEntities.DataConverter;
 
 import java.util.List;
 
@@ -68,11 +72,41 @@ public class HotelsFragment extends Fragment {
             }
         }).attachToRecyclerView(recyclerView);
 
-        //Updates CityHotel onClick
-
+        //  onClick preview of recyclerView Item
         adapter.setOnItemClickListener(new HotelRecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(CityHotels hotel) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(binding.getRoot().getContext());
+                View dialogView = LayoutInflater.from(binding.getRoot().getContext()).inflate(R.layout.hotels_dialog_box, null);
+
+
+                ImageView image = dialogView.findViewById(R.id.icon_dialog_hotel);
+                TextView id = dialogView.findViewById(R.id.hotel_dialog_id);
+                TextView name = dialogView.findViewById(R.id.hotel_dialog_name);
+                TextView address = dialogView.findViewById(R.id.hotel_dialog_address);
+                TextView stars = dialogView.findViewById(R.id.hotel_dialog_stars);
+                TextView tourId = dialogView.findViewById(R.id.hotel_dialog_tid);
+                try {
+                    image.setImageBitmap(DataConverter.convertByteArray2IMage(hotel.getImageHotel()));
+                } catch (NullPointerException e) {
+                }
+                id.setText(String.valueOf(hotel.getHid()));
+                name.setText(hotel.getHotelName());
+                address.setText(hotel.getHotelAddress());
+                stars.setText(String.valueOf(hotel.getHotelStars()));
+                tourId.setText(String.valueOf(hotel.getTid()));
+                builder.setView(dialogView);
+                builder.setCancelable(true);
+                builder.show();
+            }
+        });
+
+
+        //Updates CityHotel onLongClick
+
+        adapter.setOnItemLongClickListener(new HotelRecyclerViewAdapter.OnItemLongClickListener() {
+            @Override
+            public void onLongClick(CityHotels hotel) {
                 int id = hotel.getHid();
                 String name = hotel.getHotelName();
                 String address = hotel.getHotelAddress();

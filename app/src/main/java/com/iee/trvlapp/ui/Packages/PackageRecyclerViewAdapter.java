@@ -16,6 +16,7 @@ import com.iee.trvlapp.roomEntities.DataConverter;
 import com.iee.trvlapp.roomEntities.Offices;
 import com.iee.trvlapp.roomEntities.Packages;
 import com.iee.trvlapp.roomEntities.Tours;
+import com.iee.trvlapp.ui.Offices.OfficeRecyclerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
 
     private List<Packages> packages = new ArrayList<>();
     private OnItemClickListener listener;
-
+    private PackageRecyclerViewAdapter.OnItemLongClickListener longClickListener;
 
     public class PackageHolder extends RecyclerView.ViewHolder {
         private final TextView id;
@@ -58,6 +59,20 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
                     if (listener != null && position != RecyclerView.NO_POSITION) {
                         listener.onItemClick(packages.get(position));
                     }
+                }
+            });
+
+
+            view.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+
+                    int position = getAdapterPosition();
+                    if (longClickListener != null && position != RecyclerView.NO_POSITION) {
+                        longClickListener.onLongClick(packages.get(position));
+
+                    }
+                    return false;
                 }
             });
 
@@ -127,8 +142,16 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
         void onItemClick(Packages packages);
     }
 
+    public interface OnItemLongClickListener {
+        void onLongClick(Packages packages);
+    }
+
     public void setOnItemClickListener(PackageRecyclerViewAdapter.OnItemClickListener listener) {
         this.listener = listener;
+    }
+
+    public void setOnItemLongClickListener(PackageRecyclerViewAdapter.OnItemLongClickListener longClickListener) {
+        this.longClickListener = longClickListener;
     }
 
 }

@@ -12,7 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.roomEntities.DataConverter;
+import com.iee.trvlapp.roomEntities.Offices;
 import com.iee.trvlapp.roomEntities.Tours;
+import com.iee.trvlapp.ui.Offices.OfficeRecyclerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +22,7 @@ import java.util.List;
 public class TourRecyclerViewAdapter extends RecyclerView.Adapter<TourRecyclerViewAdapter.TourHolder> {
     private List<Tours> tours = new ArrayList<>();
     private OnItemClickListener listener;
-
+    private TourRecyclerViewAdapter.OnItemLongClickListener longClickListener;
 
     public class TourHolder extends RecyclerView.ViewHolder {
         private final TextView id;
@@ -48,6 +50,21 @@ public class TourRecyclerViewAdapter extends RecyclerView.Adapter<TourRecyclerVi
                     }
                 }
             });
+
+
+            view.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+
+                    int position = getAdapterPosition();
+                    if (longClickListener != null && position != RecyclerView.NO_POSITION) {
+                        longClickListener.onLongClick(tours.get(position));
+
+                    }
+                    return false;
+                }
+            });
+
         }
     }
 
@@ -95,8 +112,15 @@ public class TourRecyclerViewAdapter extends RecyclerView.Adapter<TourRecyclerVi
         void onItemClick(Tours tour);
     }
 
+
+    public interface OnItemLongClickListener{
+        void onLongClick(Tours tour);
+    }
+
+
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }
+    public void setOnItemLongClickListener(TourRecyclerViewAdapter.OnItemLongClickListener longClickListener){this.longClickListener=longClickListener;}
 
 }

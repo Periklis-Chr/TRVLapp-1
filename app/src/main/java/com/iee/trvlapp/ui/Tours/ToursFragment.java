@@ -1,11 +1,14 @@
 package com.iee.trvlapp.ui.Tours;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentToursBinding;
+import com.iee.trvlapp.roomEntities.DataConverter;
 import com.iee.trvlapp.roomEntities.Tours;
 
 import java.util.List;
@@ -100,12 +104,44 @@ public class ToursFragment extends Fragment {
             }
         }).attachToRecyclerView(recyclerView);
 
-
-        //Updates Tour onClick
+        //  onClick preview of recyclerView Item
 
         adapter.setOnItemClickListener(new TourRecyclerViewAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(Tours tours) {
+            public void onItemClick(Tours tour) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(binding.getRoot().getContext());
+                View dialogView = LayoutInflater.from(binding.getRoot().getContext()).inflate(R.layout.tours_dialog_box, null);
+
+
+                ImageView image = dialogView.findViewById(R.id.tour_dialog_image);
+                TextView id = dialogView.findViewById(R.id.tour_dialog_id);
+                TextView city = dialogView.findViewById(R.id.tour_dialog_city);
+                TextView country = dialogView.findViewById(R.id.tour_dialog_country);
+                TextView duration = dialogView.findViewById(R.id.tour_dialog_duration);
+                TextView type = dialogView.findViewById(R.id.tour_dialog_type);
+
+                try {
+                    image.setImageBitmap(DataConverter.convertByteArray2IMage(tour.getImageTour()));
+                } catch (NullPointerException e) {
+                }
+                id.setText(String.valueOf(tour.getTid()));
+                city.setText(tour.getCity());
+                country.setText(tour.getCountry());
+                duration.setText(String.valueOf(tour.getDuration()));
+                type.setText(tour.getType());
+
+                builder.setView(dialogView);
+                builder.setCancelable(true);
+                builder.show();
+            }
+        });
+
+
+        //Updates Tour onLongClick
+
+        adapter.setOnItemLongClickListener(new TourRecyclerViewAdapter.OnItemLongClickListener() {
+            @Override
+            public void onLongClick(Tours tours) {
                 int id = tours.getTid();
                 String city = tours.getCity().toString();
                 String country = tours.getCountry().toString();

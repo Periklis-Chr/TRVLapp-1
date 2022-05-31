@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.roomEntities.CityHotels;
 import com.iee.trvlapp.roomEntities.DataConverter;
+import com.iee.trvlapp.roomEntities.Offices;
+import com.iee.trvlapp.ui.Offices.OfficeRecyclerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,7 @@ public class HotelRecyclerViewAdapter extends RecyclerView.Adapter<HotelRecycler
 
     private List<CityHotels> hotels = new ArrayList<>();
     private HotelRecyclerViewAdapter.OnItemClickListener listener;
-
+    private HotelRecyclerViewAdapter.OnItemLongClickListener longClickListener;
     public class HotelHolder extends RecyclerView.ViewHolder {
         private final TextView id;
         private final TextView name;
@@ -48,6 +50,22 @@ public class HotelRecyclerViewAdapter extends RecyclerView.Adapter<HotelRecycler
                     }
                 }
             });
+
+
+            view.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+
+                    int position = getAdapterPosition();
+                    if (longClickListener != null && position != RecyclerView.NO_POSITION) {
+                        longClickListener.onLongClick(hotels.get(position));
+
+                    }
+                    return false;
+                }
+            });
+
+
         }
     }
 
@@ -93,9 +111,12 @@ public class HotelRecyclerViewAdapter extends RecyclerView.Adapter<HotelRecycler
     public interface OnItemClickListener {
         void onItemClick(CityHotels hotel);
     }
+    public interface OnItemLongClickListener{
+        void onLongClick(CityHotels hotel);
+    }
 
     public void setOnItemClickListener(HotelRecyclerViewAdapter.OnItemClickListener listener) {
         this.listener = listener;
     }
-
+    public void setOnItemLongClickListener(HotelRecyclerViewAdapter.OnItemLongClickListener longClickListener){this.longClickListener=longClickListener;}
 }
