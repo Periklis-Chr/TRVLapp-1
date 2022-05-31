@@ -14,7 +14,7 @@
 
 
     <item android:title="@string/menu_adminoptions">
-        <menu>
+        <menu >
             <item
                 android:id="@+id/nav_offices"
                 android:icon="@drawable/ic_baseline_store_24"

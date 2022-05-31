@@ -29,30 +29,31 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <Button
+            <ImageButton
                 android:id="@+id/change_lang_gr"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginBottom="5dp"
-                android:backgroundTint="@color/white"
+                android:layout_width="45dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="1dp"
                 android:hint="GR"
+                android:src="@drawable/greek_flag"
                 android:textColor="@color/red1"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent" />
 
-            <Button
+            <ImageButton
+
                 android:id="@+id/change_lang_en"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:layout_marginBottom="5dp"
-                android:backgroundTint="@color/white"
+                android:layout_width="45dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="1dp"
 
                 android:hint="EN"
+                android:src="@drawable/uk_flag"
                 android:textColor="@color/red1"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/change_lang_gr" />
+                app:layout_constraintEnd_toStartOf="@+id/change_lang_gr" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

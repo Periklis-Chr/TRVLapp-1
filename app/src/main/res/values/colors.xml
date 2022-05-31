@@ -4,22 +4,22 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#FF000000</color>
     <color name="grey2">#7F7B7C</color>
     <color name="secondaryOrange">#FF000000</color>
     <color name="red">#FF0000</color>
 
-    <color name="purple_500">#E94560</color>
+    <color name="purple_500">#FF000000</color>
 
-    <color name="purple_700">#1A1A2E</color>
-    <color name="red1">#16213E</color>
-    <color name="blue">#0F3460</color>
-    <color name="orange">#E94560</color>
-    <color name="btnColor">#0F3460</color>
+    <color name="purple_700">#7F000000</color>
+    <color name="red1">#2E0249</color>
+    <color name="blue">#F2F3F4</color>
+    <color name="orange">#BF2E0249</color>
+    <color name="btnColor">#E62E0249</color>
 
-    <color name="green">#0F3460</color>
+    <color name="green">#9C2E0249</color>
     <color name="text">#FF000000</color>
 
     <color name="transparentDialog">#00FFFFFF</color>
-
+<!-- EDF4F5 | e3e3e3-->
 </resources>

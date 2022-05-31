@@ -6,27 +6,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue"
-    tools:context=".ui.SupportingClasses.Settings">
+    android:background="#ffffff"
+    tools:context=".ui.SupportingClasses.Settings"
+    android:layout_marginTop="50dp">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#ffffff">
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="#ffffff">
 
 
             <androidx.cardview.widget.CardView
+
                 android:id="@+id/cardViewInsert_room"
-                android:layout_width="match_parent"
+                android:layout_width="370dp"
+
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:backgroundTint="@color/orange"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="200dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="1dp"
                 tools:layout_editor_absoluteY="107dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -52,11 +59,11 @@
                         android:id="@+id/homeFillData"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:theme="@style/ThemeOverlay.MaterialComponents.Dark"
                         android:layout_marginTop="8dp"
                         android:backgroundTint="@color/green"
                         android:hint="Fill Data to Room db"
                         android:textColor="@color/white"
+                        android:theme="@style/ThemeOverlay.MaterialComponents.Dark"
                         app:cornerRadius="15dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -70,16 +77,20 @@
 
 
             <androidx.cardview.widget.CardView
+
                 android:id="@+id/cardViewdeltefs"
-                android:layout_width="match_parent"
+                android:layout_width="370dp"
+
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:backgroundTint="@color/orange"
                 android:padding="20dp"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="200dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardViewInsert_room"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="1dp"
-                tools:layout_editor_absoluteY="107dp">
+                tools:ignore="MissingConstraints">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -104,11 +115,11 @@
                         android:id="@+id/homedeleteData"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:theme="@style/ThemeOverlay.MaterialComponents.Dark"
                         android:layout_marginTop="8dp"
                         android:backgroundTint="@color/red1"
                         android:hint="Delete Data from Room db"
                         android:textColor="@color/orange"
+                        android:theme="@style/ThemeOverlay.MaterialComponents.Dark"
                         app:cornerRadius="15dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -122,15 +133,19 @@
 
 
             <androidx.cardview.widget.CardView
+
                 android:id="@+id/cardViewInsert_firestore"
-                android:layout_width="match_parent"
+                android:layout_width="370dp"
+
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:backgroundTint="@color/orange"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="200dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardViewdeltefs"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="1dp"
-                tools:layout_editor_absoluteY="107dp">
+                tools:ignore="MissingConstraints">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -155,11 +170,11 @@
                         android:id="@+id/homeFillDatafs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:theme="@style/ThemeOverlay.MaterialComponents.Dark"
                         android:layout_marginTop="8dp"
                         android:backgroundTint="@color/btnColor"
                         android:hint="Fill Data to Firestore db"
                         android:textColor="@color/white"
+                        android:theme="@style/ThemeOverlay.MaterialComponents.Dark"
                         app:cornerRadius="15dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -173,15 +188,20 @@
 
 
             <androidx.cardview.widget.CardView
+
                 android:id="@+id/cardView"
-                android:layout_width="match_parent"
+                android:layout_width="370dp"
+
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:backgroundTint="@color/orange"
                 android:padding="20dp"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="200dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardViewInsert_firestore"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="1dp">
+                tools:ignore="MissingConstraints">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -193,7 +213,7 @@
                         android:layout_height="wrap_content"
                         android:text="You can DELETE Firestore Db\n  by pressing the button below"
                         android:textAlignment="center"
-                        android:textColor="@color/green"
+                        android:textColor="@color/blue"
                         android:textSize="15dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent">
@@ -206,11 +226,11 @@
                         android:id="@+id/homedeletefsData"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:theme="@style/ThemeOverlay.MaterialComponents.Dark"
                         android:layout_marginTop="8dp"
                         android:backgroundTint="@color/red1"
                         android:hint="Delete Data from Firestore db"
                         android:textColor="@color/orange"
+                        android:theme="@style/ThemeOverlay.MaterialComponents.Dark"
                         app:cornerRadius="15dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -227,6 +247,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/settingsCaution"
+                android:background="#ffffff"
                 android:textAlignment="center"
                 android:textColor="@color/red"
                 android:textSize="30dp"
