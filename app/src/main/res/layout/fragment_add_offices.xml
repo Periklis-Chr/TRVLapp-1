@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
@@ -22,20 +21,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-<!--            <com.google.android.material.textfield.TextInputLayout-->
-<!--                android:id="@+id/Office_name"-->
-<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
-<!--                android:layout_width="333dp"-->
-<!--                android:layout_height="60dp"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:hint="Username">-->
 
-<!--                <com.google.android.material.textfield.TextInputEditText-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content" />-->
-<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:id="@+id/Office_name"
                 android:layout_width="333dp"
                 android:layout_height="60dp"
@@ -47,7 +35,7 @@
                 android:hint="@string/input_name"
                 android:inputType="text"
                 android:padding="20dp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="20dp" />
 
             <EditText

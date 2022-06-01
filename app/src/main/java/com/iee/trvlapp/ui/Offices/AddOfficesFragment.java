@@ -80,10 +80,10 @@ public class AddOfficesFragment extends Fragment {
     //Inserts  Office
     public void insertOfficeData() {
 
-        String office_name = binding.OfficeName.getContext().toString();
+        String office_name = binding.OfficeName.getText().toString();
         String office_address = binding.officeAddress.getText().toString();
 
-        if (binding.OfficeName.equals(null) && binding.officeAddress.length() != 0) {
+        if (binding.OfficeName.length() !=0  && binding.officeAddress.length() != 0) {
             Offices office = new Offices();
             office.setName(office_name);
             office.setAddress(office_address);
