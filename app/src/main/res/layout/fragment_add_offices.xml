@@ -35,7 +35,8 @@
                 android:hint="@string/input_name"
                 android:inputType="text"
                 android:padding="20dp"
-                android:textColor="@color/white"
+                android:textColor="@color/textInPurple"
+                android:textColorHint="@color/textInPurple"
                 android:textSize="20dp" />
 
             <EditText
@@ -44,21 +45,16 @@
                 android:layout_height="60dp"
                 android:layout_below="@id/Office_name"
                 android:layout_marginTop="20dp"
-                android:background="@color/orange"
+                android:background="@drawable/rounded_edittext"
                 android:drawableLeft="@drawable/ic_baseline_place_24"
                 android:drawablePadding="20dp"
                 android:fontFamily="@font/red_hat_text_regular"
                 android:hint="@string/input_address"
                 android:inputType="text"
                 android:padding="20dp"
-
-                android:textColor="@color/black"
+                android:textColor="@color/textInPurple"
+                android:textColorHint="@color/textInPurple"
                 android:textSize="20dp" />
-
-
-
-
-
 
 
             <com.google.android.material.button.MaterialButton
@@ -67,15 +63,13 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/office_address"
                 android:layout_marginTop="20dp"
-                android:drawableLeft="@drawable/ic_baseline_image_search_24"
                 android:backgroundTint="@color/orange"
-                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:drawableLeft="@drawable/ic_baseline_image_search_24"
                 android:fontFamily="@font/red_hat_text_regular"
                 android:text="@string/button_browse"
+                android:textColor="@color/textInPurple"
                 android:textSize="20dp" />
-
-
-
 
 
             <com.google.android.material.button.MaterialButton
@@ -85,7 +79,8 @@
                 android:layout_below="@id/browseImageLibrary"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="@color/green"
-                android:text="Confirm"
+                android:text="@string/button_confirm"
+                android:textColor="@color/textInPurple"
                 android:textSize="20dp" />
 
 
@@ -96,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/office_button"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="@color/red1"
+                android:backgroundTint="@color/cancelBtn"
                 android:text="@string/button_cancel"
                 android:textSize="20dp" />
 

@@ -28,14 +28,15 @@
                 android:layout_width="333dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
-                android:background="@color/orange"
+                android:background="@drawable/rounded_edittext"
                 android:drawableLeft="@drawable/ic_baseline_hotel_24"
                 android:drawablePadding="20dp"
                 android:fontFamily="@font/red_hat_text_regular"
                 android:hint="@string/input_name"
                 android:inputType="text"
                 android:padding="20dp"
-                android:textColor="@color/black"
+                android:textColor="@color/textInPurple"
+                android:textColorHint="@color/textInPurple"
                 android:textSize="20dp" />
 
 
@@ -45,39 +46,34 @@
                 android:layout_height="60dp"
                 android:layout_below="@id/update_Hotel_name"
                 android:layout_marginTop="20dp"
-                android:background="@color/orange"
+                android:background="@drawable/rounded_edittext"
                 android:drawableLeft="@drawable/ic_baseline_edit_location_24"
                 android:drawablePadding="20dp"
                 android:fontFamily="@font/red_hat_text_regular"
                 android:hint="@string/input_address"
                 android:inputType="text"
                 android:padding="20dp"
-                android:textColor="@color/black"
+                android:textColor="@color/textInPurple"
+                android:textColorHint="@color/textInPurple"
                 android:textSize="20dp" />
-
 
 
             <EditText
                 android:id="@+id/update_Hotel_stars"
                 android:layout_width="333dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="20dp"
-                android:background="@color/orange"
                 android:layout_below="@id/update_Hotel_address"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/rounded_edittext"
                 android:drawableLeft="@drawable/ic_baseline_stars_24"
                 android:drawablePadding="20dp"
                 android:fontFamily="@font/red_hat_text_regular"
                 android:hint="@string/input_stars"
                 android:inputType="text"
                 android:padding="20dp"
-                android:textColor="@color/black"
+                android:textColor="@color/textInPurple"
+                android:textColorHint="@color/textInPurple"
                 android:textSize="20dp" />
-
-
-
-
-
-
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -87,14 +83,14 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/update_Hotel_stars"
                 android:layout_marginTop="11dp"
-                android:background="@color/orange"
+                android:background="@drawable/rounded_edittext"
                 android:drawableLeft="@drawable/ic_baseline_local_phone_24"
                 android:drawablePadding="20dp"
                 android:fontFamily="@font/red_hat_text_regular"
-                android:hint="@string/input_selectTour"
                 android:inputType="number"
                 android:padding="20dp"
-                android:textColor="@color/black"
+                android:textColor="@color/textInPurple"
+                android:textColorHint="@color/textInPurple"
                 android:textSize="20dp"
 
                 >
@@ -113,24 +109,20 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
-
-
-
-
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/updatebrowseImageLibrary_hotel"
                 android:layout_width="333dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/update_hotel_tid"
                 android:layout_marginTop="20dp"
-                android:drawableLeft="@drawable/ic_baseline_image_search_24"
                 android:backgroundTint="@color/orange"
-                android:textColor="@color/black"
+                android:drawableLeft="@drawable/ic_baseline_image_search_24"
                 android:fontFamily="@font/red_hat_text_regular"
                 android:text="@string/button_browse"
+                android:textAllCaps="false"
+                android:textColor="@color/textInPurple"
+                android:textColorHint="@color/textInPurple"
                 android:textSize="20dp" />
-
-
 
 
             <com.google.android.material.button.MaterialButton
@@ -140,6 +132,8 @@
                 android:layout_below="@id/updatebrowseImageLibrary_hotel"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="@color/green"
+                android:textColor="@color/textInPurple"
+                android:textColorHint="@color/textInPurple"
                 android:text="@string/button_confirm"
                 android:textSize="20dp" />
 
@@ -149,7 +143,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/update_Hotel_button"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="@color/red1"
+                android:backgroundTint="@color/cancelBtn"
                 android:text="@string/button_cancel"
                 android:textSize="20dp" />
 

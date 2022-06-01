@@ -120,7 +120,7 @@
                         android:hint="@string/settings_deletefirestorebtn"
                         android:textColor="@color/orange"
                         android:theme="@style/ThemeOverlay.MaterialComponents.Dark"
-                        app:cornerRadius="15dp      "
+                        app:cornerRadius="15dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/deleteDataLabel">
@@ -171,7 +171,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:backgroundTint="@color/red1 "
+                        android:backgroundTint="@color/red1"
                         android:hint="@string/settings_fillfirestorebtn"
                         android:textColor="@color/white"
                         android:theme="@style/ThemeOverlay.MaterialComponents.Dark"
