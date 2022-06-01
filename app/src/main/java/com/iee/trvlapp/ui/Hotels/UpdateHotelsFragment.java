@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentUpdateHotelsBinding;
@@ -55,13 +56,12 @@ public class UpdateHotelsFragment extends Fragment {
 
         // Retrieves Data passed From CityHotels Fragment
 
-        Bundle bundle = getArguments();
-        int id = bundle.getInt("id");
-        String name = bundle.getString("name");
-        String address = bundle.getString("address");
-        int stars = bundle.getInt("stars");
-        int tid = bundle.getInt("tid");
-        byte[] image = bundle.getByteArray("image");
+        int id = UpdateHotelsFragmentArgs.fromBundle(getArguments()).getHotelId();
+        String name = UpdateHotelsFragmentArgs.fromBundle(getArguments()).getHotelName();
+        String address = UpdateHotelsFragmentArgs.fromBundle(getArguments()).getHotelAddress();
+        int stars = UpdateHotelsFragmentArgs.fromBundle(getArguments()).getHotelStars();
+        int tid = UpdateHotelsFragmentArgs.fromBundle(getArguments()).getHotelTid();
+        byte [] image=hotelsViewModel.getHotelById(id).getImageHotel();
 
         binding.updateHotelName.setText(name);
         binding.updateHotelAddress.setText(address);
@@ -95,7 +95,6 @@ public class UpdateHotelsFragment extends Fragment {
                         cityHotels.setTid(tid);
                     }
 
-
                     if (flag) {
                         cityHotels.setImageHotel(DataConverter.convertIMage2ByteArray(bitmap));
                     } else {
@@ -103,11 +102,7 @@ public class UpdateHotelsFragment extends Fragment {
                     }
                     hotelsViewModel.updateHotel(cityHotels);
                     Toast.makeText(getActivity(), "Hotel updated !", Toast.LENGTH_SHORT).show();
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    HotelsFragment hotelsFragment = new HotelsFragment();
-                    fragmentTransaction.replace(R.id.nav_host_fragment_content_main, hotelsFragment);
-                    fragmentTransaction.commit();
+                    Navigation.findNavController(view).navigate(R.id.action_updateHotelsFragment_to_nav_hotels);
                 } else {
                     Toast.makeText(getActivity(), "Fill all the fields", Toast.LENGTH_SHORT).show();
                 }
@@ -119,12 +114,7 @@ public class UpdateHotelsFragment extends Fragment {
         binding.cancelUpdateHotelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                HotelsFragment hotelsFragment = new HotelsFragment();
-                fragmentTransaction.replace(R.id.nav_host_fragment_content_main, hotelsFragment);
-                fragmentTransaction.commit();
-
+                Navigation.findNavController(view).navigate(R.id.action_updateHotelsFragment_to_nav_hotels);
             }
         });
 
@@ -186,6 +176,13 @@ public class UpdateHotelsFragment extends Fragment {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+            try {
+                binding.updateHotelpreview.setImageBitmap(bitmap);
+            } catch (NullPointerException e) {
+            }
+
+
         }
         flag = true;
         Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();

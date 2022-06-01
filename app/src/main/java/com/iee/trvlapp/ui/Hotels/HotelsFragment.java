@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,6 +25,7 @@ import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentHotelsBinding;
 import com.iee.trvlapp.roomEntities.CityHotels;
 import com.iee.trvlapp.roomEntities.DataConverter;
+import com.iee.trvlapp.ui.Packages.PackagesFragmentDirections;
 
 import java.util.List;
 
@@ -113,20 +115,8 @@ public class HotelsFragment extends Fragment {
                 int stars = hotel.getHotelStars();
                 int tid = hotel.getTid();
 
-                Bundle bundle = new Bundle();
-                bundle.putInt("id", id);
-                bundle.putString("name", name);
-                bundle.putString("address", address);
-                bundle.putInt("stars", stars);
-                bundle.putInt("tid", tid);
-                bundle.putByteArray("image", hotel.getImageHotel());
-
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                UpdateHotelsFragment updateHotelsFragment = new UpdateHotelsFragment();
-                updateHotelsFragment.setArguments(bundle);
-                fragmentTransaction.replace(R.id.nav_host_fragment_content_main, updateHotelsFragment);
-                fragmentTransaction.commit();
+                NavDirections action = HotelsFragmentDirections.actionNavHotelsToUpdateHotelsFragment(id,name,address,stars,tid);
+                Navigation.findNavController(binding.getRoot()).navigate(action);
             }
         });
 

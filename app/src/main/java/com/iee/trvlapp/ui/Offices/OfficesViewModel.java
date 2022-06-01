@@ -31,6 +31,10 @@ public class OfficesViewModel extends AndroidViewModel {
         MainActivity.appDatabase.officesDao().deleteOffices(office);
     }
 
+    public Offices getOfficeById(int id) {
+        return MainActivity.appDatabase.officesDao().getOfficeById(id);
+    }
+
     public void deleteAll() {
         MainActivity.appDatabase.officesDao().deleteAllOffices();
     }

@@ -35,6 +35,9 @@
         <action
             android:id="@+id/action_nav_tours_to_updateToursFragment"
             app:destination="@id/updateToursFragment" />
+        <action
+            android:id="@+id/action_nav_tours_to_tourMapsFragment"
+            app:destination="@id/tourMapsFragment" />
     </fragment>
     <fragment
         android:id="@+id/nav_packages"
@@ -104,6 +107,14 @@
         <action
             android:id="@+id/action_updateOfficesFragment_to_nav_offices"
             app:destination="@id/nav_offices" />
+        <argument
+            android:name="office_id"
+            app:argType="integer" />
+        <argument android:name="office_name"
+            app:argType="string" />
+        <argument
+            android:name="office_address"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/updateToursFragment"
@@ -113,6 +124,21 @@
         <action
             android:id="@+id/action_updateToursFragment_to_nav_tours"
             app:destination="@id/nav_tours" />
+        <argument
+            android:name="tour_id"
+            app:argType="integer" />
+        <argument
+            android:name="tour_city"
+            app:argType="string" />
+        <argument
+            android:name="tour_country"
+            app:argType="string" />
+        <argument
+            android:name="tour_duration"
+            app:argType="integer" />
+        <argument
+            android:name="tour_type"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/updatePackagesFragment"
@@ -122,6 +148,20 @@
         <action
             android:id="@+id/action_updatePackagesFragment_to_nav_packages"
             app:destination="@id/nav_packages" />
+        <argument
+            android:name="package_id"
+            app:argType="integer" />
+        <argument
+            android:name="package_ofid"
+            app:argType="integer" />
+        <argument
+            android:name="package_tid"
+            app:argType="integer" />
+        <argument
+            android:name="package_duration"
+            app:argType="integer" />
+        <argument android:name="package_cost"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/updateCostumersFragment"
@@ -131,6 +171,27 @@
         <action
             android:id="@+id/action_updateCostumersFragment_to_nav_costumers2"
             app:destination="@id/nav_costumers" />
+        <argument
+            android:name="customer_id"
+            app:argType="integer" />
+        <argument
+            android:name="customer_name"
+            app:argType="string" />
+        <argument
+            android:name="surname"
+            app:argType="string" />
+        <argument
+            android:name="customer_phone"
+            app:argType="string" />
+        <argument
+            android:name="customer_email"
+            app:argType="string" />
+        <argument
+            android:name="customer_pid"
+            app:argType="integer" />
+        <argument
+            android:name="customer_hotel"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/nav_about"
@@ -176,6 +237,38 @@
         <action
             android:id="@+id/action_updateHotelsFragment_to_nav_hotels"
             app:destination="@id/nav_hotels" />
+        <argument
+            android:name="hotel_id"
+            app:argType="integer" />
+        <argument
+            android:name="hotel_name"
+            app:argType="string" />
+        <argument
+            android:name="hotel_address"
+            app:argType="string" />
+        <argument
+            android:name="hotel_stars"
+            app:argType="integer" />
+        <argument
+            android:name="hotel_tid"
+            app:argType="integer" />
     </fragment>
+
+
+    <fragment
+        android:id="@+id/tourMapsFragment"
+        android:name="com.iee.trvlapp.ui.Tours.ToursMapsFragment"
+        tools:layout="@layout/fragment_maps"
+        android:label="@string/tour_maps">
+
+        <action
+            android:id="@+id/action_tourMapsFragment_to_nav_tours"
+            app:destination="@id/nav_tours" />
+        <argument
+            android:name="city_name"
+            app:argType="string" />
+    </fragment>
+
+
 
 </navigation>

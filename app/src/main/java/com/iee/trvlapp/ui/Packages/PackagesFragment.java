@@ -17,6 +17,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -29,6 +30,7 @@ import com.iee.trvlapp.roomEntities.DataConverter;
 import com.iee.trvlapp.roomEntities.Offices;
 import com.iee.trvlapp.roomEntities.Packages;
 import com.iee.trvlapp.roomEntities.Tours;
+import com.iee.trvlapp.ui.Offices.OfficesFragmentDirections;
 
 import java.util.List;
 
@@ -90,6 +92,7 @@ public class PackagesFragment extends Fragment {
                 ImageView imageOffice = dialogView.findViewById(R.id.package_icon_dialog_office);
                 ImageView imageTour = dialogView.findViewById(R.id.package_dialog_row_tour);
                 TextView pid = dialogView.findViewById(R.id.package_dialog_id);
+                TextView ofid = dialogView.findViewById(R.id.package_dialog_ofid);
                 TextView tid = dialogView.findViewById(R.id.package_dialog_tid);
                 TextView ofname = dialogView.findViewById(R.id.package_dialog_of_name);
                 TextView city = dialogView.findViewById(R.id.package_dialog_t_city);
@@ -108,8 +111,9 @@ public class PackagesFragment extends Fragment {
                 } catch (NullPointerException e) {
                 }
                 pid.setText(String.valueOf(packages.getPid()));
+                ofid.setText(String.valueOf(packages.getOfid()));
                 tid.setText(String.valueOf(packages.getTid()));
-                ofname.setText(String.valueOf(packages.getPid()));
+                ofname.setText(String.valueOf(curentOffice.getName()));
                 city.setText(curentTour.getCity());
                 duration.setText(String.valueOf(packages.getDepartureTime()));
                 cost.setText(String.valueOf(packages.getCost()));
@@ -130,23 +134,10 @@ public class PackagesFragment extends Fragment {
                 int ofid = packages.getOfid();
                 int tid = packages.getTid();
                 int departure = packages.getDepartureTime();
-                double cost = packages.getCost();
+                String cost = String.valueOf(packages.getCost());
 
-                Bundle bundle = new Bundle();
-                bundle.putInt("id", id);
-                bundle.putInt("ofid", ofid);
-                bundle.putInt("tid", tid);
-                bundle.putInt("departure", departure);
-                bundle.putDouble("cost", cost);
-                bundle.putBoolean("flagTour", false);
-                bundle.putBoolean("flagOffice", false);
-
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                UpdatePackagesFragment updatePackagesFragment = new UpdatePackagesFragment();
-                updatePackagesFragment.setArguments(bundle);
-                fragmentTransaction.replace(R.id.nav_host_fragment_content_main, updatePackagesFragment);
-                fragmentTransaction.commit();
+                NavDirections action = PackagesFragmentDirections.actionNavPackagesToUpdatePackagesFragment(id, ofid, tid, departure, cost);
+                Navigation.findNavController(binding.getRoot()).navigate(action);
             }
         });
 

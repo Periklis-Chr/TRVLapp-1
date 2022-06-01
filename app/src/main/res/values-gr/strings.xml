@@ -37,7 +37,7 @@
     <string name="update_packages">Update Package</string>
     <string name="update_costumers">Update Costumer</string>
     <string name="update_hotels">Update Hotel</string>
-
+    <string name="tour_maps">Google Χάρτες</string>
     <!--    Button Text Strings-->
 
     <string name="button_confirm">Υποβολή</string>
@@ -81,8 +81,8 @@
     <string name="card_surname">Έπιθετο : </string>
     <string name="card_email">Ηλεκτ. Διεύθυνση : </string>
     <string name="card_phone">Τηλέφωνο : </string>
-    <string name="card_address">Διάρκεια : </string>
-    <string name="card_duration">Ημερ. Αναχώρησης : </string>
+    <string name="card_address">Διεύθυνση</string>
+    <string name="card_duration">Διάρκεια :  </string>
     <string name="card_departuredate">Ημερ. Αναχώρησης : </string>
     <string name="card_cost">Κόστος : </string>
     <string name="card_stars">Αστέρια : </string>
@@ -129,7 +129,9 @@
 <!--    help Strings-->
 
     <string name="help_title">Χειρονομίες</string>
-    <string name="help_click">Κάνοντας Κλικ σε ενα  RecyclerView  \n\n Item γίνεται Επεξεργασία</string>
+    <string name="help_click">Κάνοντας Κλικ σε ενα  RecyclerView  \n\n Item ανοίγει παράθυρο με περισσότερες πληροφορίες</string>
+    <string name="help_longClick">\n \n \n \nΜε κρατημένο Κλικ σε ενα \n a  RecyclerView Item  γινεται Επεξεργασία</string>
+
     <string name="help_swipeL">Σύρετε προς τα αριστερά ενα RecyclerView \n\n Item για Διαγραφή</string>
     <string name="help_swipeR">Σύρετε προς τα δεξιά ενα RecyclerView Item \n\n για ειδική ενέργεια \n\n Πχ Άνοιγμα Google Χαρτών</string>
 

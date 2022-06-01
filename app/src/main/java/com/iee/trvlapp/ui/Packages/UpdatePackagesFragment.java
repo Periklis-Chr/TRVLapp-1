@@ -14,12 +14,15 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentUpdatePackagesBinding;
 import com.iee.trvlapp.roomEntities.Offices;
 import com.iee.trvlapp.roomEntities.Packages;
 import com.iee.trvlapp.roomEntities.Tours;
+import com.iee.trvlapp.ui.Offices.UpdateOfficesFragmentArgs;
+import com.iee.trvlapp.ui.Tours.UpdateToursFragmentArgs;
 
 import java.util.List;
 
@@ -46,13 +49,12 @@ public class UpdatePackagesFragment extends Fragment {
 
         // Retrieves Data passed From Packages Fragment
 
-        Bundle bundle = getArguments();
-        int id = bundle.getInt("id");
-        int office_id = bundle.getInt("ofid");
-        int tour_id = bundle.getInt("tid");
-        int departure = bundle.getInt("departure");
-        double cost = bundle.getDouble("cost");
 
+        int id = UpdatePackagesFragmentArgs.fromBundle(getArguments()).getPackageId();
+        int office_id = UpdatePackagesFragmentArgs.fromBundle(getArguments()).getPackageOfid();
+        int tour_id = UpdatePackagesFragmentArgs.fromBundle(getArguments()).getPackageTid();
+        int departure = UpdatePackagesFragmentArgs.fromBundle(getArguments()).getPackageDuration();
+       double cost = Double.parseDouble(UpdatePackagesFragmentArgs.fromBundle(getArguments()).getPackageCost());
 
         // Supports Dynamic autocomplete ListView for tour_id on UpdatePackage Fragment
 
@@ -144,11 +146,7 @@ public class UpdatePackagesFragment extends Fragment {
                     packagesViewModel.updatePackage(packages);
                     Toast.makeText(getActivity(), "Package updated !", Toast.LENGTH_SHORT).show();
 
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    PackagesFragment packagesFragment = new PackagesFragment();
-                    fragmentTransaction.replace(R.id.nav_host_fragment_content_main, packagesFragment);
-                    fragmentTransaction.commit();
+                    Navigation.findNavController(view).navigate(R.id.action_updatePackagesFragment_to_nav_packages);
                 } else {
                     Toast.makeText(getActivity(), "Fill all the fields", Toast.LENGTH_SHORT).show();
                 }
@@ -162,12 +160,7 @@ public class UpdatePackagesFragment extends Fragment {
         binding.cancelUpdatePackageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                PackagesFragment packagesFragment = new PackagesFragment();
-                fragmentTransaction.replace(R.id.nav_host_fragment_content_main, packagesFragment);
-                fragmentTransaction.commit();
-
+                Navigation.findNavController(view).navigate(R.id.action_updatePackagesFragment_to_nav_packages);
             }
         });
 

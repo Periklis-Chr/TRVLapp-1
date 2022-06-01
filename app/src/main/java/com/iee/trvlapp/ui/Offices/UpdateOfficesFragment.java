@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 
 import com.iee.trvlapp.R;
@@ -46,12 +47,10 @@ public class UpdateOfficesFragment extends Fragment {
 
         // Retrieves Data passed From Office Fragment
 
-        Bundle bundle = getArguments();
-        int id = bundle.getInt("id");
-        String name = bundle.getString("name");
-        String address = bundle.getString("address");
-        byte[] image = bundle.getByteArray("image");
-
+        int id = UpdateOfficesFragmentArgs.fromBundle(getArguments()).getOfficeId();
+        String name = UpdateOfficesFragmentArgs.fromBundle(getArguments()).getOfficeName();
+        String address = UpdateOfficesFragmentArgs.fromBundle(getArguments()).getOfficeAddress();
+        byte [] image=officesViewModel.getOfficeById(id).getImage();
         binding.updateOfficeName.setText(name);
         binding.updateOfficeAddress.setText(address);
 
@@ -77,13 +76,7 @@ public class UpdateOfficesFragment extends Fragment {
                         office.setImage(image);
                     }
                     officesViewModel.updateOffice(office);
-                    Toast.makeText(getActivity(), "Office updated !", Toast.LENGTH_SHORT).show();
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    OfficesFragment officesFragment = new OfficesFragment();
-                    fragmentTransaction.replace(R.id.nav_host_fragment_content_main, officesFragment);
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
+                    Navigation.findNavController(view).navigate(R.id.action_updateOfficesFragment_to_nav_offices);
                 } else {
                     Toast.makeText(getActivity(), "Fill all the fields", Toast.LENGTH_SHORT).show();
                 }
@@ -95,11 +88,7 @@ public class UpdateOfficesFragment extends Fragment {
         binding.cancelUpdateOfficeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                OfficesFragment officesFragment = new OfficesFragment();
-                fragmentTransaction.replace(R.id.nav_host_fragment_content_main, officesFragment);
-                fragmentTransaction.commit();
+                Navigation.findNavController(view).navigate(R.id.action_updateOfficesFragment_to_nav_offices);
 
             }
         });
@@ -140,6 +129,14 @@ public class UpdateOfficesFragment extends Fragment {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+
+            try {
+                binding.updateOfficePreview.setImageBitmap(bitmap);
+            } catch (NullPointerException e) {
+            }
+
+
         }
         flag = true;
         Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();

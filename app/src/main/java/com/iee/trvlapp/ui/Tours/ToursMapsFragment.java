@@ -29,8 +29,8 @@ public class ToursMapsFragment extends Fragment {
         public void onMapReady(GoogleMap googleMap) {
             CityCoordinates array[] = initCityCoordinates();
 
-            Bundle bundle = getArguments();
-            String id = bundle.getString("id");
+
+            String id = ToursMapsFragmentArgs.fromBundle(getArguments()).getCityName();
 
             CityCoordinates temp = new CityCoordinates();
             for (int i = 0; i < array.length; i++) {
@@ -56,17 +56,6 @@ public class ToursMapsFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_maps, container, false);
 
-
-        view.findViewById(R.id.mapGoBack).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                ToursFragment toursFragment = new ToursFragment();
-                fragmentTransaction.replace(R.id.nav_host_fragment_content_main, toursFragment);
-                fragmentTransaction.commit();
-            }
-        });
 
         return view;
     }

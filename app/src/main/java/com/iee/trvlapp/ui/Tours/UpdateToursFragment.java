@@ -17,11 +17,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentUpdateToursBinding;
 import com.iee.trvlapp.roomEntities.DataConverter;
 import com.iee.trvlapp.roomEntities.Tours;
+import com.iee.trvlapp.ui.Offices.UpdateOfficesFragmentArgs;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -44,14 +46,13 @@ public class UpdateToursFragment extends Fragment {
         View root = binding.getRoot();
 
         // Retrieves Data passed From Tour Fragment
+        int id = UpdateToursFragmentArgs.fromBundle(getArguments()).getTourId();
+        String city = UpdateToursFragmentArgs.fromBundle(getArguments()).getTourCity();
+        String country = UpdateToursFragmentArgs.fromBundle(getArguments()).getTourCountry();
+        int duration = UpdateToursFragmentArgs.fromBundle(getArguments()).getTourDuration();
+        String type = UpdateToursFragmentArgs.fromBundle(getArguments()).getTourType();
+        byte [] image=toursViewModel.getTourById(id).getImageTour();
 
-        Bundle bundle = getArguments();
-        int id = bundle.getInt("id");
-        String city = bundle.getString("city");
-        String country = bundle.getString("country");
-        int duration = bundle.getInt("duration");
-        String type = bundle.getString("type");
-        byte[] image = bundle.getByteArray("image");
         binding.updateTourCity.setText(city);
         binding.updateTourCountry.setText(country);
         binding.updateTourDuration.setText(String.valueOf(duration));
@@ -69,7 +70,6 @@ public class UpdateToursFragment extends Fragment {
 
 
                 if (binding.updateTourCity.length() != 0 && binding.updateTourCountry.length() != 0 && binding.updateTourDuration.length() != 0 && binding.updateTourType.length() != 0) {
-
                     Tours tour = new Tours();
                     tour.setTid(id);
                     tour.setCity(city);
@@ -82,13 +82,8 @@ public class UpdateToursFragment extends Fragment {
                         tour.setImageTour(image);
                     }
                     toursViewModel.updateTour(tour);
+                    Navigation.findNavController(view).navigate(R.id.action_updateToursFragment_to_nav_tours);
                     Toast.makeText(getActivity(), "Tour updated !", Toast.LENGTH_SHORT).show();
-
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    ToursFragment toursFragment = new ToursFragment();
-                    fragmentTransaction.replace(R.id.nav_host_fragment_content_main, toursFragment);
-                    fragmentTransaction.commit();
                 } else {
                     Toast.makeText(getActivity(), "Fill all the fields !", Toast.LENGTH_SHORT).show();
                 }
@@ -101,12 +96,7 @@ public class UpdateToursFragment extends Fragment {
         binding.cancelToursButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                ToursFragment toursFragment = new ToursFragment();
-                fragmentTransaction.replace(R.id.nav_host_fragment_content_main, toursFragment);
-                fragmentTransaction.commit();
-
+                Navigation.findNavController(view).navigate(R.id.action_updateToursFragment_to_nav_tours);
             }
         });
 
@@ -145,6 +135,9 @@ public class UpdateToursFragment extends Fragment {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            try {
+                binding.updateTourPreview.setImageBitmap(bitmap);
+            } catch (NullPointerException e) {}
         }
         flag = true;
         Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();

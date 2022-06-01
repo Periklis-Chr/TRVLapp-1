@@ -19,6 +19,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -38,6 +39,7 @@ import com.iee.trvlapp.roomEntities.Offices;
 import com.iee.trvlapp.roomEntities.Packages;
 import com.iee.trvlapp.roomEntities.Tours;
 import com.iee.trvlapp.ui.Offices.OfficeRecyclerViewAdapter;
+import com.iee.trvlapp.ui.Offices.OfficesFragmentDirections;
 import com.iee.trvlapp.ui.Offices.OfficesViewModel;
 import com.iee.trvlapp.ui.SupportingClasses.ImportData;
 
@@ -147,21 +149,8 @@ public class CostumersFragment extends Fragment {
                 int pid = costumer.getPid();
                 int hotel = costumer.getHotel();
 
-                Bundle bundle = new Bundle();
-                bundle.putInt("cid", cid);
-                bundle.putString("name", name);
-                bundle.putString("surname", surname);
-                bundle.putLong("phone", phone);
-                bundle.putString("email", email);
-                bundle.putInt("pid", pid);
-                bundle.putInt("hotel", hotel);
-
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                UpdateCostumersFragment updateCostumersFragment = new UpdateCostumersFragment();
-                updateCostumersFragment.setArguments(bundle);
-                fragmentTransaction.replace(R.id.nav_host_fragment_content_main, updateCostumersFragment);
-                fragmentTransaction.commit();
+                NavDirections action = CostumersFragmentDirections.actionNavCostumersToUpdateCostumersFragment2(cid, name, surname, String.valueOf(phone), email, pid, hotel);
+                Navigation.findNavController(binding.getRoot()).navigate(action);
 
             }
         });
