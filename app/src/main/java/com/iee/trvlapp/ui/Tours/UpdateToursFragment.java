@@ -135,6 +135,9 @@ public class UpdateToursFragment extends Fragment {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            try {
+                binding.updateTourPreview.setImageBitmap(bitmap);
+            } catch (NullPointerException e) {}
         }
         flag = true;
         Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();

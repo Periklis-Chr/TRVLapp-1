@@ -176,6 +176,13 @@ public class UpdateHotelsFragment extends Fragment {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+            try {
+                binding.updateHotelpreview.setImageBitmap(bitmap);
+            } catch (NullPointerException e) {
+            }
+
+
         }
         flag = true;
         Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();

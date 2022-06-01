@@ -129,6 +129,14 @@ public class UpdateOfficesFragment extends Fragment {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+
+            try {
+                binding.updateOfficePreview.setImageBitmap(bitmap);
+            } catch (NullPointerException e) {
+            }
+
+
         }
         flag = true;
         Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();
