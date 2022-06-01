@@ -7,8 +7,7 @@
     android:layout_marginStart="8dp"
     android:layout_marginTop="8dp"
     android:layout_marginEnd="8dp"
-    app:cardCornerRadius="17dp"
-    app:cardElevation="100dp">
+    android:backgroundTint="@color/orange">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,6 +35,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="@string/card_hid"
+            android:textColor="@color/textInPurple"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/icon_dialog_hotel" />
@@ -48,6 +48,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="id"
+            android:textColor="@color/textInPurple"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/hotel_dialog_id_label"
             app:layout_constraintTop_toBottomOf="@+id/icon_dialog_hotel" />
@@ -60,6 +61,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="@string/card_name"
+            android:textColor="@color/textInPurple"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/hotel_dialog_id_label" />
@@ -72,6 +74,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="name"
+            android:textColor="@color/textInPurple"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/hotel_dialog_name_label"
             app:layout_constraintTop_toBottomOf="@+id/hotel_dialog_id" />
@@ -83,6 +86,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="@string/card_address"
+            android:textColor="@color/textInPurple"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/hotel_dialog_name_label" />
@@ -96,6 +100,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="address"
+            android:textColor="@color/textInPurple"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/hotel_dialog_address_label"
             app:layout_constraintTop_toBottomOf="@+id/hotel_dialog_name" />
@@ -107,6 +112,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="@string/card_stars"
+            android:textColor="@color/textInPurple"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/hotel_dialog_address_label" />
@@ -120,6 +126,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="stars"
+            android:textColor="@color/textInPurple"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/hotel_dialog_stars_label"
             app:layout_constraintTop_toBottomOf="@+id/hotel_dialog_address" />
@@ -131,6 +138,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="@string/card_tid"
+            android:textColor="@color/textInPurple"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/hotel_dialog_stars_label" />
@@ -142,6 +150,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="id"
+            android:textColor="@color/textInPurple"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/hotel_dialog_tid_label"
             app:layout_constraintTop_toBottomOf="@+id/hotel_dialog_stars" />

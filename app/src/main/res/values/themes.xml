@@ -11,6 +11,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:fontFamily">@font/tiro</item>
         <!-- Customize your theme here. -->
     </style>
 
@@ -22,6 +23,5 @@
     <style name="Theme.TRVLapp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.TRVLapp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
 
 </resources>

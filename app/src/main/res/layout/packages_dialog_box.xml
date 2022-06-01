@@ -7,8 +7,7 @@
     android:layout_marginStart="8dp"
     android:layout_marginTop="8dp"
     android:layout_marginEnd="8dp"
-    app:cardCornerRadius="17dp"
-    app:cardElevation="100dp">
+    android:backgroundTint="@color/orange">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,10 +26,6 @@
 
         </ImageView>
 
-
-
-
-
         <ImageView
             android:id="@+id/package_icon_dialog_office"
             android:layout_width="180dp"
@@ -42,6 +37,7 @@
         </ImageView>
 
         <TextView
+            android:textColor="@color/textInPurple"
             android:id="@+id/package_dialog_t_name_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -57,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-
+            android:textColor="@color/textInPurple"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="office name"
@@ -70,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-
+            android:textColor="@color/textInPurple"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="@string/card_city"
@@ -85,7 +81,7 @@
 
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
-
+            android:textColor="@color/textInPurple"
             android:text="city"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/package_dialog_t_city_label"
@@ -100,15 +96,16 @@
             android:text="@string/card_duration"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/package_dialog_t_city_label" />
+            app:layout_constraintTop_toBottomOf="@+id/package_dialog_t_city_label"
+            android:textColor="@color/textInPurple"/>
 
         <TextView
             android:id="@+id/package_dialog_departure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
+            android:textColor="@color/textInPurple"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
             android:text="duration"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/package_dialog_duration_label"
@@ -118,7 +115,7 @@
             android:id="@+id/package_dialog_cost_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:textColor="@color/textInPurple"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="@string/card_cost"
@@ -131,7 +128,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-
+            android:textColor="@color/textInPurple"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="cost"
@@ -145,7 +142,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-
+            android:textColor="@color/textInPurple"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="@string/card_pid"
@@ -160,7 +157,7 @@
             android:layout_centerVertical="true"
 
             android:layout_marginStart="5dp"
-
+            android:textColor="@color/textInPurple"
             android:layout_marginTop="5dp"
             android:text="id"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -172,7 +169,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-
+            android:textColor="@color/textInPurple"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="@string/card_ofid"
@@ -186,7 +183,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-
+            android:textColor="@color/textInPurple"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="ofid"
@@ -195,6 +192,7 @@
             app:layout_constraintTop_toBottomOf="@+id/package_dialog_id" />
 
         <TextView
+            android:textColor="@color/textInPurple"
             android:id="@+id/package_dialog_tid_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -206,6 +204,7 @@
             app:layout_constraintTop_toBottomOf="@+id/package_dialog_ofid_label" />
 
         <TextView
+            android:textColor="@color/textInPurple"
             android:id="@+id/package_dialog_tid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

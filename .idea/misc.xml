@@ -29,19 +29,23 @@
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.274" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/drawable-v24/selector.xml" value="0.274" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/drawable-v24/selectorbutton.xml" value="0.274" />
+        <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/drawable/cercle.xml" value="0.2345" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/drawable/ic_baseline_access_time_24.xml" value="0.274" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/drawable/ic_menu_camera.xml" value="0.274" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.274" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.274" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/drawable/rounded_corner.xml" value="0.162" />
+        <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/drawable/rounded_edittext.xml" value="0.212" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/drawable/side_nav_bar.xml" value="0.274" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout-land/fragment_add_costumers.xml" value="0.5078125" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/activity_main.xml" value="0.5" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/app_bar_main.xml" value="0.29375" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/auto_complete_list_item.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/content_main.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/customers_dialog_box.xml" value="0.33541666666666664" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/fragment_about_us.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/fragment_add_costumers.xml" value="0.35104166666666664" />
+        <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/fragment_add_offices.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/fragment_add_tours.xml" value="0.35104166666666664" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/fragment_costumers.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/fragment_help.xml" value="0.18802083333333333" />
@@ -50,15 +54,17 @@
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/fragment_maps.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/fragment_offices.xml" value="0.2791666666666667" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/fragment_packages.xml" value="0.2833333333333333" />
-        <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/fragment_settings.xml" value="0.1452599388379205" />
+        <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/fragment_settings.xml" value="0.33" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/fragment_tours.xml" value="0.2833333333333333" />
-        <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/fragment_update_costumers.xml" value="0.2833333333333333" />
+        <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/fragment_update_costumers.xml" value="0.33" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/fragment_update_hotels.xml" value="0.2833333333333333" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/fragment_update_offices.xml" value="0.2833333333333333" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/fragment_update_packages.xml" value="0.2833333333333333" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/fragment_update_tours.xml" value="0.2833333333333333" />
+        <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/hotels_dialog_box.xml" value="0.33541666666666664" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/nav_header_main.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/offices_dialog_box.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/packages_dialog_box.xml" value="0.33541666666666664" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/recycler_view_costumers.xml" value="0.2833333333333333" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/recycler_view_hotels_row.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/perik/Documents/Projecr Tei/TRVLapp/app/src/main/res/layout/recycler_view_offices_row.xml" value="0.18802083333333333" />

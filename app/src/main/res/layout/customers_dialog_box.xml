@@ -7,8 +7,7 @@
     android:layout_marginStart="8dp"
     android:layout_marginTop="8dp"
     android:layout_marginEnd="8dp"
-    app:cardCornerRadius="17dp"
-    app:cardElevation="100dp">
+    android:backgroundTint="@color/orange">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -48,6 +47,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="@string/card_cid"
+            android:textColor="@color/textInPurple"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/costumer_icon_dialog" />
@@ -60,6 +60,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="id"
+            android:textColor="@color/textInPurple"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/costumer_dialog_id_label"
             app:layout_constraintTop_toBottomOf="@+id/costumer_icon_dialog" />
@@ -72,6 +73,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="@string/card_name"
+            android:textColor="@color/textInPurple"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/costumer_dialog_id_label" />
@@ -85,6 +87,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="name"
+            android:textColor="@color/textInPurple"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/costumer_dialog_name_label"
             app:layout_constraintTop_toBottomOf="@+id/costumer_dialog_id" />
@@ -97,6 +100,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="@string/card_surname"
+            android:textColor="@color/textInPurple"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/costumer_dialog_name_label" />
@@ -108,6 +112,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="surname"
+            android:textColor="@color/textInPurple"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/costumer_dialog_surname_label"
             app:layout_constraintTop_toBottomOf="@+id/costumer_dialog_name" />
@@ -119,6 +124,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="@string/card_phone"
+            android:textColor="@color/textInPurple"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/costumer_dialog_surname_label" />
@@ -130,6 +136,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="phone"
+            android:textColor="@color/textInPurple"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/costumer_dialog_phone_label"
             app:layout_constraintTop_toBottomOf="@+id/costumer_dialog_surname" />
@@ -142,6 +149,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="@string/card_email"
+            android:textColor="@color/textInPurple"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/costumer_dialog_phone_label" />
@@ -153,6 +161,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="email"
+            android:textColor="@color/textInPurple"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/costumer_dialog_email_label"
             app:layout_constraintTop_toBottomOf="@+id/costumer_dialog_phone" />
@@ -165,6 +174,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="@string/card_pid"
+            android:textColor="@color/textInPurple"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/costumer_dialog_email_label" />
@@ -178,32 +188,10 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="pid"
+            android:textColor="@color/textInPurple"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/costumer_dialog_pid_label"
             app:layout_constraintTop_toBottomOf="@+id/costumer_dialog_email" />
-
-        <TextView
-            android:id="@+id/costumer_dialog_hotel_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:text="@string/card_hotel"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/costumer_dialog_city_label" />
-
-        <TextView
-            android:id="@+id/costumer_dialog_hotel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:text="hotel"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toEndOf="@+id/costumer_dialog_hotel_label"
-            app:layout_constraintTop_toBottomOf="@+id/costumer_dialog_city" />
-
 
         <TextView
             android:id="@+id/costumer_dialog_city_label"
@@ -212,6 +200,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="@string/card_city"
+            android:textColor="@color/textInPurple"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/costumer_dialog_pid_label" />
@@ -223,9 +212,35 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="city"
+            android:textColor="@color/textInPurple"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/costumer_dialog_city_label"
             app:layout_constraintTop_toBottomOf="@+id/costumer_dialog_pid" />
+
+        <TextView
+            android:id="@+id/costumer_dialog_hotel_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/card_hotel"
+            android:textColor="@color/textInPurple"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/costumer_dialog_city_label" />
+
+        <TextView
+            android:id="@+id/costumer_dialog_hotel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:text="hotel"
+            android:textColor="@color/textInPurple"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toEndOf="@+id/costumer_dialog_hotel_label"
+            app:layout_constraintTop_toBottomOf="@+id/costumer_dialog_city" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

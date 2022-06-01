@@ -171,7 +171,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:backgroundTint="@color/btnColor"
+                        android:backgroundTint="@color/red1"
                         android:hint="@string/settings_fillfirestorebtn"
                         android:textColor="@color/white"
                         android:theme="@style/ThemeOverlay.MaterialComponents.Dark"

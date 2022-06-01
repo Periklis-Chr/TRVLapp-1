@@ -15,11 +15,13 @@
     <color name="red1">#2E0249</color>
     <color name="blue">#F2F3F4</color>
     <color name="orange">#BF2E0249</color>
-    <color name="btnPlusColor">#E6DC254A</color>
+
+    <color name="btnPlusColor">#E6299C2D</color>
     <color name="btnDelColor">#E6DC254A</color>
 
+    <color name="btnColor">#7F7B7C</color>
     <color name="green">#9C2E0249</color>
-    <color name="text">#FF000000</color>
+    <color name="textInPurple">#ffffff</color>
 
     <color name="transparentDialog">#00FFFFFF</color>
 <!-- EDF4F5 | e3e3e3-->

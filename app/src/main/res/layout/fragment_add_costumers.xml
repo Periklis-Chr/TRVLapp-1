@@ -44,7 +44,6 @@
                 android:layout_width="333dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
-                android:background="@color/orange"
                 android:drawableLeft="@drawable/ic_baseline_person_24"
                 android:drawablePadding="20dp"
                 android:fontFamily="@font/red_hat_text_regular"
@@ -52,7 +51,10 @@
                 android:inputType="text"
                 android:padding="20dp"
                 android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:background="@drawable/rounded_edittext"
+
+                />
 
             <EditText
                 android:id="@+id/lastNameEdit"
