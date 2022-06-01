@@ -58,10 +58,40 @@
 
 
             <LinearLayout
-                android:id="@+id/help_swipeL_linear"
+                android:id="@+id/help_longclick_linear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/help_click_linear"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="77dp">
+
+                <ImageView
+                    android:id="@+id/longclick_image"
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/longclick"></ImageView>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/help_longClick"
+                    android:textAlignment="center"
+                    android:textColor="@color/orange"
+                    android:textSize="15dp"></TextView>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/help_swipeL_linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/help_longclick_linear"
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="-16dp"
                 tools:layout_editor_absoluteY="257dp">
@@ -97,13 +127,13 @@
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="437dp">
 
+
                 <ImageView
                     android:id="@+id/swipRImage"
                     android:layout_width="180dp"
                     android:layout_height="180dp"
                     android:layout_marginStart="10dp"
                     android:src="@drawable/swipe_r"></ImageView>
-
 
                 <TextView
                     android:layout_width="match_parent"

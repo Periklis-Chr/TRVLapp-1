@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.google.firebase.firestore.DocumentReference;
 import com.iee.trvlapp.MainActivity;
@@ -49,14 +50,14 @@ public class UpdateCostumersFragment extends Fragment {
 
         // Retrieves Data passed From Costumers Fragment
 
-        Bundle bundle = getArguments();
-        int cid = bundle.getInt("cid");
-        String name = bundle.getString("name");
-        String surname = bundle.getString("surname");
-        long phone = bundle.getLong("phone");
-        String email = bundle.getString("email");
-        int pid = bundle.getInt("pid");
-        int hotel = bundle.getInt("hotel");
+        int cid=UpdateCostumersFragmentArgs.fromBundle(getArguments()).getCustomerId();
+        String name=UpdateCostumersFragmentArgs.fromBundle(getArguments()).getCustomerName();
+        String surname=UpdateCostumersFragmentArgs.fromBundle(getArguments()).getCustomerName();
+        long phone=Long.parseLong(UpdateCostumersFragmentArgs.fromBundle(getArguments()).getCustomerPhone());
+        String email=UpdateCostumersFragmentArgs.fromBundle(getArguments()).getCustomerEmail();
+        int pid=UpdateCostumersFragmentArgs.fromBundle(getArguments()).getCustomerPid();
+        int hotel=UpdateCostumersFragmentArgs.fromBundle(getArguments()).getCustomerHotel();
+
 
 
         // Supports Dynamic autocomplete ListView for package_id on UpdateCostumer Fragment
@@ -159,13 +160,7 @@ public class UpdateCostumersFragment extends Fragment {
                     } else {
                         data.update("hotel", hotel);
                     }
-
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    CostumersFragment costumersFragment = new CostumersFragment();
-                    fragmentTransaction.replace(R.id.nav_host_fragment_content_main, costumersFragment);
-                    fragmentTransaction.commit();
-
+                    Navigation.findNavController(view).navigate(R.id.action_updateCostumersFragment_to_nav_costumers2);
                 } else {
                     Toast.makeText(getActivity(), "Fill all the fields", Toast.LENGTH_SHORT).show();
                 }
@@ -179,11 +174,7 @@ public class UpdateCostumersFragment extends Fragment {
         binding.updateCancelCostumerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                CostumersFragment costumersFragment = new CostumersFragment();
-                fragmentTransaction.replace(R.id.nav_host_fragment_content_main, costumersFragment);
-                fragmentTransaction.commit();
+                Navigation.findNavController(view).navigate(R.id.action_updateCostumersFragment_to_nav_costumers2);
 
             }
         });

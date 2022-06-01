@@ -126,8 +126,10 @@ public class PackageRecyclerViewAdapter extends RecyclerView.Adapter<PackageRecy
                     holder.imageOffice.setImageBitmap(DataConverter.convertByteArray2IMage(currentOffice.getImage()));
                 }
             }
-            if (curentTour.getImageTour() != null) {
-                holder.imageTour.setImageBitmap(DataConverter.convertByteArray2IMage(curentTour.getImageTour()));
+            if(curentTour!=null) {
+                if (curentTour.getImageTour() != null) {
+                    holder.imageTour.setImageBitmap(DataConverter.convertByteArray2IMage(curentTour.getImageTour()));
+                }
             }
         }
     }

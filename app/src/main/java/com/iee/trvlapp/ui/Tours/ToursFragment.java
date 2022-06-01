@@ -17,6 +17,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -26,6 +27,7 @@ import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentToursBinding;
 import com.iee.trvlapp.roomEntities.DataConverter;
 import com.iee.trvlapp.roomEntities.Tours;
+import com.iee.trvlapp.ui.Offices.OfficesFragmentDirections;
 
 import java.util.List;
 
@@ -72,18 +74,8 @@ public class ToursFragment extends Fragment {
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 
                 String CityName = adapter.getTourAt(viewHolder.getAbsoluteAdapterPosition()).getCity();
-
-                Bundle bundle = new Bundle();
-                bundle.putString("id", CityName);
-
-
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                ToursMapsFragment toursMapsFragment = new ToursMapsFragment();
-                toursMapsFragment.setArguments(bundle);
-                fragmentTransaction.replace(R.id.nav_host_fragment_content_main, toursMapsFragment);
-                fragmentTransaction.commit();
-
+                NavDirections action = ToursFragmentDirections.actionNavToursToTourMapsFragment(CityName);
+                Navigation.findNavController(binding.getRoot()).navigate(action);
             }
         }).attachToRecyclerView(recyclerView);
 
@@ -148,20 +140,8 @@ public class ToursFragment extends Fragment {
                 int duration = tours.getDuration();
                 String type = tours.getType().toString();
 
-                Bundle bundle = new Bundle();
-                bundle.putInt("id", id);
-                bundle.putString("city", city);
-                bundle.putString("country", country);
-                bundle.putInt("duration", duration);
-                bundle.putString("type", type);
-                bundle.putByteArray("image", tours.getImageTour());
-
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                UpdateToursFragment updatetoursFragment = new UpdateToursFragment();
-                updatetoursFragment.setArguments(bundle);
-                fragmentTransaction.replace(R.id.nav_host_fragment_content_main, updatetoursFragment);
-                fragmentTransaction.commit();
+                NavDirections action = ToursFragmentDirections.actionNavToursToUpdateToursFragment(id, city, country,duration,type);
+                Navigation.findNavController(binding.getRoot()).navigate(action);
             }
         });
 

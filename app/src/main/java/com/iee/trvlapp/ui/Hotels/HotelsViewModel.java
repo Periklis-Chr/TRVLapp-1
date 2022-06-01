@@ -43,6 +43,9 @@ public class HotelsViewModel extends AndroidViewModel {
     public void updateHotel(CityHotels hotels) {
         MainActivity.appDatabase.cityHotelsDao().updateCityHotel(hotels);
     }
+    public CityHotels getHotelById(int id){
+        return MainActivity.appDatabase.cityHotelsDao().getCityHotelById(id);
+    }
 
     public LiveData<List<CityHotels>> getHotelsOrderByStarsDesc() {
         return hotelsListStarsDESC;

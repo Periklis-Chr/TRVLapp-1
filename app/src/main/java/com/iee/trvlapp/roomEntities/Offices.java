@@ -5,7 +5,9 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
-
+import androidx.versionedparcelable.ParcelField;
+import androidx.versionedparcelable.VersionedParcelize;
+@VersionedParcelize
 @Entity(tableName = "offices_table")
 public class Offices {
     @PrimaryKey(autoGenerate = true)

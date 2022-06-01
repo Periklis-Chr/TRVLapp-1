@@ -67,7 +67,7 @@
     <string name="update_packages">Update Package</string>
     <string name="update_costumers">Update Costumer</string>
     <string name="update_hotels">Update Hotel</string>
-
+    <string name="tour_maps">Google Maps</string>
     <!--    RecyclerView Card Label Strings-->
 
     <string name="card_hotel">Hotel : </string>
@@ -131,7 +131,8 @@
     <!--    help Strings-->
 
     <string name="help_title">Gestures</string>
-    <string name="help_click">\n \n \n \n You can Click \n a RecyclerView Item \n to UPDATE</string>
+    <string name="help_click">\n \n \n \n You can Click \n a RecyclerView Item \n to open more information dialog</string>
+    <string name="help_longClick">\n \n \n \nYou can hold Click \n a  RecyclerView Item to UPDATE </string>
     <string name="help_swipeL">\n \n \n \nYou can Swipe \nLEFT a RecyclerView Item \n to DELETE</string>
     <string name="help_swipeR">\n \n \n \nYou can Swipe RIGHT \n a  RecyclerView Item for Special Action \n Ex. Open Google Maps</string>
 </resources>

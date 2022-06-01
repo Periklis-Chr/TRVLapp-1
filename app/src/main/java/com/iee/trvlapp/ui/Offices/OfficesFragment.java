@@ -17,6 +17,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -112,18 +113,8 @@ public class OfficesFragment extends Fragment {
                 int id = office.getOfid();
                 String name = office.getName().toString();
                 String address = office.getAddress().toString();
-
-                Bundle bundle = new Bundle();
-                bundle.putInt("id", id);
-                bundle.putString("name", name);
-                bundle.putString("address", address);
-                bundle.putByteArray("image", office.getImage());
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                UpdateOfficesFragment updateOfficesFragment = new UpdateOfficesFragment();
-                updateOfficesFragment.setArguments(bundle);
-                fragmentTransaction.replace(R.id.nav_host_fragment_content_main, updateOfficesFragment);
-                fragmentTransaction.commit();
+                NavDirections action = OfficesFragmentDirections.actionNavOfficesToUpdateOfficesFragment(id, name, address);
+                Navigation.findNavController(binding.getRoot()).navigate(action);
             }
         });
 

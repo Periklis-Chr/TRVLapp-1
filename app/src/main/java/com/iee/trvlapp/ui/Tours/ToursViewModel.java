@@ -33,4 +33,8 @@ public class ToursViewModel extends ViewModel {
         MainActivity.appDatabase.toursDao().updateTours(tour);
     }
 
+    public Tours getTourById(int id){
+        return MainActivity.appDatabase.toursDao().getTourById(id);
+    }
+
 }
