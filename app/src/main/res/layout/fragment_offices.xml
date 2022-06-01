@@ -43,7 +43,7 @@
         android:clickable="true"
         android:focusable="true"
         android:src="@android:drawable/ic_input_add"
-        app:backgroundTint="@color/btnColor"
+        app:backgroundTint="@color/btnPlusColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -57,7 +57,7 @@
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_baseline_delete_forever_24"
-        app:backgroundTint="@color/btnColor"
+        app:backgroundTint="@color/btnDelColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
