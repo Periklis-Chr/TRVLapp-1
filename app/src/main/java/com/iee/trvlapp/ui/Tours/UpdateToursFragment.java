@@ -139,8 +139,10 @@ public class UpdateToursFragment extends Fragment {
                 binding.updateTourPreview.setImageBitmap(bitmap);
             } catch (NullPointerException e) {}
         }
-        flag = true;
-        Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();
+        if(uri!=null) {
+            flag = true;
+            Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }

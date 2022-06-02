@@ -135,7 +135,7 @@
                     android:id="@+id/auto_complete_costumer_pid2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Select Package"
+                    android:hint="@string/input_selectPackage"
                     android:inputType="none"
 
                     />
@@ -169,7 +169,7 @@
                     android:id="@+id/auto_complete_c_hotel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Select Hotel"
+                    android:hint="@string/input_selectHotel"
                     android:inputType="none"
                     android:background="@color/orange"
 

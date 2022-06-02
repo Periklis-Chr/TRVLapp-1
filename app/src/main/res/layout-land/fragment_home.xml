@@ -9,21 +9,20 @@
 
     <ImageView
         android:id="@+id/home_logo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_width="677dp"
+        android:layout_height="273dp"
         android:background="@color/blue"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/logo3" />
+        app:srcCompat="@drawable/logo_black" />
 
     <TextView
         android:id="@+id/text_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginTop="2dp"
         android:background="@color/blue"
         android:text="@string/main_intro_text"
         android:textAlignment="center"

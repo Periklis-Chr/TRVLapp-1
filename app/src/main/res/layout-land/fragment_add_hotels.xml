@@ -72,7 +72,7 @@
                 android:layout_below="@id/add_Hotel_address"
                 android:layout_marginStart="60dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginEnd="2dp"
                 android:background="@drawable/rounded_edittext"
                 android:drawableLeft="@drawable/ic_baseline_stars_24"
                 android:drawablePadding="20dp"
@@ -84,7 +84,8 @@
                 android:textColorHint="@color/textInPurple"
                 android:textSize="20dp"
                 app:layout_constraintBottom_toTopOf="@+id/add_hotel_tid"
-                app:layout_constraintEnd_toStartOf="@+id/addbrowseImageLibrary_hotel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/add_Hotel_name" />
 

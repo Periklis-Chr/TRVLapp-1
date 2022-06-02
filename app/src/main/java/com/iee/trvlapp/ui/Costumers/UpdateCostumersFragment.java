@@ -52,7 +52,7 @@ public class UpdateCostumersFragment extends Fragment {
 
         int cid=UpdateCostumersFragmentArgs.fromBundle(getArguments()).getCustomerId();
         String name=UpdateCostumersFragmentArgs.fromBundle(getArguments()).getCustomerName();
-        String surname=UpdateCostumersFragmentArgs.fromBundle(getArguments()).getCustomerName();
+        String surname=UpdateCostumersFragmentArgs.fromBundle(getArguments()).getSurname();
         long phone=Long.parseLong(UpdateCostumersFragmentArgs.fromBundle(getArguments()).getCustomerPhone());
         String email=UpdateCostumersFragmentArgs.fromBundle(getArguments()).getCustomerEmail();
         int pid=UpdateCostumersFragmentArgs.fromBundle(getArguments()).getCustomerPid();
@@ -127,7 +127,7 @@ public class UpdateCostumersFragment extends Fragment {
             public void onClick(View view) {
                 String name = binding.updateFirstNameEdit.getText().toString();
                 String surname = binding.updateLastNameEdit.getText().toString();
-                long phone = Long.parseLong(binding.updatePhoneEdit.getText().toString());
+                String phone = binding.updatePhoneEdit.getText().toString();
                 String email = binding.updateEmailEdit.getText().toString();
 
                 if (binding.updateLastNameEdit.length() != 0 && binding.updateFirstNameEdit.length() != 0 && binding.updatePhoneEdit.length() != 0 && binding.updateEmailEdit.length() != 0) {
@@ -138,7 +138,7 @@ public class UpdateCostumersFragment extends Fragment {
                     data.update("name", name);
                     data.update("surname", surname);
                     data.update("email", email);
-                    data.update("phone", phone);
+                    data.update("phone", Long.parseLong(phone));
 
 
                     String pidString = binding.autoCompleteCostumerPid2Update.getText().toString();

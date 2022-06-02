@@ -41,7 +41,7 @@ public class Settings extends Fragment {
         binding.homedeleteData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ImportData.deleteRoomData();
+                    ImportData.deleteRoomData();
             }
         });
 

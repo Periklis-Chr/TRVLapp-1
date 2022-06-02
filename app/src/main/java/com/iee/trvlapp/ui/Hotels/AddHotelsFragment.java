@@ -112,13 +112,13 @@ public class AddHotelsFragment extends Fragment {
 
         String name = binding.addHotelName.getText().toString();
         String address = binding.addHotelAddress.getText().toString();
-        int stars = Integer.parseInt(binding.addHotelStars.getText().toString());
+        String stars = binding.addHotelStars.getText().toString();
 
         if (binding.addHotelName.length() != 0 && binding.addHotelAddress.length() != 0 && binding.addHotelStars.length() != 0 && binding.autoCompleteHtid.length() != 0) {
             CityHotels cityHotels = new CityHotels();
             cityHotels.setHotelName(name);
             cityHotels.setHotelAddress(address);
-            cityHotels.setHotelStars(stars);
+            cityHotels.setHotelStars(Integer.parseInt(stars));
 
             int tour_id = 0;
             String tour_idString = binding.autoCompleteHtid.getText().toString();
@@ -174,7 +174,8 @@ public class AddHotelsFragment extends Fragment {
             binding.landAddHOtelPreview.setImageBitmap(bitmap);
         } catch (NullPointerException e) {
         }
-        Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();
-    }
+        if(uri!=null) {
+            Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();
+        }    }
 
 }

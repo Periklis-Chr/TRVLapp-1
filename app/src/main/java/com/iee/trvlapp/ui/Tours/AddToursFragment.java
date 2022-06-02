@@ -139,8 +139,9 @@ public class AddToursFragment extends Fragment {
         } catch (NullPointerException e) {
         }
 
-
-        Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();
+if(uri!=null) {
+    Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();
+}
     }
 
 }

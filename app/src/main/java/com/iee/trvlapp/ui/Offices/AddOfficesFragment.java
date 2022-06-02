@@ -136,7 +136,8 @@ public class AddOfficesFragment extends Fragment {
             binding.landAddOfficeImagePreview.setImageBitmap(bitmap);
         } catch (NullPointerException e) {
         }
-        Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();
-    }
+        if(uri!=null) {
+            Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();
+        }    }
 
 }

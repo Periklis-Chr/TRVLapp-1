@@ -138,8 +138,11 @@ public class UpdateOfficesFragment extends Fragment {
 
 
         }
-        flag = true;
-        Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();
+        if(uri!=null) {
+            flag = true;
+            Toast.makeText(getActivity(), "Image selected !", Toast.LENGTH_SHORT).show();
+
+        }
     }
 
 }
