@@ -33,7 +33,7 @@ public class Packages {
     @NonNull
     private int tid;
     @ColumnInfo(name = "Packages_departureTime")
-    private int departureTime;
+    private String departureTime;
     @ColumnInfo(name = "Packages_cost")
     private Double cost;
 
@@ -42,7 +42,7 @@ public class Packages {
     }
 
     @Ignore
-    public Packages(int ofid, int tid, int departureTime, Double cost) {
+    public Packages(int ofid, int tid, String  departureTime, Double cost) {
         this.ofid = ofid;
         this.tid = tid;
         this.departureTime = departureTime;
@@ -50,7 +50,7 @@ public class Packages {
     }
 
     @Ignore
-    public Packages(int pid, int ofid, int tid, int departureTime, Double cost) {
+    public Packages(int pid, int ofid, int tid, String  departureTime, Double cost) {
         this.pid = pid;
         this.ofid = ofid;
         this.tid = tid;
@@ -82,11 +82,11 @@ public class Packages {
         this.tid = tid;
     }
 
-    public int getDepartureTime() {
+    public String  getDepartureTime() {
         return this.departureTime;
     }
 
-    public void setDepartureTime(int departureTime) {
+    public void setDepartureTime(String  departureTime) {
         this.departureTime = departureTime;
     }
 

@@ -37,11 +37,11 @@ public class ImportData {
 
         // Package Entries
 
-        Packages package1 = new Packages(5, 4, 7, 250.0);
-        Packages package2 = new Packages(4, 3, 8, 900.0);
-        Packages package3 = new Packages(3, 2, 5, 500.0);
-        Packages package4 = new Packages(2, 1, 6, 300.0);
-        Packages package5 = new Packages(1, 5, 3, 1400.0);
+        Packages package1 = new Packages(5, 4, "07/05/2022", 250.0);
+        Packages package2 = new Packages(4, 3, "08/08/2022", 900.0);
+        Packages package3 = new Packages(3, 2, "06/010/2022", 500.0);
+        Packages package4 = new Packages(2, 1, "03/03/2022", 300.0);
+        Packages package5 = new Packages(1, 5, "05/09/2022", 1400.0);
 
         Packages[] packagesModelsArray = {package1, package2, package3, package4, package5};
 

@@ -21,6 +21,7 @@ import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.databinding.FragmentUpdateCostumersBinding;
 import com.iee.trvlapp.roomEntities.CityHotels;
+import com.iee.trvlapp.roomEntities.Offices;
 import com.iee.trvlapp.roomEntities.Packages;
 import com.iee.trvlapp.roomEntities.Tours;
 
@@ -68,8 +69,10 @@ public class UpdateCostumersFragment extends Fragment {
         String[] items = new String[packageList.size()];
         for (Packages packages : packageList
         ) {
+            Offices curentOffice = costumersViewModel.getOfficeById(packages.getOfid());
+
             Tours currentTour = costumersViewModel.getTourById(packages.getTid());
-            items[i] = String.valueOf(packages.getPid()) + " " + currentTour.getCity() + "," + packages.getCost() + "$";
+            items[i] = String.valueOf(packages.getPid()) + " " +" | "+ curentOffice.getName() +" | " + currentTour.getCity() + " | " + packages.getCost() + "$";
             i++;
         }
 

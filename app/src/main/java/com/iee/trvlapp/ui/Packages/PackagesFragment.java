@@ -115,7 +115,7 @@ public class PackagesFragment extends Fragment {
                 tid.setText(String.valueOf(packages.getTid()));
                 ofname.setText(String.valueOf(curentOffice.getName()));
                 city.setText(curentTour.getCity());
-                duration.setText(String.valueOf(packages.getDepartureTime()));
+                duration.setText(packages.getDepartureTime());
                 cost.setText(String.valueOf(packages.getCost()));
 
                 builder.setView(dialogView);
@@ -133,7 +133,7 @@ public class PackagesFragment extends Fragment {
                 int id = packages.getPid();
                 int ofid = packages.getOfid();
                 int tid = packages.getTid();
-                int departure = packages.getDepartureTime();
+                String departure = packages.getDepartureTime();
                 String cost = String.valueOf(packages.getCost());
 
                 NavDirections action = PackagesFragmentDirections.actionNavPackagesToUpdatePackagesFragment(id, ofid, tid, departure, cost);

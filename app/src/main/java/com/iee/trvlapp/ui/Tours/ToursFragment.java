@@ -119,7 +119,7 @@ public class ToursFragment extends Fragment {
                 id.setText(String.valueOf(tour.getTid()));
                 city.setText(tour.getCity());
                 country.setText(tour.getCountry());
-                duration.setText(String.valueOf(tour.getDuration()));
+                duration.setText(String.valueOf(tour.getDuration())+" days");
                 type.setText(tour.getType());
 
                 builder.setView(dialogView);

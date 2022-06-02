@@ -140,7 +140,7 @@ public class AddPackagesFragment extends Fragment {
             Packages Package = new Packages();
             Package.setOfid(office_id);
             Package.setTid(tour_id);
-            Package.setDepartureTime(Integer.parseInt(package_departure));
+            Package.setDepartureTime(package_departure);
             Package.setCost(Double.parseDouble(package_cost));
 
             MainActivity.appDatabase.packagesDao().addPackage(Package);

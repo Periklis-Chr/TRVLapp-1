@@ -159,7 +159,7 @@
             app:argType="integer" />
         <argument
             android:name="package_duration"
-            app:argType="integer" />
+            app:argType="string" />
         <argument android:name="package_cost"
             app:argType="string" />
     </fragment>

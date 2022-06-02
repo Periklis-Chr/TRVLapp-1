@@ -10,10 +10,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.iee.trvlapp.MainActivity;
 import com.iee.trvlapp.R;
 import com.iee.trvlapp.roomEntities.CityHotels;
 import com.iee.trvlapp.roomEntities.DataConverter;
 import com.iee.trvlapp.roomEntities.Offices;
+import com.iee.trvlapp.roomEntities.Tours;
 import com.iee.trvlapp.ui.Offices.OfficeRecyclerViewAdapter;
 
 import java.util.ArrayList;
@@ -30,6 +32,7 @@ public class HotelRecyclerViewAdapter extends RecyclerView.Adapter<HotelRecycler
         private final TextView address;
         private final TextView stars;
         private final TextView tid;
+        private final TextView city;
         private final ImageView image;
 
         public HotelHolder(View view) {
@@ -40,6 +43,7 @@ public class HotelRecyclerViewAdapter extends RecyclerView.Adapter<HotelRecycler
             stars = view.findViewById(R.id.hotel_row_stars);
             tid = view.findViewById(R.id.hotel_row_tid);
             image = view.findViewById(R.id.icon_row_hotel);
+            city=view.findViewById(R.id.hotel_row_city_name);
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -92,11 +96,16 @@ public class HotelRecyclerViewAdapter extends RecyclerView.Adapter<HotelRecycler
     @Override
     public void onBindViewHolder(@NonNull HotelRecyclerViewAdapter.HotelHolder holder, int position) {
         CityHotels currentHotel = hotels.get(position);
+        try {
+            Tours tour = MainActivity.appDatabase.toursDao().getTourById(currentHotel.getTid());
+            holder.city.setText(tour.getCity());
+        }catch (NullPointerException e){}
         holder.id.setText(String.valueOf(currentHotel.getHid()));
         holder.name.setText(currentHotel.getHotelName());
         holder.address.setText(currentHotel.getHotelAddress());
         holder.stars.setText(String.valueOf(currentHotel.getHotelStars()));
         holder.tid.setText(String.valueOf(currentHotel.getTid()));
+
         if (currentHotel.getImageHotel() != null) {
             holder.image.setImageBitmap(DataConverter.convertByteArray2IMage(currentHotel.getImageHotel()));
         }

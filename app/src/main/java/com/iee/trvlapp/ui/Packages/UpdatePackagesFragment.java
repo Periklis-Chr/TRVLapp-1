@@ -53,7 +53,7 @@ public class UpdatePackagesFragment extends Fragment {
         int id = UpdatePackagesFragmentArgs.fromBundle(getArguments()).getPackageId();
         int office_id = UpdatePackagesFragmentArgs.fromBundle(getArguments()).getPackageOfid();
         int tour_id = UpdatePackagesFragmentArgs.fromBundle(getArguments()).getPackageTid();
-        int departure = UpdatePackagesFragmentArgs.fromBundle(getArguments()).getPackageDuration();
+        String departure = UpdatePackagesFragmentArgs.fromBundle(getArguments()).getPackageDuration();
        double cost = Double.parseDouble(UpdatePackagesFragmentArgs.fromBundle(getArguments()).getPackageCost());
 
         // Supports Dynamic autocomplete ListView for tour_id on UpdatePackage Fragment
@@ -116,7 +116,7 @@ public class UpdatePackagesFragment extends Fragment {
 
                 if (binding.updatePackageDeparture.length() != 0 && binding.updatePackageCost.length() != 0) {
 
-                    int departure = Integer.parseInt(binding.updatePackageDeparture.getText().toString());
+                    String departure = binding.updatePackageDeparture.getText().toString();
                     Double cost = Double.parseDouble(binding.updatePackageCost.getText().toString());
 
                     Packages packages = new Packages();

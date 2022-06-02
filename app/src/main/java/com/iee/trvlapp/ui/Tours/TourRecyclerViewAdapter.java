@@ -88,7 +88,7 @@ public class TourRecyclerViewAdapter extends RecyclerView.Adapter<TourRecyclerVi
         holder.id.setText(String.valueOf(currentTour.getTid()));
         holder.city.setText(currentTour.getCity());
         holder.country.setText(currentTour.getCountry());
-        holder.duration.setText(String.valueOf(currentTour.getDuration()));
+        holder.duration.setText(String.valueOf(currentTour.getDuration())+" days");
         holder.type.setText(currentTour.getType());
         if (currentTour.getImageTour() != null) {
             holder.image.setImageBitmap(DataConverter.convertByteArray2IMage(currentTour.getImageTour()));

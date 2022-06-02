@@ -90,7 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
-            android:text="@string/card_duration"
+            android:text="@string/card_departuredate"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toEndOf="@+id/package_icon_row_office"
             app:layout_constraintTop_toBottomOf="@+id/package_row_t_city_label" />

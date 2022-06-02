@@ -4,15 +4,20 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/gmoi/Desktop/Project/TRVLapp/app/src/main/res/layout-land/fragment_add_costumers.xml" value="0.4691358024691358" />
+        <entry key="..\:/Users/gmoi/Desktop/Project/TRVLapp/app/src/main/res/layout-land/fragment_add_packages.xml" value="0.4691358024691358" />
         <entry key="..\:/Users/gmoi/Desktop/Project/TRVLapp/app/src/main/res/layout-land/fragment_home.xml" value="0.4559082892416226" />
+        <entry key="..\:/Users/gmoi/Desktop/Project/TRVLapp/app/src/main/res/layout-land/fragment_update_packages.xml" value="0.4691358024691358" />
         <entry key="..\:/Users/gmoi/Desktop/Project/TRVLapp/app/src/main/res/layout/activity_main.xml" value="0.5541666666666667" />
         <entry key="..\:/Users/gmoi/Desktop/Project/TRVLapp/app/src/main/res/layout/fragment_about_us.xml" value="0.40443840579710144" />
         <entry key="..\:/Users/gmoi/Desktop/Project/TRVLapp/app/src/main/res/layout/fragment_add_costumers.xml" value="0.5541666666666667" />
         <entry key="..\:/Users/gmoi/Desktop/Project/TRVLapp/app/src/main/res/layout/fragment_add_offices.xml" value="0.5380208333333333" />
+        <entry key="..\:/Users/gmoi/Desktop/Project/TRVLapp/app/src/main/res/layout/fragment_add_packages.xml" value="0.5385416666666667" />
         <entry key="..\:/Users/gmoi/Desktop/Project/TRVLapp/app/src/main/res/layout/fragment_maps.xml" value="0.5328125" />
         <entry key="..\:/Users/gmoi/Desktop/Project/TRVLapp/app/src/main/res/layout/fragment_offices.xml" value="0.5328125" />
         <entry key="..\:/Users/gmoi/Desktop/Project/TRVLapp/app/src/main/res/layout/fragment_settings.xml" value="0.5385416666666667" />
         <entry key="..\:/Users/gmoi/Desktop/Project/TRVLapp/app/src/main/res/layout/fragment_update_offices.xml" value="0.5328125" />
+        <entry key="..\:/Users/gmoi/Desktop/Project/TRVLapp/app/src/main/res/layout/fragment_update_packages.xml" value="0.42135416666666664" />
+        <entry key="..\:/Users/gmoi/Desktop/Project/TRVLapp/app/src/main/res/layout/fragment_update_tours.xml" value="0.5541666666666667" />
         <entry key="..\:/Users/gmoi/Desktop/Project/TRVLapp/app/src/main/res/layout/recycler_view_costumers.xml" value="0.26165146909827763" />
         <entry key="..\:/Users/gmoi/Desktop/Project/TRVLapp/app/src/main/res/layout/recycler_view_hotels_row.xml" value="0.45364583333333336" />
         <entry key="..\:/Users/gmoi/Desktop/Project/TRVLapp/app/src/main/res/layout/recycler_view_offices_row.xml" value="0.5" />
